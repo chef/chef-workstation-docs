@@ -47,4 +47,4 @@ update_theme:
 ## - https://cspell.org/configuration/
 ## - and cspell.yaml file.
 spellcheck:
-	cspell --no-progress "**/*.{md, html, js, yml, yaml, toml, json}"
+	cspell --no-progress "**/*.{md,html,js,yml,yaml,toml,json}"
