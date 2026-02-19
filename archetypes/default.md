@@ -1,15 +1,13 @@
----
-title: "{{ replace .Name "-" " " | title }}"
-draft: false
-gh_repo: chef-workstation
-robots: null
-product:
-  - workstation
-aliases:
----
++++
+title = '{{ .File.ContentBaseName | humanize | title }}'
+draft = false
 
-<!-- markdownlint-disable-file MD041 -->
+[menu.<SECTION>]
+title = "{{ .File.ContentBaseName | humanize | title }}"
+identifier = "{{ .File.ContentBaseName | humanize | title }}"
+parent = ""
+weight = 10
++++
 
-## Overview
 
-Add content here.
+{{</* Run 'hugo new content path/to/new/page.md' to generate a new page. */>}}
