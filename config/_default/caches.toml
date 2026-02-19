@@ -11,9 +11,6 @@
 [misc]
     dir = ':cacheDir/:project'
     maxAge = -1
-[modulequeries]
-    dir = ':cacheDir/modules'
-    maxAge = '24h'
 [modules]
     dir = ':cacheDir/modules'
     maxAge = -1

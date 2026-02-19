@@ -59,5 +59,3 @@ jobs:
           vale_flags: "--config=.vale.ini --minAlertLevel=error"
           filter_mode: diff_context
           fail_on_error: true
-
-

@@ -18,12 +18,12 @@ The version is configured in two ways:
 
 ## Style guide
 
-See the [Chef Documentation style guide](https://docs.chef.io/style/) for writing and formatting guidance.
+See the [Chef Documentation style guide](https://docs.chef.io/community/style/) for writing and formatting guidance.
 If you don't find style guidance in the Chef Documentation Style Guide, use [Google's Style Guide](https://developers.google.com/style) or [Microsoft's Style Guide](https://learn.microsoft.com/en-us/style-guide/welcome/).
 
 ### Shortcodes
 
-We have a variety of [shortcodes](https://docs.chef.io/style/shortcodes/) for including content and formatting pages and text.
+Use [shortcodes](https://docs.chef.io/community/style/shortcodes/) to include content and format pages and text.
 
 ### Images
 

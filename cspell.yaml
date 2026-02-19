@@ -18,9 +18,6 @@ dictionaryDefinitions:
   - name: docs
     path: https://raw.githubusercontent.com/chef/chef_dictionary/main/docs.txt
     description: Custom Docs Dictionary
-  - name: hab-docs
-    path: https://raw.githubusercontent.com/chef/chef_dictionary/main/hab-docs.txt
-    description: Custom Habitat Docs Dictionary
   - name: workstation-dictionary
     path: tools/cspell/dictionary.txt
     description: Custom Workstation Docs Dictionary
