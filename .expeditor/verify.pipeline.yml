@@ -1,10 +1,12 @@
----
 steps:
-  - label: ":hugo: Hugo Build (main)"
+
+  - label: lint hugo site
     command:
-      - npm install
-      - make lint
+      - .expeditor/buildkite/hugo_lint.sh
+    timeout_in_minutes: 10
+    retry:
+      automatic:
+        limit: 1
     expeditor:
       executor:
         docker:
-          image: ruby:3.1-bullseye

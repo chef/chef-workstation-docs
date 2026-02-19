@@ -9,3 +9,7 @@ pipelines:
   - verify:
       description: Pull Request validation tests
       public: true
+
+slack:
+  notify_channel:
+    - docs-notify
