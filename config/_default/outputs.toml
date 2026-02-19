@@ -1,2 +1,2 @@
-[home]
-home = ["HTML", "RSS"]
+home = [ "HTML", "RSS" ]
+section = [ "HTML", "RSS" ]

@@ -1,19 +1,19 @@
-[getJSON]
-dir = ":cacheDir/:project"
-maxAge = "10s"
-
-[getCSV]
-dir = ":cacheDir/:project"
-maxAge = "10s"
-
-[images]
-dir = ":resourceDir/_gen"
-maxAge = -1
 
 [assets]
-dir = ":resourceDir/_gen"
-maxAge = -1
-
+    dir = ':resourceDir/_gen'
+    maxAge = -1
+[getresource]
+    dir = ':cacheDir/:project'
+    maxAge = -1
+[images]
+    dir = ':resourceDir/_gen'
+    maxAge = -1
+[misc]
+    dir = ':cacheDir/:project'
+    maxAge = -1
+[modulequeries]
+    dir = ':cacheDir/modules'
+    maxAge = '24h'
 [modules]
-dir = ":cacheDir/modules"
-maxAge = -1
+    dir = ':cacheDir/modules'
+    maxAge = -1

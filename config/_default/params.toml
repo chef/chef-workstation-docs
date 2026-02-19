@@ -71,3 +71,63 @@ errorLevel = 'warning'
 
 [chef-workstation]
   gh_path = "https://github.com/chef/chef-workstation-docs/blob/main/content/"
+
+
+#######
+#
+# Version release data
+#
+# versions:
+#     Version data used to link to other releases and populate page layouts with version information.
+#
+# versions.this_version:
+#     Data for this documentation version.
+#
+# versions.this_version.swiftype_search_products:
+#     A list of product search strings. This populates a Swiftype meta tag on each page with product data
+#     used to facet search results in docs.chef.io/search.
+#     This can be overridden in the page frontmatter using the same property.
+#
+# versions.this_version.release_date:
+#     The release date of the first major.minor.patch release.
+#     This data is used to generate the <lastmod> tag in the sitemap.xml file.
+#     If blank, it uses each page's Git Lastmod date.
+#     If release_date is set, it uses the more recent date from Lastmod or release_date.
+#     Use the ISO-8601 format: YYYY-MM-DD
+#
+# versions.version_selector:
+#     Data for generating the version selector menu allowing users to switch between different doc versions.
+#
+# versions.version_selector.enabled:
+#     Whether the version selector is enabled. true or false. Default is false.
+#
+# versions.version_selector.this_version_text:
+#     The text that appears in the version selector menu indicating the version they're currently viewing.
+#
+# versions.version_selector.versions:
+#     A list of objects that create links to other doc versions.
+#
+# versions.version_selector.versions.[].link_text
+#     The text in the link to another doc version.
+#
+# versions.version_selector.versions.[].base_url
+#     The base URL link to another doc version.
+#     The page path is appended to the base URL, giving a link to the same page in the other version.
+#
+#######
+
+# [versions.this_version]
+# swiftype_search_products = [ "" ]
+# release_date = ""
+
+# [versions.version_selector]
+# enabled = true
+# this_version_text = "Chef Infra Client v XX.YY"
+
+# [[versions.version_selector.versions]]
+# link_text = "Chef Infra Client v XX.YY"
+# base_url = "https://docs.chef.io/client/XX.YY"
+
+# [[versions.version_selector.versions]]
+# link_text = "Chef Infra Client v XX.YY"
+# base_url = "https://docs.chef.io/client/XX.YY"
