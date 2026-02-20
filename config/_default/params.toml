@@ -56,7 +56,7 @@ url = "https://docs.chef.io"
 #######
 
 [render_hooks.link]
-errorLevel = 'warning'
+errorLevel = 'ignore'
 highlightBroken = true
 
 [render_hooks.image]
