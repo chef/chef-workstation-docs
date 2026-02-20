@@ -8,10 +8,14 @@
 #######
 
 menuOrder = [
-  "overview",
+  "about",
   "install",
-  "quickstart",
-  "reference"
+  "set_up",
+  "configure",
+  "troubleshooting",
+  "privacy",
+  "tools",
+  "extension_apis"
 ]
 
 #######
@@ -56,7 +60,7 @@ url = "https://docs.chef.io"
 #######
 
 [render_hooks.link]
-errorLevel = 'warning'
+errorLevel = 'ignore'
 highlightBroken = true
 
 [render_hooks.image]
