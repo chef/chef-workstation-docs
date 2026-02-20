@@ -171,7 +171,7 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 `--bootstrap-no-proxy NO_PROXY_URL_or_IP`
 
-: A URL or IP address that specifies a location that should not be proxied during the bootstrap.
+: A URL or IP address that specifies a location that shouldn't be proxied during the bootstrap.
 
 `--bootstrap-proxy PROXY_URL`
 
@@ -249,7 +249,7 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 `--bootstrap-vault-json VAULT_JSON`
 
-: A JSON string that contains a list of vaults and items to be updated. --bootstrap-vault-json '{ "vault1": \["item1", "item2"\], "vault2": "item2" }'
+: A JSON string that contains a list of vaults and items to be updated. For example, `--bootstrap-vault-json '{ "vault1": \["item1", "item2"\], "vault2": "item2" }'`
 
 ### Key Verification Options
 
@@ -499,7 +499,7 @@ knife bootstrap --bootstrap-install-command "curl -l http://mycustomserver.com/c
 knife bootstrap -o winrm 123.456.7.8 -U username -P 'PASSWORD' --node-name NODE_NAME --run-list 'recipe[cookbook]' -E ENV_NAME
 ```
 
-**Bootstrap a Windows node with WinRM using a policyfile and policy group**
+**Bootstrap a Windows node with WinRM using a Policyfile and policy group**
 
 ```bash
 knife bootstrap -o winrm 123.456.7.8 -U username -P 'PASSWORD' --node-name NODE_NAME --policy-name PF_NAME --policy-group PG_NAME

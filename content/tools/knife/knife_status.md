@@ -69,7 +69,7 @@ The following examples show how to use this knife subcommand:
 
 **View status using a time range**
 
-To show the status of nodes on which Chef Infra Client did not run
+To show the status of nodes on which Chef Infra Client didn't run
 successfully within the past hour, enter:
 
 ```bash

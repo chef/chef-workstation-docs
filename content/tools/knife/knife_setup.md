@@ -133,9 +133,9 @@ The `config.rb` file loads every time the knife command is invoked using the fol
 
 - From a specified location given the `--config` flag
 - From a specified location given the `$KNIFE_HOME` environment variable, if set
-- From a `config.rb` file within the current working directory, e.g., `./config.rb`
-- From a `config.rb` file within a `.chef` directory in the current working directory, e.g., `./.chef/config.rb`
-- From a `config.rb` file within a `.chef` directory located one directory above the current working directory, e.g., `../.chef/config.rb`
+- From a `config.rb` file within the current working directory, for example, `./config.rb`
+- From a `config.rb` file within a `.chef` directory in the current working directory, for example, `./.chef/config.rb`
+- From a `config.rb` file within a `.chef` directory located one directory above the current working directory, for example, `../.chef/config.rb`
 - From `~/.chef/config.rb` (macOS and Linux platforms) or `c:\Users\<username>\.chef` (Windows platform)
 
 {{< note >}}

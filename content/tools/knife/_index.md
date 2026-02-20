@@ -102,11 +102,11 @@ with any object stored in the chef-repo or stored on the Chef Infra
 Server. Some important principles behind this group of subcommands
 includes:
 
-- A command that works with each object in the chef-repo. The subcommands specify the desired action (the "verb"), and then directory in which that object resides (`clients`, `cookbooks/`, `data_bags/`, `environments/`, `nodes`, `roles/`, and `users`). For example: `download cookbooks/`
-- A command that works with certain objects in Chef Infra Server, including `acls`, `groups`, and `containers`
-- Uses Chef Infra Server as if it were a file system, allowing the chef-repo on Chef Infra Server to behave like a mirror of the chef-repo on the workstation. Chef Infra Server will have the same objects as the local chef-repo. To make changes to the files on Chef Infra Server, just download files from Chef Infra Server or upload files from the chef-repo
-- The context from which a command is run matters. For example, when working in the `roles/` directory, knife will know what is being worked with. Enter `knife show base.json` and knife will return the base role from Chef Infra Server. From the chef-repo root, enter `knife show roles/base.json` to get the same result
-- Parallel requests can be made to Chef Infra Server and are configurable on a per-command basis
+- A command that works with each object in the chef-repo. The subcommands specify the desired action (the "verb"), and then directory in which that object resides (`clients`, `cookbooks/`, `data_bags/`, `environments/`, `nodes`, `roles/`, and `users`). For example: `download cookbooks/`.
+- A command that works with certain objects in Chef Infra Server, including `acls`, `groups`, and `containers`.
+- Uses Chef Infra Server as if it were a file system, allowing the chef-repo on Chef Infra Server to behave like a mirror of the chef-repo on the workstation. Chef Infra Server will have the same objects as the local chef-repo. To make changes to the files on Chef Infra Server, just download files from Chef Infra Server or upload files from the chef-repo.
+- The context from which a command is run matters. For example, when working in the `roles/` directory, knife will know what's being worked with. Enter `knife show base.json` and knife will return the base role from Chef Infra Server. From the chef-repo root, enter `knife show roles/base.json` to get the same result.
+- Parallel requests can be made to Chef Infra Server and are configurable in each command.
 
 ### Wildcard Search
 

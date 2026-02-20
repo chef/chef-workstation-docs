@@ -64,7 +64,7 @@ The following examples show how to use this knife subcommand:
 
 **Create a data bag**
 
-To create a data bag named "admins", enter:
+To create a data bag named `admins`, enter:
 
 ```bash
 knife data bag create admins
@@ -109,7 +109,7 @@ knife data bag delete data_bag_name
 
 **Delete a data bag item**
 
-To delete an item named "charlie", enter:
+To delete an item named `charlie`, enter:
 
 ```bash
 knife data bag delete admins charlie

@@ -4,5 +4,5 @@ example, to compare files on Chef Infra Server before uploading or
 downloading files using the `knife download` and `knife upload`
 subcommands, or to ensure that certain files in multiple production
 environments are the same. This subcommand is similar to the `git diff`
-command that can be used to diff what is in the chef-repo with what is
+command that can be used to diff what's in the chef-repo with what's
 synced to a git repository.

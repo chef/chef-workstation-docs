@@ -123,7 +123,7 @@ The Upgrade Lab assumes but doesn't require that you have a continuous integrati
 
 - A version control system (for example, git)
 - Some degree of automated testing for proposed changes
-- A continuous delivery system (CD) that controls cookbook releases; the CD is the mechanism for updating cookbook versions and uploading them to Chef Infra Server(s)
+- A continuous delivery system (CD) that controls cookbook releases; the CD is the mechanism for updating cookbook versions and uploading them to Chef Infra Server
 
 If you don't have a version control system and CI/CD pipeline in place, then please contact your account team for help.
 
@@ -187,7 +187,7 @@ chef report cookbooks -V -p old-server
 Which outputs a cookbook report:
 
 ```bash
-        Cookbook         Version   Violations   Auto-correctable   Nodes Affected
+        Cookbook         Version   Violations   Auto correctable   Nodes Affected
 -----------------------+---------+------------+------------------+-----------------
   cron                   1.7.5              1                  1                1
   upgrade_labs_problems  0.1.0              2                  2                1
@@ -390,9 +390,9 @@ chef exec cookstyle cookbooks/my_cookbook
 
 Repeat this process for each cookbook for that node.
 
-#### Using Cookstyle Auto-correct
+#### Using Cookstyle Auto correct
 
-Use Cookstyle's auto-correct feature to fix style errors by adding the `-a` (for auto-correct) flag:
+Use Cookstyle's auto correct feature to fix style errors by adding the `-a` (for auto correct) flag:
 
 ```bash
 chef exec cookstyle -a cookbooks/my_cookbook

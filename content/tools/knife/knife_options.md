@@ -85,7 +85,7 @@ plug-ins:
 
 `-y`, `--yes`
 
-: Respond to all confirmation prompts with "Yes".
+: Respond to all confirmation prompts with `Yes`.
 
 `-z`, `--local-mode`
 

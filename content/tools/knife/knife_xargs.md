@@ -70,7 +70,7 @@ This subcommand has the following options:
 
 `-n MAX_ARGS`, `--max-args MAX_ARGS`
 
-: The maximum number of arguments per command line. Default: `nil`.
+: The maximum number of arguments in each command line. Default: `nil`.
 
 `-p [PATTERN...]`, `--pattern [PATTERN...]`
 

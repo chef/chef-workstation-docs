@@ -139,7 +139,7 @@ The following examples show how to use this knife subcommand:
 
 **Delete a client**
 
-To delete a client with the name "client_foo", enter:
+To delete a client with the name `client_foo`, enter:
 
 ```bash
 knife client delete client_foo
@@ -173,10 +173,10 @@ The following examples show how to use this knife subcommand:
 
 **Edit a client**
 
-To edit a client with the name "exampleorg", enter:
+To edit a client with the name `example_org`, enter:
 
 ```bash
-knife client edit exampleorg
+knife client edit example_org
 ```
 
 ## key create
@@ -294,7 +294,7 @@ This argument has the following options:
 
 `-n`, `--only-non-expired`
 
-: Show a list of public keys that have not expired.
+: Show a list of public keys that haven't expired.
 
 `-w`, `--with-details`
 
@@ -442,10 +442,10 @@ The following examples show how to use this knife subcommand:
 
 **Show clients**
 
-To view a client named "testclient", enter:
+To view a client named `test_client`, enter:
 
 ```bash
-knife client show testclient
+knife client show test_client
 ```
 
 to return something like:

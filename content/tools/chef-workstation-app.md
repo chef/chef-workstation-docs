@@ -46,11 +46,11 @@ To disable CWA's automatic update checking, add or modify the `enable` setting u
 enable=false
 ```
 
-## Setting Update Channel
+## Setting update channel
 
-To set the channel used for update checking, bring up the CWA tray app menu (Windows/Linux) or the application menu (Mac) and select "About Chef Workstation".
+To set the channel used for update checking, bring up the CWA tray app menu (Windows/Linux) or the application menu (Mac) and select **About Chef Workstation**.
 
-Select the "Channel" button and choose your preferred channel. This will trigger an immediate update check.
+Select the **Channel** button and choose your preferred channel. This will trigger an immediate update check.
 
 ```toml
 [updates]

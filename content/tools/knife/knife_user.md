@@ -370,7 +370,7 @@ This argument has the following options:
 
 `-n`, `--only-non-expired`
 
-: Show a list of public keys that have not expired.
+: Show a list of public keys that haven't expired.
 
 `-w`, `--with-details`
 

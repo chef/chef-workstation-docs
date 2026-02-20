@@ -269,7 +269,7 @@ This argument has the following options:
 
 `-a`, `--all-orgs`
 
-: Display auto-generated hidden orgs.
+: Display auto generated hidden orgs.
 
 ### Example
 
