@@ -1,12 +1,10 @@
 +++
-title = "Setting up Knife"
+title = "Set up Knife"
 draft = false
-
-
 
 [menu]
   [menu.tools]
-    title = "Setting up Knife"
+    title = "Set up Knife"
     identifier = "tools/knife/knife_setup.md Setting up Knife"
     parent = "tools/knife"
     weight = 20
@@ -33,7 +31,7 @@ New-Item -ItemType "file" -Path "c:\.chef\config.rb"
 
 **Profile Support since Chef 13.7**
 
-Knife profiles make switching knife between Chef Infra Servers or between organizations on the same Chef Infra Server easier. Knife profiles are an alternative to `config.rb`--you cannot use both.
+Knife profiles make switching knife between Chef Infra Servers or between organizations on the same Chef Infra Server easier. Knife profiles are an alternative to `config.rb`--you can't use both.
 
 Set up knife profiles by adding them to the `.chef/credentials` file in your home directory on your workstation. The `credentials` file is TOML formatted. Each profile is listed as a separate 'table' name of your choice, and is followed by `key = value` pairs. The keys correspond to any setting permitted in the [config.rb](/workstation/config_rb/) file.
 
@@ -131,7 +129,7 @@ See the [config.rb documentation](/workstation/config_rb/) for a complete list o
 
 ### Load Path Priority
 
-The config.rb file loads every time the knife command is invoked using the following load order:
+The `config.rb` file loads every time the knife command is invoked using the following load order:
 
 - From a specified location given the `--config` flag
 - From a specified location given the `$KNIFE_HOME` environment variable, if set
@@ -177,19 +175,19 @@ Then make changes to that file:
 }
 ```
 
-The type of text editor that's used by knife can be configured by adding an entry to your config.rb file, or by setting an `EDITOR` environment variable. For example, to configure knife to open the `vim` text editor, add the following to your config.rb file:
+The type of text editor that's used by knife can be configured by adding an entry to your `config.rb` file, or by setting an `EDITOR` environment variable. For example, to configure knife to open the `vim` text editor, add the following to your `config.rb` file:
 
 ```ruby
 knife[:editor] = "/usr/bin/vim"
 ```
 
-When a Windows file path is enclosed in a double-quoted string (" "), the same backslash character (`\`) that's used to define the file path separator is also used in Ruby to define an escape character. The config.rb file is a Ruby file; therefore, file path separators must be escaped. In addition, spaces in the file path must be replaced with `~1` so that the length of each section within the file path isn't more than 8 characters. For example, if EditPad Pro is the text editor of choice and is located at the following path:
+When a Windows file path is enclosed in a double-quoted string (" "), the same backslash character (`\`) that's used to define the file path separator is also used in Ruby to define an escape character. The `config.rb` file is a Ruby file; therefore, file path separators must be escaped. In addition, spaces in the file path must be replaced with `~1` so that the length of each section within the file path isn't more than 8 characters. For example, if EditPad Pro is the text editor of choice and is located at the following path:
 
 ```powershell
 C:\\Program Files (x86)\EditPad Pro\EditPad.exe
 ```
 
-the setting in the config.rb file would be similar to:
+the setting in the `config.rb` file would be similar to:
 
 ```ruby
 knife[:editor] = "C:\\Progra~1\\EditPa~1\\EditPad.exe"
@@ -223,4 +221,4 @@ knife[:editor] = '"C:\Program Files (x86)\vim\vim74\gvim.exe"'
 
 ### Using Quotes
 
- The text editor command cannot include spaces that are not properly wrapped in quotes. The command can be entered with double quotes (" ") or single quotes (' '), but this should be done consistently as shown in the examples above.
+ The text editor command can't include spaces that aren't properly wrapped in quotes. The command can be entered with double quotes (" ") or single quotes (' '), but this should be done consistently as shown in the examples above.

@@ -5,9 +5,8 @@ draft = false
 
 [menu]
   [menu.about]
-    title = "About"
-    identifier = "chef_workstation/about_workstation.md About Chef Workstation"
-    parent = "chef_workstation"
+    title = "About Chef Workstation"
+    identifier = "about_workstation.md About Chef Workstation"
     weight = 10
 +++
 
@@ -49,41 +48,9 @@ Chef Workstation packages all the tools necessary to be successful with Chef Inf
 
 The most important tools included in Chef Workstation are:
 
-<table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 87%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Chef CLI</td>
-<td>A workflow tool for Chef Infra.</td>
-</tr>
-<tr class="even">
-<td>knife</td>
-<td>A tool for managing systems on Chef Infra Server.</td>
-</tr>
-<tr class="odd">
-<td>Chef Infra Client</td>
-<td>The Chef Infra agent.</td>
-</tr>
-<tr class="even">
-<td>Chef InSpec</td>
-<td>A compliance as code tool that can also be used for testing Chef Infra cookbooks.</td>
-</tr>
-<tr class="odd">
-<td>Cookstyle</td>
-<td>A linting tool that helps you write better Chef Infra cookbooks by detecting and automatically correcting style, syntax, and logic mistakes in your code.</td>
-</tr>
-<tr class="even">
-<td>Test Kitchen</td>
-<td>An integration testing framework tool that tests cookbooks across platforms and various cloud provider / hypervisors.</td>
-</tr>
-</tbody>
-</table>
+- **Chef CLI**: A workflow tool for Chef Infra.
+- **knife**: A tool for managing systems on Chef Infra Server.
+- **Chef Infra Client**: The Chef Infra agent.
+- **Chef InSpec**: A compliance as code tool that can also be used for testing Chef Infra cookbooks.
+- **Cookstyle**: A linting tool that helps you write better Chef Infra cookbooks by detecting and automatically correcting style, syntax, and logic mistakes in your code.
+- **Test Kitchen**: An integration testing framework tool that tests cookbooks across platforms and various cloud provider / hypervisors.

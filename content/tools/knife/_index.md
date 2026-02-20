@@ -22,45 +22,23 @@ chef-repo and Chef Infra Server. knife helps users to manage:
 - The installation of Chef Infra Client onto nodes
 - Searching of indexed data on Chef Infra Server
 
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 75%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Topic</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><a href="/knife_setup/">Setting up Knife</a></td>
-<td>Configure knife to interact with your organization's Chef Infra Server and infrastructure.</td>
-</tr>
-<tr class="even">
-<td><a href="/knife_options/">Knife Common Options</a></td>
-<td>Common options that are available for all knife subcommands.</td>
-</tr>
-<tr class="odd">
-<td><a href="/config_rb/">config.rb</a></td>
-<td>Common options for the <code>config.rb</code> (knife.rb) file</td>
-</tr>
-<tr class="even">
-<td><a href="/config_rb_optional_settings/">config.rb Optional Settings</a></td>
-<td>Additional options for your <code>config.rb</code> file</td>
-</tr>
-</tbody>
-</table>
+## Configure Knife
 
-## Knife Subcommands
+See the following guides to setup and configure Knife:
+
+- **[Set up Knife](/knife_setup/)**: Configure knife to interact with your organization's Chef Infra Server and infrastructure.
+- **[Knife Common Options](/knife_options/)**: Common options that are available for all knife subcommands.
+- **[config.rb](/config_rb/)**: Common options for the `config.rb` file
+- **[config.rb optional settings](/config_rb_optional_settings/)**: Additional options for your `config.rb` file
+
+## Knife subcommands
 
 knife includes a collection of built in subcommands that work together
 to provide the functionality required to take specific actions
 against any object in an organization, including cookbooks, nodes,
 roles, data bags, environments, and users.
 
-### Knife Command Syntax
+### Knife command syntax
 
 All knife subcommands have the following syntax:
 
@@ -81,138 +59,39 @@ organization.
 
 {{< /note >}}
 
-### Built-in Subcommands
+### Built-in subcommands
 
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 75%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Subcommand</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><a href="/knife_bootstrap/">knife_bootstrap</a></td>
-<td>{{< readfile file="content/reusable/md/knife_bootstrap_summary.md" >}}</td>
-</tr>
-<tr class="even">
-<td><a href="/knife_client/">knife_client</a></td>
-<td>{{< readfile file="content/reusable/md/knife_client_summary.md" >}}</td>
-</tr>
-<tr class="odd">
-<td><a href="/knife_configure/">knife configure</a></td>
-<td>{{< readfile file="content/reusable/md/knife_configure_summary.md" >}}</td>
-</tr>
-<tr class="even">
-<td><a href="/knife_cookbook/">knife cookbook</a></td>
-<td>{{< readfile file="content/reusable/md/knife_cookbook_summary.md" >}}</td>
-</tr>
-<tr class="odd">
-<td><a href="/knife_data_bag/">knife data bag</a></td>
-<td>{{< readfile file="content/reusable/md/knife_data_bag_summary.md" >}}</td>
-</tr>
-<tr class="even">
-<td><a href="/knife_delete/">knife delete</a></td>
-<td>{{< readfile file="content/reusable/md/knife_delete_summary.md" >}}</td>
-</tr>
-<tr class="odd">
-<td><a href="/knife_deps/">knife deps</a></td>
-<td>{{< readfile file="content/reusable/md/knife_deps_summary.md" >}}</td>
-</tr>
-<tr class="even">
-<td><a href="/knife_diff/">knife diff</a></td>
-<td>{{< readfile file="content/reusable/md/knife_diff_summary.md" >}}</td>
-</tr>
-<tr class="odd">
-<td><a href="/knife_download/">knife download</a></td>
-<td>{{< readfile file="content/reusable/md/knife_download_summary.md" >}}</td>
-</tr>
-<tr class="even">
-<td><a href="/knife_edit/">knife edit</a></td>
-<td>{{< readfile file="content/reusable/md/knife_edit_summary.md" >}}</td>
-</tr>
-<tr class="odd">
-<td><a href="/knife_environment/">knife environment</a></td>
-<td>{{< readfile file="content/reusable/md/knife_environment_summary.md" >}}</td>
-</tr>
-<tr class="even">
-<td><a href="/knife_exec/">knife exec</a></td>
-<td>{{< readfile file="content/reusable/md/knife_exec_summary.md" >}}</td>
-</tr>
-<tr class="odd">
-<td><a href="/knife_list/">knife list</a></td>
-<td>{{< readfile file="content/reusable/md/knife_list_summary.md" >}}</td>
-</tr>
-<tr class="even">
-<td><a href="/knife_node/">knife node</a></td>
-<td>{{< readfile file="content/reusable/md/knife_node_summary.md" >}}</td>
-</tr>
-<tr class="odd">
-<td><a href="/knife_raw/">knife raw</a></td>
-<td>{{< readfile file="content/reusable/md/knife_raw_summary.md" >}}</td>
-</tr>
-<tr class="even">
-<td><a href="/knife_recipe_list/">knife recipe list</a></td>
-<td>{{< readfile file="content/reusable/md/knife_recipe_list_summary.md" >}}</td>
-</tr>
-<tr class="odd">
-<td><a href="/knife_role/">knife role</a></td>
-<td>{{< readfile file="content/reusable/md/knife_role_summary.md" >}}</td>
-</tr>
-<tr class="even">
-<td><a href="/knife_search/">knife search</a></td>
-<td>{{< readfile file="content/reusable/md/knife_search_summary.md" >}}</td>
-</tr>
-<tr class="odd">
-<td><a href="/knife_serve/">knife serve</a></td>
-<td>{{< readfile file="content/reusable/md/knife_serve_summary.md" >}}</td>
-</tr>
-<tr class="even">
-<td><a href="/knife_show/">knife show</a></td>
-<td>{{< readfile file="content/reusable/md/knife_show_summary.md" >}}</td>
-</tr>
-<tr class="odd">
-<td><a href="/knife_ssh/">knife ssh</a></td>
-<td>{{< readfile file="content/reusable/md/knife_ssh_summary.md" >}}</td>
-</tr>
-<tr class="even">
-<td><a href="/knife_ssl_check/">knife ssl check</a></td>
-<td>{{< readfile file="content/reusable/md/knife_ssl_check_summary.md" >}}</td>
-</tr>
-<tr class="odd">
-<td><a href="/knife_ssl_fetch/">knife ssl fetch</a></td>
-<td>{{< readfile file="content/reusable/md/knife_ssl_fetch_summary.md" >}}</td>
-</tr>
-<tr class="even">
-<td><a href="/knife_status/">knife status</a></td>
-<td>{{< readfile file="content/reusable/md/knife_status_summary.md" >}}</td>
-</tr>
-<tr class="odd">
-<td><a href="/knife_tag/">knife tag</a></td>
-<td>{{< readfile file="content/reusable/md/knife_tag_summary.md" >}}</td>
-</tr>
-<tr class="even">
-<td><a href="/knife_supermarket/">knife supermarket</a></td>
-<td>Use the <code>knife supermarket</code> subcommand to interact with cookbooks that are available in the <a href="https://supermarket.chef.io/">Chef Supermarket</a>. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: <code>download</code>, <code>search</code>, <code>install</code>, and <code>list</code>.</td>
-</tr>
-<tr class="odd">
-<td><a href="/knife_upload/">knife upload</a></td>
-<td>{{< readfile file="content/reusable/md/knife_upload_summary.md" >}}</td>
-</tr>
-<tr class="even">
-<td><a href="/knife_user/">knife user</a></td>
-<td>{{< readfile file="content/reusable/md/knife_user_summary.md" >}}</td>
-</tr>
-<tr class="odd">
-<td><a href="/knife_xargs/">knife xargs</a></td>
-<td>{{< readfile file="content/reusable/md/knife_xargs_summary.md" >}}</td>
-</tr>
-</tbody>
-</table>
+| Subcommand | Description |
+| --- | --- |
+| [knife_bootstrap](/knife_bootstrap/) | {{< readfile file="content/reusable/md/knife_bootstrap_summary.md" >}} |
+| [knife_client](/knife_client/) | {{< readfile file="content/reusable/md/knife_client_summary.md" >}} |
+| [knife configure](/knife_configure/) | {{< readfile file="content/reusable/md/knife_configure_summary.md" >}} |
+| [knife cookbook](/knife_cookbook/) | {{< readfile file="content/reusable/md/knife_cookbook_summary.md" >}} |
+| [knife data bag](/knife_data_bag/) | {{< readfile file="content/reusable/md/knife_data_bag_summary.md" >}} |
+| [knife delete](/knife_delete/) | {{< readfile file="content/reusable/md/knife_delete_summary.md" >}} |
+| [knife deps](/knife_deps/) | {{< readfile file="content/reusable/md/knife_deps_summary.md" >}} |
+| [knife diff](/knife_diff/) | {{< readfile file="content/reusable/md/knife_diff_summary.md" >}} |
+| [knife download](/knife_download/) | {{< readfile file="content/reusable/md/knife_download_summary.md" >}} |
+| [knife edit](/knife_edit/) | {{< readfile file="content/reusable/md/knife_edit_summary.md" >}} |
+| [knife environment](/knife_environment/) | {{< readfile file="content/reusable/md/knife_environment_summary.md" >}} |
+| [knife exec](/knife_exec/) | {{< readfile file="content/reusable/md/knife_exec_summary.md" >}} |
+| [knife list](/knife_list/) | {{< readfile file="content/reusable/md/knife_list_summary.md" >}} |
+| [knife node](/knife_node/) | {{< readfile file="content/reusable/md/knife_node_summary.md" >}} |
+| [knife raw](/knife_raw/) | {{< readfile file="content/reusable/md/knife_raw_summary.md" >}} |
+| [knife recipe list](/knife_recipe_list/) | {{< readfile file="content/reusable/md/knife_recipe_list_summary.md" >}} |
+| [knife role](/knife_role/) | {{< readfile file="content/reusable/md/knife_role_summary.md" >}} |
+| [knife search](/knife_search/) | {{< readfile file="content/reusable/md/knife_search_summary.md" >}} |
+| [knife serve](/knife_serve/) | {{< readfile file="content/reusable/md/knife_serve_summary.md" >}} |
+| [knife show](/knife_show/) | {{< readfile file="content/reusable/md/knife_show_summary.md" >}} |
+| [knife ssh](/knife_ssh/) | {{< readfile file="content/reusable/md/knife_ssh_summary.md" >}} |
+| [knife ssl check](/knife_ssl_check/) | {{< readfile file="content/reusable/md/knife_ssl_check_summary.md" >}} |
+| [knife ssl fetch](/knife_ssl_fetch/) | {{< readfile file="content/reusable/md/knife_ssl_fetch_summary.md" >}} |
+| [knife status](/knife_status/) | {{< readfile file="content/reusable/md/knife_status_summary.md" >}} |
+| [knife tag](/knife_tag/) | {{< readfile file="content/reusable/md/knife_tag_summary.md" >}} |
+| [knife supermarket](/knife_supermarket/) | Use the `knife supermarket` subcommand to interact with cookbooks that are available in the [Chef Supermarket](https://supermarket.chef.io/). A user account is required for any community actions that write data to this site. The following arguments don't require a user account: `download`, `search`, `install`, and `list`. |
+| [knife upload](/knife_upload/) | {{< readfile file="content/reusable/md/knife_upload_summary.md" >}} |
+| [knife user](/knife_user/) | {{< readfile file="content/reusable/md/knife_user_summary.md" >}} |
+| [knife xargs](/knife_xargs/) | {{< readfile file="content/reusable/md/knife_xargs_summary.md" >}} |
 
 ### Verb Subcommands
 
@@ -239,7 +118,7 @@ patterns:
 - An asterisk ("\*") can be used to replace any number of characters (including zero)
 
 Wildcard patterns must be escaped (using a backslash) so that the
-wildcard itself can reach Chef Infra Server. If they are not
+wildcard itself can reach Chef Infra Server. If they aren't
 escaped, the wildcard is expanded into the actual filenames and knife
 won't know the wildcard was intended to be used. For example, if the
 Chef Infra Server has data bags named `aardvarks`, `anagrams`, and

@@ -7,12 +7,12 @@ that's accessed by either knife or Chef Infra Client.
 
 {{< warning >}}
 
-It is the user's responsibility to verify the authenticity of every SSL
+It's the user's responsibility to verify the authenticity of every SSL
 certificate before downloading it to the `/.chef/trusted_certs`
-directory. knife will use any certificate in that directory as if it is
+directory. knife will use any certificate in that directory as if it's
 a 100% trusted and authentic SSL certificate. knife won't be able to
 determine if any certificate in this directory has been tampered with,
-is forged, malicious, or otherwise harmful. Therefore it is essential
+is forged, malicious, or otherwise harmful. Therefore it's essential
 that users take the proper steps before downloading certificates into
 this directory.
 

@@ -6,8 +6,7 @@ draft = false
 [menu]
   [menu.privacy]
     title = "Privacy and Telemetry"
-    identifier = "chef_workstation/privacy.md Privacy and Telemetry"
-    parent = "chef_workstation"
+    identifier = "privacy.md Privacy and Telemetry"
     weight = 10
 +++
 

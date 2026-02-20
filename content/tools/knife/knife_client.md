@@ -40,7 +40,7 @@ This argument has the following options:
 
 `-D`, `--delete-validators`
 
-: Force the deletion of the client when it is also a chef-validator.
+: Force the deletion of the client when it's also a chef-validator.
 
 ### Examples
 
@@ -76,15 +76,15 @@ This argument has the following options:
 
 : Create a client without a keypair. This key may be managed later by using the `knife client key create` subcommand.
 
-    {{< note spaces=4 >}}
+    {{< note >}}
 
-    This option is valid only with Chef Infra Server API version 1.0, which was released with Chef Server 12.1. It cannot be passed with the `--public-key` option.
+    This option is valid only with Chef Infra Server API version 1.0, which was released with Chef Infra Server 12.1. It can't be passed with the `--public-key` option.
 
     {{< /note >}}
 
 `-p FILE`, `--public-key FILE`
 
-: The path to a file that contains the public key. This option may not be passed in the same command with `--prevent-keygen`. When using Chef a default key is generated if this option isn't passed in the command. For Chef Server version 12.x, see the `--prevent-keygen` option.
+: The path to a file that contains the public key. This option may not be passed in the same command with `--prevent-keygen`. When using Chef a default key is generated if this option isn't passed in the command. For Chef Infra Server version 12.x, see the `--prevent-keygen` option.
 
 `--validator`
 
@@ -131,7 +131,7 @@ This argument has the following options:
 
 `-D`, `--delete-validators`
 
-: Force the deletion of the client when it is also a chef-validator.
+: Force the deletion of the client when it's also a chef-validator.
 
 ### Examples
 

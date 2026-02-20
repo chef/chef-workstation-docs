@@ -1,27 +1,27 @@
 +++
-title = "Writing Custom Knife Plugins"
+title = "Write a custom Knife plugin"
 draft = false
-product = ["workstation"]
+
 
 [menu]
-  [menu.extension_apis]
-    title = "Writing Custom Plugins"
-    identifier = "extension_apis/knife_plugins/plugin_knife_custom.md Writing Custom Plugins"
-    parent = "extension_apis/knife_plugins"
+  [menu.tools]
+    title = "Write a custom plugin"
+    identifier = "tools/knife/plugins/plugin_knife_custom.md Writing Custom Plugins"
+    parent = "tools/knife/plugins"
     weight = 20
 +++
-<!-- markdownlint-disable-file MD033 MD037-->
+
+<!-- markdownlint-disable-file MD033 MD037 -->
 
 {{< readfile file="content/reusable/md/plugin_knife_summary.md" >}}
 
-The Chef Infra Client will load knife plugins from the following
+Chef Infra Client loads knife plugins from the following
 locations:
 
 - The home directory: `~/.chef/plugins/knife/`
 - A `.chef/plugins/knife` directory in the cookbook repository
 - A plugin installed from RubyGems. (For more information about
-    releasing a plugin on RubyGems, see:
-    <http://guides.rubygems.org/make-your-own-gem/>.)
+    releasing a plugin on RubyGems, see [RubyGems' gem guide](http://guides.rubygems.org/make-your-own-gem/))
 
 This approach allows knife plugins to be reused across projects in the
 home directory, kept in a repository that's accessible to other team
@@ -396,7 +396,7 @@ I am just a boring example.
 
 ### Arguments
 
-A knife plugin can also take command-line arguments that are not
+A knife plugin can also take command-line arguments that aren't
 specified using the `option` flag, for example: `knife node show NODE`.
 These arguments are added using the `name_args` method. For example:
 
@@ -470,7 +470,7 @@ OMG HELLO CHEFS!!!1!!11
 ### config.rb Settings
 
 Certain settings defined by a knife plugin can be configured so that
-they can be set using the config.rb file. This can be done in two ways:
+they can be set using the `config.rb` file. This can be done in two ways:
 
 - By using the `:proc` attribute of the `option` method and code that
     references `Chef::Config[:knife][:setting_name]`
@@ -479,7 +479,7 @@ they can be set using the config.rb file. This can be done in two ways:
     `config[:setting_name]`
 
 An option that's defined in this manner may be configured using the
-config.rb file with the following syntax:
+`config.rb` file with the following syntax:
 
 ```ruby
 knife[:setting_name]
@@ -489,11 +489,11 @@ This approach can be useful when a particular setting is used a lot. The
 order of precedence for a knife option is:
 
 1. A value passed with the command line
-2. A value saved in the config.rb file
+2. A value saved in the `config.rb` file
 3. A default value
 
 The following example shows how the `knife bootstrap` subcommand checks
-for a value in the config.rb file by using the `:proc` attribute:
+for a value in the `config.rb` file by using the `:proc` attribute:
 
 ```ruby
 option :ssh_port,
@@ -504,7 +504,7 @@ option :ssh_port,
 ```
 
 where `Chef::Config[:knife][:ssh_port]` tells knife to check the
-config.rb file for a setting named `knife[:ssh_port]`.
+`config.rb` file for a setting named `knife[:ssh_port]`.
 
 And the following example shows the `knife bootstrap` subcommand calling
 the `knife ssh` subcommand for the actual SSH part of running a
@@ -534,7 +534,7 @@ where
 - A series of settings in `knife ssh` are associated with
     `knife bootstrap` using the `ssh.config[:setting_name]` syntax
 - `Chef::Config[:knife][:setting_name]` tells knife to check the
-    config.rb file for various settings
+    `config.rb` file for various settings
 - Raises an exception if any aspect of the SSH operation fails
 
 ### Search
@@ -626,116 +626,90 @@ module MyKnifePlugins
   end
 ```
 
-### User Interaction
+### User interaction
 
 The `ui` object provides a set of methods that can be used to define
 user interactions and to help ensure a consistent user experience across
 knife plugins. The following methods should be used in favor of manually
 handling user interactions:
 
-<table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 87%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>ui.ask(*args, &amp;block)</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>ui.ask_question(question, opts={})</code></td>
-<td>Use to ask a user the question contained in <code>question</code>. If <code>:default =&gt; default_value</code> is passed as the second argument, <code>default_value</code> will be used if the user doesn't provide an answer. This method will respect the <code>--default</code> command-line option.</td>
-</tr>
-<tr>
-<td><p><code>ui.color(string, *colors)</code></p></td>
-<td><p>Use to specify a color. For example, from the <code>knife rackspace server list</code> subcommand:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>server_list = [</span>
-<span id="cb1-2"><a href="#cb1-2"></a>  ui.color(<span class="st">&#39;Instance ID&#39;</span>, <span class="st">:bold</span>),</span>
-<span id="cb1-3"><a href="#cb1-3"></a>  ui.color(<span class="st">&#39;Name&#39;</span>, <span class="st">:bold</span>),</span>
-<span id="cb1-4"><a href="#cb1-4"></a>  ui.color(<span class="st">&#39;Public IP&#39;</span>, <span class="st">:bold</span>),</span>
-<span id="cb1-5"><a href="#cb1-5"></a>  ui.color(<span class="st">&#39;Private IP&#39;</span>, <span class="st">:bold</span>),</span>
-<span id="cb1-6"><a href="#cb1-6"></a>  ui.color(<span class="st">&#39;Flavor&#39;</span>, <span class="st">:bold</span>),</span>
-<span id="cb1-7"><a href="#cb1-7"></a>  ui.color(<span class="st">&#39;Image&#39;</span>, <span class="st">:bold</span>),</span>
-<span id="cb1-8"><a href="#cb1-8"></a>  ui.color(<span class="st">&#39;State&#39;</span>, <span class="st">:bold</span>)</span>
-<span id="cb1-9"><a href="#cb1-9"></a>]</span></code></pre></div>
-<p>and from the <code>knife eucalyptus server create</code> subcommand:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>server = connection.servers.create(server_def)</span>
-<span id="cb2-2"><a href="#cb2-2"></a>  puts <span class="st">&quot;</span><span class="ot">#{</span>ui.color(<span class="st">&quot;Instance ID&quot;</span>, <span class="st">:cyan</span>)<span class="ot">}</span><span class="st">: </span><span class="ot">#{</span>server.id<span class="ot">}</span><span class="st">&quot;</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a>  puts <span class="st">&quot;</span><span class="ot">#{</span>ui.color(<span class="st">&quot;Flavor&quot;</span>, <span class="st">:cyan</span>)<span class="ot">}</span><span class="st">: </span><span class="ot">#{</span>server.flavor_id<span class="ot">}</span><span class="st">&quot;</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a>  puts <span class="st">&quot;</span><span class="ot">#{</span>ui.color(<span class="st">&quot;Image&quot;</span>, <span class="st">:cyan</span>)<span class="ot">}</span><span class="st">: </span><span class="ot">#{</span>server.image_id<span class="ot">}</span><span class="st">&quot;</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a>  ...</span>
-<span id="cb2-6"><a href="#cb2-6"></a>  puts <span class="st">&quot;</span><span class="ot">#{</span>ui.color(<span class="st">&quot;SSH Key&quot;</span>, <span class="st">:cyan</span>)<span class="ot">}</span><span class="st">: </span><span class="ot">#{</span>server.key_name<span class="ot">}</span><span class="st">&quot;</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a>print <span class="st">&quot;\n</span><span class="ot">#{</span>ui.color(<span class="st">&quot;Waiting for server&quot;</span>, <span class="st">:magenta</span>)<span class="ot">}</span><span class="st">&quot;</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><code>ui.color?()</code></td>
-<td>Indicates that colored output should be used. (Colored output can only be used when output is sent to a terminal.)</td>
-</tr>
-<tr>
-<td><code>ui.confirm(question, append_instructions=true)</code></td>
-<td>Use to ask a Y/N question. If the user responds with <code>N</code>, immediately exit with status code 3.</td>
-</tr>
-<tr>
-<td><code>ui.edit_data(data, parse_output=true)</code></td>
-<td>Use to edit data. This opens the $EDITOR.</td>
-</tr>
-<tr>
-<td><code>ui.edit_object(klass, name)</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>ui.error</code></td>
-<td>Use to present an error to the user.</td>
-</tr>
-<tr>
-<td><code>ui.fatal</code></td>
-<td>Use to present a fatal error to the user.</td>
-</tr>
-<tr>
-<td><code>ui.highline</code></td>
-<td>Use to provide direct access to the <a href="https://www.rubydoc.info/gems/highline/HighLine">Highline object</a> used by many <code>ui</code> methods.</td>
-</tr>
-<tr>
-<td><code>ui.info</code></td>
-<td>Use to present a message to a user.</td>
-</tr>
-<tr>
-<td><code>ui.interchange</code></td>
-<td>Use to determine if the output is a data interchange format such as JSON or YAML.</td>
-</tr>
-<tr>
-<td><code>ui.list(*args)</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>ui.msg(message)</code></td>
-<td>Use to present a message to the user.</td>
-</tr>
-<tr>
-<td><code>ui.output(data)</code></td>
-<td>Use to present a data structure to the user. This method will respect the output requested when the <code>-F</code> command-line option is used. The output will use the generic default presenter.</td>
-</tr>
-<tr>
-<td><code>ui.pretty_print(data)</code></td>
-<td>Use to enable pretty-print output for JSON data.</td>
-</tr>
-<tr>
-<td><code>ui.use_presenter(presenter_class)</code></td>
-<td>Use to specify a custom output presenter.</td>
-</tr>
-<tr>
-<td><code>ui.warn(message)</code></td>
-<td>Use to present a warning to the user.</td>
-</tr>
-</tbody>
-</table>
+`ui.ask(*args, &block)`
+: 
+
+`ui.ask_question(question, opts={})`
+: Use to ask a user the question contained in `question`. If `:default => default_value` is passed as the second argument, `default_value` will be used if the user doesn't provide an answer. This method will respect the `--default` command-line option.
+
+`ui.color(string, *colors)`
+: Use to specify a color. For example, from the `knife rackspace server list` subcommand:
+
+  ```ruby
+  server_list = [
+    ui.color('Instance ID', :bold),
+    ui.color('Name', :bold),
+    ui.color('Public IP', :bold),
+    ui.color('Private IP', :bold),
+    ui.color('Flavor', :bold),
+    ui.color('Image', :bold),
+    ui.color('State', :bold)
+  ]
+  ```
+
+  and from the `knife eucalyptus server create` subcommand:
+
+  ```ruby
+  server = connection.servers.create(server_def)
+    puts "#{ui.color("Instance ID", :cyan)}: #{server.id}"
+    puts "#{ui.color("Flavor", :cyan)}: #{server.flavor_id}"
+    puts "#{ui.color("Image", :cyan)}: #{server.image_id}"
+    ...
+    puts "#{ui.color("SSH Key", :cyan)}: #{server.key_name}"
+  print "\n#{ui.color("Waiting for server", :magenta)}"
+  ```
+
+`ui.color?()`
+: Indicates that colored output should be used. (Colored output can only be used when output is sent to a terminal.)
+
+`ui.confirm(question, append_instructions=true)`
+: Use to ask a Y/N question. If the user responds with `N`, immediately exit with status code 3.
+
+`ui.edit_data(data, parse_output=true)`
+: Use to edit data. This opens the $EDITOR.
+
+`ui.edit_object(klass, name)`
+: 
+
+`ui.error`
+: Use to present an error to the user.
+
+`ui.fatal`
+: Use to present a fatal error to the user.
+
+`ui.highline`
+: Use to provide direct access to the [Highline object](https://www.rubydoc.info/gems/highline/HighLine) used by many `ui` methods.
+
+`ui.info`
+: Use to present a message to a user.
+
+`ui.interchange`
+: Use to determine if the output is a data interchange format such as JSON or YAML.
+
+`ui.list(*args)`
+: 
+
+`ui.msg(message)`
+: Use to present a message to the user.
+
+`ui.output(data)`
+: Use to present a data structure to the user. This method will respect the output requested when the `-F` command-line option is used. The output will use the generic default presenter.
+
+`ui.pretty_print(data)`
+: Use to enable pretty-print output for JSON data.
+
+`ui.use_presenter(presenter_class)`
+: Use to specify a custom output presenter.
+
+`ui.warn(message)`
+: Use to present a warning to the user.
 
 For example, to show a fatal error in a plugin in the same way that it
 would be shown in knife do something similar to the following:
@@ -748,7 +722,7 @@ unless name_args.size == 1
 end
 ```
 
-## Create a Plugin
+## Create a plugin
 
 A knife command is a Ruby class that inherits from the `Chef::Knife`
 class. A knife command is run by calling the `run` method on an instance
@@ -776,7 +750,7 @@ knife hello world
 The exception handling available in knife is usually enough
 to ensure that exception handling for a plugin is consistent with how
 knife ordinarily behaves. That said, exceptions can also be handled
-within a knife plugin in the same way they are handled in any Ruby
+within a knife plugin in the same way they're handled in any Ruby
 program.
 
 ## Install a Plugin

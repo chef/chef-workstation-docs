@@ -1,7 +1,7 @@
 The environment variables `http_proxy`, `https_proxy`, and `ftp_proxy`
-are honored by Test Kitchen for proxies. The client.rb file is read to
+are honored by Test Kitchen for proxies. The `client.rb` file is read to
 look for proxy configuration settings. If `http_proxy`, `https_proxy`,
-and `ftp_proxy` are specified in the client.rb file, Chef Infra Client
+and `ftp_proxy` are specified in the `client.rb` file, Chef Infra Client
 will configure the `ENV` variable based on these (and related) settings.
 For example:
 

@@ -1,5 +1,5 @@
 When running knife in Windows, a string may be interpreted as
-a wildcard pattern when quotes are not present in the command. The
+a wildcard pattern when quotes aren't present in the command. The
 number of quotes to use depends on the shell from which the command is
 being run.
 

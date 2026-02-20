@@ -14,41 +14,22 @@ draft = false
 
 {{< readfile file="content/reusable/md/knife_exec_summary.md" >}}
 
-## Authenticated API Requests
+## Authenticated API requests
 
 The `knife exec` subcommand can be used to make authenticated API
 requests to Chef Infra Server using the following methods:
 
-<table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 87%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>api.delete</code></td>
-<td>Use to delete an object from Chef Infra Server.</td>
-</tr>
-<tr class="even">
-<td><code>api.get</code></td>
-<td>Use to get the details of an object on Chef Infra Server.</td>
-</tr>
-<tr class="odd">
-<td><code>api.post</code></td>
-<td>Use to add an object to Chef Infra Server.</td>
-</tr>
-<tr class="even">
-<td><code>api.put</code></td>
-<td>Use to update an object on Chef Infra Server.</td>
-</tr>
-</tbody>
-</table>
+`api.delete`
+: Use to delete an object from Chef Infra Server.
+
+`api.get`
+: Use to get the details of an object on Chef Infra Server.
+
+`api.post`
+: Use to add an object to Chef Infra Server.
+
+`api.put`
+: Use to update an object on Chef Infra Server.
 
 These methods are used with the `-E` option, which executes that string
 locally on the workstation using chef-shell. These methods have the
@@ -100,7 +81,7 @@ following:
 
 - The Ruby script must be located on the system from which knife is run (and not be located on any of the systems that knife will be managing).
 - Shell commands will be run from a management workstation. For example, something like `%x[ls -lash /opt/only-on-a-node]` would give you the directory listing for the "opt/only-on-a-node" directory or a "No such file or directory" error if the file doesn't already exist locally.
-- When the chef-shell DSL is available, the Chef Infra Client DSL won't be (unless the management workstation is also a Chef Infra Client). Without the Chef Infra Client DSL, a bash block cannot be used to run bash commands.
+- When the chef-shell DSL is available, the Chef Infra Client DSL won't be (unless the management workstation is also a Chef Infra Client). Without the Chef Infra Client DSL, a bash block can't be used to run bash commands.
 
 ## Syntax
 

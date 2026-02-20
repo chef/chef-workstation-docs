@@ -214,5 +214,5 @@ installed, knife will return an error similar to the following:
 ```bash
 you need the rb-appscript gem to use knife ssh macterm.
 `(sudo) gem    install rb-appscript` to install
-ERROR: LoadError: cannot load such file -- appscript
+ERROR: LoadError: can't load such file -- appscript
 ```

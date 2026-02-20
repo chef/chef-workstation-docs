@@ -34,13 +34,13 @@ Neither PUB key nor PRIV key:: nested asn1 error
 
 ## Configuring config.rb for Chef Vault
 
-To set 'client' as the default mode, add the following line to the config.rb file.
+To set 'client' as the default mode, add the following line to the `config.rb` file.
 
 ```shell
 knife[:vault_mode] = 'client'
 ```
 
-To set the default list of admins for creating and updating vaults, add the following line to the config.rb file.
+To set the default list of admins for creating and updating vaults, add the following line to the `config.rb` file.
 
 ```shell
 knife[:vault_admins] = [ 'example-alice', 'example-bob', 'example-carol' ]
@@ -125,7 +125,7 @@ knife vault update VAULT ITEM VALUES (options)
 
 `-d`, --disable-editing
 
-: Do not open EDITOR, just accept the data as is
+: Don't open EDITOR, just accept the data as is
 
 `-e`, `--editor EDITOR`
 
@@ -506,7 +506,7 @@ knife vault refresh passwords root --clean-unknown-clients
 
 #### `isvault`
 
-This command checks if the given item is a vault or not, and exit with a status of 0 if it is and 1 if it isn't.
+This command checks if the given item is a vault or not, and exit with a status of 0 if it's and 1 if it isn't.
 
 ```shell
 knife vault isvault VAULT ITEM

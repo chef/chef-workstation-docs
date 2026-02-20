@@ -53,7 +53,7 @@ plug-ins:
 
 `-k KEY`, `--key KEY`
 
-: The USER.pem file that knife uses to sign requests made by the API client to Chef Infra Server.
+: The `USER.pem` file that knife uses to sign requests made by the API client to Chef Infra Server.
 
 `--[no-]color`
 
@@ -61,7 +61,7 @@ plug-ins:
 
 `--[no-]fips`
 
-: Allows OpenSSL to enforce FIPS-validated security during a C Infra Client run.
+: Allows OpenSSL to enforce FIPS-validated security during a Chef Infra Client run.
 
 `--print-after`
 

@@ -6,8 +6,7 @@ draft = false
 [menu]
   [menu.install]
     title = "Install"
-    identifier = "chef_workstation/install.md Install Chef Workstation"
-    parent = "chef_workstation"
+    identifier = "install.md Install Chef Workstation"
     weight = 10
 +++
 <!-- markdownlint-disable-file MD033 -->
@@ -192,6 +191,6 @@ Red Hat, CentOS, and related:
 sudo yum remove chef-workstation
 ```
 
-## Next Steps
+## Next steps
 
-Now that you've installed Chef Workstation, proceed to the [Setup]({{< relref "get_started.md" >}}) guide to configure your Chef Workstation installation.
+Now that you've installed Chef Workstation, proceed to the [Setup]({{< relref "set_up.md" >}}) guide to configure your Chef Workstation installation.

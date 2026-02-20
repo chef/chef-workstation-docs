@@ -16,7 +16,7 @@ The `knife supermarket` subcommand is used to interact with cookbooks
 that are located in on the public Supermarket as well as private Chef
 Supermarket sites. A user account is required for any community actions
 that write data to the Chef Supermarket; however, the following
-arguments do not require a user account: `download`, `search`,
+arguments don't require a user account: `download`, `search`,
 `install`, and `list`.
 
 {{< note >}}
@@ -126,7 +126,7 @@ This argument has the following options:
 
 `-D`, `--skip-dependencies`
 
-: Ensure that all cookbooks to which the installed cookbook has a dependency are not installed.
+: Ensure that all cookbooks to which the installed cookbook has a dependency aren't installed.
 
 `-m`, `--supermarket-site`
 

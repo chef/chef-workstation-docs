@@ -164,7 +164,7 @@ This argument has the following options:
 `-a`, `--all`
 
 : Display a node in the \$EDITOR. By default, attributes that are
-    default, override, or automatic, are not shown.
+    default, override, or automatic, aren't shown.
 
 ### Examples
 

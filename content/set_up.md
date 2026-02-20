@@ -2,13 +2,10 @@
 title = "Set up Chef Workstation"
 draft = false
 
-
-
 [menu]
-  [menu.get_started]
-    title = "Setup"
-    identifier = "chef_workstation/setup.md Set Up Chef Workstation"
-    parent = "chef_workstation"
+  [menu.set_up]
+    title = "Set up"
+    identifier = "setup.md Set Up Chef Workstation"
     weight = 10
 +++
 
@@ -97,8 +94,8 @@ Your `.chef` directory contains a `credentials` file used to communicate with Ch
 
 The `knife configure` command requires the following values:
 
-- `Chef Server URL`: the full URL to your Chef Infra Server including the org
-- `Client Name`: the client name your server administrator created for you
+- `chef_server_url`: the full URL to your Chef Infra Server including the org
+- `node_name`: the client name your server administrator created for you
 
 Your Chef administrator should provide this information. For Chef Manage, you can find this information in the Starter Kit file. Download the file on the Manage site by navigating to the Administration tab and selecting Starter Kit. (**Manage > Administration > Starter Kit > Download Starter Kit**)
 
@@ -133,7 +130,7 @@ The steps for downloading or generating these files vary depending on how you in
 {{< foundation_tabs_panels tabs-id="tabs-panel-container" >}}
 {{< foundation_tabs_panel active="true" panel-id="infra_and_automate_keys" >}}
 
-Your Chef administrator will provide you with your client.pem file. Copy this file to the `~/.chef` directory.
+Your Chef administrator will provide you with your `client.pem` file. Copy this file to the `~/.chef` directory.
 
 On macOS and Linux systems, this looks something like:
 
@@ -150,7 +147,7 @@ Copy-Item -Path C:\Users\MY_NAME\Downloads\USERNAME.pem -Destination C:\Users\MY
 {{< /foundation_tabs_panel >}}
 {{< foundation_tabs_panel panel-id="hosted-keys" >}}
 
-The client key file is located in the Starter Kit at `.chef/USERNAME.pem`. Copy the .pem file to the `~/.chef` directory.
+The client key file is located in the Starter Kit at `.chef/USERNAME.pem`. Copy the PEM file to the `~/.chef` directory.
 
 On macOS and Linux systems, this looks something like:
 

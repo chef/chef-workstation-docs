@@ -28,7 +28,7 @@ This subcommand has the following options:
 
 `URL_or_URI`
 
-: The URL or URI for the location at which the SSL certificate is located. Default value: the URL of Chef Infra Server, as defined in the config.rb file.
+: The URL or URI for the location at which the SSL certificate is located. Default value: the URL of Chef Infra Server, as defined in the `config.rb` file.
 
 ## Examples
 
@@ -45,7 +45,7 @@ The following examples show how to use this knife subcommand:
 **Verify the SSL configuration for Chef Infra Client**
 
 The SSL certificates that are used by Chef Infra Client may be verified
-by specifying the path to the client.rb file. Use the `--config` option
+by specifying the path to the `client.rb` file. Use the `--config` option
 (that's available to any knife command) to specify this path:
 
 ```bash

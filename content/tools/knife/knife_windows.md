@@ -44,7 +44,7 @@ C:\> netsh advfirewall firewall set rule name="Windows Remote Management (HTTP-I
 
 ### Negotiate, NTLM
 
-When knife is executed from a Windows system, it is no longer necessary to make additional configuration of the WinRM listener on the target node to enable successful authentication from the workstation. It is sufficient to have a WinRM listener on the remote node configured to use the default configuration for `winrm quickconfig`. This is because `knife windows` supports the Windows negotiate protocol, including NTLM authentication, which matches the authentication requirements for the default configuration of the WinRM listener.
+When knife is executed from a Windows system, it's no longer necessary to make additional configuration of the WinRM listener on the target node to enable successful authentication from the workstation. It's sufficient to have a WinRM listener on the remote node configured to use the default configuration for `winrm quickconfig`. This is because `knife windows` supports the Windows negotiate protocol, including NTLM authentication, which matches the authentication requirements for the default configuration of the WinRM listener.
 
 {{< note >}}
 

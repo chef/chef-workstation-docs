@@ -111,6 +111,6 @@ suites:
 ```
 
 This file uses HashiCorp Vagrant as the driver, which requires no additional
-configuration because it is the default driver used by Test Kitchen,
+configuration because it's the default driver used by Test Kitchen,
 chef-zero as the provisioner, and a single (default) test suite that
 runs on Ubuntu 20.04, and CentOS 7.

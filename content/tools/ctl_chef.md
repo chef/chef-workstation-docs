@@ -2,13 +2,11 @@
 title = "chef (executable)"
 draft = false
 
-
-
 [menu]
   [menu.tools]
-    title = "chef executable (full page)"
-    identifier = "tools/chef_(executable)/ctl_chef.md chef (executable)"
-    parent = "tools/chef_(executable)"
+    title = "chef executable"
+    identifier = "toolsctl_chef.md chef (executable)"
+    parent = "tools"
     weight = 10
 +++
 <!-- markdownlint-disable-file MD024 MD036-->
@@ -67,7 +65,7 @@ chef capture NODE-NAME [options]
 
 `-o`, `--ssl-no-verify`
 
-: Do not verify SSL when connecting to Chef Infra Server (default: verify).
+: Don't verify SSL when connecting to Chef Infra Server (default: verify).
 
 `-p`, `--profile`
 
@@ -104,7 +102,7 @@ edit them. You may have one or more existing paths where you have
 checked out cookbooks. If not, now is a good time to open a
 separate terminal and clone or check out the cookbooks.
 
-If all cookbooks are not available in the same base location,
+If all cookbooks aren't available in the same base location,
 you will have a chance to provide additional locations.
 
 Press Enter to Continue:
@@ -179,7 +177,7 @@ None.
 The `chef gem` subcommand is a wrapper around the `gem` command in
 RubyGems and is used by Chef to install RubyGems into Chef Workstation
 development environment. All knife plugins, drivers for Kitchen, and
-other Ruby applications that are not packaged within Chef Workstation
+other Ruby applications that aren't packaged within Chef Workstation
 will be installed to the `.Chef Workstation` path in the home directory:
 `~/.Chef Workstation/gem/ruby/version#/bin` (where `version#` is the
 version of Ruby that's packaged within Chef Workstation).
@@ -697,7 +695,7 @@ None.
 
 ## chef generate profile
 
-Use the `chef generate profile` subcommand to generate a [profile](/inspec/profiles/) for the Chef Infra Client's Compliance Phase execution.
+Use the `chef generate profile` subcommand to generate a [profile](/inspec/profiles/) for Chef Infra Client's Compliance Phase execution.
 
 ### Syntax
 
@@ -725,7 +723,7 @@ None.
 
 ## chef generate input
 
-Use the `chef generate input` subcommand to generate an [input](/inspec/inputs/) file for the Chef Infra Client's Compliance Phase execution.
+Use the `chef generate input` subcommand to generate an [input](/inspec/inputs/) file for Chef Infra Client's Compliance Phase execution.
 
 ### Syntax
 
@@ -749,7 +747,7 @@ None.
 
 ## chef generate waiver
 
-Use the `chef generate waiver` subcommand to generate a [waiver](/inspec/waivers/) file for the Chef Infra Client's Compliance Phase execution.
+Use the `chef generate waiver` subcommand to generate a [waiver](/inspec/waivers/) file for Chef Infra Client's Compliance Phase execution.
 
 ### Syntax
 
@@ -822,7 +820,7 @@ This subcommand has the following options:
 
 `-o`, `--ssl-no-verify`
 
-: Do not verify SSL when connecting to Chef Infra Server (default: verify).
+: Don't verify SSL when connecting to Chef Infra Server (default: verify).
 
 `-p`, `--profile`
 
@@ -834,7 +832,7 @@ This subcommand has the following options:
 
 `-u`, `--only-unused`
 
-: Generate a report that only includes cookbooks that are not included in any node's runlist.
+: Generate a report that only includes cookbooks that aren't included in any node's runlist.
 
 `-V`, `--verify-upgrade`
 
@@ -926,7 +924,7 @@ This subcommand has the following options:
 
 `-o`, `--ssl-no-verify`
 
-: Do not verify SSL when connecting to Chef Infra Server (default: verify).
+: Don't verify SSL when connecting to Chef Infra Server (default: verify).
 
 `-p`, `--profile`
 
@@ -1027,7 +1025,7 @@ Set-ExecutionPolicy RemoteSigned
 
 **Create a \$PROFILE on new machines**
 
-On new Windows machines, commands cannot be appended to `$PROFILE` if
+On new Windows machines, commands can't be appended to `$PROFILE` if
 the folder doesn't exist, or if there is a new user profile. This will
 result in an error similar to the following:
 

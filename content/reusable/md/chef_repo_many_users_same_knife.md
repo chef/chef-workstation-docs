@@ -1,11 +1,11 @@
 The config.rb configuration can include arbitrary Ruby code to extend
 configuration beyond static values. This can be used to load
 environmental variables from the workstation. This makes it possible to
-write a single config.rb file that can be used by all users within your
+write a single `config.rb` file that can be used by all users within your
 organization. This single file can also be checked into your chef-repo,
-allowing users to load different config.rb files based on which
+allowing users to load different `config.rb` files based on which
 chef-repo they execute the commands from. This can be especially useful
-when each chef-repo points to a different chef server or organization.
+when each chef-repo points to a different Chef Infra Server or organization.
 
 Example config.rb:
 

@@ -28,13 +28,13 @@ This subcommand has the following options:
 
 `URL_or_URI`
 
-: The URL or URI for the location at which the SSL certificate is located. Default value: the URL of Chef Infra Server, as defined in the config.rb file.
+: The URL or URI for the location at which the SSL certificate is located. Default value: the URL of Chef Infra Server, as defined in the `config.rb` file.
 
 ## Examples
 
 The following examples show how to use this knife subcommand:
 
-**Fetch the SSL certificates used by Knife from the Chef server**
+**Fetch the SSL certificates used by Knife from the Chef Infra Server**
 
 ```bash
 knife ssl fetch

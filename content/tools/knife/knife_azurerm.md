@@ -90,7 +90,7 @@ This argument has the following options:
 
 `--azure-extension-client-config CLIENT_PATH`
 
-: Path to a client.rb file for use by the bootstrapped node.
+: Path to a `client.rb` file for use by the bootstrapped node.
 
 `--azure-image-os-type OSTYPE`
 
@@ -134,7 +134,7 @@ This argument has the following options:
 
 `--azure-vnet-subnet-name VNET_SUBNET_NAME`
 
-: Specifies the virtual network subnet name. Must be specified only with `azure-vnet-name` option. This may be the name of an existing subnet present under the given virtual network or this may be the name of a new subnet to be added virtual network. If not specified then `azure-vm-name` will be taken as name for subnet name as well. Note: `GatewaySubnet` cannot be used as the name for the `--azure-vnet-subnet-name` option.
+: Specifies the virtual network subnet name. Must be specified only with `azure-vnet-name` option. This may be the name of an existing subnet present under the given virtual network or this may be the name of a new subnet to be added virtual network. If not specified then `azure-vm-name` will be taken as name for subnet name as well. Note: `GatewaySubnet` can't be used as the name for the `--azure-vnet-subnet-name` option.
 
 `--bootstrap-proxy PROXY_URL`
 
@@ -286,7 +286,7 @@ This argument has the following options:
 
 `--ssh-public-key FILENAME`
 
-: It is the ssh-rsa public key path. Specify either `ssh-password` or `ssh-public-key`.
+: It's the ssh-rsa public key path. Specify either `ssh-password` or `ssh-public-key`.
 
 `--ssh-user USERNAME`
 
@@ -454,7 +454,7 @@ This argument has the following options:
 #### server list
 
 Use the `server list` argument to output a list of all ARM
-servers--including those not managed by the Chef server---in the Azure
+servers--including those not managed by the Chef Infra Server---in the Azure
 account.
 
 **Syntax**

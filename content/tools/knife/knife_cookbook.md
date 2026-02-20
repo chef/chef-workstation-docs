@@ -458,7 +458,7 @@ knife cookbook test cookbook_name
 
 Use the `upload` argument to upload one or more cookbooks (and any files
 that are associated with those cookbooks) from a local repository to the
-Chef Infra Server. Only files that do not already exist on the Chef
+Chef Infra Server. Only files that don't already exist on the Chef
 Infra Server will be uploaded.
 
 {{< note >}}
@@ -473,7 +473,7 @@ defined by the Ruby `File.fnmatch` syntax).
 
 {{< note >}}
 
-Empty directories are not uploaded to Chef Infra Server. To upload
+Empty directories aren't uploaded to Chef Infra Server. To upload
 an empty directory, create a "dot" file---e.g. `.keep`---in that
 directory to ensure that the directory itself isn't empty.
 

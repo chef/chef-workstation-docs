@@ -22,7 +22,7 @@ This subcommand has the following syntax when creating a credentials file:
 knife configure (options)
 ```
 
-and the following syntax when creating a client.rb file:
+and the following syntax when creating a `client.rb` file:
 
 ```bash
 knife configure client DIRECTORY
@@ -37,7 +37,7 @@ knife configure client DIRECTORY
 {{< /note >}}
 
 This subcommand has the following options for use when configuring a
-config.rb file:
+`config.rb` file:
 
 `--admin-client-name NAME`
 

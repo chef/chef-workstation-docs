@@ -54,11 +54,11 @@ This subcommand has the following options:
 
 `--[no-]force`
 
-: Use `--force` to download files even when the file on the hard drive is identical to the object on the server (role, cookbook, etc.). By default, files are compared to see if they have equivalent content, and local files are only overwritten if they are different. Default: `--no-force`.
+: Use `--force` to download files even when the file on the hard drive is identical to the object on the server (role, cookbook, etc.). By default, files are compared to see if they have equivalent content, and local files are only overwritten if they're different. Default: `--no-force`.
 
 `--[no-]purge`
 
-: Use `--purge` to delete local files and directories that do not exist on Chef Infra Server. By default, if a role, cookbook, etc. doesn't exist on Chef Infra Server, the local file for said role is left alone and NOT deleted. Default: `--no-purge`.
+: Use `--purge` to delete local files and directories that don't exist on Chef Infra Server. By default, if a role, cookbook, etc. doesn't exist on Chef Infra Server, the local file for said role is left alone and NOT deleted. Default: `--no-purge`.
 
 `--[no-]recurse`
 

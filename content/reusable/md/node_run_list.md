@@ -6,6 +6,6 @@ configure a node into the desired state. A run-list is:
     the run-list, Chef Infra Client won't run it twice
 - Always specific to the node on which it runs; nodes may have a
     run-list that's identical to the run-list used by other nodes
-- Stored as part of the node object on the Chef server
+- Stored as part of the node object on Chef Infra Server
 - Maintained using knife and then uploaded from the workstation to the
     Chef Infra Server, or maintained using Chef Automate

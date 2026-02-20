@@ -86,7 +86,7 @@ Uploaded my_first_cookbook (0.1.0) to: 'https://api.chef.io:443/organizations/ex
 ## The Berksfile
 
 A Berksfile describes the set of sources and dependencies needed to use
-a cookbook. It is used in conjunction with the `berks` command.
+a cookbook. It's used in conjunction with the `berks` command.
 
 ### Syntax
 
@@ -103,7 +103,7 @@ cookbook "NAME" [, "VERSION_CONSTRAINT"] [, SOURCE_OPTIONS]
 #### Source Keyword
 
 A source defines where Berkshelf should look for cookbooks. Sources are
-processed in the order that they are defined in, and processing stops as
+processed in the order that they're defined in, and processing stops as
 soon as a suitable cookbook is found. Locations include a private or
 public [Supermarket](/supermarket/), Chef Infra Server, or local
 Chef repository.
@@ -280,7 +280,7 @@ berks install --except test
 
 #### Solver Keyword
 
-It is possible to configure which engine to use for the
+It's possible to configure which engine to use for the
 [solve](https://github.com/berkshelf/solve) dependency resolution
 system.
 

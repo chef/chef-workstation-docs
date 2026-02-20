@@ -77,7 +77,7 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 `--winrm-no-verify-cert`
 
-: Do not verify the SSL certificate of the target node for WinRM.
+: Don't verify the SSL certificate of the target node for WinRM.
 
 `--winrm-ssl`
 
@@ -191,7 +191,7 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 : The unique identifier of the node.
 
-    {{< note spaces=4 >}}
+    {{< note >}}
 
     This option is required for a validatorless bootstrap.
 
@@ -288,34 +288,34 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 {{< /note >}}
 
-### Validatorless Bootstrap
+### Validatorless bootstrap
 
-The ORGANIZATION-validator.pem is typically added to the .chef directory
+The `ORGANIZATION-validator.pem` is typically added to the `.chef` directory
 on the workstation. When a node is bootstrapped from that workstation,
-the ORGANIZATION-validator.pem is used to authenticate the newly-created
+the `ORGANIZATION-validator.pem` is used to authenticate the newly-created
 node to Chef Infra Server during the initial Chef Infra Client run.
-It is possible to bootstrap a node using the USER.pem file instead of
-the ORGANIZATION-validator.pem file. This is known as a "validatorless
-bootstrap".
+It's possible to bootstrap a node using the `USER.pem` file instead of
+the `ORGANIZATION-validator.pem` file. This is known as a _validatorless
+bootstrap_.
 
-To create a node using the USER.pem file, simply delete the
-ORGANIZATION-validator.pem file on the workstation. For example:
+To create a node using the `USER.pem` file, simply delete the
+`ORGANIZATION-validator.pem` file on the workstation. For example:
 
 ```bash
 rm -f /home/lamont/.chef/myorg-validator.pem
 ```
 
-and then make the following changes in the config.rb file:
+and then make the following changes in the `config.rb` file:
 
 - Remove the `validation_client_name` setting
 - Edit the `validation_key` setting to be something that isn't a path
-    to an existent ORGANIZATION-validator.pem file. For example:
+    to an existent `ORGANIZATION-validator.pem` file. For example:
     `/nonexist`.
 
 As long as a USER.pem is also present on the workstation from which the
 validatorless bootstrap operation will be initiated, the bootstrap
-operation will run and will use the USER.pem file instead of the
-ORGANIZATION-validator.pem file.
+operation will run and will use the `USER.pem` file instead of the
+`ORGANIZATION-validator.pem` file.
 
 When running a validatorless `knife bootstrap` operation, the output is
 similar to:
@@ -357,7 +357,7 @@ custom template may be required.
 
 For example, the default bootstrap operation relies on an Internet
 connection to get the distribution to the target node. If a target node
-cannot access the Internet, then a custom template can be used to define
+can't access the Internet, then a custom template can be used to define
 a specific location for the distribution so that the target node may
 access it during the bootstrap operation. The example below will show
 you how to create a bootstrap template that uses a custom artifact store

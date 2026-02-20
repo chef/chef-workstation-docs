@@ -33,7 +33,7 @@ This subcommand has the following options:
 
 `--chef-repo-path PATH`
 
-: The path to the chef-repo. Default value: same as `chef_repo_path` in the client.rb file.
+: The path to the chef-repo. Default value: same as `chef_repo_path` in the `client.rb` file.
 
 `--chef-zero-host IP`
 

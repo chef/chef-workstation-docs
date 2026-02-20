@@ -17,7 +17,7 @@ draft = false
 Use the `knife cookbook site` subcommand to interact with cookbooks that
 are available in the [Chef Supermarket](https://supermarket.chef.io/). A
 user account is required for any community actions that write data to
-this site. The following arguments do not require a user account:
+this site. The following arguments don't require a user account:
 `download`, `search`, `install`, and `list`.
 
 {{< warning >}}
@@ -161,7 +161,7 @@ This argument has the following options:
 
 `-D`, `--skip-dependencies`
 
-: Ensure that all cookbooks to which the installed cookbook has a dependency are not installed.
+: Ensure that all cookbooks to which the installed cookbook has a dependency aren't installed.
 
 `-m SUPERMARKET_SITE`, `--supermarket-site SUPERMARKET_SITE`
 

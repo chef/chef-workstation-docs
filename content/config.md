@@ -6,8 +6,7 @@ draft = false
 [menu]
   [menu.configure]
     title = "Configure"
-    identifier = "chef_workstation/config.md Configure Chef Workstation"
-    parent = "chef_workstation"
+    identifier = "config.md Configure Chef Workstation"
     weight = 40
 +++
 <!-- markdownlint-disable-file MD024 -->

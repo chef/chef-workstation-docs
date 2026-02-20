@@ -2,8 +2,6 @@
 title = "knife opc"
 draft = false
 
-
-
 [menu]
   [menu.tools]
     title = "knife opc"
@@ -12,7 +10,7 @@ draft = false
 +++
 <!-- markdownlint-disable-file MD024 MD036 -->
 
-The `knife opc` subcommand is used to manage organizations and users in Chef Server 12.
+The `knife opc` subcommand is used to manage organizations and users in Chef Infra Server.
 
 {{< note >}}
 
@@ -46,7 +44,7 @@ If your `chef_server_url` configuration ends with `/organizations/ORG_NAME` (as 
 
 {{< note >}}
 
-On Chef Server 12, the majority of the commands provided by this plugin can be accessed with `chef-server-ctl` wrapper commands. [See chef-server-ctl for details](/ctl_chef_server/).
+On Chef Infra Server, the majority of the commands provided by this plugin can be accessed with `chef-server-ctl` wrapper commands. [See chef-server-ctl for details](/ctl_chef_server/).
 
 {{< /note >}}
 

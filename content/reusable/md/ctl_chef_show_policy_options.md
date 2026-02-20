@@ -14,7 +14,7 @@ This subcommand has the following options:
 
 `-o`, `--orphans`
 
-:   Show policy revisions that are not currently assigned to any policy
+:   Show policy revisions that aren't currently assigned to any policy
     group.
 
 `--[no-]pager`

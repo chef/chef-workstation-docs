@@ -6,8 +6,7 @@ draft = false
 [menu]
   [menu.troubleshooting]
     title = "Troubleshooting"
-    identifier = "chef_workstation/troubleshooting.md Troubleshooting"
-    parent = "chef_workstation"
+    identifier = "troubleshooting.md Troubleshooting"
     weight = 50
 +++
 
@@ -69,7 +68,7 @@ chef-run --identity-file /path/to/your/ssh/key
 #### resolve by adding key(s) to ssh-agent
 
 ```bash
-## ensure ssh-agent is running. This may report it is already started:
+## ensure ssh-agent is running. This may report it's already started:
 $ ssh-agent
 
 ## Add your key file(s):

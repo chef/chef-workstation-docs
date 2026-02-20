@@ -58,7 +58,7 @@ This subcommand has the following options:
 
 `--[no-]purge`
 
-: Use `--purge` to delete roles, cookbooks, etc. from Chef Infra Server if their corresponding files do not exist in the chef-repo. By default, such objects are left alone and NOT purged. Default: `--no-purge`.
+: Use `--purge` to delete roles, cookbooks, etc. from Chef Infra Server if their corresponding files don't exist in the chef-repo. By default, such objects are left alone and NOT purged. Default: `--no-purge`.
 
 `--[no-]recurse`
 

@@ -11,4 +11,4 @@ There are two ways to use Chef Supermarket:
     Supermarket because of closer proximity and fewer cookbooks to
     resolve. A private Chef Supermarket can also help formalize internal
     cookbook release management processes (e.g. "a cookbook is not
-    released until it is published on the private Chef Supermarket").
+    released until it's published on the private Chef Supermarket").

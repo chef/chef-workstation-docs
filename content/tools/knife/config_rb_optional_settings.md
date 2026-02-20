@@ -1,14 +1,12 @@
 +++
-title = "config.rb Optional Settings"
+title = "Optional Knife settings"
 draft = false
-
-
 
 [menu]
   [menu.tools]
-    title = "Optional config.rb Settings"
-    identifier = "tools/config_rb_optional_settings.md Optional config.rb Settings"
-    parent = "tools"
+    title = "Optional settings"
+    identifier = "tools/knife/config_rb_optional_settings.md Optional config.rb Settings"
+    parent = "tools/knife"
     weight = 80
 +++
 
@@ -22,7 +20,7 @@ A value passed with the command line will override a value in the `config.rb`fil
 
 {{< warning >}}
 
-Many optional settings should not be added to the `config.rb` file. The reasons for not adding them can vary. For example, using `--yes` as a default in the `config.rb`file will cause knife to always assume that "Y" is the response to any prompt, which may lead to undesirable outcomes. Other settings, such as `--hide-by-mins` (used only with the `knife status` subcommand) or `--bare-directories` (used only with the `knife list` subcommand) probably aren't used often enough (and in the same exact way) to justify adding them to the `config.rb` file. In general, if the optional settings are not listed on [the main`config.rb`topic](/workstation/config_rb/), then add settings only after careful consideration. Do not use optional settings in a production environment until after the setting's performance has been validated in a safe testing environment.
+Many optional settings should not be added to the `config.rb` file. The reasons for not adding them can vary. For example, using `--yes` as a default in the `config.rb`file will cause knife to always assume that "Y" is the response to any prompt, which may lead to undesirable outcomes. Other settings, such as `--hide-by-mins` (used only with the `knife status` subcommand) or `--bare-directories` (used only with the `knife list` subcommand) probably aren't used often enough (and in the same exact way) to justify adding them to the `config.rb` file. In general, if the optional settings aren't listed on [the main`config.rb`topic](/workstation/config_rb/), then add settings only after careful consideration. Don't use optional settings in a production environment until after the setting's performance has been validated in a safe testing environment.
 
 {{< /warning >}}
 
@@ -104,7 +102,7 @@ The following list describes  the optional settings that can be added to the con
 
 `knife[:bootstrap_version]`
 
-: The version of the Chef Infra Client to install.
+: The version of Chef Infra Client to install.
 
 `knife[:bootstrap_wget_options]`
 
@@ -292,7 +290,7 @@ The following list describes  the optional settings that can be added to the con
 
 `knife[:no_deps]`
 
-: Ensure that all cookbooks to which the installed cookbook has a dependency are not installed.
+: Ensure that all cookbooks to which the installed cookbook has a dependency aren't installed.
 
 `knife[:node_name]`
 
