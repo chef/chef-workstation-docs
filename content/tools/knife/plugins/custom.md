@@ -634,7 +634,7 @@ knife plugins. The following methods should be used in favor of manually
 handling user interactions:
 
 `ui.ask(*args, &block)`
-: 
+:
 
 `ui.ask_question(question, opts={})`
 : Use to ask a user the question contained in `question`. If `:default => default_value` is passed as the second argument, `default_value` will be used if the user doesn't provide an answer. This method will respect the `--default` command-line option.
@@ -676,7 +676,7 @@ handling user interactions:
 : Use to edit data. This opens the $EDITOR.
 
 `ui.edit_object(klass, name)`
-: 
+:
 
 `ui.error`
 : Use to present an error to the user.
@@ -694,7 +694,7 @@ handling user interactions:
 : Use to determine if the output is a data interchange format such as JSON or YAML.
 
 `ui.list(*args)`
-: 
+:
 
 `ui.msg(message)`
 : Use to present a message to the user.

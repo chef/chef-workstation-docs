@@ -47,7 +47,7 @@ Chef:
 
   Example: `network: - ["forwarded_port", {guest: 80, host: 8080}] - ["private_network", {ip: "192.168.33.33"}]`.
 
-: Default value: `[]`. 
+: Default value: `[]`.
 
 `pre_create_command`
 
@@ -81,7 +81,7 @@ Chef:
 
 `vagrantfiles`
 
-: An array of paths to one (or more) Vagrant files to be merged with the default Vagrant file. The paths may be absolute or relative to the kitchen.yml file.
+: An array of paths to one (or more) Vagrant files to be merged with the default Vagrant file. The paths may be absolute or relative to the `kitchen.yml` file.
 
 `vm_hostname`
 

@@ -28,16 +28,15 @@ this (and all) knife subcommands and plugins.
 ### Configuration
 
 The `knife azurem` requires setting up a service principal
-for authentication and permissioning. For setting up a service principal
+for authentication and permissions. For setting up a service principal
 from the command line, see [Create service principal with PowerShell /
 Azure CLI
-2.0](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+2.0](https://learn.microsoft.com/en-us/entra/identity-platform/howto-authenticate-service-principal-powershell).
 
 {{< note >}}
 
 When creating your user following the example in the Microsoft
-documentation, change <span class="title-ref">-o Reader</span> to <span
-class="title-ref">-o Contributor</span>, otherwise you won't be able
+documentation, change `-o Reader` to `-o Contributor`, otherwise you won't be able
 to spin up or delete machines.
 
 {{< /note >}}
@@ -48,7 +47,7 @@ After creating the service principal, you will have the values:
 - client secret(string)
 - tenant id (GUID).
 
-Put the following in your <span class="title-ref">knife.rb</span>
+Put the following in your `knife.rb`
 
 ```ruby
 knife[:azure_tenant_id] # found with: tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
@@ -61,7 +60,7 @@ Microsoft Azure encourages the use of Azure CLI 2.0. If you are still
 using [azure-xplat-cli](https://github.com/Azure/azure-xplat-cli) _then
 run `azure login` and skip creating the service principal.
 
-### Knife Azurerm Commands
+### Knife Azurerm commands
 
 #### server create
 
@@ -92,9 +91,9 @@ This argument has the following options:
 
 : Path to a `client.rb` file for use by the bootstrapped node.
 
-`--azure-image-os-type OSTYPE`
+`--azure-image-os-type <OS_TYPE>`
 
-: Specifies the image OS Type for which server needs to be created. Accepted values: `ubuntu`, `centos`, `rhel`, `debian`, `windows`.
+: Specifies the image OS type for which server needs to be created. Accepted values: `ubuntu`, `centos`, `rhel`, `debian`, `windows`.
 
 `--azure-image-reference-offer OFFER`
 
@@ -226,13 +225,13 @@ This argument has the following options:
 
 `-m LOCATION`, `--azure-service-location`
 
-: Required if not using an Affinity Group. Specifies the geographic location - the name of the data center location that's valid for your subscription. Eg: westus, eastus, eastasia, southeastasia, northeurope, westeurope
+: Required if not using an Affinity Group. Specifies the geographic location - the name of the data center location that's valid for your subscription. For example, `westus`, `eastus`, `eastasia`, `southeastasia`, `northeurope`, `westeurope`.
 
 `-N`, `--node-name NAME`
 
 : The Chef node name for your new node
 
-`-o DISKNAME`, `--azure-os-disk-name`
+`-o DISK_NAME`, `--azure-os-disk-name`
 
 : Specifies the friendly name of the disk containing the guest OS image in the image repository.
 

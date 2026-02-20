@@ -174,7 +174,7 @@ This subcommand has the following options:
 
 `-f FILTER`, `--filter-result FILTER`
 
-: Use to filter the search output based on the pattern that matc the specified `FILTER`. Only attributes in the `FILTER` will returned. For example: `\"ServerName=name, Kernel=kernel.version\`.
+: Use to filter the search output based on the pattern that matches the specified `FILTER`. Only attributes in the `FILTER` will returned. For example: `\"ServerName=name, Kernel=kernel.version\`.
 
 `-i`, `--id-only`
 

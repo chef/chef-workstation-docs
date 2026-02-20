@@ -6,7 +6,7 @@ A `Policyfile.lock.json` file is similar to:
   "name": "jenkins",
   "run_list": [
     "recipe[java::default]",
-    "recipe[jenkins::master]",
+    "recipe[jenkins::main]",
     "recipe[policyfile_demo::default]"
   ],
   "cookbook_locks": {

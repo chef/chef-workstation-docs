@@ -3,7 +3,6 @@ results, are excluded from the results, or aren't included even when
 other aspects of the query match. Searches can use the following
 operators:
 
-
 `AND`
 : Use to find a match when both terms exist.
 

@@ -55,7 +55,7 @@ For more information about the `kitchen` command line tool, see
 
 {{< note >}}
 
-For more information about the kitchen.yml file, see
+For more information about the `kitchen.yml` file, see
 [kitchen.yml](/workstation/config_yml_kitchen/).
 
 {{< /note >}}

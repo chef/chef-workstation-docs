@@ -10,7 +10,7 @@ Chef Workstation includes many common Test Kitchen drivers.
 {{< /note >}}
 
 Most drivers have driver-specific configuration settings that must be
-added to the kitchen.yml file before Test Kitchen will be able to use
+added to the `kitchen.yml` file before Test Kitchen will be able to use
 that platform during cookbook testing. For information about these
 driver-specific settings, please refer to the driver-specific
 documentation.

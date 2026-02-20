@@ -1,4 +1,4 @@
-For example, if a kitchen.yml file contains the following:
+For example, if a `kitchen.yml` file contains the following:
 
 ```javascript
 - name: centos-7

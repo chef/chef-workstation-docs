@@ -106,7 +106,7 @@ Values
 : Value must be a valid, writable file path.
 
 Default
-: `"$USERHOME/.chef-workstation/logs/default.log"`
+: `"$HOME/.chef-workstation/logs/default.log"`
 
 Used by
 : `chef-run`
@@ -128,7 +128,7 @@ Description
 : The base path used to store cached cookbooks and downloads.
 
 Default
-: `$USERHOME/.chef-workstation/cache`
+: `$HOME/.chef-workstation/cache`
 
 Values
 : This must reference a valid, writable directory.
@@ -163,7 +163,7 @@ Used by
 : `chef-run`
 
 CLI flag
-: `--protocol PROTO`
+: `--protocol <PROTOCOL>`
 
 #### default_user
 
@@ -260,7 +260,7 @@ Used by
 #### cookbook_repo_paths
 
 Description
-: Path or paths to use for cookbook resolution. When multiple cookbook paths are provided and a cookbook exists in more than one of them, the cookbook found in the last-most directory will be used. Considering the example, when resolving cookbook `mycb`: if `mycb` existed in both `/home/username/cookbooks` and `/var/chef/cookbooks`, `mycb` in `/var/chef/cookbooks` will be used.
+: Path or paths to use for cookbook resolution. When multiple cookbook paths are provided and a cookbook exists in more than one of them, the cookbook found in the last-most directory will be used. Considering the example, when resolving the cookbook `cookbook_name`: if `cookbook_name` existed in both `/home/username/cookbooks` and `/var/chef/cookbooks`, `cookbook_name` in `/var/chef/cookbooks` will be used.
 
 Values
 : A string referencing a valid cookbook path, or an array of such strings. See example for syntax.

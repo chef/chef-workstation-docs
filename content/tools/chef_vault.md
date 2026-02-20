@@ -493,7 +493,6 @@ This command reads the search_query stored in the vault item, re-executes the se
 
 Note: This operation doesn't update or re-encrypt credentials for admin users. To update an admin's credentials, use the [`knife vault update`](#update) command.
 
-
 ```shell
 knife vault refresh VAULT ITEM
 ```
@@ -520,18 +519,85 @@ This command outputs the type of the data bag item: normal, encrypted or vault
 knife vault itemtype VAULT ITEM
 ```
 
-### Global Options
+### Global options
 
-| Short Command | Long Command | Description | Default | Valid Values | Sub-Commands |
-|---------------|--------------|-------------|---------|--------------|--------------|
-| `-M`, `MODE` | `--mode MODE` | Chef mode to run in. Can be set in config.rb | `solo`  | `solo`, `client` | all |
-| `-S` `SEARCH` | `--search SEARCH` | Chef Infra Server SOLR Search Of Nodes | none | none | `create`, `remove` , `update` |
-| `-A` `ADMINS` | `--admins ADMINS` | Chef clients or users to be vault admins, can be comma list | none | none | `create`, `remove` , `update` |
-| `-J` `FILE` | `--json FILE` | JSON file to be used for values, will be merged with VALUES if VALUES is passed | none | none | `create`, `update` |
-| `--file` `FILE` | none | File that `chef-vault` should encrypt. It adds "file-content" & "file-name" keys to the vault item | none | none | `create`, `update` |
-| `-p` `DATA` | `--print DATA` | Print extra vault data | none | `search`, `clients`, `admins`, `all` | `show` |
-| `-F` `FORMAT` | `--format FORMAT` | Format for decrypted output | summary | `summary`, `json`, `yaml`, `pp` | `show` |
-| --clean-unknown-clients | none | Remove unknown clients during key rotation | none | none | `refresh`, `remove`, `rotate` |
+`-M MODE`
+`--mode MODE`
+: Chef mode to run in. Can be set in config.rb.
+
+  Default value: `solo`
+
+  Valid values: `solo`, `client`
+
+  Sub-commands: all
+
+`-S SEARCH`
+`--search SEARCH`
+: Chef Infra Server SOLR Search Of Nodes.
+
+  Default value: none
+
+  Valid values: none
+
+  Sub-commands: `create`, `remove`, `update`
+
+`-A ADMINS`
+`--admins ADMINS`
+: Chef clients or users to be vault admins, can be comma list.
+
+  Default value: none
+
+  Valid values: none
+
+  Sub-commands: `create`, `remove`, `update`
+
+`-J FILE`
+`--json FILE`
+: JSON file to be used for values, will be merged with VALUES if VALUES is passed.
+
+  Default value: none
+
+  Valid values: none
+
+  Sub-commands: `create`, `update`
+
+`--file FILE`
+: File that `chef-vault` should encrypt. It adds "file-content" & "file-name" keys to the vault item.
+
+  Default value: none
+
+  Valid values: none
+
+  Sub-commands: `create`, `update`
+
+`-p DATA`
+`--print DATA`
+: Print extra vault data.
+
+  Default value: none
+
+  Valid values: `search`, `clients`, `admins`, `all`
+
+  Sub-commands: `show`
+
+`-F FORMAT`
+`--format FORMAT`
+: Format for decrypted output.
+
+  Default value: `summary`
+
+  Valid values: `summary`, `json`, `yaml`, `pp`
+
+  Sub-commands: `show`
+
+`--clean-unknown-clients`
+: Remove unknown clients during key rotation.
+
+  Default value: none
+
+  Valid values: none
+
+  Sub-commands: `refresh`, `remove`, `rotate`
 
 ### Options for knife bootstrap
 

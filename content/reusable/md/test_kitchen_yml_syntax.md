@@ -1,4 +1,4 @@
-The basic structure of a kitchen.yml file is as follows:
+The basic structure of a `kitchen.yml` file is as follows:
 
 ```yaml
 driver:
@@ -88,7 +88,7 @@ where:
        - platform-version       # for additional platforms
     ```
 
-For example, a simple kitchen.yml file:
+For example, a simple `kitchen.yml` file:
 
 ```yaml
 driver:

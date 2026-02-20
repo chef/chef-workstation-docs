@@ -141,7 +141,7 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 `--bootstrap-preinstall-command COMMANDS`
 
-: Custom commands to run before installing Chef Infra Client
+: Custom commands to run before installing Chef Infra Client.
 
 `--bootstrap-url URL`
 
@@ -310,9 +310,9 @@ and then make the following changes in the `config.rb` file:
 - Remove the `validation_client_name` setting
 - Edit the `validation_key` setting to be something that isn't a path
     to an existent `ORGANIZATION-validator.pem` file. For example:
-    `/nonexist`.
+    `/non-exist`.
 
-As long as a USER.pem is also present on the workstation from which the
+As long as a `USER.pem` is also present on the workstation from which the
 validatorless bootstrap operation will be initiated, the bootstrap
 operation will run and will use the `USER.pem` file instead of the
 `ORGANIZATION-validator.pem` file.

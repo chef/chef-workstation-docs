@@ -16,7 +16,7 @@ draft = false
 Use [Test Kitchen](https://kitchen.ci/) to automatically test cookbook
 data across any combination of platforms and test suites:
 
-- Defined in a kitchen.yml file
+- Defined in a `kitchen.yml` file
 - Uses a driver plugin architecture
 - Supports cookbook testing across many cloud providers and virtualization technologies
 - Supports all common testing frameworks that are used by the Ruby community
@@ -155,7 +155,7 @@ Chef-specific settings:
 : Number of seconds to wait between converge attempts. Default value: 30.
 
 These settings may be added to the `provisioner` section of the
-kitchen.yml file when the provisioner is chef-zero or chef-solo.
+`kitchen.yml` file when the provisioner is chef-zero or chef-solo.
 
 ### New provisioner settings
 
@@ -237,7 +237,7 @@ Kitchen can configure a transport with the following settings for either
 : The username used for authenticating to the test instance. This defaults to `administrator` for the `winrm` transport and `root` for the `ssh` transport. Some drivers may change this default.
 
 These settings may be added to the `transport` section of the
-kitchen.yml file when the transport is SSH:
+`kitchen.yml` file when the transport is SSH:
 
 `compression`
 : Whether or not to use compression. The default is `false`.
@@ -261,7 +261,7 @@ kitchen.yml file when the transport is SSH:
 : Path to an ssh key identity file.
 
 These settings may be added to the `transport` section of the
-kitchen.yml file when the transport is WinRM:
+`kitchen.yml` file when the transport is WinRM:
 
 `elevated`
 : When `true`, all commands are executed with a scheduled task. This may eliminate access denied errors related to double hop authentication, interacting with Windows updates and installing some MSIs such as sql server and .net runtimes. Defaults to `false`.
@@ -284,7 +284,7 @@ kitchen.yml file when the transport is WinRM:
 
 ## Chef Infra Client settings
 
-A kitchen.yml file may define Chef Infra Client-specific settings, such
+A `kitchen.yml` file may define Chef Infra Client-specific settings, such
 as whether to require the Chef installer or the URL from which Chef
 Infra Client is downloaded, or to override settings in the client.rb
 file:
@@ -353,7 +353,7 @@ Specific `optional_settings: values` may be specified.
 
 ## Examples
 
-The following examples show actual kitchen.yml files used in
+The following examples show actual `kitchen.yml` files used in
 Chef-maintained cookbooks.
 
 ### Chef, Chef Workstation
@@ -402,7 +402,7 @@ imitate a local user.
 
 ### Chef Infra Client cookbook
 
-The following kitchen.yml file is part of the `chef-client` cookbook and
+The following `kitchen.yml` file is part of the `chef-client` cookbook and
 ensures Chef Infra Client is configured correctly.
 
 ```yaml
@@ -458,7 +458,7 @@ suites:
 
 ### chef-splunk Cookbook
 
-The following kitchen.yml file is part of the `chef-splunk` cookbook and
+The following `kitchen.yml` file is part of the `chef-splunk` cookbook and
 is used to help ensure the installation of the Splunk client and server
 is done correctly.
 
@@ -501,7 +501,7 @@ suites:
 
 ### yum Cookbook
 
-The following kitchen.yml file is part of the `yum` cookbook:
+The following `kitchen.yml` file is part of the `yum` cookbook:
 
 ```yaml
 driver:
@@ -524,7 +524,7 @@ suites:
 
 ### Platform Attributes
 
-The following kitchen.yml file sets up a simple tiered configuration of
+The following `kitchen.yml` file sets up a simple tiered configuration of
 Chef Infra Server, including two front-end servers, a single
 back-end server, and two add-ons (Chef Push Jobs and Chef management
 console). The `platforms` block uses an `attributes` section to define

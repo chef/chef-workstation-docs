@@ -56,11 +56,11 @@ This argument has the following options:
 
 `-k`, `--prevent-keygen`
 
-:Prevent Chef Infra Server from generating a default key pair for you. Cannot be passed with --user-key.
+:Prevent Chef Infra Server from generating a default key pair for you. Can't be passed with `--user-key`.
 
-`-o ORGNAME` `--orgname ORGNAME`
+`-o ORG_NAME` `--orgname ORG_NAME`
 
-:Associate new user to an organization matching ORGNAME
+:Associate new user to an organization matching `ORG_NAME`
 
 `--first-name FIRST_NAME`
 

@@ -60,13 +60,13 @@ knife exec -E 'puts api.get("/nodes/Example_Node")'
 where `puts` is the shorter version of the `$stdout.puts` predefined
 variable in Ruby.
 
-The following example shows how to add a client named "IBM305RAMAC" and
+The following example shows how to add a client named `EXAMPLE_CLIENT` and
 the `/clients` endpoint, and then return the private key for that user
 in the console:
 
 ```bash
 client_desc = {
-    "name"  => "IBM305RAMAC",
+    "name"  => "EXAMPLE_CLIENT",
     "admin" => false
   }
 

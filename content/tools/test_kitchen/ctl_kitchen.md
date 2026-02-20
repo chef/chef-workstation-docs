@@ -92,11 +92,11 @@ client-centos-65
 ## kitchen converge
 
 Use the `converge` subcommand to converge one (or more) instances.
-Instances are based on the list of platforms in the kitchen.yml file.
+Instances are based on the list of platforms in the `kitchen.yml` file.
 This process will install Chef Infra Client on an instance using the
 Chef installer, upload cookbook files and minimal configuration to the
 instance, and then start a Chef Infra Client run using the run-list and
-attributes specified in the kitchen.yml file.
+attributes specified in the `kitchen.yml` file.
 
 Test Kitchen will skip unnecessary steps. For example, if Chef Infra
 Client is already installed to the instance, Test Kitchen won't
@@ -135,7 +135,7 @@ This subcommand has the following options:
 
 `PLATFORMS`
 
-: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the `kitchen.yml` file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
   {{< readfile file="content/reusable/md/ctl_kitchen_common_option_platforms.md" >}}
 
@@ -261,7 +261,7 @@ output of the command is similar to:
 ## kitchen create
 
 Use the `create` subcommand to create one (or more) instances. Instances
-are based on the list of platforms and suites in the kitchen.yml file.
+are based on the list of platforms and suites in the `kitchen.yml` file.
 
 ### Syntax
 
@@ -285,7 +285,7 @@ This subcommand has the following options:
 
 `PLATFORMS`
 
-: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the `kitchen.yml` file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
     {{< readfile file="content/reusable/md/ctl_kitchen_common_option_platforms.md" >}}
 
@@ -387,7 +387,7 @@ The output of the command is similar to:
 
 Use the `destroy` subcommand to delete one (or more) instances.
 Instances are based on the list of platforms and suites in the
-kitchen.yml file.
+`kitchen.yml` file.
 
 ### Syntax
 
@@ -411,7 +411,7 @@ This subcommand has the following options:
 
 `PLATFORMS`
 
-: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the `kitchen.yml` file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
   {{< readfile file="content/reusable/md/ctl_kitchen_common_option_platforms.md" >}}
 
@@ -456,7 +456,7 @@ This subcommand has the following options:
 
 `PLATFORMS`
 
-: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the `kitchen.yml` file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
   {{< readfile file="content/reusable/md/ctl_kitchen_common_option_platforms.md" >}}
 
@@ -495,7 +495,7 @@ loader:
 **Diagnose an instance using --instances option**
 
 Use the `--instances` option to track instances, which are based on the
-list of platforms and suites in the kitchen.yml file:
+list of platforms and suites in the `kitchen.yml` file:
 
 ```yaml
 ---
@@ -611,7 +611,7 @@ This subcommand has the following options:
 
 `PLATFORMS`
 
-: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the `kitchen.yml` file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
   {{< readfile file="content/reusable/md/ctl_kitchen_common_option_platforms.md" >}}
 
@@ -624,7 +624,7 @@ None.
 Use the `init` subcommand to create an initial Test Kitchen environment,
 including:
 
-- Creating a kitchen.yml file
+- Creating a `kitchen.yml` file
 - Appending Test Kitchen to the RubyGems file, .gitignore, and .thor
 - Creating the `test/integration/default` directory
 
@@ -658,7 +658,7 @@ This subcommand has the following options:
 
 `PLATFORMS`
 
-: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the `kitchen.yml` file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
   {{< readfile file="content/reusable/md/ctl_kitchen_common_option_platforms.md" >}}
 
@@ -687,7 +687,7 @@ Successfully installed kitchen-vagrant-0.12.0
 ## kitchen list
 
 Use the `list` subcommand to view the list of instances. Instances are
-based on the list of platforms in the kitchen.yml file. Test Kitchen
+based on the list of platforms in the `kitchen.yml` file. Test Kitchen
 will auto-name instances by combining a suite name with a platform name.
 For example, if a suite is named `default` and a platform is named
 `ubuntu-18.04`, then the instance would be `default-ubuntu-1804`. This
@@ -715,7 +715,7 @@ This subcommand has the following options:
 
 `PLATFORMS`
 
-: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the `kitchen.yml` file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
   {{< readfile file="content/reusable/md/ctl_kitchen_common_option_platforms.md" >}}
 
@@ -774,7 +774,7 @@ test-centos-8         vagrant  chef_zero     <not created>
 ## kitchen login
 
 Use the `login` subcommand to log in to a single instance. Instances are
-based on the list of platforms and suites in the kitchen.yml file. After
+based on the list of platforms and suites in the `kitchen.yml` file. After
 logging in successfully, the instance can be interacted with just like
 any other virtual machine, including adding or removing packages,
 starting or stopping services, and so on. It's a sandbox. Make any
@@ -798,7 +798,7 @@ This subcommand has the following options:
 
 `PLATFORMS`
 
-: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the `kitchen.yml` file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
   {{< readfile file="content/reusable/md/ctl_kitchen_common_option_platforms.md" >}}
 
@@ -822,7 +822,7 @@ vagrant@default-ubuntu-1804:~$
 ## kitchen setup
 
 Use the `setup` subcommand to set up one (or more) instances. Instances
-are based on the list of platforms in the kitchen.yml file.
+are based on the list of platforms in the `kitchen.yml` file.
 
 ### Syntax
 
@@ -846,7 +846,7 @@ This subcommand has the following options:
 
 `PLATFORMS`
 
-: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the `kitchen.yml` file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
   {{< readfile file="content/reusable/md/ctl_kitchen_common_option_platforms.md" >}}
 
@@ -858,7 +858,7 @@ None.
 
 Use the `test` subcommand to test one (or more) verified instances.
 Instances are based on the list of platforms and suites in the
-kitchen.yml file. This subcommand will create a new instance (cleaning
+`kitchen.yml` file. This subcommand will create a new instance (cleaning
 up a previous instance, if necessary), converge that instance, set up
 the test harness, verify the instance using that test harness, and then
 destroy the instance.
@@ -898,7 +898,7 @@ This subcommand has the following options:
 
 `PLATFORMS`
 
-: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the `kitchen.yml` file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
   {{< readfile file="content/reusable/md/ctl_kitchen_common_option_platforms.md" >}}
 
@@ -995,7 +995,7 @@ kitchen test -c 4
 ## kitchen verify
 
 Use the `verify` subcommand to verify one (or more) instances. Instances
-are based on the list of platforms and suites in the kitchen.yml file.
+are based on the list of platforms and suites in the `kitchen.yml` file.
 
 In general, use the `test` subcommand to verify the end-to-end quality
 of a cookbook. Use the `converge` and `verify` subcommands during the
@@ -1023,7 +1023,7 @@ This subcommand has the following options:
 
 `PLATFORMS`
 
-: Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+: Run Test Kitchen against one or more platforms listed in the `kitchen.yml` file. Use `all` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
     {{< readfile file="content/reusable/md/ctl_kitchen_common_option_platforms.md" >}}
 

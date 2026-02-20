@@ -5,7 +5,7 @@ draft = false
 [menu]
   [menu.tools]
     title = "chef executable"
-    identifier = "toolsctl_chef.md chef (executable)"
+    identifier = "tools_ctl_chef.md chef (executable)"
     parent = "tools"
     weight = 10
 +++
@@ -17,15 +17,14 @@ The chef executable is a command-line tool that does the following:
 - Installs gems into the Chef development environment's Ruby installation.
 - Helps you manage your [Policyfiles](/policyfile/). Please refer the Policyfile commands [section](#policyfile-commands).
 
-
 {{< note >}}
 
-By default, the cookbook cache is located in `~/.chef-workstation` on macOS and Linux, and in `%LOCALAPPDATA%\chef-workstation` on Windows.
-On macOS or Linux, set the desired location of the cache directory by setting the `CHEF_WORKSTATION_HOME`
-environment variable in your `.bashrc` or `zshrc` file. For example, `CHEF_WORKSTATION_HOME="~/.workstation"`.
-On Windows, use the `setx` [command](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/setx)
-or access the [Advanced](https://support.microsoft.com/en-us/topic/how-to-manage-environment-variables-in-windows-xp-5bf6725b-655e-151c-0b55-9a8c9c7f747d)
-tab in System Properties to set the `CHEF_WORKSTATION_HOME` environment variable.
+The default cookbook cache location is `~/.chef-workstation` on macOS and Linux, and `%LOCALAPPDATA%\chef-workstation` on Windows.
+
+To use a different cache location, set the `CHEF_WORKSTATION_HOME` environment variable:
+
+- **macOS and Linux**: Add `CHEF_WORKSTATION_HOME="~/.workstation"` (or your preferred path) to your `.bashrc` or `.zshrc` file.
+- **Windows**: Use the [`setx` command](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/setx) or set the variable through the [Advanced tab in System Properties](https://support.microsoft.com/en-us/topic/how-to-manage-environment-variables-in-windows-xp-5bf6725b-655e-151c-0b55-9a8c9c7f747d).
 
 {{< /note >}}
 
@@ -1132,7 +1131,7 @@ None.
 
 {{< readfile file="content/reusable/md/ctl_chef_diff_current_lock_latest_branch.md" >}}
 
-**Compare current lock with latest commit on master branch**
+**Compare current lock with latest commit on main branch**
 
 {{< readfile file="content/reusable/md/ctl_chef_diff_current_lock_master_branch.md" >}}
 
@@ -1140,11 +1139,11 @@ None.
 
 {{< readfile file="content/reusable/md/ctl_chef_diff_current_lock_specified_revision.md" >}}
 
-**Compare lock on master branch to lock on revision**
+**Compare lock on main branch to lock on revision**
 
 {{< readfile file="content/reusable/md/ctl_chef_diff_master_lock_revision_lock.md" >}}
 
-**Compare lock for version with latest commit on master branch**
+**Compare lock for version with latest commit on main branch**
 
 {{< readfile file="content/reusable/md/ctl_chef_diff_version_lock_master_branch.md" >}}
 

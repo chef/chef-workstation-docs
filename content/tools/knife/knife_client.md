@@ -104,11 +104,11 @@ The following examples show how to use this knife subcommand:
 
 To create a Chef Infra Client that can access the Chef Infra Server API
 as an administrator---sometimes referred to as an "API Chef Infra
-Client"---with the name "exampleorg" and save its private key to a file,
+Client"---with the name `example_org` and save its private key to a file,
 enter:
 
 ```bash
-knife client create exampleorg -a -f "/etc/chef/client.pem"
+knife client create example_org -a -f "/etc/chef/client.pem"
 ```
 
 ## delete
@@ -409,11 +409,11 @@ The following examples show how to use this knife subcommand:
 
 **Re-register a client**
 
-To re-register the RSA key pair for a client named "testclient" and save
-it to a file named "rsa_key", enter:
+To re-register the RSA key pair for a client named `test_client` and save
+it to a file named `rsa_key`, enter:
 
 ```bash
-knife client reregister testclient -f rsa_key
+knife client reregister test_client -f rsa_key
 ```
 
 ## show

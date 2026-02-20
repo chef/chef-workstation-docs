@@ -93,9 +93,9 @@ Using this argument does the following:
 2. All existing versions of a cookbook are removed from the branch.
 3. The cookbook is downloaded from Chef Supermarket in the tar.gz format.
 4. The downloaded cookbook is untarred and its contents are committed to git and a tag is created.
-5. The "pristine copy" branch is merged into the master branch.
+5. The "pristine copy" branch is merged into the default branch.
 
-This process allows the upstream cookbook in the master branch to be
+This process allows the upstream cookbook in the default branch to be
 modified while letting git maintain changes as a separate patch. When an
 updated upstream version becomes available, those changes can be merged
 while maintaining any local modifications.
