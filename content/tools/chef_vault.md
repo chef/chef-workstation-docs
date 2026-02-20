@@ -6,8 +6,8 @@ draft = false
 
 [menu]
   [menu.tools]
-    title = "chef-vault (executable)"
-    identifier = "tools/chef_vault.md chef-vault (executable)"
+    title = "chef-vault executable"
+    identifier = "tools/chef_vault.md chef-vault executable"
     parent = "tools"
     weight = 50
 +++
@@ -23,7 +23,7 @@ Chef Vault doesn't currently support alternate keying mechanisms like GPG and Am
 
 {{< warning >}}
 
-To use Chef Vault, Chef Infra Client must be configured to use public/private key pairs. Chef Vault is incompatible with the practice of using Chef Infra Client with a private key, such as `client.pem`, and a certificate set as its public identity in the Chef Infra Server database. To update existing nodes to use `chef-vault`, first re-register your Chef Infra Client nodes with Chef Infra Server which will generate public/private key pairs, and then install Chef Vault on each node. If Chef Vault is used with a Chef Infra Client instance that has a private key, such as `client.pem`, and a certificate set as its public identity in the Chef Infra Server database, Chef Vault will generate the following error:
+To use Chef Vault, Chef Infra Client must be configured to use public and private key pairs. Chef Vault is incompatible with the practice of using Chef Infra Client with a private key, such as `client.pem`, and a certificate set as its public identity in the Chef Infra Server database. To update existing nodes to use `chef-vault`, first re-register your Chef Infra Client nodes with Chef Infra Server which will generate public/private key pairs, and then install Chef Vault on each node. If Chef Vault is used with a Chef Infra Client instance that has a private key, such as `client.pem`, and a certificate set as its public identity in the Chef Infra Server database, Chef Vault generates the following error:
 
 ```text
 ## OpenSSL::PKey::RSAError
@@ -34,7 +34,7 @@ Neither PUB key nor PRIV key:: nested asn1 error
 
 ## Configuring config.rb for Chef Vault
 
-To set 'client' as the default mode, add the following line to the `config.rb` file.
+To set `client` as the default mode, add the following line to the `config.rb` file.
 
 ```shell
 knife[:vault_mode] = 'client'
@@ -48,7 +48,7 @@ knife[:vault_admins] = [ 'example-alice', 'example-bob', 'example-carol' ]
 
 (These values can be overridden on the command line by using `-A`)
 
-## `knife vault`
+## Knife Vault CLI
 
 ### Syntax
 
@@ -58,30 +58,450 @@ knife vault SUBCOMMAND VAULT ITEM VALUES
 
 where:
 
-- `vault` names the location for storing the encrypted item.
-- `item` names the item stored in the vault.
-- `values` contains the data that will be encrypted and stored in the
+- `VAULT` names the location for storing the encrypted item.
+- `ITEM` names the item stored in the vault.
+- `VALUES` contains the data that will be encrypted and stored in the
  vault.
 
-### Vault Commands
+### Subcommands
+
+#### create
+
+The `create` subcommand has the following syntax:
+
+```bash
+knife vault create VAULT ITEM VALUES (options)
+```
+
+For example:
+
+Create a vault called passwords and put an item called `root` in it with the given values for `username` and `password` encrypted for clients `role:webserver`, `client1` and `client2` and admins `admin1` and `admin2`:
+
+```bash
+knife vault create passwords root '{"username": "root", "password": "password_string"}' -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
+```
+
+Create a vault called passwords and put an item called `root` in it with the given values for `username` and `password` encrypted for clients `role:webserver` and admins, `admin1` and `admin2`:
 
 ```shell
-knife vault create VAULT ITEM VALUES (options)
+knife vault create passwords root '{"username": "root", "password": "password_string"}' -S "role:webserver" -A "admin1,admin2"
+```
+
+Create a vault called passwords and put an item called `root` in it with the given values for `username` and `password` encrypted for clients `role:webserver`, `client1`  and `client2`:
+
+```shell
+knife vault create passwords root '{"username": "root", "password": "password_string"}' -S "role:webserver" -C "client1,client2"
+```
+
+Create a vault called passwords and put an item called `root` in it with the given values for `username` and `password` encrypted for clients `role:webserver`
+
+```shell
+knife vault create passwords root '{"username": "root", "password": "password_string"}' -S "role:webserver"
+```
+
+Create a vault called passwords and put an item called `root` in it with the given values for `username` and `password` encrypted for clients, `client1` and `client2`
+
+```shell
+knife vault create passwords root '{"username": "root", "password": "password_string"}' -C "client1,client2"
+```
+
+Create a vault called passwords and put an item called `root` in it with the given values for `username` and `password` encrypted for admins, `admin1` and `admin2`
+
+```shell
+knife vault create passwords root '{"username": "root", "password": "password_string"}' -A "admin1,admin2"
+```
+
+Create a vault called passwords and put an item called `root` in it encrypted for admins, `admin1` and `admin2`. *Leaving the data off the command-line will open an editor to fill out the data*
+
+```shell
+knife vault create passwords root -A "admin1,admin2"
+```
+
+{{< note >}}
+
+A JSON file can be used in place of specifying the values on the command line, see global options below for details
+
+{{< /note >}}
+
+#### delete
+
+This subcommand has the following syntax:
+
+```sh
 knife vault delete VAULT ITEM (options)
+```
+
+For example:
+
+Delete the item root from the passwords vault.
+
+```shell
+knife vault delete passwords root
+```
+
+#### download
+
+This subcommand has the following syntax:
+
+```sh
 knife vault download VAULT ITEM PATH (options)
+```
+
+For example:
+
+Decrypt and download an encrypted file to the specified path.
+
+```shell
+knife vault download certs user_pem ~/downloaded_user_pem
+```
+
+#### edit
+
+This subcommand has the following syntax:
+
+```sh
 knife vault edit VAULT ITEM (options)
+```
+
+For example:
+
+Decrypt the entire root item in the passwords vault and open it in json format in your \$EDITOR. Writing and exiting out the editor will save and encrypt the vault item.
+
+```shell
+knife vault edit passwords root
+```
+
+#### isvault
+
+This subcommand has the following syntax:
+
+```sh
 knife vault isvault VAULT ITEM (options)
+```
+
+For example:
+
+This command checks if the given item is a vault or not, and exit with a status of 0 if it's and 1 if it isn't.
+
+```shell
+knife vault isvault VAULT ITEM
+```
+
+#### itemtype
+
+This subcommand has the following syntax:
+
+```sh
 knife vault itemtype VAULT ITEM (options)
+```
+
+For example:
+
+This command outputs the type of the data bag item: normal, encrypted or vault
+
+```shell
+knife vault itemtype VAULT ITEM
+```
+
+#### list
+
+List data bags on Chef Infra Server.
+
+```bash
 knife vault list (options)
+```
+
+#### refresh
+
+This subcommand has the following syntax:
+
+```sh
 knife vault refresh VAULT ITEM
+```
+
+For example:
+
+This command reads the search_query stored in the vault item, re-executes the search, and refreshes access for all nodes that match the updated query results.
+
+Note: This operation doesn't update or re-encrypt credentials for admin users. To update an admin's credentials, use the [`knife vault update`](#update) command.
+
+```shell
+knife vault refresh VAULT ITEM
+```
+
+To remove clients which have been deleted from Chef but not from the vault, add the `--clean-unknown-clients` switch:
+
+```shell
+knife vault refresh passwords root --clean-unknown-clients
+```
+
+#### remove
+
+This subcommand has the following syntax:
+
+```sh
 knife vault remove VAULT ITEM VALUES (options)
+```
+
+For example:
+
+Remove the values in `username` and `password` from the vault passwords and item root.
+
+```shell
+knife vault remove passwords root '{"username": "root", "password": "password_string"}'
+```
+
+Remove the values in `username` and `password` from the vault passwords and item root and remove role:webserver, `client1` and `client2` from the encrypted clients and `admin1` and `admin2` from the encrypted admins.
+
+```shell
+knife vault remove passwords root '{"username": "root", "password": "password_string"}' -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
+```
+
+Remove the values in `username` and `password` from the vault passwords and item root and remove role:webserver from the encrypted clients and `admin1` and `admin2` from the encrypted admins.
+
+```shell
+knife vault remove passwords root '{"username": "root", "password": "password_string"}' -S "role:webserver" -A "admin1,admin2"
+```
+
+Remove the values in `username` and `password` from the vault passwords and item root and remove `client1` and `client2` from the encrypted clients and `admin1` and `admin2` from the encrypted admins.
+
+```shell
+knife vault remove passwords root '{"username": "root", "password": "password_string"}' -C "client1,client2" -A "admin1,admin2"
+```
+
+Remove the values in `username` and `password` from the vault passwords and item root and remove role:webserver from the encrypted clients.
+
+```shell
+knife vault remove passwords root '{"username": "root", "password": "password_string"}' -S "role:webserver"
+```
+
+Remove the values in `username` and `password` from the vault passwords and item root and remove `client1` and `client2` from the encrypted clients.
+
+```shell
+knife vault remove passwords root '{"username": "root", "password": "password_string"}' -C "client1,client2"
+```
+
+Remove the values in `username` and `password` from the vault passwords and item root and remove `admin1` and `admin2` from the encrypted admins.
+
+```shell
+knife vault remove passwords root '{"username": "root", "password": "password_string"}' -A "admin1,admin2"
+```
+
+Remove `admin1` and `admin2` from encrypted admins and role:webserver, `client1` and `client2` from encrypted clients for the vault passwords and item root.
+
+```shell
+knife vault remove passwords root -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
+```
+
+Remove `admin1` and `admin2` from encrypted admins and role:webserver from encrypted clients for the vault passwords and item root.
+
+```shell
+knife vault remove passwords root -S "role:webserver" -A "admin1,admin2"
+```
+
+Remove role:webserver from encrypted clients for the vault passwords and item root.
+
+```shell
+knife vault remove passwords root -S "role:webserver"
+```
+
+Remove `client1` and `client2` from encrypted clients for the vault passwords and item root.
+
+```shell
+knife vault remove passwords root -C "client1,client2"
+```
+
+Remove `admin1` and `admin2` from encrypted admins for the vault passwords and item root.
+
+```shell
+knife vault remove passwords root -A "admin1,admin2"
+```
+
+#### rotate all keys
+
+This subcommand has the following syntax:
+
+```sh
 knife vault rotate all keys
+```
+
+For example:
+
+Rotate the shared key for all vaults and items. The shared key is that which is used for the chef encrypted data bag item.
+
+```shell
+knife vault rotate all keys
+```
+
+Removes clients which have been deleted from Chef but not from the vault.
+
+```shell
+knife vault rotate keys passwords root --clean-unknown-clients
+```
+
+#### rotate keys
+
+This subcommand has the following syntax:
+
+```sh
 knife vault rotate keys VAULT ITEM (options)
+```
+
+For example:
+
+Rotate the shared key for the vault passwords and item root. The shared key is that which is used for the chef encrypted data bag item.
+
+```shell
+knife vault rotate keys passwords root
+```
+
+To remove clients which have been deleted from Chef but not from the vault, add the `--clean-unknown-clients` switch:
+
+```shell
+knife vault rotate keys passwords root --clean-unknown-clients
+```
+
+#### show
+
+This subcommand has the following syntax:
+
+```sh
 knife vault show VAULT [ITEM] [VALUES] (options)
+```
+
+For example:
+
+Show the items in a vault.
+
+```shell
+knife vault show passwords
+```
+
+Show the entire root item in the passwords vault and print in JSON format.
+
+```shell
+knife vault show passwords root -Fjson
+```
+
+Show the entire root item in the passwords vault and print in JSON format, including the search query, clients, and admins.
+
+```shell
+knife vault show passwords root -Fjson -p all
+```
+
+Show the `username` and `password` for the item root in the vault passwords.
+
+```shell
+knife vault show passwords root "username, password"
+```
+
+Show the contents for the item user_pem in the vault certs.
+
+```shell
+knife vault show certs user_pem "contents"
+```
+
+#### update
+
+This subcommand has the following syntax:
+
+```sh
 knife vault update VAULT ITEM VALUES (options)
 ```
 
-### Vault Common Options
+{{< warning >}}
+
+This subcommand overwrites existing values.
+
+{{< /warning >}}
+
+For example:
+
+Update the values in `username` and `password` in the vault passwords and item root.
+
+```shell
+knife vault update passwords root '{"username": "root", "password": "password_string"}'
+```
+
+Update the values in `username` and `password` in the vault passwords and item root and add `role:webserver`, `client1` and `client2` to the encrypted clients and `admin1` and `admin2` to the encrypted admins.
+
+```shell
+knife vault update passwords root '{"username": "root", "password": "password_string"}' -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
+```
+
+Update the values in `username` and `password` in the vault passwords and item root and add `role:webserver` to the encrypted clients and `admin1` and `admin2` to the encrypted admins.
+
+```shell
+knife vault update passwords root '{"username": "root", "password": "password_string"}' -S "role:webserver" -A "admin1,admin2"
+```
+
+Update the values in `username` and `password` in the vault passwords and
+item root and add `role:webserver` to the encrypted clients. Will
+overwrite existing values if values already exist!
+
+```shell
+knife vault update passwords root '{"username": "root", "password": "password_string"}' -S "role:webserver"
+```
+
+Update the values in `username` and `password` in the vault passwords and
+item root and add `client1` and `client2` to the encrypted clients. Will
+overwrite existing values if values already exist!
+
+```shell
+knife vault update passwords root '{"username": "root", "password": "password_string"}' -C "client1,client2"
+```
+
+Update the values in `username` and `password` in the vault passwords and
+item root and add `admin1` and `admin2` to the encrypted admins. Will
+overwrite existing values if values already exist!
+
+```shell
+knife vault update passwords root '{"username": "root", "password": "password_string"}' -A "admin1,admin2"
+```
+
+add `role:webserver` to encrypted clients for the vault passwords and item root.
+
+```shell
+knife vault update passwords root -S "role:webserver"
+```
+
+Add `client1` and `client2` to encrypted clients for the vault passwords and item root.
+
+```shell
+knife vault update passwords root -C "client1,client2"
+```
+
+Add `admin1` and `admin2` to encrypted admins for the vault passwords and item root.
+
+```shell
+knife vault update passwords root -A "admin1,admin2"
+```
+
+Add `admin1` and `admin2` to encrypted admins and role:webserver, client1 & client2 to encrypted clients for the vault passwords and item root.
+
+```shell
+knife vault update passwords root -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
+```
+
+Add `admin1` and `admin2` to encrypted admins and role:webserver to encrypted clients for the vault passwords and item root.
+
+```shell
+knife vault update passwords root -S "role:webserver" -A "admin1,admin2"
+```
+
+Add `admin1` and `admin2` to encrypted admins and `client1` and `client2` to encrypted clients for the vault passwords and item root.
+
+```shell
+knife vault update passwords root -C "client1,client2" -A "admin1,admin2"
+```
+
+{{< note >}}
+
+A JSON file can be used in place of specifying the values on the command line, see global options below for details
+
+{{< /note >}}
+
+### Common options
 
 `-A`, `--admins ADMINS`
 
@@ -195,330 +615,6 @@ knife vault update VAULT ITEM VALUES (options)
 
 : Show this message
 
-### Example Commands
-
-#### `create`
-
-Create a vault called passwords and put an item called `root` in it with the given values for `username` and `password` encrypted for clients `role:webserver`, `client1` and `client2` and admins `admin1` and `admin2`:
-
-```bash
-knife vault create passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
-```
-
-Create a vault called passwords and put an item called `root` in it with the given values for `username` and `password` encrypted for clients `role:webserver` and admins, `admin1` and `admin2`:
-
-```shell
-knife vault create passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver" -A "admin1,admin2"
-```
-
-Create a vault called passwords and put an item called `root` in it with the given values for `username` and `password` encrypted for clients `role:webserver`, `client1`  and `client2`:
-
-```shell
-knife vault create passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver" -C "client1,client2"
-```
-
-Create a vault called passwords and put an item called `root` in it with the given values for `username` and `password` encrypted for clients `role:webserver`
-
-```shell
-knife vault create passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver"
-```
-
-Create a vault called passwords and put an item called `root` in it with the given values for `username` and `password` encrypted for clients, `client1` and `client2`
-
-```shell
-knife vault create passwords root '{"username": "root", "password": "mypassword"}' -C "client1,client2"
-```
-
-Create a vault called passwords and put an item called `root` in it with the given values for `username` and `password` encrypted for admins, `admin1` and `admin2`
-
-```shell
-knife vault create passwords root '{"username": "root", "password": "mypassword"}' -A "admin1,admin2"
-```
-
-Create a vault called passwords and put an item called `root` in it encrypted for admins, `admin1` and `admin2`. *Leaving the data off the command-line will open an editor to fill out the data*
-
-```shell
-knife vault create passwords root -A "admin1,admin2"
-```
-
-{{< note >}}
-
-A JSON file can be used in place of specifying the values on the command line, see global options below for details
-
-{{< /note >}}
-
-#### `update`
-
-Update the values in `username` and `password` in the vault passwords and item root. Will overwrite existing values if values already exist!
-
-```shell
-knife vault update passwords root '{"username": "root", "password": "mypassword"}'
-```
-
-Update the values in `username` and `password` in the vault passwords and item root and add `role:webserver`, `client1` and `client2` to the encrypted clients and `admin1` and `admin2` to the encrypted admins. Will overwrite existing values if values already exist!
-
-```shell
-knife vault update passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
-```
-
-Update the values in `username` and `password` in the vault passwords and item root and add `role:webserver` to the encrypted clients and `admin1` and `admin2` to the encrypted admins. Will overwrite existing values if values already exist!
-
-```shell
-knife vault update passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver" -A "admin1,admin2"
-```
-
-Update the values in `username` and `password` in the vault passwords and
-item root and add `role:webserver` to the encrypted clients. Will
-overwrite existing values if values already exist!
-
-```shell
-knife vault update passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver"
-```
-
-Update the values in `username` and `password` in the vault passwords and
-item root and add `client1` and `client2` to the encrypted clients. Will
-overwrite existing values if values already exist!
-
-```shell
-knife vault update passwords root '{"username": "root", "password": "mypassword"}' -C "client1,client2"
-```
-
-Update the values in `username` and `password` in the vault passwords and
-item root and add `admin1` and `admin2` to the encrypted admins. Will
-overwrite existing values if values already exist!
-
-```shell
-knife vault update passwords root '{"username": "root", "password": "mypassword"}' -A "admin1,admin2"
-```
-
-add `role:webserver` to encrypted clients for the vault passwords and item root.
-
-```shell
-knife vault update passwords root -S "role:webserver"
-```
-
-Add `client1` and `client2` to encrypted clients for the vault passwords and item root.
-
-```shell
-knife vault update passwords root -C "client1,client2"
-```
-
-Add `admin1` and `admin2` to encrypted admins for the vault passwords and item root.
-
-```shell
-knife vault update passwords root -A "admin1,admin2"
-```
-
-Add `admin1` and `admin2` to encrypted admins and role:webserver, client1 & client2 to encrypted clients for the vault passwords and item root.
-
-```shell
-knife vault update passwords root -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
-```
-
-Add `admin1` and `admin2` to encrypted admins and role:webserver to encrypted clients for the vault passwords and item root.
-
-```shell
-knife vault update passwords root -S "role:webserver" -A "admin1,admin2"
-```
-
-Add `admin1` and `admin2` to encrypted admins and `client1` and `client2` to encrypted clients for the vault passwords and item root.
-
-```shell
-knife vault update passwords root -C "client1,client2" -A "admin1,admin2"
-```
-
-..Note:: A JSON file can be used in place of specifying the values on the command line, see global options below for details
-
-#### `remove`
-
-Remove the values in `username` and `password` from the vault passwords and item root.
-
-```shell
-knife vault remove passwords root '{"username": "root", "password": "mypassword"}'
-```
-
-Remove the values in `username` and `password` from the vault passwords and item root and remove role:webserver, `client1` and `client2` from the encrypted clients and `admin1` and `admin2` from the encrypted admins.
-
-```shell
-knife vault remove passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
-```
-
-Remove the values in `username` and `password` from the vault passwords and item root and remove role:webserver from the encrypted clients and `admin1` and `admin2` from the encrypted admins.
-
-```shell
-knife vault remove passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver" -A "admin1,admin2"
-```
-
-Remove the values in `username` and `password` from the vault passwords and item root and remove `client1` and `client2` from the encrypted clients and `admin1` and `admin2` from the encrypted admins.
-
-```shell
-knife vault remove passwords root '{"username": "root", "password": "mypassword"}' -C "client1,client2" -A "admin1,admin2"
-```
-
-Remove the values in `username` and `password` from the vault passwords and item root and remove role:webserver from the encrypted clients.
-
-```shell
-knife vault remove passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver"
-```
-
-Remove the values in `username` and `password` from the vault passwords and item root and remove `client1` and `client2` from the encrypted clients.
-
-```shell
-knife vault remove passwords root '{"username": "root", "password": "mypassword"}' -C "client1,client2"
-```
-
-Remove the values in `username` and `password` from the vault passwords and item root and remove `admin1` and `admin2` from the encrypted admins.
-
-```shell
-knife vault remove passwords root '{"username": "root", "password": "mypassword"}' -A "admin1,admin2"
-```
-
-Remove `admin1` and `admin2` from encrypted admins and role:webserver, `client1` and `client2` from encrypted clients for the vault passwords and item root.
-
-```shell
-knife vault remove passwords root -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
-```
-
-Remove `admin1` and `admin2` from encrypted admins and role:webserver from encrypted clients for the vault passwords and item root.
-
-```shell
-knife vault remove passwords root -S "role:webserver" -A "admin1,admin2"
-```
-
-Remove role:webserver from encrypted clients for the vault passwords and item root.
-
-```shell
-knife vault remove passwords root -S "role:webserver"
-```
-
-Remove `client1` and `client2` from encrypted clients for the vault passwords and item root.
-
-```shell
-knife vault remove passwords root -C "client1,client2"
-```
-
-Remove `admin1` and `admin2` from encrypted admins for the vault passwords and item root.
-
-```shell
-knife vault remove passwords root -A "admin1,admin2"
-```
-
-#### `delete`
-
-Delete the item root from the vault passwords
-
-```shell
-knife vault delete passwords root
-```
-
-#### `show`
-
-Show the items in a vault.
-
-```shell
-knife vault show passwords
-```
-
-Show the entire root item in the passwords vault and print in JSON format.
-
-```shell
-knife vault show passwords root -Fjson
-```
-
-Show the entire root item in the passwords vault and print in JSON format, including the search query, clients, and admins.
-
-```shell
-knife vault show passwords root -Fjson -p all
-```
-
-Show the `username` and `password` for the item root in the vault passwords.
-
-```shell
-knife vault show passwords root "username, password"
-```
-
-Show the contents for the item user_pem in the vault certs.
-
-```shell
-knife vault show certs user_pem "contents"
-```
-
-#### `edit`
-
-Decrypt the entire root item in the passwords vault and open it in json format in your \$EDITOR. Writing and exiting out the editor will save and encrypt the vault item.
-
-```shell
-knife vault edit passwords root
-```
-
-#### `download`
-
-Decrypt and download an encrypted file to the specified path.
-
-```shell
-knife vault download certs user_pem ~/downloaded_user_pem
-```
-
-#### `rotate keys`
-
-Rotate the shared key for the vault passwords and item root. The shared key is that which is used for the chef encrypted data bag item.
-
-```shell
-knife vault rotate keys passwords root
-```
-
-To remove clients which have been deleted from Chef but not from the vault, add the `--clean-unknown-clients` switch:
-
-```shell
-knife vault rotate keys passwords root --clean-unknown-clients
-```
-
-#### `rotate all keys`
-
-Rotate the shared key for all vaults and items. The shared key is that which is used for the chef encrypted data bag item.
-
-```shell
-knife vault rotate all keys
-```
-
-Removes clients which have been deleted from Chef but not from the vault.
-
-```shell
-knife vault rotate keys passwords root --clean-unknown-clients
-```
-
-#### `refresh`
-
-This command reads the search_query stored in the vault item, re-executes the search, and refreshes access for all nodes that match the updated query results.
-
-Note: This operation doesn't update or re-encrypt credentials for admin users. To update an admin's credentials, use the [`knife vault update`](#update) command.
-
-```shell
-knife vault refresh VAULT ITEM
-```
-
-To remove clients which have been deleted from Chef but not from the vault, add the `--clean-unknown-clients` switch:
-
-```shell
-knife vault refresh passwords root --clean-unknown-clients
-```
-
-#### `isvault`
-
-This command checks if the given item is a vault or not, and exit with a status of 0 if it's and 1 if it isn't.
-
-```shell
-knife vault isvault VAULT ITEM
-```
-
-#### `itemtype`
-
-This command outputs the type of the data bag item: normal, encrypted or vault
-
-```shell
-knife vault itemtype VAULT ITEM
-```
-
 ### Global options
 
 `-M MODE`
@@ -599,7 +695,7 @@ knife vault itemtype VAULT ITEM
 
   Sub-commands: `refresh`, `remove`, `rotate`
 
-### Options for knife bootstrap
+### Knife bootstrap options
 
 Use the following options with a validatorless bootstrap to specify items that are stored in Chef Vault:
 

@@ -2,8 +2,6 @@
 title = "ChefSpec"
 draft = false
 
-
-
 [menu]
   [menu.tools]
     title = "ChefSpec"
@@ -30,7 +28,7 @@ ChefSpec is packaged as part of Chef Workstation. To run ChefSpec:
 chef exec rspec
 ```
 
-## Unit Tests
+## Unit tests
 
 RSpec is a behavior-driven development (BDD) framework that uses a natural language domain-specific language (DSL) to describe scenarios in which systems are being tested. RSpec allows a scenario to be set up, and then executed. The results are compared to a set of defined expectations.
 

@@ -1,13 +1,13 @@
 +++
-title = "chef-shell (executable)"
+title = "chef-shell executable"
 draft = false
 
 
 
 [menu]
   [menu.tools]
-    title = "chef-shell (executable)"
-    identifier = "tools/chef_shell.md chef-shell (executable)"
+    title = "chef-shell executable"
+    identifier = "tools/chef_shell.md chef-shell executable"
     parent = "tools"
     weight = 40
 +++

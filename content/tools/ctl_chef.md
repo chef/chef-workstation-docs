@@ -1,11 +1,11 @@
 +++
-title = "chef (executable)"
+title = "chef executable"
 draft = false
 
 [menu]
   [menu.tools]
     title = "chef executable"
-    identifier = "tools_ctl_chef.md chef (executable)"
+    identifier = "tools_ctl_chef.md chef executable"
     parent = "tools"
     weight = 10
 +++

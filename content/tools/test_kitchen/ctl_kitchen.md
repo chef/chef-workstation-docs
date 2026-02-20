@@ -1,13 +1,13 @@
 +++
-title = "kitchen (executable)"
+title = "kitchen executable"
 draft = false
 
 
 
 [menu]
   [menu.tools]
-    title = "kitchen (executable)"
-    identifier = "tools/test_kitchen/ctl_kitchen.md kitchen (executable)"
+    title = "kitchen executable"
+    identifier = "tools/test_kitchen/ctl_kitchen.md kitchen executable"
     parent = "tools/test_kitchen"
     weight = 20
 +++
