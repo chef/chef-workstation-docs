@@ -688,7 +688,7 @@ Successfully installed kitchen-vagrant-0.12.0
 
 Use the `list` subcommand to view the list of instances. Instances are
 based on the list of platforms in the `kitchen.yml` file. Test Kitchen
-will auto-name instances by combining a suite name with a platform name.
+will autoname instances by combining a suite name with a platform name.
 For example, if a suite is named `default` and a platform is named
 `ubuntu-18.04`, then the instance would be `default-ubuntu-1804`. This
 ensures that Test Kitchen instances have safe DNS and hostname records.
@@ -707,7 +707,7 @@ This subcommand has the following options:
 
 `-b`, `--bare`
 
-: Print the name of each instance, one instance per line. Default: `false`.
+: Print the name of each instance, one instance for each line. Default: `false`.
 
 `-l`, `--log-level`
 

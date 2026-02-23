@@ -460,7 +460,7 @@ The following list describes  the optional settings that can be added to the con
 
 `knife[:yes]`
 
-: Respond to all confirmation prompts with "Yes".
+: Respond to all confirmation prompts with `Yes`.
 
 ## By Subcommand
 

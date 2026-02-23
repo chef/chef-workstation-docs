@@ -1,5 +1,4 @@
-To edit an item named "charlie" that's contained in a data bag named
-"admins", enter:
+To edit an item named "charlie" that's contained in a data bag named `admins`, enter:
 
 ```bash
 knife data bag edit admins charlie

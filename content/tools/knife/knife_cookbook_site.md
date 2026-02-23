@@ -11,6 +11,7 @@ draft = false
     parent = "tools/knife"
 +++
 <!-- markdownlint-disable-file MD024 MD036 -->
+<!-- vale chef.inclusive = NO -->
 
 {{< readfile file="/content/reusable/md/supermarket_api_summary.md" >}}
 

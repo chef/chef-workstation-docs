@@ -11,6 +11,7 @@ draft = false
     parent = "tools/knife"
 +++
 <!-- markdownlint-disable-file MD024 MD036 -->
+<!-- vale chef.inclusive = NO -->
 
 The `knife supermarket` subcommand is used to interact with cookbooks
 that are located in on the public Supermarket as well as private Chef

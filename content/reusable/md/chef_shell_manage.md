@@ -26,8 +26,7 @@ Where:
     `nodes`, `roles`, `environments` or a data bag.
 - `command` is the command: `list`, `show`, `find`, or `edit`.
 
-For example, to list all of the nodes in a configuration named
-"preprod", enter:
+For example, to list all of the nodes in a configuration named `preprod`, enter:
 
 ```bash
 chef (preprod) > nodes.list

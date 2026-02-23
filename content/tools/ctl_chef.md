@@ -10,6 +10,7 @@ draft = false
     weight = 10
 +++
 <!-- markdownlint-disable-file MD024 MD036-->
+<!-- vale chef.policyfile = NO -->
 
 The chef executable is a command-line tool that does the following:
 

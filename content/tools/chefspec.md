@@ -61,7 +61,7 @@ where:
 
 #### context
 
-RSpec-based tests may contain `context` blocks. Use `context` blocks within `describe` blocks to define "tests within tests". Each `context` block is tested individually. All `context` blocks within a `describe` block must be true for the test to pass. For example:
+RSpec-based tests may contain `context` blocks. Use `context` blocks within `describe` blocks to define tests within tests. Each `context` block is tested individually, and all `context` blocks within a `describe` block must pass for the overall test to pass. For example:
 
 ```ruby
 describe 'math' do
@@ -79,7 +79,9 @@ describe 'math' do
 end
 ```
 
-where each `context` block describes a different testing scenario: "The sum of one plus one to equal two, and also the sum of two plus two to equal four." A `context` block is useful to handle platform-specific scenarios. For example, "When on platform A, test for foo; when on platform B, test for bar." For example:
+In this example, each `context` block describes a different testing scenario: the sum of one plus one equals two, and the sum of two plus two equals four. `context` blocks are also useful for handling platform-specific scenarios---for example, "When on platform A, test for foo; when on platform B, test for bar."
+
+The following example uses `context` blocks to test the same scenario across different platforms:
 
 ```ruby
 describe 'cookbook_name::recipe_name' do

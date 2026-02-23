@@ -293,7 +293,7 @@ This argument has the following options:
 
 `-t`, `--tcp-endpoints PORT_LIST`
 
-: Comma-separated list of TCP ports to open e.g. '80,433'
+: Comma-separated list of TCP ports to open. For example, `80,433`
 
 `--thumbprint THUMBPRINT`
 

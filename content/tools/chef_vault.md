@@ -709,7 +709,8 @@ Use the following options with a validatorless bootstrap to specify items that a
 
 `--bootstrap-vault-json VAULT_JSON`
 
-: A JSON string that contains a list of vaults and items to be updated. --bootstrap-vault-json '{ "vault1": \["item1", "item2"\], "vault2": "item2" }'
+: A JSON string that contains a list of vaults and items to be updated.
+  For example, `--bootstrap-vault-json '{ "vault1": \["item1", "item2"\], "vault2": "item2" }'`
 
 ## Using Chef Vault in recipes
 
