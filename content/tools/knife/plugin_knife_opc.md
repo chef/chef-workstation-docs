@@ -31,16 +31,16 @@ Unlike other knife subcommands the subcommands in the knife-opc plugin make API 
 Typically the `chef_server_url` for your Chef Infra Server installation may look like this:
 
 ```ruby
-chef_server_url 'https://chef.yourdomain.com/organizations/ORG_NAME'
+chef_server_url 'https://chef.example.com/organizations/ORG_NAME'
 ```
 
 To configure knife-opc, set the `chef_server_root` option to the root of your Chef Infra Server installation:
 
 ```ruby
-chef_server_root 'https://chef.yourdomain.com/'
+chef_server_root 'https://chef.example.com/'
 ```
 
-If your `chef_server_url` configuration ends with `/organizations/ORG_NAME` (as shown above), this setting will default to `https://chef.yourdomain.com/`.
+If your `chef_server_url` configuration ends with `/organizations/ORG_NAME` (as shown above), this setting will default to `https://chef.example.com/`.
 
 {{< note >}}
 
