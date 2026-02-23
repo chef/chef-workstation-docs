@@ -26,10 +26,10 @@ chef-repo and Chef Infra Server. knife helps users to manage:
 
 See the following guides to setup and configure Knife:
 
-- **[Set up Knife](/knife_setup/)**: Configure knife to interact with your organization's Chef Infra Server and infrastructure.
-- **[Knife Common Options](/knife_options/)**: Common options that are available for all knife subcommands.
-- **[config.rb](/config_rb/)**: Common options for the `config.rb` file
-- **[config.rb optional settings](/config_rb_optional_settings/)**: Additional options for your `config.rb` file
+- **[Set up Knife](/tools/knife/knife_setup/)**: Configure knife to interact with your organization's Chef Infra Server and infrastructure.
+- **[Knife Common Options](/tools/knife/common_options/)**: Common options that are available for all knife subcommands.
+- **[config.rb](/tools/knife/config_rb/)**: Common options for the `config.rb` file
+- **[config.rb optional settings](tools/knife/config_rb_optional_settings/)**: Additional options for your `config.rb` file
 
 ## Knife subcommands
 
@@ -63,35 +63,35 @@ organization.
 
 | Subcommand | Description |
 | --- | --- |
-| [knife_bootstrap](/knife_bootstrap/) | {{< readfile file="content/reusable/md/knife_bootstrap_summary.md" >}} |
-| [knife_client](/knife_client/) | {{< readfile file="content/reusable/md/knife_client_summary.md" >}} |
-| [knife configure](/knife_configure/) | {{< readfile file="content/reusable/md/knife_configure_summary.md" >}} |
-| [knife cookbook](/knife_cookbook/) | {{< readfile file="content/reusable/md/knife_cookbook_summary.md" >}} |
-| [knife data bag](/knife_data_bag/) | {{< readfile file="content/reusable/md/knife_data_bag_summary.md" >}} |
-| [knife delete](/knife_delete/) | {{< readfile file="content/reusable/md/knife_delete_summary.md" >}} |
-| [knife deps](/knife_deps/) | {{< readfile file="content/reusable/md/knife_deps_summary.md" >}} |
-| [knife diff](/knife_diff/) | {{< readfile file="content/reusable/md/knife_diff_summary.md" >}} |
-| [knife download](/knife_download/) | {{< readfile file="content/reusable/md/knife_download_summary.md" >}} |
-| [knife edit](/knife_edit/) | {{< readfile file="content/reusable/md/knife_edit_summary.md" >}} |
-| [knife environment](/knife_environment/) | {{< readfile file="content/reusable/md/knife_environment_summary.md" >}} |
-| [knife exec](/knife_exec/) | {{< readfile file="content/reusable/md/knife_exec_summary.md" >}} |
-| [knife list](/knife_list/) | {{< readfile file="content/reusable/md/knife_list_summary.md" >}} |
-| [knife node](/knife_node/) | {{< readfile file="content/reusable/md/knife_node_summary.md" >}} |
-| [knife raw](/knife_raw/) | {{< readfile file="content/reusable/md/knife_raw_summary.md" >}} |
-| [knife recipe list](/knife_recipe_list/) | {{< readfile file="content/reusable/md/knife_recipe_list_summary.md" >}} |
-| [knife role](/knife_role/) | {{< readfile file="content/reusable/md/knife_role_summary.md" >}} |
-| [knife search](/knife_search/) | {{< readfile file="content/reusable/md/knife_search_summary.md" >}} |
-| [knife serve](/knife_serve/) | {{< readfile file="content/reusable/md/knife_serve_summary.md" >}} |
-| [knife show](/knife_show/) | {{< readfile file="content/reusable/md/knife_show_summary.md" >}} |
-| [knife ssh](/knife_ssh/) | {{< readfile file="content/reusable/md/knife_ssh_summary.md" >}} |
-| [knife ssl check](/knife_ssl_check/) | {{< readfile file="content/reusable/md/knife_ssl_check_summary.md" >}} |
-| [knife ssl fetch](/knife_ssl_fetch/) | {{< readfile file="content/reusable/md/knife_ssl_fetch_summary.md" >}} |
-| [knife status](/knife_status/) | {{< readfile file="content/reusable/md/knife_status_summary.md" >}} |
-| [knife tag](/knife_tag/) | {{< readfile file="content/reusable/md/knife_tag_summary.md" >}} |
-| [knife supermarket](/knife_supermarket/) | Use the `knife supermarket` subcommand to interact with cookbooks that are available in the [Chef Supermarket](https://supermarket.chef.io/). A user account is required for any community actions that write data to this site. The following arguments don't require a user account: `download`, `search`, `install`, and `list`. |
-| [knife upload](/knife_upload/) | {{< readfile file="content/reusable/md/knife_upload_summary.md" >}} |
-| [knife user](/knife_user/) | {{< readfile file="content/reusable/md/knife_user_summary.md" >}} |
-| [knife xargs](/knife_xargs/) | {{< readfile file="content/reusable/md/knife_xargs_summary.md" >}} |
+| [knife_bootstrap](/tools/knife/knife_bootstrap/) | {{< readfile file="content/reusable/md/knife_bootstrap_summary.md" >}} |
+| [knife_client](/tools/knife/knife_client/) | {{< readfile file="content/reusable/md/knife_client_summary.md" >}} |
+| [knife configure](/tools/knife/knife_configure/) | {{< readfile file="content/reusable/md/knife_configure_summary.md" >}} |
+| [knife cookbook](/tools/knife/knife_cookbook/) | {{< readfile file="content/reusable/md/knife_cookbook_summary.md" >}} |
+| [knife data bag](/tools/knife/knife_data_bag/) | {{< readfile file="content/reusable/md/knife_data_bag_summary.md" >}} |
+| [knife delete](/tools/knife/knife_delete/) | {{< readfile file="content/reusable/md/knife_delete_summary.md" >}} |
+| [knife deps](/tools/knife/knife_deps/) | {{< readfile file="content/reusable/md/knife_deps_summary.md" >}} |
+| [knife diff](/tools/knife/knife_diff/) | {{< readfile file="content/reusable/md/knife_diff_summary.md" >}} |
+| [knife download](/tools/knife/knife_download/) | {{< readfile file="content/reusable/md/knife_download_summary.md" >}} |
+| [knife edit](/tools/knife/knife_edit/) | {{< readfile file="content/reusable/md/knife_edit_summary.md" >}} |
+| [knife environment](/tools/knife/knife_environment/) | {{< readfile file="content/reusable/md/knife_environment_summary.md" >}} |
+| [knife exec](/tools/knife/knife_exec/) | {{< readfile file="content/reusable/md/knife_exec_summary.md" >}} |
+| [knife list](/tools/knife/knife_list/) | {{< readfile file="content/reusable/md/knife_list_summary.md" >}} |
+| [knife node](/tools/knife/knife_node/) | {{< readfile file="content/reusable/md/knife_node_summary.md" >}} |
+| [knife raw](/tools/knife/knife_raw/) | {{< readfile file="content/reusable/md/knife_raw_summary.md" >}} |
+| [knife recipe list](/tools/knife/knife_recipe_list/) | {{< readfile file="content/reusable/md/knife_recipe_list_summary.md" >}} |
+| [knife role](/tools/knife/knife_role/) | {{< readfile file="content/reusable/md/knife_role_summary.md" >}} |
+| [knife search](/tools/knife/knife_search/) | {{< readfile file="content/reusable/md/knife_search_summary.md" >}} |
+| [knife serve](/tools/knife/knife_serve/) | {{< readfile file="content/reusable/md/knife_serve_summary.md" >}} |
+| [knife show](/tools/knife/knife_show/) | {{< readfile file="content/reusable/md/knife_show_summary.md" >}} |
+| [knife ssh](/tools/knife/knife_ssh/) | {{< readfile file="content/reusable/md/knife_ssh_summary.md" >}} |
+| [knife ssl check](/tools/knife/knife_ssl_check/) | {{< readfile file="content/reusable/md/knife_ssl_check_summary.md" >}} |
+| [knife ssl fetch](/tools/knife/knife_ssl_fetch/) | {{< readfile file="content/reusable/md/knife_ssl_fetch_summary.md" >}} |
+| [knife status](/tools/knife/knife_status/) | {{< readfile file="content/reusable/md/knife_status_summary.md" >}} |
+| [knife tag](/tools/knife/knife_tag/) | {{< readfile file="content/reusable/md/knife_tag_summary.md" >}} |
+| [knife supermarket](/tools/knife/knife_supermarket/) | Use the `knife supermarket` subcommand to interact with cookbooks that are available in the [Chef Supermarket](https://supermarket.chef.io/). A user account is required for any community actions that write data to this site. The following arguments don't require a user account: `download`, `search`, `install`, and `list`. |
+| [knife upload](/tools/knife/knife_upload/) | {{< readfile file="content/reusable/md/knife_upload_summary.md" >}} |
+| [knife user](/tools/knife/knife_user/) | {{< readfile file="content/reusable/md/knife_user_summary.md" >}} |
+| [knife xargs](/tools/knife/knife_xargs/) | {{< readfile file="content/reusable/md/knife_xargs_summary.md" >}} |
 
 ### Verb Subcommands
 

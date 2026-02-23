@@ -30,8 +30,8 @@ tell Chef Infra Client how each node in your organization should be
 configured. Chef Infra Client---which is installed on every node---does
 the actual configuration.
 
-- [An Overview of Chef Infra](/chef_overview/)
-- [Install Chef Workstation](/workstation/install_workstation/)
+- [An Overview of Chef Infra](https://docs.chef.io/chef_overview/)
+- [Install Chef Workstation](/install/)
 
 ### Cookbook Development Workflow
 

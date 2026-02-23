@@ -413,8 +413,8 @@ errors.
 
 {{< warning >}}
 
-This feature is deprecated in favor of [Cookstyle](/workstation/cookstyle/) and
-[ChefSpec](/workstation/chefspec/)
+This feature is deprecated in favor of [Cookstyle](https://docs.chef.io/workstation/cookstyle/) and
+[ChefSpec](/tools/chefspec/)
 
 {{< /warning >}}
 

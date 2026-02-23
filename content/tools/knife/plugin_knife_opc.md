@@ -14,13 +14,13 @@ The `knife opc` subcommand is used to manage organizations and users in Chef Inf
 
 {{< note >}}
 
-Administrator permissions are required to add, remove, or edit users. To manage organizations, or change a user's assignment to an organization, the pivotal key is required. Rather than using the knife-opc plugin commands below, which are an implementation detail, use the equivalent "user-" and "org-" subcommands directly on Chef Infra Server. Those wrapped subcommands already have the needed permissions applied and access to sensitive commands will then be centralized. [See chef-server-ctl for details](/ctl_chef_server/).
+Administrator permissions are required to add, remove, or edit users. To manage organizations, or change a user's assignment to an organization, the pivotal key is required. Rather than using the knife-opc plugin commands below, which are an implementation detail, use the equivalent "user-" and "org-" subcommands directly on Chef Infra Server. Those wrapped subcommands already have the needed permissions applied and access to sensitive commands will then be centralized. [See chef-server-ctl for details](https://docs.chef.io/server/ctl_chef_server//).
 
 {{< /note >}}
 
 {{< note >}}
 
-Review the list of [common options](/workstation/knife_options/) available to this (and all) knife subcommands and plugins.
+Review the list of [common options](/tools/knife/common_options/) available to this (and all) knife subcommands and plugins.
 
 {{< /note >}}
 
@@ -44,7 +44,7 @@ If your `chef_server_url` configuration ends with `/organizations/ORG_NAME` (as 
 
 {{< note >}}
 
-On Chef Infra Server, the majority of the commands provided by this plugin can be accessed with `chef-server-ctl` wrapper commands. [See chef-server-ctl for details](/ctl_chef_server/).
+On Chef Infra Server, the majority of the commands provided by this plugin can be accessed with `chef-server-ctl` wrapper commands. [See chef-server-ctl for details](https://docs.chef.io/server/ctl_chef_server//).
 
 {{< /note >}}
 

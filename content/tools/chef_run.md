@@ -59,7 +59,7 @@ HTTPS connections are supported by providing the `--ssl` flag.
 
 ## Specifying resource properties and actions
 
-You can specify all the Chef Infra [resources](/resources/) in the command line. Enter the `chef-run` command first, followed by the resource type in the second place, and the resource name in the third place. For example:
+You can specify all the Chef Infra [resources](https://docs.chef.io/client/latest/resources/) in the command line. Enter the `chef-run` command first, followed by the resource type in the second place, and the resource name in the third place. For example:
 
 ```bash
 chef-run host1 group awesome_group
@@ -132,7 +132,7 @@ chef-run host1 my_cookbook --cookbook-repo-paths '/path/1,/path/b'
 
 ## Configuring Cookbook Dependencies and Sources
 
-When converging a target node `chef-run` creates a Policyfile bundle that includes the cookbook specified. If the cookbook you specified has its own [`Policyfile.rb`](/config_rb_policyfile/) that will be respected.
+When converging a target node `chef-run` creates a Policyfile bundle that includes the cookbook specified. If the cookbook you specified has its own [`Policyfile.rb`](https://docs.chef.io/client/latest/policy/config_rb_policyfile/) that will be respected.
 
 In your `metadata.rb` file:
 
@@ -163,13 +163,13 @@ include_recipe "pretty_simple::second"
 
 Running `chef-run host1 really_complicated::first` collects all the `really_complicated` cookbook dependencies (`pretty_simple`) first, in preparation for converging the target node. When running on that node the `first` recipe finds its local dependency on the `pretty_simple` cookbook and then runs its `second` recipe.
 
-You can specify different cookbook sources in `Policyfile.rb`, including a private supermarket. See the [Policyfile documentation](/config_rb_policyfile/) for examples.
+You can specify different cookbook sources in `Policyfile.rb`, including a private supermarket. See the [Policyfile documentation](https://docs.chef.io/client/latest/policy/config_rb_policyfile/) for examples.
 
 ## Connecting to Chef Automate 2
 
-You can configure remote nodes managed with `chef-run` to send run information to Chef Automate. First, [generate an auth token](/automate/api_tokens/#creating-api-tokens).
+You can configure remote nodes managed with `chef-run` to send run information to Chef Automate. First, [generate an auth token](https://docs.chef.io/automate/api_tokens/#creating-api-tokens).
 
-Next, add the token to [config.toml]({{< ref "config.md#data_collector" >}}), specifying the appropriate [url](/automate/data_collection/) and [token](/automate/api_tokens/#creating-api-tokens) for the automate server:
+Next, add the token to [config.toml]({{< ref "config.md#data_collector" >}}), specifying the appropriate [url](https://docs.chef.io/automate/data_collection/) and [token](https://docs.chef.io/automate/api_tokens/#creating-api-tokens) for the automate server:
 
 ```toml
 [data_collector]

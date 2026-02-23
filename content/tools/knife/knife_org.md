@@ -19,7 +19,7 @@ The `knife org` subcommand is used to manage organizations and users in Chef Inf
 - Administrator permissions are required to add, remove, or edit users.
 - The pivotal key is required to manage organizations, or change a user's assignment to an organization.
 
-The knife [common options](/workstation/knife_options/) are available to this (and all) knife subcommands and plugins.
+The knife [common options](/tools/knife/common_options/) are available to this (and all) knife subcommands and plugins.
 
 ## config.rb Setup
 
@@ -41,7 +41,7 @@ If your `chef_server_url` configuration ends with `/organizations/ORG_NAME` (as 
 
 {{< note >}}
 
-User subcommands or options are added under `knife user`. See the [knife user](/workstation/knife_user/) documentation for more information.
+User subcommands or options are added under `knife user`. See the [knife user](/tools/knife/knife_user/) documentation for more information.
 
 {{< /note >}}
 

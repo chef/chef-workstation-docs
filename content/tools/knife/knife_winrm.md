@@ -17,7 +17,7 @@ Use the `knife winrm` subcommand to invoke commands over WinRM (in parallel) on 
 
 {{< note >}}
 
-Review the list of [common options](/workstation/knife_options/) available to this (and all) knife subcommands and plugins.
+Review the list of [common options](/tools/knife/common_options/) available to this (and all) knife subcommands and plugins.
 
 {{< /note >}}
 

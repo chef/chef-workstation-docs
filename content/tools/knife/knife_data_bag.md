@@ -42,7 +42,7 @@ This argument has the following options:
 
 `DATA_BAG_ITEM`
 
-: The name of a specific item within a data bag. `DATA_BAG_NAME` may not be `client`, `environment`, `node` or `role`, as these are reserved words for [knife search](/workstation/knife_search/).
+: The name of a specific item within a data bag. `DATA_BAG_NAME` may not be `client`, `environment`, `node` or `role`, as these are reserved words for [knife search](/tools/knife/knife_search/).
 
 `--secret SECRET`
 

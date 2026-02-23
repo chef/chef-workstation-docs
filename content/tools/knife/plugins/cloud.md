@@ -13,7 +13,7 @@ draft = false
 
 {{< readfile file="content/reusable/md/plugin_knife_summary.md" >}}
 
-- The same [common options](/workstation/knife_options/) used by knife
+- The same [common options](/tools/knife/common_options/) used by knife
     subcommands can also be used by knife plug-ins
 - A knife plugin can make authenticated API requests to the Chef
     server

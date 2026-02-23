@@ -19,7 +19,7 @@ draft = false
 **Considerations:**
 
 - Knife will copy the contents of the `~/.chef/client.d` directory on your local workstation to the `client.d` directory on the device being bootstrapped with the `knife bootstrap` command. You can also set the `client_d_dir` option in the `config.rb` file to point to an arbitrary directory instead of `~/.chef/client.d`, and the contents of that directory will be copied to the device being bootstrapped. All config files inside the `client.d` directory will get copied into the `/etc/chef/client.d` directory on the system being bootstrapped.
-- SSL certificates from an on-premises Chef Infra Server can be copied to the `/trusted_certs_dir` directory on your local workstation automatically by running [knife ssl fetch](/workstation/knife_ssl_fetch/). These certificates are used during `knife` operations to communicate with Chef Infra Server.
+- SSL certificates from an on-premises Chef Infra Server can be copied to the `/trusted_certs_dir` directory on your local workstation automatically by running [knife ssl fetch](/tools/knife/knife_ssl_fetch/). These certificates are used during `knife` operations to communicate with Chef Infra Server.
 - By default, `knife bootstrap` will attempt to use `ssh` to connect to the target node. Use the `-o` to specify a different protocol, such as `winrm` for windows nodes.
 - `knife bootstrap` doesn't support an option to provide passphrases for private SSH keys; use an unencrypted private key instead. This will also help with unattended bootstraps -- you can use an SSH agent to provide a password for you while it runs in the same shell as your knife client.
 
@@ -215,7 +215,7 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 `--hint HINT_NAME[=HINT_FILE]`
 
-: An Ohai hint to be set on the bootstrap target. See the [Ohai](/ohai/#hints) documentation for more information. `HINT_FILE` is the name of the JSON file. `HINT_NAME` is the name of a hint in a JSON file. Use multiple `--hint` options to specify multiple hints.
+: An Ohai hint to be set on the bootstrap target. See the [Ohai](https://docs.chef.io/client/latest/features/ohai/#hints) documentation for more information. `HINT_FILE` is the name of the JSON file. `HINT_NAME` is the name of a hint in a JSON file. Use multiple `--hint` options to specify multiple hints.
 
 `-j JSON_ATTRIBS`, `--json-attributes JSON_ATTRIBS`
 

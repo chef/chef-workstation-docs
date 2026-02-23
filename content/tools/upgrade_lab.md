@@ -37,7 +37,7 @@ The Chef Upgrade Lab makes some basic assumptions about your existing system:
 - One or more nodes
   - Running Chef Infra Client 12 or later
   - Minimum 512 MB RAM
-  - [Recommended](/chef_system_requirements/#chef-infra-client) 5GB space
+  - [Recommended](https://docs.chef.io/client/latest/install/system_requirements/#chef-infra-client) 5GB space
   - Bootstrapped to the older Chef Infra Server
   - `sudo` permissions on the node
   - SSH connectivity between the nodes and the administrator/developer workstation
@@ -48,20 +48,20 @@ The Chef Upgrade Lab makes some basic assumptions about your existing system:
 
 ### Software Requirements
 
-- Review the [platform and system requirements](/workstation/install_workstation/) for Chef Workstation
+- Review the [platform and system requirements](/install/) for Chef Workstation
 - Install or upgrade to the Chef Workstation [latest version](https://www.chef.io/downloads)
 
 Chef doesn't prescribe any specific editor. However, the [Chef Infra extension](https://marketplace.visualstudio.com/items?itemName=chef-software.Chef) for [Visual Studio Code](https://code.visualstudio.com/) features several code generators and helpful features, such as running Cookstyle each time you save a recipe.
 
 ### Server Backup
 
-We recommend performing a backup before starting any server upgrade process. Follow the [Chef Infra Server Backup](/runbook/server_backup_restore/) documentation before starting your Upgrade Lab.
+We recommend performing a backup before starting any server upgrade process. Follow the [Chef Infra Server Backup](https://docs.chef.io/server/server_backup_restore/) documentation before starting your Upgrade Lab.
 
 ### Infrastructure Requirements
 
 #### Credentials
 
-Your credentials are set up using [knife profiles](/workstation/knife_setup/#knife-profiles). This method allows you to keep your keys in a `credentials` file, and makes switching between credentials easier.
+Your credentials are set up using [knife profiles](/tools/knife/knife_setup/#knife-profiles). This method allows you to keep your keys in a `credentials` file, and makes switching between credentials easier.
 
 For example, in `.chef/credentials`:
 

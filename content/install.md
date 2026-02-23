@@ -13,9 +13,9 @@ draft = false
 
 {{< readfile file="content/reusable/md/chef_workstation.md" >}}
 
-For general information about downloading Chef products, see the [Chef download documentation](/download/).
+For general information about downloading Chef products, see the [Chef download documentation](https://docs.chef.io/download/).
 
-For supported Chef Workstation versions, see the [Chef Workstation release notes](/release_notes/workstation/) or use the [Chef download APIs](/download).
+For supported Chef Workstation versions, see the [Chef Workstation release notes](https://docs.chef.io/release_notes/workstation/) or use the [Chef download APIs](https://docs.chef.io/download).
 
 ## Supported Platforms
 
@@ -27,7 +27,7 @@ The following table lists the commercially supported platforms and versions for 
 
 The following table lists supported derived platforms and versions for Chef Workstation.
 
-See our policy on [support for derived platforms](/platforms/#support-for-derived-platforms) for more information.
+See our policy on [support for derived platforms](https://docs.chef.io/platforms/#support-for-derived-platforms) for more information.
 
 {{< readfile file = "content/reusable/md/workstation_supported_derived_platforms.md" >}}
 
@@ -89,11 +89,11 @@ msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
 
 ### Linux
 
-You can use [Chef's download APIs](/download) or a package manager to install Chef Workstation on Linux.
+You can use [Chef's download APIs](https://docs.chef.io/download) or a package manager to install Chef Workstation on Linux.
 
 #### Download API
 
-- To use the [Chef download APIs](/download) to download Chef Workstation:
+- To use the [Chef download APIs](https://docs.chef.io/download) to download Chef Workstation:
 
   ```bash
   wget https://chefdownload-commercial.chef.io/stable/chef-workstation/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<WORKSTATION_VERSION>&license_id=<LICENSE_ID>
@@ -105,7 +105,7 @@ You can use [Chef's download APIs](/download) or a package manager to install Ch
   - `<PLATFORM_VERSION>` with the version of the platform you want to run Chef Workstation on.
   - `<ARCHITECTURE>` with the architecture that Chef Workstation on. For example, `x86_64`.
   - `<WORKSTATION_VERSION>` with the version of Chef Workstation you want to download.
-  - `<LICENSE_ID>` with your [Chef license ID](/licensing).
+  - `<LICENSE_ID>` with your [Chef license ID](https://docs.chef.io/licensing).
 
   For example, run the following to download Chef Workstation 24.8.1068 on Red Hat Enterprise Linux 9 running on x86-64 architecture:
 
@@ -113,7 +113,7 @@ You can use [Chef's download APIs](/download) or a package manager to install Ch
   wget https://chefdownload-commercial.chef.io/stable/chef-workstation/download?p=el&pv=9&m=x86_64&v=24.4.1068&license_id=<LICENSE_ID>
   ```
 
-See the [Chef download API documentation](/download) and [Chef licensing documentation](/licensing) for more information.
+See the [Chef download API documentation](https://docs.chef.io/download) and [Chef licensing documentation](https://docs.chef.io/licensing) for more information.
 
 #### Package manager
 

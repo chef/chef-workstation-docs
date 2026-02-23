@@ -15,7 +15,7 @@ draft = false
 <!-- markdownlint-disable-file MD024 -->
 
 {{< warning >}}
-[Policyfiles](/policyfile/) are the preferred pattern for creating immutable collections of cookbooks, cookbook dependencies, and attributes. Berkshelf is no longer under active development. Please replace Berkshelf with Policyfiles
+[Policyfiles](https://docs.chef.io/client/latest/policy/policyfile/) are the preferred pattern for creating immutable collections of cookbooks, cookbook dependencies, and attributes. Berkshelf is no longer under active development. Please replace Berkshelf with Policyfiles
 
 This document is no longer maintained.
 {{< /warning >}}
@@ -29,7 +29,7 @@ included in Chef Workstation.
 
 {{< note >}}
 
-[Policyfiles](/policyfile/) are the recommended pattern for including and resolving cookbooks. Policyfiles provide more predictability, since dependencies are only resolved once, and a much improved way of promoting cookbooks from dev to testing, and then to production.
+[Policyfiles](https://docs.chef.io/client/latest/policy/policyfile/) are the recommended pattern for including and resolving cookbooks. Policyfiles provide more predictability, since dependencies are only resolved once, and a much improved way of promoting cookbooks from dev to testing, and then to production.
 
 {{< /note >}}
 
@@ -105,7 +105,7 @@ cookbook "NAME" [, "VERSION_CONSTRAINT"] [, SOURCE_OPTIONS]
 A source defines where Berkshelf should look for cookbooks. Sources are
 processed in the order that they're defined in, and processing stops as
 soon as a suitable cookbook is found. Locations include a private or
-public [Supermarket](/supermarket/), Chef Infra Server, or local
+public [Supermarket](https://docs.chef.io/supermarket/), Chef Infra Server, or local
 Chef repository.
 
 By default, a Berksfile has a source for Chef's public Supermarket:
@@ -192,7 +192,7 @@ cookbook "library-cookbook", "~> 0.1.1"
 ```
 
 These are identical to the version constraints in a [cookbook metadata
-file](/config_rb_metadata/#cookbook-version-constraints).
+file](https://docs.chef.io/client/latest/cookbooks/config_rb_metadata/#cookbook-version-constraints).
 
 Source options are used to specify the location to acquire a cookbook
 from, or to place a cookbook in a group. By default, cookbooks are

@@ -15,7 +15,7 @@ The chef executable is a command-line tool that does the following:
 
 - Generates repositories, cookbooks, recipes, attributes, templates, and custom resources.
 - Installs gems into the Chef development environment's Ruby installation.
-- Helps you manage your [Policyfiles](/policyfile/). Please refer the Policyfile commands [section](#policyfile-commands).
+- Helps you manage your [Policyfiles](https://docs.chef.io/client/latest/policy/policyfile/). Please refer the Policyfile commands [section](#policyfile-commands).
 
 {{< note >}}
 
@@ -30,7 +30,7 @@ To use a different cache location, set the `CHEF_WORKSTATION_HOME` environment v
 
 ## chef capture
 
-Use the `chef capture` subcommand to capture a node's state as a local [chef-repo](/chef_repo/). Use the generated repository if you need to converge a node locally.
+Use the `chef capture` subcommand to capture a node's state as a local [chef-repo](https://docs.chef.io/client/latest/cookbooks/cookbook_repo/). Use the generated repository if you need to converge a node locally.
 
 ### Syntax
 
@@ -117,7 +117,7 @@ of 'kitchen converge'.
 
 ```
 
-See the [Upgrade Lab](/workstation/upgrade_lab/#create-an-upgrade-environment-with-chef-capture) documentation for additional
+See the [Upgrade Lab](/tools/upgrade_lab/#create-an-upgrade-environment-with-chef-capture) documentation for additional
 information on upgrading Chef Infra Client.
 
 ## chef env
@@ -694,7 +694,7 @@ None.
 
 ## chef generate profile
 
-Use the `chef generate profile` subcommand to generate a [profile](/inspec/profiles/) for Chef Infra Client's Compliance Phase execution.
+Use the `chef generate profile` subcommand to generate a [profile](https://docs.chef.io/inspec/latest/profiles/) for Chef Infra Client's Compliance Phase execution.
 
 ### Syntax
 
@@ -722,7 +722,7 @@ None.
 
 ## chef generate input
 
-Use the `chef generate input` subcommand to generate an [input](/inspec/inputs/) file for Chef Infra Client's Compliance Phase execution.
+Use the `chef generate input` subcommand to generate an [input](https://docs.chef.io/inspec/latest/inputs/) file for Chef Infra Client's Compliance Phase execution.
 
 ### Syntax
 
@@ -746,7 +746,7 @@ None.
 
 ## chef generate waiver
 
-Use the `chef generate waiver` subcommand to generate a [waiver](/inspec/waivers/) file for Chef Infra Client's Compliance Phase execution.
+Use the `chef generate waiver` subcommand to generate a [waiver](https://docs.chef.io/inspec/latest/waivers/) file for Chef Infra Client's Compliance Phase execution.
 
 ### Syntax
 
@@ -874,7 +874,7 @@ Cookbooks report saved to .chef-workstation/reports/cookbooks-20200722120938.txt
 
 More details of this summary report can be viewed in the text file, the location for which is given at the end of the summary.
 
-See the [Upgrade Lab](/workstation/upgrade_lab/#chef-report-cookbooks) documentation for additional
+See the [Upgrade Lab](/tools/upgrade_lab/#chef-report-cookbooks) documentation for additional
 information on upgrading Chef Infra Client.
 
 ## chef report nodes
@@ -964,7 +964,7 @@ Nodes report saved to .chef-workstation/reports/nodes-20200722130502.txt
 
 More details of this summary report can be viewed in the text file, the location for which is given at the end of the summary.
 
-[Upgrade Lab](/workstation/upgrade_lab) provides further details on how this command can be used in Chef Infra Client upgrade process.
+[Upgrade Lab](/tools/upgrade_lab) provides further details on how this command can be used in Chef Infra Client upgrade process.
 
 ## chef shell-init
 

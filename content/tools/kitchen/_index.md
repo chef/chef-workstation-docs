@@ -45,7 +45,7 @@ converged cookbook for easy local validation of your infrastructure.
 {{< note >}}
 
 For more information about the `kitchen` command line tool, see
-[kitchen](/workstation/ctl_kitchen/).
+[kitchen](/tools/kitchen/ctl_kitchen/).
 
 {{< /note >}}
 
@@ -56,7 +56,7 @@ For more information about the `kitchen` command line tool, see
 {{< note >}}
 
 For more information about the `kitchen.yml` file, see
-[kitchen.yml](/workstation/config_yml_kitchen/).
+[kitchen.yml](/tools/kitchen/config_yml_kitchen/).
 
 {{< /note >}}
 

@@ -7,7 +7,7 @@ draft = false
 [menu]
   [menu.tools]
     title = "Knife Common Options"
-    identifier = "tools/knife/knife_options.md Knife Common Options"
+    identifier = "tools/knife/common_options.md Knife Common Options"
     parent = "tools/knife"
     weight = 30
 +++
