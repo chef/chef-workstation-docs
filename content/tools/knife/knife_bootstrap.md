@@ -12,7 +12,15 @@ draft = false
 +++
 <!-- markdownlint-disable-file MD036 MD046-->
 
-{{< readfile file="content/reusable/md/chef_client_bootstrap_node.md" >}}
+A node is any physical, virtual, or cloud device that's configured and
+maintained by an instance of Chef Infra Client. Bootstrapping installs
+Chef Infra Client on a target system so that it can run as a client and
+sets the node up to communicate with a Chef Infra Server. There are two
+ways to do this:
+
+- Run the `knife bootstrap` command from a workstation.
+- Perform an unattended install to bootstrap from the node itself,
+    without requiring SSH or WinRM connectivity.
 
 {{< readfile file="content/reusable/md/knife_bootstrap_summary.md" >}}
 
@@ -341,11 +349,49 @@ The `--node-name` option is required for a validatorless bootstrap.
 
 ### FIPS Mode
 
-{{< readfile file="content/reusable/md/fips_intro_client.md" >}}
+Federal Information Processing Standards (FIPS) is a United States
+government computer security standard that specifies security
+requirements for cryptography. The current version of the standard is
+FIPS 140-2. Chef Infra Client can be configured to allow OpenSSL to
+enforce FIPS-validated security during a Chef Infra Client run. This
+will disable cryptography that's explicitly disallowed in
+FIPS-validated software, including certain ciphers and hashing
+algorithms. Any attempt to use any disallowed cryptography will cause
+Chef Infra Client to throw an exception during a Chef Infra Client run.
+
+<!-- markdownlint-disable-file MD033 -->
+
+<div class="admonition-note">
+<p class="admonition-note-title">Note</p>
+<div class="admonition-note-text">
+
+Chef uses MD5 hashes to uniquely identify files that are stored on the
+Chef Infra Server. MD5 is used only to generate a unique hash identifier
+and isn't used for any cryptographic purpose.
+
+</div>
+</div>
+
+Notes about FIPS:
+
+- May be enabled for nodes running on Windows and Enterprise
+    Linux platforms
+- Should only be enabled for environments that require FIPS 140-2
+    compliance
 
 **Bootstrap a node using FIPS**
 
-{{< readfile file="content/reusable/md/knife_bootstrap_node_fips.md" >}}
+```bash
+knife bootstrap 192.0.2.0 -P vanilla -x root -r 'recipe[apt],recipe[xfs],recipe[vim]' --fips
+```
+
+which shows something similar to:
+
+```none
+OpenSSL FIPS 140 mode enabled
+...
+192.0.2.0 Chef Infra Client finished, 12/12 resources updated in 78.942455583 seconds
+```
 
 ## Custom Templates
 

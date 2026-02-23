@@ -21,7 +21,14 @@ For supported Chef Workstation versions, see the [Chef Workstation release notes
 
 The following table lists the commercially supported platforms and versions for Chef Workstation:
 
-{{< readfile file = "content/reusable/md/workstation_supported_platforms.md" >}}
+| Platform                          | Architecture                | Version                                                                    |
+|-----------------------------------| ----------------------------| ---------------------------------------------------------------------------|
+| Amazon Linux                      | x86_64, arch64 (2023 only)  | 2.x, 2023                                                                  |
+| macOS                             | aarch64                     | 13.x, 14.x                                                                 |
+| Debian                            | x86_64                      | 10.x, 11.x                                                                 |
+| Red Hat Enterprise Linux / CentOS | x86_64                      | 7.x, 8.x, 9.x                                                              |
+| Ubuntu                            | x86_64                      | 18.04, 20.04, 22.04                                                        |
+| Windows                           | x64                         | 10, 11, Server 2016, Server 2019, Server 2022                              |
 
 ### Derived Platforms
 
@@ -29,7 +36,10 @@ The following table lists supported derived platforms and versions for Chef Work
 
 See our policy on [support for derived platforms](https://docs.chef.io/platforms/#support-for-derived-platforms) for more information.
 
-{{< readfile file = "content/reusable/md/workstation_supported_derived_platforms.md" >}}
+| Platform | Architecture | Version | Parent platform |
+| --- | --- | --- | --- |
+| AlmaLinux | `x86_64` | `8.x` | CentOS |
+| Rocky Linux | `x86_64` | `8.x` | CentOS |
 
 ## System Requirements
 
@@ -81,11 +91,19 @@ msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
 
 #### Spaces and Directories
 
-{{< readfile file="content/reusable/md/windows_spaces_and_directories.md" >}}
+Directories that are used by Chef products on Windows can't have
+spaces. For example, `C:\Users\User Name` won't work, but
+`C:\Users\UserName` will. Chef commands may fail if used against a
+directory with a space in its name.
 
 #### Top-level Directory Names
 
-{{< readfile file="content/reusable/md/windows_top_level_directory_names.md" >}}
+Windows will throw errors when path name lengths are too long. For this
+reason, it's often helpful to use a short top-level directory, much
+like what's done in UNIX and Linux. For example, Chef uses `/opt/` to
+install Chef Workstation on macOS. A similar approach can be done on
+Windows, by creating a top-level directory with a short name.
+For example: `C:\chef`.
 
 ### Linux
 

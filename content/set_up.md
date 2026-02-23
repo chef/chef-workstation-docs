@@ -72,7 +72,22 @@ These instructions are intended for macOS and Linux users. On Windows, Chef Work
 
 If you're setting up Chef for the very first time **in your organization**, then you will need a Chef Infra repository for saving your cookbooks and other work.
 
-{{< readfile file="content/reusable/md/chef_repo_description.md" >}}
+The chef-repo is a directory on your workstation that stores everything
+you need to define your infrastructure with Chef Infra:
+
+- Cookbooks (including recipes, attributes, custom resources, libraries, and templates)
+- Data bags
+- Policyfiles
+
+The chef-repo directory should be synchronized with a version control
+system, such as git. All of the data in the chef-repo should be treated
+like source code.
+
+You'll use the `chef` and `knife` commands to upload data to the Chef
+Infra Server from the chef-repo directory. Once uploaded, Chef Infra
+Client uses that data to manage the nodes registered with the Chef Infra
+Server and to ensure that it applies the right cookbooks, policyfiles,
+and settings to the right nodes in the right order.
 
 Use the [chef generate repo]({{< relref "ctl_chef.md#chef-generate-repo" >}}) command to create your Chef Infra repository. For example, to create a repository called `chef-repo`:
 

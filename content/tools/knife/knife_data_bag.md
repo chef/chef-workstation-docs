@@ -12,9 +12,27 @@ draft = false
 +++
 <!-- markdownlint-disable-file MD024 MD036 -->
 
-{{< readfile file="content/reusable/md/data_bag.md" >}}
+Data bags store global variables as JSON data. Data bags are indexed for
+searching and can be loaded by a cookbook or accessed during a search.
 
-{{< readfile file="content/reusable/md/data_bag_encryption.md" >}}
+A data bag item may be encrypted using [shared secret
+encryption](https://en.wikipedia.org/wiki/Symmetric-key_algorithm). This
+allows each data bag item to store confidential information (such as a
+database password) or to be managed in a source control system (without
+plain-text data appearing in revision history). Each data bag item may
+be encrypted individually; if a data bag contains multiple encrypted
+data bag items, these data bag items aren't required to share the same
+encryption keys.
+
+<!-- markdownlint-disable-file MD033 -->
+
+{{< note >}}
+
+Because the contents of encrypted data bag items aren't visible to the
+Chef Infra Server, search queries against data bags with encrypted items
+won't return any results.
+
+{{< /note >}}
 
 {{< readfile file="content/reusable/md/knife_data_bag_summary.md" >}}
 
@@ -119,7 +137,10 @@ Type `Y` to confirm a deletion.
 
 ## edit
 
-{{< readfile file="content/reusable/md/knife_data_bag_edit.md" >}}
+Use the `edit` argument to edit the data contained in a data bag. If
+encryption is being used, the data bag will be decrypted, the data will
+be made available in the \$EDITOR, and then encrypted again before
+saving it to Chef Infra Server.
 
 ### Syntax
 
@@ -193,7 +214,32 @@ save them.
 
 **Edit a data bag item**
 
-{{< readfile file="content/reusable/md/knife_data_bag_edit_item.md" >}}
+To edit an item named `charlie` that's contained in a data bag named `admins`, enter:
+
+```bash
+knife data bag edit admins charlie
+```
+
+to open the \$EDITOR. Once opened, you can update the data before saving
+it to Chef Infra Server. For example, by changing:
+
+```javascript
+{
+   "id": "charlie"
+}
+```
+
+to:
+
+```javascript
+{
+   "id": "charlie",
+   "uid": 1005,
+   "gid": "ops",
+   "shell": "/bin/zsh",
+   "comment": "Crazy Charlie"
+}
+```
 
 ## from file
 
@@ -270,7 +316,15 @@ knife data bag from file devops_data --secret-file "path to decryption file"
 **Create an encrypted data bag for use with Chef Infra Client local
 mode**
 
-{{< readfile file="content/reusable/md/knife_data_bag_from_file_create_encrypted_local_mode.md" >}}
+To generate an encrypted data bag item in a JSON file for use when Chef
+Infra Client is run in local mode (using the `--local-mode` option),
+enter:
+
+```bash
+knife data bag from file my_data_bag /path/to/data_bag_item.json -z --secret-file /path/to/encrypted_data_bag_secret
+```
+
+This creates an encrypted JSON file in `data_bags/my_data_bag/data_bag_item.json`.
 
 ## list
 

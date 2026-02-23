@@ -12,7 +12,8 @@ draft = false
 +++
 <!-- markdownlint-disable-file MD024 MD036 -->
 
-{{< readfile file="content/reusable/md/chef_tags.md" >}}
+A tag is a custom description that's applied to a node.
+A tag, once applied, can be helpful when managing nodes using knife or when building recipes by providing alternate methods of grouping similar types of information.
 
 {{< readfile file="content/reusable/md/knife_tag_summary.md" >}}
 

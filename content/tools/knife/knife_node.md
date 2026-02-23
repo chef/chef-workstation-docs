@@ -12,7 +12,7 @@ draft = false
 +++
 <!-- markdownlint-disable-file MD024 MD036 -->
 
-{{< readfile file="content/reusable/md/node.md" >}}
+A node is any device---physical, virtual, cloud, or network device---that's under management by Chef Infra.
 
 {{< readfile file="content/reusable/md/knife_node_summary.md" >}}
 
@@ -322,15 +322,49 @@ knife node policy set test-node 'test-group' 'test-name'
 
 ## run_list add
 
-{{< readfile file="content/reusable/md/node_run_list.md" >}}
+A run-list defines all of the information necessary for Chef to
+configure a node into the desired state. A run-list is:
 
-{{< readfile file="content/reusable/md/knife_node_run_list_add.md" >}}
+- An ordered list of roles and/or recipes that are run in the exact
+    order defined in the run-list; if a recipe appears more than once in
+    the run-list, Chef Infra Client won't run it twice
+- Always specific to the node on which it runs; nodes may have a
+    run-list that's identical to the run-list used by other nodes
+- Stored as part of the node object on Chef Infra Server
+- Maintained using knife and then uploaded from the workstation to the
+    Chef Infra Server, or maintained using Chef Automate
 
-{{< readfile file="content/reusable/md/node_run_list_format.md" >}}
+Use the `run_list add` argument to add run-list items (roles or recipes)
+to a node.
+
+A run-list must be in one of the following formats: fully qualified,
+cookbook, or default. Both roles and recipes must be in quotes, for
+example:
+
+```json
+"role[NAME]"
+```
+
+or
+
+```json
+"recipe[COOKBOOK::RECIPE]"
+```
+
+Use a comma to separate roles and recipes when adding more than one item
+the run-list:
+
+```json
+"recipe[COOKBOOK::RECIPE],COOKBOOK::RECIPE,role[NAME]"
+```
 
 ### Syntax
 
-{{< readfile file="content/reusable/md/knife_node_run_list_add_syntax.md" >}}
+This argument has the following syntax:
+
+```bash
+knife node run_list add NODE_NAME RUN_LIST_ITEM (options)
+```
 
 {{< warning >}}
 
@@ -346,7 +380,15 @@ knife node policy set test-node 'test-group' 'test-name'
 
 ### Options
 
-{{< readfile file="content/reusable/md/knife_node_run_list_add_options.md" >}}
+This argument has the following options:
+
+`-a ITEM`, `--after ITEM`
+
+:   Add a run-list item after the specified run-list item.
+
+`-b ITEM`, `--before ITEM`
+
+:   Add a run-list item before the specified run-list item.
 
 {{< note >}}
 
@@ -360,31 +402,61 @@ The following examples show how to use this knife subcommand:
 
 **Add a role**
 
-{{< readfile file="content/reusable/md/knife_node_run_list_add_role.md" >}}
+To add a role to a run-list, enter:
+
+```bash
+knife node run_list add NODE_NAME 'role[ROLE_NAME]'
+```
 
 **Add roles and recipes**
 
-{{< readfile file="content/reusable/md/knife_node_run_list_add_roles_and_recipes.md" >}}
+To add roles and recipes to a run-list, enter:
+
+```bash
+knife node run_list add NODE_NAME 'recipe[COOKBOOK::RECIPE_NAME],recipe[COOKBOOK::RECIPE_NAME],role[ROLE_NAME]'
+```
 
 **Add a recipe with a FQDN**
 
-{{< readfile file="content/reusable/md/knife_node_run_list_add_recipe_with_fqdn.md" >}}
+To add a recipe to a run-list using the fully qualified format, enter:
+
+```bash
+knife node run_list add NODE_NAME 'recipe[COOKBOOK::RECIPE_NAME]'
+```
 
 **Add a recipe with a cookbook**
 
-{{< readfile file="content/reusable/md/knife_node_run_list_add_recipe_with_cookbook.md" >}}
+To add a recipe to a run-list using the cookbook format, enter:
+
+```bash
+knife node run_list add NODE_NAME 'COOKBOOK::RECIPE_NAME'
+```
 
 **Add the default recipe**
 
-{{< readfile file="content/reusable/md/knife_node_run_list_add_default_recipe.md" >}}
+To add the default recipe of a cookbook to a run-list, enter:
+
+```bash
+knife node run_list add NODE_NAME 'COOKBOOK'
+```
 
 ## run_list remove
 
-{{< readfile file="content/reusable/md/knife_node_run_list_remove.md" >}}
+Use the `run_list remove` argument to remove run-list items (roles or
+recipes) from a node. A recipe must be in one of the following formats:
+fully qualified, cookbook, or default. Both roles and recipes must be in
+quotes, for example: `'role[ROLE_NAME]'` or
+`'recipe[COOKBOOK::RECIPE_NAME]'`. Use a comma to separate roles and
+recipes when removing more than one, like this:
+`'recipe[COOKBOOK::RECIPE_NAME],COOKBOOK::RECIPE_NAME,role[ROLE_NAME]'`.
 
 ### Syntax
 
-{{< readfile file="content/reusable/md/knife_node_run_list_remove_syntax.md" >}}
+This argument has the following syntax:
+
+```bash
+knife node run_list remove NODE_NAME RUN_LIST_ITEM
+```
 
 ### Options
 
@@ -402,19 +474,37 @@ The following examples show how to use this knife subcommand:
 
 **Remove a role**
 
-{{< readfile file="content/reusable/md/knife_node_run_list_remove_role.md" >}}
+To remove a role from a run-list, enter:
+
+```bash
+knife node run_list remove NODE_NAME 'role[ROLE_NAME]'
+```
 
 **Remove a run-list**
 
-{{< readfile file="content/reusable/md/knife_node_run_list_remove_run_list.md" >}}
+To remove a recipe from a run-list using the fully qualified format,
+enter:
+
+```bash
+knife node run_list remove NODE_NAME 'recipe[COOKBOOK::RECIPE_NAME]'
+```
 
 ## run_list set
 
-{{< readfile file="content/reusable/md/knife_node_run_list_set.md" >}}
+Use the `run_list set` argument to set the run-list for a node. A recipe
+must be in one of the following formats: fully qualified, cookbook, or
+default. Both roles and recipes must be in quotes, for example:
+`"role[ROLE_NAME]"` or `"recipe[COOKBOOK::RECIPE_NAME]"`. Use a comma to
+separate roles and recipes when setting more than one, like this:
+`"recipe[COOKBOOK::RECIPE_NAME],COOKBOOK::RECIPE_NAME,role[ROLE_NAME]"`.
 
 ### Syntax
 
-{{< readfile file="content/reusable/md/knife_node_run_list_set_syntax.md" >}}
+This argument has the following syntax:
+
+```bash
+knife node run_list set NODE_NAME RUN_LIST_ITEM
+```
 
 {{< warning >}}
 
