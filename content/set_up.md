@@ -22,7 +22,7 @@ This guide walks you through the four parts to set up Chef Workstation on your c
 - A running instance of Chef Infra Server.
 - Unless using Chef Manage, the `CLIENT.PEM` file supplied by your Chef administrator.
 
-## Configure Ruby Environment
+## Configure your Ruby environment
 
 For many users, Ruby is primarily used for developing Chef policy (for example, cookbooks, Policyfiles, and Chef InSpec profiles). If that's true for you, then we recommend using the Chef Workstation Ruby as your default system Ruby. If you use Ruby for software development, you'll want to skip this step.
 
@@ -68,7 +68,7 @@ These instructions are intended for macOS and Linux users. On Windows, Chef Work
 
     The command should return `/opt/chef-workstation/embedded/bin/ruby`.
 
-## Set up Your Chef Repo
+## Set up your Chef repo
 
 If you're setting up Chef for the very first time **in your organization**, then you will need a Chef Infra repository for saving your cookbooks and other work.
 
