@@ -60,3 +60,24 @@ ignoreRegExpList:
   - "/'d\\b/"
   - "/^\\s*```[\\s\\S]*?^\\s*```/gm"
   - "{{(.+)(?=}})"
+
+words:
+  - shef
+  - LOCALAPPDATA
+  - setx
+  - lgplv
+  - RAGRS
+  - westus
+  - eastus
+  - eastasia
+  - southeastasia
+  - northeurope
+  - westeurope
+  - preinstall
+  - DDTHH
+  - globbing
+  - Unsharing
+  - untarred
+  - orgname
+  - CHEFINT
+  - CHEFTRN

@@ -27,7 +27,7 @@ this (and all) knife subcommands and plugins.
 
 ### Configuration
 
-The `knife azurem` requires setting up a service principal
+The `knife azurerm` requires setting up a service principal
 for authentication and permissions. For setting up a service principal
 from the command line, see [Create service principal with PowerShell /
 Azure CLI
@@ -117,7 +117,7 @@ This argument has the following options:
 
 `--azure-storage-account-type TYPE`
 
-: One of the following account types (case-sensitive): `Standard_LRS` (Standard Locally-redundant storage); `Standard_ZRS` (Standard Zone-redundant storage); `Standard_GRS` (Standard Geo-redundant storage); `Standard_RAGRS` (Standard Read access geo-redundant storage); `Premium_LRS` (Premium Locally-redundant storage).
+: One of the following account types (case-sensitive): `Standard_LRS` (standard locally-redundant storage); `Standard_ZRS` (standard zone-redundant storage); `Standard_GRS` (standard geo-redundant storage); `Standard_RAGRS` (standard read access geo-redundant storage); `Premium_LRS` (premium locally-redundant storage).
 
 `--azure-vm-name NAME`
 

@@ -92,7 +92,7 @@ Using this argument does the following:
 1. A new "pristine copy" branch is created in git for tracking the upstream.
 2. All existing versions of a cookbook are removed from the branch.
 3. The cookbook is downloaded from Chef Supermarket in the tar.gz format.
-4. The downloaded cookbook is untarred and its contents are committed to git and a tag is created.
+4. The downloaded cookbook is untarred, its contents are committed to git, and a tag is created.
 5. The "pristine copy" branch is merged into the default branch.
 
 This process allows the upstream cookbook in the default branch to be

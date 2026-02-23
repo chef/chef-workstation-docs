@@ -167,23 +167,23 @@ The following examples show how to use this knife subcommand:
 To edit the contents of a data bag, enter:
 
 ```bash
-knife data bag edit dogs tibetanspaniel
+knife data bag edit data_bag_name data_bag_item_name
 ```
 
-where `dogs` is the name of the data bag and `tibetanspaniel` is the
+where `data_bag_name` is the name of the data bag and `data_bag_item_name` is the
 name of the data bag item. This will return something similar to the
 following in the knife editor:
 
 ```javascript
 {
-  "name":"data_bag_item_dogs_tibetanspaniel",
+  "name":"data_bag_item_data_bag_name_data_bag_item_name",
   "json_class":"Chef::DataBagItem",
   "chef_type":"data_bag_item",
-  "data_bag":"dogs",
+  "data_bag":"data_bag_name",
   "raw_data":
     {
-      "description":"small dog that likes to sit in windows",
-      "id":"tibetanspaniel"
+      "description":"Description of data bag item",
+      "id":"data_bag_item_name"
     }
 }
 ```
