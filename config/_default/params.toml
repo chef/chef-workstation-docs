@@ -8,10 +8,14 @@
 #######
 
 menuOrder = [
-  "overview",
+  "about",
   "install",
-  "quickstart",
-  "reference"
+  "set_up",
+  "configure",
+  "troubleshooting",
+  "privacy",
+  "tools",
+  "extension_apis"
 ]
 
 #######

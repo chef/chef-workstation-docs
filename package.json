@@ -13,6 +13,7 @@
     "redoc": "^2.4.0"
   },
   "devDependencies": {},
-  "name": "chef-workstation-docs",
-  "version": "0.1.0"
+  "hugo-bin": {
+    "buildTags": "extended"
+  }
 }
