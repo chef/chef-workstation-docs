@@ -14,11 +14,7 @@ draft = false
 
 {{< readfile file="content/reusable/md/chef_workstation.md" >}}
 
-Chef Workstation replaces ChefDK, combining all the existing features
-with new features, such as ad-hoc task support and the new Chef
-Workstation desktop application.
-
-## Getting Started
+## Get started
 
 Chef Infra is a systems and cloud infrastructure automation framework
 that makes it easy to deploy servers and applications to any physical,
@@ -33,7 +29,7 @@ the actual configuration.
 - [An Overview of Chef Infra](https://docs.chef.io/chef_overview/)
 - [Install Chef Workstation](/install/)
 
-### Cookbook Development Workflow
+### Cookbook development workflow
 
 Chef Infra defines a common workflow for cookbook development:
 
@@ -41,7 +37,6 @@ Chef Infra defines a common workflow for cookbook development:
 1. Write cookbook recipes or resources and lint and debug them with Cookstyle and Test Kitchen. Making your own cookbooks is an iterative process where you develop, test, find and fix bugs, and then develop and test some more. A text editor---Visual Studio Code, Atom, vim, or any other preferred text editor---is the only tool that you need to author your cookbooks.
 1. Test in acceptance. Test your work in an environment that matches your production environment.
 1. Deploy your cookbooks to the production environment, but only after they pass all the acceptance tests and are verified to work in the desired manner.
-
 
 ## Included tools and components
 
