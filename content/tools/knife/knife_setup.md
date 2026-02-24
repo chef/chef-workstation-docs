@@ -38,7 +38,7 @@ allowing users to load different `config.rb` files based on which
 chef-repo they execute the commands from. This can be especially useful
 when each chef-repo points to a different Chef Infra Server or organization.
 
-Example config.rb:
+Example `config.rb`:
 
 ```ruby
 current_dir = File.dirname(__FILE__)
@@ -69,7 +69,7 @@ Store credentials for use with target mode (`chef-client --target switch.example
 quotes when the name contains a period. For example:
 `['switch.example.org']`. Keys that are valid configuration options get passed to train, such as `port`.
 
-```text
+```toml
 # Example .chef/credentials file
 [default]
 client_name = "barney"
@@ -113,7 +113,7 @@ priority order:
 3. Write the profile name to the `~/.chef/context` file.
 4. Otherwise, knife uses the 'default' profile.
 
-## Knife Config
+## Knife config
 
 Use the `knife config` command to manage your knife profiles.
 
@@ -171,80 +171,66 @@ In a script for Windows, use: `%USERPROFILE%\chef-repo\.chef`.
 
 {{< /note >}}
 
-### config.rb Configuration Within a Chef Repository
+### config.rb configuration within a Chef repository
 
 Use `knife configure` command to generate your initial `config.rb` file in your home directory.
 See [knife configure](/tools/knife/knife_configure/) for details.
 
-## Setting Your Text Editor
+## Set a text editor
 
-Some knife commands, such as `knife data bag edit`, require that information be edited as JSON data using a text editor. For example, the following command:
-
-```bash
-knife data bag edit admins admin_name
-```
-
-opens up the text editor with data similar to:
-
-```javascript
-{
-  "id": "admin_name"
-}
-```
-
-Then make changes to that file:
-
-```javascript
-{
-  "id": "Justin C."
-  "description": "I am passing the time by letting time pass over me ..."
-}
-```
-
-The type of text editor that's used by knife can be configured by adding an entry to your `config.rb` file, or by setting an `EDITOR` environment variable. For example, to configure knife to open the `vim` text editor, add the following to your `config.rb` file:
+Some knife commands (such as `knife data bag edit`) open information as JSON data in a text editor for editing. Configure the editor using either the `EDITOR` environment variable or an entry in your `config.rb` file. For example, to use `vim`:
 
 ```ruby
 knife[:editor] = "/usr/bin/vim"
 ```
 
-When a Windows file path is enclosed in a double-quoted string (" "), the same backslash character (`\`) that's used to define the file path separator is also used in Ruby to define an escape character. The `config.rb` file is a Ruby file; therefore, file path separators must be escaped. In addition, spaces in the file path must be replaced with `~1` so that the length of each section within the file path isn't more than 8 characters. For example, if EditPad Pro is the text editor of choice and is located at the following path:
+### Windows paths
+
+Because `config.rb` is a Ruby file, Windows file paths inside double-quoted strings require special handling:
+
+- **Backslashes must be escaped**: the backslash (`\`) is both the Windows path separator and the Ruby escape character, so each backslash must be doubled (`\\`).
+- **Spaces must use 8.3 short names**: replace spaces in directory names with the 8.3 short name equivalent (for example, `Program Files` becomes `Progra~1`) so that no path segment exceeds 8 characters.
+
+For example, if EditPad Pro is installed at:
 
 ```powershell
-C:\\Program Files (x86)\EditPad Pro\EditPad.exe
+C:\Program Files (x86)\EditPad Pro\EditPad.exe
 ```
 
-the setting in the `config.rb` file would be similar to:
+The `config.rb` entry would be:
 
 ```ruby
 knife[:editor] = "C:\\Progra~1\\EditPa~1\\EditPad.exe"
 ```
 
-One approach to working around the double- vs. single-quote issue is to
-put the single-quotes outside of the double-quotes. For example, for
+To avoid escaping backslashes, wrap the double-quoted Windows path in single quotes:
+
 Notepad++:
 
 ```ruby
 knife[:editor] = '"C:\Program Files (x86)\Notepad++\notepad++.exe" -nosession -multiInst'
 ```
 
-for Sublime Text:
+Sublime Text:
 
 ```ruby
 knife[:editor] = '"C:\Program Files\Sublime Text 2\sublime_text.exe" --wait'
 ```
 
-for TextPad:
+TextPad:
 
 ```ruby
 knife[:editor] = '"C:\Program Files (x86)\TextPad 7\TextPad.exe"'
 ```
 
-and for vim:
+vim:
 
 ```ruby
 knife[:editor] = '"C:\Program Files (x86)\vim\vim74\gvim.exe"'
 ```
 
-### Using Quotes
+{{< note >}}
 
- The text editor command can't include spaces that aren't properly wrapped in quotes. The command can be entered with double quotes (" ") or single quotes (' '), but this should be done consistently as shown in the examples above.
+The text editor command can't include unquoted spaces. Use either double quotes (`" "`) or single quotes (`' '`) consistently, as shown in the examples above.
+
+{{< /note >}}

@@ -8,7 +8,7 @@ draft = false
     title = "Upgrade Lab"
     identifier = "chef_workstation/upgrade_lab.md Upgrade Lab"
     parent = "tools"
-    weight = 150
+    weight = 500
 +++
 
 Chef Software's Upgrade Lab provides an isolated cookbook development environment and in-line support to help you upgrade your system, so you can stop using legacy Chef Infra and start using modern Chef Infra.

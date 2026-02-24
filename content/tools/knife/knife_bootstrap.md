@@ -2,8 +2,6 @@
 title = "knife bootstrap"
 draft = false
 
-
-
 [menu]
   [menu.tools]
     title = "knife bootstrap"
@@ -12,26 +10,32 @@ draft = false
 +++
 <!-- markdownlint-disable-file MD036 MD046-->
 
-A node is any physical, virtual, or cloud device that's configured and
-maintained by an instance of Chef Infra Client. Bootstrapping installs
-Chef Infra Client on a target system so that it can run as a client and
-sets the node up to communicate with a Chef Infra Server. There are two
-ways to do this:
+Bootstrapping installs Chef Infra Client on a target system and configures it to communicate with a Chef Infra Server.
 
-- Run the `knife bootstrap` command from a workstation.
-- Perform an unattended install to bootstrap from the node itself,
-    without requiring SSH or WinRM connectivity.
+## Prerequisites
 
-{{< readfile file="content/reusable/md/knife_bootstrap_summary.md" >}}
+Before bootstrapping nodes:
 
-**Considerations:**
+- [Configure Knife](/tools/knife/knife_configure/#configure-knife)
+- For Chef Infra Client 18 or earlier, [configure your Progress Chef license with Knife](/license)
 
-- Knife will copy the contents of the `~/.chef/client.d` directory on your local workstation to the `client.d` directory on the device being bootstrapped with the `knife bootstrap` command. You can also set the `client_d_dir` option in the `config.rb` file to point to an arbitrary directory instead of `~/.chef/client.d`, and the contents of that directory will be copied to the device being bootstrapped. All config files inside the `client.d` directory will get copied into the `/etc/chef/client.d` directory on the system being bootstrapped.
-- SSL certificates from an on-premises Chef Infra Server can be copied to the `/trusted_certs_dir` directory on your local workstation automatically by running [knife ssl fetch](/tools/knife/knife_ssl_fetch/). These certificates are used during `knife` operations to communicate with Chef Infra Server.
-- By default, `knife bootstrap` will attempt to use `ssh` to connect to the target node. Use the `-o` to specify a different protocol, such as `winrm` for windows nodes.
-- `knife bootstrap` doesn't support an option to provide passphrases for private SSH keys; use an unencrypted private key instead. This will also help with unattended bootstraps -- you can use an SSH agent to provide a password for you while it runs in the same shell as your knife client.
+Before bootstrapping Windows nodes with WinRM:
 
-## Syntax
+- Enable and configure Windows Remote Management (WinRM):
+
+  ```powershell
+  winrm quickconfig -q
+  ```
+
+- Set the execution policy to allow remote script execution:
+
+  ```powershell
+  Enable-PSRemoting -Force
+  ```
+
+- Configure Windows Firewall to allow WinRM traffic on port 5985 (HTTP) or 5986 (HTTPS)
+
+## Bootstrap command syntax
 
 This subcommand has the following syntax:
 
@@ -39,15 +43,9 @@ This subcommand has the following syntax:
 knife bootstrap FQDN_or_IP_ADDRESS (options)
 ```
 
-## Options
+## Bootstrap command options
 
-{{< note >}}
-
-{{< readfile file="content/reusable/md/knife_common_see_common_options_link.md" >}}
-
-{{< /note >}}
-
-### General Connection Options
+### General connection options
 
 `-U USERNAME`, `--connection-user USERNAME`
 
@@ -55,11 +53,11 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 `-P PASSWORD`, `--connection-password PASSWORD`
 
-: Authenticate to the target host with this password."
+: Authenticate to the target host with this password.
 
 `-p PORT`, `--connection-port PORT`
 
-: The port on the target node to connect to."
+: The port on the target node to connect to.
 
 `-o PROTOCOL`, `--connection-protocol PROTOCOL`
 
@@ -73,7 +71,7 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 : The number of seconds to wait for each connection operation to be acknowledged while running bootstrap.
 
-### WinRM Connection Options
+### WinRM connection options
 
 `--winrm-ssl-peer-fingerprint FINGERPRINT`
 
@@ -107,7 +105,7 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 : The Kerberos service used for authentication.
 
-### SSH Connection Options
+### SSH connection options
 
 `-G GATEWAY`, `--ssh-gateway GATEWAY`
 
@@ -129,7 +127,7 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 : Verify host key. Default is 'always'
 
-### Chef Installation Options
+### Chef installation options
 
 `--bootstrap-version VERSION`
 
@@ -175,7 +173,7 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 : The bootstrap template to use. This may be the name of a bootstrap template---`chef-full` for example---or it may be the full path to an Embedded Ruby (ERB) template that defines a custom bootstrap. Default value: `chef-full`, which installs Chef Infra Client using the Chef Infra installer on all supported platforms.
 
-### Proxy Options
+### Proxy options
 
 `--bootstrap-no-proxy NO_PROXY_URL_or_IP`
 
@@ -193,7 +191,7 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 : The proxy authentication username for the node being bootstrapped.
 
-### Node Options
+### Node options
 
 `-N NAME`, `--node-name NAME`
 
@@ -245,7 +243,7 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 : The name of a policy, as identified by the name setting in a Policyfile.rb file.
 
-### chef-vault Options
+### chef-vault options
 
 `--bootstrap-vault-file VAULT_FILE`
 
@@ -259,7 +257,7 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 : A JSON string that contains a list of vaults and items to be updated. For example, `--bootstrap-vault-json '{ "vault1": \["item1", "item2"\], "vault2": "item2" }'`
 
-### Key Verification Options
+### Key verification options
 
 `--[no-]host-key-verify`
 
@@ -280,7 +278,7 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
    **remote_file** resource URLs used in a Chef Infra Client run. This
    is the recommended setting.
 
-### Debug Options
+### Debug options
 
 `-V -V`
 
@@ -295,6 +293,221 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 {{< readfile file="content/reusable/md/knife_common_see_all_config_options.md" >}}
 
 {{< /note >}}
+
+## Bootstrap nodes
+
+<!--
+
+### Bootstrap Chef Infra Client on Linux
+
+To bootstrap Chef Infra Client on a Linux node, run the following command:
+
+```sh
+knife bootstrap <IP_ADDRESS> \
+  -U <USERNAME> \
+  -p <PASSWORD> \
+  -N <NODE_NAME> \
+  --sudo \
+  --bootstrap-url "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.sh?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=IDDVNrOTeKZnc%2Bxa9611MkK%2BZ2o%3D&Expires=1780533412"
+```
+
+Replace the following:
+
+- `<IP_ADDRESS>` with the node's IP address
+- `<USERNAME>` with the SSH username
+- `<PASSWORD>` with the SSH password
+- `<NODE_NAME>` with a unique node name
+
+The `--bootstrap-url` parameter installs a prerelease version of Chef Infra Client that's distributed through pre-signed URLs.
+
+### Bootstrap Chef Infra Client on Windows
+
+To bootstrap Chef Infra Client on a Windows node, run the following command:
+
+```powershell
+knife bootstrap <IP_ADDRESS> \
+  -o winrm \
+  -U <USERNAME> \
+  -P <PASSWORD> \
+  -N <NODE_NAME> \
+  --winrm-port <PORT_NUMBER> \
+  --bootstrap-url "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.ps1?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=4hQ0Ve5Rcd63oHZyTI7r%2FX9KltA%3D&Expires=1780533421"
+```
+
+Replace the following:
+
+- `<IP_ADDRESS>` with the IP address of the Windows node
+- `<USERNAME>` with the WinRM username
+- `<PASSWORD>` with the WinRM password
+- `<NODE_NAME>` with the Chef node name
+- `<PORT_NUMBER>` with the WinRM communication port (default: `5985`)
+
+To use HTTPS for WinRM on port 5986, use the `--winrm-ssl` option.
+
+-->
+
+### Bootstrap Chef Infra Client 18
+
+To bootstrap Chef Infra Client 18.x, run the following command:
+
+```sh
+knife bootstrap <IP_ADDRESS> \
+  -U <USERNAME> \
+  -p <PASSWORD> \
+  -N <NODE_NAME> \
+  --sudo \
+  --bootstrap-product chef
+```
+
+Replace the following:
+
+- `<IP_ADDRESS>` with the node's IP address
+- `<USERNAME>` with the SSH username
+- `<PASSWORD>` with the SSH password
+- `<NODE_NAME>` with a unique node name
+
+The `--bootstrap-product chef` option directs Knife to use Chef Infra Client 18.x from standard download channels.
+
+<!--
+
+### Bootstrap an AWS EC2 instance
+
+The Knife EC2 plugin integrates with AWS EC2 to create and provision EC2 instances.
+
+To create an EC2 instance and bootstrap Chef Infra Client, run the following command:
+
+```sh
+knife ec2 server create \
+  --sudo \
+  -I <AMI_ID> \
+  --ssh-key <SSH_KEY_NAME> \
+  -f <INSTANCE_TYPE> \
+  -N <NODE_NAME> \
+  -U <SSH_USERNAME> \
+  --ssh-identity-file ~/.ssh/<SSH_KEY_FILE> \
+  -g <SECURITY_GROUP_ID> \
+  --region <AWS_REGION> \
+  --subnet <SUBNET_ID> \
+  --aws-tag <TAG_KEY>=<TAG_VALUE>
+  --bootstrap-url "<BOOTSTRAP_URL>"
+```
+
+Replace the following:
+
+- `<AMI_ID>` with the Amazon Machine Image ID for the EC2 instance, for example, `ami-0c02fb55956c7d316`
+- `<SSH_KEY_NAME>` with the Name of your AWS SSH key pair
+- `<INSTANCE_TYPE>` with the Instance type specification, for example, `t3.medium`, `m5.xlarge`, or `c5.4xlarge`
+- `<NODE_NAME>` with the Chef Infra node name for identification within Chef Infra Server
+- `<SSH_USERNAME>` with the SSH username for the selected AMI, for example, `ec2-user`, `ubuntu`, or `centos`
+- `<SSH_KEY_FILE>` with the Path to SSH private key for authentication
+- `<SECURITY_GROUP_ID>` with the Security group ID for network access control, for example, `sg-0a1b2c3d4e5f67890`
+- `<AWS_REGION>` with the AWS region for instance deployment, for example, `us-east-1` or `eu-west-1`
+- `<SUBNET_ID>` with the VPC subnet ID for network placement, for example, `subnet-0123456789abcdef0`
+- `<TAG_KEY>=<TAG_VALUE>` with the Resource tags for AWS compliance and management (repeatable). For example, `environment=production`
+- `<BOOTSTRAP_URL>` with the RC3 installation script URL:
+
+  For Windows nodes:
+
+  ```text
+  https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.ps1?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=4hQ0Ve5Rcd63oHZyTI7r%2FX9KltA%3D&Expires=1780533421
+  ```
+
+  For Linux nodes:
+
+  ```text
+  https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.sh?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=IDDVNrOTeKZnc%2Bxa9611MkK%2BZ2o%3D&Expires=1780533412
+  ```
+
+### Bootstrap a GCP Compute Engine instance
+
+The knife-google plugin integrates with GCP Compute Engine to create and provision GCP instances.
+
+To create a GCP instance and bootstrap Chef Infra Client:
+
+```sh
+knife google server create <INSTANCE_NAME> \
+  --gce-project <GCP_PROJECT_ID> \
+  --gce-zone <GCP_ZONE> \
+  --gce-machine-type <MACHINE_TYPE> \
+  --gce-image <IMAGE_NAME> \
+  --gce-image-project <IMAGE_PROJECT> \
+  --image-os-type <OPERATING_SYSTEM> \
+  --connection-user <SSH_USERNAME> \
+  --ssh-identity-file ~/.ssh/<SSH_KEY_FILE> \
+  --connection-port 22 \
+  --connection-protocol <PROTOCOL> \
+  --gce-network <VPC_NETWORK> \
+  --gce-subnet <SUBNET_NAME> \
+  --gce-tags <TAG1>,<TAG2>,<TAG3> \
+  --bootstrap-url "<BOOTSTRAP_URL>"
+```
+
+Replace the following:
+
+- `<INSTANCE_NAME>` with the Name for the GCP instance
+- `<GCP_PROJECT_ID>` with the Google Cloud project ID
+- `<GCP_ZONE>` with the GCP availability zone, for example, `us-central1-a` or `europe-west1-b`
+- `<MACHINE_TYPE>` with the Instance machine type, for example, `e2-standard-4` or `n1-highmem-8`
+- `<IMAGE_NAME>` with the Operating system image name, for example, `ubuntu-2204-jammy-v20251102`
+- `<IMAGE_PROJECT>` with the Source project containing the OS image, for example, `ubuntu-os-cloud` or `centos-cloud`
+- `<OPERATING_SYSTEM>` with the Operating system type: `linux` or `windows`
+- `<SSH_USERNAME>` with the SSH username
+- `<SSH_KEY_FILE>` with the Filename of your SSH private key
+- `<PROTOCOL>` with the Communication protocol: `ssh` or `winrm`
+- `<VPC_NETWORK>` with the VPC network name
+- `<SUBNET_NAME>` with the Subnet name within the VPC
+- `<TAG1>,<TAG2>,<TAG3>` with the Comma-separated instance tags for organization and firewall rules (optional)
+- `<BOOTSTRAP_URL>` with the Installation script URL:
+
+  For Windows nodes:
+
+  ```text
+  https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.ps1?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=4hQ0Ve5Rcd63oHZyTI7r%2FX9KltA%3D&Expires=1780533421
+  ```
+
+  For Linux nodes:
+
+  ```text
+  https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.sh?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=IDDVNrOTeKZnc%2Bxa9611MkK%2BZ2o%3D&Expires=1780533412
+  ```
+
+### Bootstrap Chef Infra Client in an air-gapped environment
+
+You can bootstrap Chef Infra Client 19 in an air-gapped environment.
+The following are example steps for modifying the install scripts in an air-gapped environment.
+
+1. On an internet-connected computer, download the Chef Infra Client 19 installation scripts and save them to an internal repository that's accessible to your target nodes. For example:
+
+   ```sh
+   wget https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.sh \
+     -O /var/www/internal-repo/chef/rc3/install.sh
+
+   wget https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.ps1 \
+     -O /var/www/internal-repo/chef/rc3/install.ps1
+   ```
+
+1. Modify the installation scripts to reference your internal package locations. For example:
+
+   ```sh
+   sed -i 's|https://chef-hab-migration-tool-bucket.s3.amazonaws.com|https://internal-repo.example.com|g' \
+     /var/www/internal-repo/chef/rc3/install.sh
+
+   sed -i 's|https://chef-hab-migration-tool-bucket.s3.amazonaws.com|https://internal-repo.example.com|g' \
+     /var/www/internal-repo/chef/rc3/install.ps1
+   ```
+
+1. Bootstrap Chef Infra Client 19 using the `--bootstrap-url` parameter to point to your internal resources:
+
+   ```sh
+   knife bootstrap <IP_ADDRESS> \
+     -U <USERNAME> \
+     -p <PASSWORD> \
+     -N <NODE_NAME> \
+     --sudo \
+     --bootstrap-url "https://internal-repo.example.com/chef/rc3/install.sh"
+   ```
+
+-->
 
 ### Validatorless bootstrap
 
@@ -359,18 +572,13 @@ FIPS-validated software, including certain ciphers and hashing
 algorithms. Any attempt to use any disallowed cryptography will cause
 Chef Infra Client to throw an exception during a Chef Infra Client run.
 
-<!-- markdownlint-disable-file MD033 -->
-
-<div class="admonition-note">
-<p class="admonition-note-title">Note</p>
-<div class="admonition-note-text">
+{{< note >}}
 
 Chef uses MD5 hashes to uniquely identify files that are stored on the
 Chef Infra Server. MD5 is used only to generate a unique hash identifier
 and isn't used for any cryptographic purpose.
 
-</div>
-</div>
+{{< /note >}}
 
 Notes about FIPS:
 
@@ -393,7 +601,7 @@ OpenSSL FIPS 140 mode enabled
 192.0.2.0 Chef Infra Client finished, 12/12 resources updated in 78.942455583 seconds
 ```
 
-## Custom Templates
+## Custom bootstrap templates
 
 The default `chef-full` template uses the Chef installer. For most
 bootstrap operations, regardless of the platform on which the target
@@ -401,9 +609,9 @@ node is running, using the `chef-full` distribution is the best approach
 for installing Chef Infra Client on a target node. In some situations, a
 custom template may be required.
 
-For example, the default bootstrap operation relies on an Internet
+For example, the default bootstrap operation relies on an internet
 connection to get the distribution to the target node. If a target node
-can't access the Internet, then a custom template can be used to define
+can't access the internet, then a custom template can be used to define
 a specific location for the distribution so that the target node may
 access it during the bootstrap operation. The example below will show
 you how to create a bootstrap template that uses a custom artifact store
@@ -454,7 +662,7 @@ for Chef packages and installation scripts, as well as a RubyGem mirror:
 
     This appends the appropriate `rubygems_url` setting to the `/etc/chef/client.rb` file that's created during bootstrap, which ensures that your nodes use your internal gem mirror.
 
-### Bootstrap a Custom Template
+### Bootstrap with a custom template
 
 You can use the `--bootstrap-template` option with the `knife bootstrap`
 subcommand to specify the name of your bootstrap template file:

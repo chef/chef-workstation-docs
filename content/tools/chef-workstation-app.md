@@ -18,7 +18,7 @@ The Chef Workstation App (CWA) is an early release desktop application that prov
 
 Additional features and integrations will be rolled out in future updates.
 
-## Running the Chef Workstation App
+## Run the Chef Workstation App
 
 ### Windows
 
@@ -30,14 +30,14 @@ Start Chef Workstation App by running the command `chef-workstation-app`.
 
 #### Notes
 
-1. Chef Workstation App requires a running display manager with support for system tray icons.
-1. On some distributions you may need to install additional libraries. The post-install message shown when you install the Chef Workstation package from the terminal will tell you which -- if any -- additional libraries are required to run Chef Workstation App.
+- Chef Workstation App requires a running display manager with support for system tray icons.
+- On some distributions you may need to install additional libraries. The post-install message shown when you install the Chef Workstation package from the terminal will tell you which---if any---additional libraries are required to run Chef Workstation App.
 
 ### Mac
 
 Start `Chef Workstation App` from your Applications folder.
 
-## Disabling Automatic Update Checks
+## Disable automatic update checks
 
 To disable CWA's automatic update checking, add or modify the `enable` setting under `updates` in [config.toml]({{< ref "config.md#updates" >}}):
 
@@ -46,7 +46,7 @@ To disable CWA's automatic update checking, add or modify the `enable` setting u
 enable=false
 ```
 
-## Setting update channel
+## Set an update channel
 
 To set the channel used for update checking, bring up the CWA tray app menu (Windows/Linux) or the application menu (Mac) and select **About Chef Workstation**.
 

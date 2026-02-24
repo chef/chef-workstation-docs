@@ -59,6 +59,7 @@ identifier = "tools"
     title = "Knife"
     identifier = "tools/knife"
     parent = "tools"
+    weight = 100
 
         [[tools]]
         title = "Knife plugins"
@@ -69,3 +70,4 @@ identifier = "tools"
     title = "Test Kitchen"
     identifier = "tools/test_kitchen"
     parent = "tools"
+    weight = 200
