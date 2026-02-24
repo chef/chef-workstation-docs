@@ -14,11 +14,7 @@ draft = false
 
 {{< readfile file="content/reusable/md/chef_workstation.md" >}}
 
-Chef Workstation replaces ChefDK, combining all the existing features
-with new features, such as ad-hoc task support and the new Chef
-Workstation desktop application.
-
-## Getting Started
+## Get started
 
 Chef Infra is a systems and cloud infrastructure automation framework
 that makes it easy to deploy servers and applications to any physical,
@@ -33,7 +29,7 @@ the actual configuration.
 - [An Overview of Chef Infra](https://docs.chef.io/chef_overview/)
 - [Install Chef Workstation](/install/)
 
-### Cookbook Development Workflow
+### Cookbook development workflow
 
 Chef Infra defines a common workflow for cookbook development:
 
@@ -42,15 +38,26 @@ Chef Infra defines a common workflow for cookbook development:
 1. Test in acceptance. Test your work in an environment that matches your production environment.
 1. Deploy your cookbooks to the production environment, but only after they pass all the acceptance tests and are verified to work in the desired manner.
 
-## Tools
+## Included tools and components
 
-Chef Workstation packages all the tools necessary to be successful with Chef Infra and InSpec. These tools are combined into packages for common operating systems and include all the dependencies you need to get started.
+Chef Workstation includes the following fully integrated tools:
 
-The most important tools included in Chef Workstation are:
+### Core development tools
 
-- **Chef CLI**: A workflow tool for Chef Infra.
-- **knife**: A tool for managing systems on Chef Infra Server.
-- **Chef Infra Client**: The Chef Infra agent.
-- **Chef InSpec**: A compliance as code tool that can also be used for testing Chef Infra cookbooks.
-- **Cookstyle**: A linting tool that helps you write better Chef Infra cookbooks by detecting and automatically correcting style, syntax, and logic mistakes in your code.
-- **Test Kitchen**: An integration testing framework tool that tests cookbooks across platforms and various cloud provider / hypervisors.
+- **Chef CLI (`chef-cli`)**: Primary command-line interface for Chef development workflows, providing unified access to common Chef operations
+- **Chef Infra Client**: Latest release candidate of the Chef Infra Client, enabling infrastructure automation and configuration management
+- **Knife**: Essential tool for interacting with Chef Infra Server, managing nodes, cookbooks, roles, and other Chef objects
+- **Chef InSpec**: Latest release candidate of InSpec, enabling compliance and security testing.
+
+### Testing and quality assurance
+
+- **Chef Test Kitchen Enterprise**: Comprehensive testing framework for validating infrastructure code across multiple platforms and environments
+- **Chef InSpec**: Compliance and security testing framework for auditing infrastructure and applications against security standards and regulations
+- **Cookstyle**: Ruby and Chef cookbook linting tool that enforces style guidelines and best practices
+- **Fauxhai**: Mock Ohai data generator for testing purposes, enabling rapid cookbook testing without requiring actual systems
+
+### Dependency and secret management
+
+- **Berkshelf**: Cookbook dependency manager that streamlines the process of managing and retrieving cookbook dependencies
+- **Chef Vault**: Secure data management tool for encrypting and managing secrets within Chef workflows
+- **Ohai**: System profiling tool that detects and reports system attributes for use in Chef recipes

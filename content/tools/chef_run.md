@@ -13,7 +13,7 @@ draft = false
 
 chef-run is a tool to execute ad-hoc tasks on one or more target nodes using Chef Infra Client. To start with, familiarize yourself with `chef-run`'s arguments and flags by running `chef-run -h`.
 
-## Apply a Resource to a Single Node over SSH
+## Apply a resource to a single node over SSH
 
 In its simplest form, `chef-run` targets a single machine and execute a single resource on that machine:
 
@@ -43,7 +43,7 @@ chef-run my_user:a_password@host1:2222 directory /tmp/foo
 chef-run my_user@host1:2222 directory /tmp/foo --password a_password
 ```
 
-## Applying a Resource to a Single Node over WinRM
+## Apply a resource to a single node over WinRM
 
 To target WinRM you must specify the `winrm` protocol as part of the connection information:
 
@@ -57,7 +57,7 @@ HTTPS connections are supported by providing the `--ssl` flag.
 
 `chef-run` over WinRM doesn't support certificate-based authentication to target hosts.
 
-## Specifying resource properties and actions
+## Specify resource properties and actions
 
 You can specify all the Chef Infra [resources](https://docs.chef.io/client/latest/resources/) in the command line. Enter the `chef-run` command first, followed by the resource type in the second place, and the resource name in the third place. For example:
 
@@ -77,7 +77,7 @@ chef-run host1 user super_person action=remove
 
 See the documentation for each resource to see available properties available to customize. As shown in the previous example, you can quote the `key=value` pair if the value contains a character that would be interpreted by the shell.
 
-## Running a Recipe
+## Run a recipe
 
 To run a full recipe, specify a recipe using its path:
 
@@ -130,7 +130,7 @@ To specify the search paths as command line arguments instead of using a configu
 chef-run host1 my_cookbook --cookbook-repo-paths '/path/1,/path/b'
 ```
 
-## Configuring Cookbook Dependencies and Sources
+## Configure cookbook dependencies and sources
 
 When converging a target node `chef-run` creates a Policyfile bundle that includes the cookbook specified. If the cookbook you specified has its own [`Policyfile.rb`](https://docs.chef.io/client/latest/policy/config_rb_policyfile/) that will be respected.
 
@@ -165,7 +165,7 @@ Running `chef-run host1 really_complicated::first` collects all the `really_comp
 
 You can specify different cookbook sources in `Policyfile.rb`, including a private supermarket. See the [Policyfile documentation](https://docs.chef.io/client/latest/policy/config_rb_policyfile/) for examples.
 
-## Connecting to Chef Automate 2
+## Connect to Chef Automate
 
 You can configure remote nodes managed with `chef-run` to send run information to Chef Automate. First, [generate an auth token](https://docs.chef.io/automate/api_tokens/#creating-api-tokens).
 

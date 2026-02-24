@@ -9,206 +9,140 @@ draft = false
     identifier = "install.md Install Chef Workstation"
     weight = 10
 +++
-<!-- markdownlint-disable-file MD033 -->
 
-{{< readfile file="content/reusable/md/chef_workstation.md" >}}
+{{< readfile file="/content/reusable/md/workstation_modularize.md" >}}
 
-For general information about downloading Chef products, see the [Chef download documentation](https://docs.chef.io/download/).
+## System requirements
 
-For supported Chef Workstation versions, see the [Chef Workstation release notes](https://docs.chef.io/release_notes/workstation/) or use the [Chef download APIs](https://docs.chef.io/download).
+Chef Workstation 26 has the following requirements:
 
-## Supported Platforms
+- Linux x86-64 (64-bit) systems only
+- Chef Habitat 1.6.0 or later installed
+- Minimum 2GB available disk space for installation
+- Internet connectivity for package downloads (or access to internal Habitat Builder)
 
-The following table lists the commercially supported platforms and versions for Chef Workstation:
+## Prerequisites
 
-| Platform                          | Architecture                | Version                                                                    |
-|-----------------------------------| ----------------------------| ---------------------------------------------------------------------------|
-| Amazon Linux                      | x86_64, arch64 (2023 only)  | 2.x, 2023                                                                  |
-| macOS                             | aarch64                     | 13.x, 14.x                                                                 |
-| Debian                            | x86_64                      | 10.x, 11.x                                                                 |
-| Red Hat Enterprise Linux / CentOS | x86_64                      | 7.x, 8.x, 9.x                                                              |
-| Ubuntu                            | x86_64                      | 18.04, 20.04, 22.04                                                        |
-| Windows                           | x64                         | 10, 11, Server 2016, Server 2019, Server 2022                              |
+We use Chef Habitat to distribute and install Chef Workstation and its components.
+See the following guides to install and configure Chef Habitat:
 
-### Derived Platforms
+- [Install Chef Habitat](https://docs.chef.io/habitat/install_habitat/)
+- [Create a Chef Habitat Builder profile](https://docs.chef.io/habitat/builder_profile/)
 
-The following table lists supported derived platforms and versions for Chef Workstation.
+## Install Chef Workstation
 
-See our policy on [support for derived platforms](https://docs.chef.io/platforms/#support-for-derived-platforms) for more information.
+To install Chef Workstation, follow these steps:
 
-| Platform | Architecture | Version | Parent platform |
-| --- | --- | --- | --- |
-| AlmaLinux | `x86_64` | `8.x` | CentOS |
-| Rocky Linux | `x86_64` | `8.x` | CentOS |
+1. Install the Chef Workstation Habitat package:
 
-## System Requirements
+    ```sh
+    sudo hab pkg install --binlink --force chef/chef-workstation --channel unstable
+    ```
 
-Minimum system requirements:
+    - `--binlink`: Creates symbolic links in `/bin` for all included tools, making them accessible system-wide
+    - `--force`: Overwrites any existing binlinks from previous installations
+    - `--channel unstable`: Specifies the unstable channel where releases are published
 
-- RAM: 4GB
-- Disk: 8GB
-- Additional memory and storage space may be necessary to take advantage of Chef Workstation tools such as Test Kitchen which creates and manages virtualized test environments.
+    The installation process downloads the package and all dependencies, creates necessary binlinks, and configures the environment.
+    This may take several minutes depending on your network connection.
 
-Additional Chef Workstation App Requirements:
+1. Optional: Verify that Chef Workstation and its tools are installed:
 
-- On Linux, you must have a graphical window manager running with support for system tray icons. For some distributions you may also need to install additional libraries. After you install the Chef Workstation package from the terminal, the post-install message will tell you which, if any, additional libraries are required to run the Chef Workstation App.
+    ```sh
+    chef-workstation -v
+    ```
 
-## Installation
+    Chef Workstation returns a list of installed packages and their versions.
 
-The Chef Workstation installer must run as a privileged user.
+1. Optional: You can also verify each individual tool:
 
-Chef Workstation installs to `/opt/chef-workstation/` on macOS and Linux, and `C:\opscode\chef-workstation\` on Windows.
-These file locations help avoid interference between these components and other applications that may be running on the target machine.
+    ```sh
+    chef-cli --version
+    knife --version
+    kitchen --version
+    berks --version
+    cookstyle --version
+    ohai --version
+    chef-vault --version
+    inspec --version
+    ```
 
-### macOS Install
+## Install Chef Workstation tools
 
-1. Visit [Chef Downloads](https://www.chef.io/downloads) to download a Chef Workstation package.
-1. Follow the steps to accept the license and install Chef Workstation.
+The following applications are included with Chef Workstation,
+but they can be installed as standalone applications.
 
-Alternatively, install Chef Workstation using the [Homebrew](https://brew.sh/) package manager:
+Follow these instructions to install a Workstation tool.
 
-`brew install --cask chef-workstation`
+1. Install a package using [`hab pkg install`](https://docs.chef.io/habitat/habitat_cli/#hab-pkg-install):
 
-### Windows Install
+    ```sh
+    sudo hab pkg install <PACKAGE_IDENT> --channel unstable --binlink --force
+    ```
 
-1. Visit [Chef Downloads](https://www.chef.io/downloads) to download a Chef Workstation package.
-1. Follow the steps to accept the license and install Chef Workstation. You will have the option to change your install location; by default the installer uses the `C:\opscode\chef-workstation\` directory.
-1. **Optional:** Set the default shell. On Windows, Progress Chef strongly recommends using Windows PowerShell instead of `cmd.exe`.
+    Replace `<PACKAGE_IDENT>` with the package identifier:
 
-Alternatively, install Chef Workstation using the [Chocolatey](https://chocolatey.org/) package manager:
+    - `chef/berkshelf`
+    - `chef/chef-cli`
+    - `chef/chef-infra-client`
+    - `chef/chef-test-kitchen-enterprise`
+    - `chef/chef-vault`
+    - `chef/cookstyle`
+    - `chef/fauxhai`
+    - `chef/inspec`
+    - `chef/knife`
+    - `chef/ohai`
 
-`choco install chef-workstation`
+    The `--binlink --force` options overwrite any existing package symbolic links in the system's PATH directory with the new version so you can run it directly in the command line.
 
-#### Headless Unattended Install
+1. Verify that the correct version runs:
 
-"Headless" systems are configured to operate without a monitor (the "head") keyboard, and mouse. They're usually administered remotely using protocols such as SSH or WinRM.
+    ```sh
+    berks -v
+    chef-cli -v
+    chef-client -v
+    chef-client -v
+    chef-vault <args>
+    cookstyle -v
+    fauxhai -v
+    knife -v
+    ohai -v
+    ```
 
-Chef Workstation can be installed on a headless system using the `msiexec` command and flags to skip the installation of the Chef Workstation Application, which requires a GUI. Run the following command in Windows PowerShell or `cmd.exe`, replacing `MsiPath` with the path of the downloaded Chef Workstation installer.
+## Troubleshooting
 
-```powershell
-msiexec /q /i MsiPath ADDLOCAL=ALL REMOVE=ChefWSApp
+### Binlinks not found
+
+If commands aren't found after installation, verify that Chef Habitat created the binlinks:
+
+```sh
+ls -la /bin | grep chef
 ```
 
-#### Spaces and Directories
+If binlinks are missing, recreate them:
 
-Directories that are used by Chef products on Windows can't have
-spaces. For example, `C:\Users\User Name` won't work, but
-`C:\Users\UserName` will. Chef commands may fail if used against a
-directory with a space in its name.
-
-#### Top-level Directory Names
-
-Windows will throw errors when path name lengths are too long. For this
-reason, it's often helpful to use a short top-level directory, much
-like what's done in UNIX and Linux. For example, Chef uses `/opt/` to
-install Chef Workstation on macOS. A similar approach can be done on
-Windows, by creating a top-level directory with a short name.
-For example: `C:\chef`.
-
-### Linux
-
-You can use [Chef's download APIs](https://docs.chef.io/download) or a package manager to install Chef Workstation on Linux.
-
-#### Download API
-
-- To use the [Chef download APIs](https://docs.chef.io/download) to download Chef Workstation:
-
-  ```bash
-  wget https://chefdownload-commercial.chef.io/stable/chef-workstation/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<WORKSTATION_VERSION>&license_id=<LICENSE_ID>
-  ```
-
-  Replace:
-
-  - `<PLATFORM>` with the platform you want to run Chef Workstation on. For example, `ubuntu` or `el`.
-  - `<PLATFORM_VERSION>` with the version of the platform you want to run Chef Workstation on.
-  - `<ARCHITECTURE>` with the architecture that Chef Workstation on. For example, `x86_64`.
-  - `<WORKSTATION_VERSION>` with the version of Chef Workstation you want to download.
-  - `<LICENSE_ID>` with your [Chef license ID](https://docs.chef.io/licensing).
-
-  For example, run the following to download Chef Workstation 24.8.1068 on Red Hat Enterprise Linux 9 running on x86-64 architecture:
-
-  ```sh
-  wget https://chefdownload-commercial.chef.io/stable/chef-workstation/download?p=el&pv=9&m=x86_64&v=24.4.1068&license_id=<LICENSE_ID>
-  ```
-
-See the [Chef download API documentation](https://docs.chef.io/download) and [Chef licensing documentation](https://docs.chef.io/licensing) for more information.
-
-#### Package manager
-
-You can use Yum or Dpkg package managers to install Chef Workstation.
-
-- To download Chef Workstation using Yum on Red Hat Enterprise Linux:
-
-  ```bash
-  yum localinstall chef-workstation-<WORKSTATION_VERSION>-1.el<RHEL_VERSION>.x86_64.rpm
-  ```
-
-  For example:
-
-  ```bash
-  yum localinstall chef-workstation-24.4.1064-1.el8.x86_64.rpm
-  ```
-
-- To download Chef Workstation using Dpkg on Ubuntu or Debian:
-
-  ```bash
-  dpkg -i chef-workstation_<WORKSTATION_VERSION>-1_amd64.deb
-  ```
-
-  For example:
-
-  ```sh
-  dpkg -i chef-workstation_24.4.1064-1_amd64.deb
-  ```
-
-## Verify the Installation
-
-To verify the installation, run:
-
-```shell
-chef -v
+```sh
+sudo hab pkg binlink --force chef/chef-workstation
 ```
 
-Which returns the versions of all installed Chef tools:
+### Permission errors
 
-```shell
-Chef Workstation version: 24.6.1066
-Chef Infra Client version: 18.5.0
-Chef InSpec version: 5.22.55
-Chef CLI version: 5.6.14
-Chef Habitat version: 1.6.1041
-Test Kitchen version: 3.6.0
-Cookstyle version: 7.32.8
+Ensure you're running installation commands with `sudo` for system-wide access.
+
+### Habitat channel issues
+
+If the package can't be found, verify channel availability:
+
+```sh
+hab pkg search chef/chef-workstation --channel unstable
 ```
 
-## Upgrading
+## Next step
 
-To upgrade from ChefDK or an earlier release of Chef Workstation, follow the instructions provided under [Installing]({{< ref "install.md" >}}).
+- [Set up Workstation](set_up)
+- [Add a license](license)
 
-## Uninstalling
+## More information
 
-### Mac Uninstall
-
-Run `uninstall_chef_workstation` in your terminal.
-
-### Windows Uninstall
-
-Use **Add / Remove Programs** to remove Chef Workstation.
-
-### Linux Uninstall
-
-Ubuntu, Debian, and related:
-
-```bash
-sudo dpkg -P chef-workstation
-```
-
-Red Hat, CentOS, and related:
-
-```bash
-sudo yum remove chef-workstation
-```
-
-## Next steps
-
-Now that you've installed Chef Workstation, proceed to the [Setup]({{< relref "set_up.md" >}}) guide to configure your Chef Workstation installation.
+- [Chef Habitat documentation](https://docs.chef.io/habitat/)
+- [Upgrade Chef Workstation 26 and its components](upgrade)

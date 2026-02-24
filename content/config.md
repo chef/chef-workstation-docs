@@ -12,20 +12,23 @@ draft = false
 <!-- markdownlint-disable-file MD024 -->
 <!-- vale Microsoft.Contractions = NO -->
 
-Chef Workstation App and `chef-run` configuration is managed in `config.toml`. Chef Workstation will create `config.toml` the first time you use `chef-run`, if one doesn't already exist. To configure other tools, see their respective pages found in the toolbar under Chef Workstation Tools.
+The Chef Workstation and `chef-run` configuration is managed in the `config.toml` file.
+Chef Workstation creates the `config.toml` file the first time you use `chef-run`, if one doesn't already exist.
+
+To configure other Workstation tools, see their documentation.
 
 ## Default location
 
 Chef Workstation looks for the `config.toml` in a default location.
 
-### Windows
+- On Windows:
 
-- Powershell: `$env:USERPROFILE\.chef-workstation\config.toml`
-- cmd.exe: `%USERPROFILE%\.chef-workstation\config.toml`
+  - Powershell: `$env:USERPROFILE\.chef-workstation\config.toml`
+  - cmd.exe: `%USERPROFILE%\.chef-workstation\config.toml`
 
-### Linux and Mac
+- On Linux and macOS:
 
-`/home/$USER/.chef-workstation/config.toml`
+  - `/home/$USER/.chef-workstation/config.toml`
 
 ## Settings
 

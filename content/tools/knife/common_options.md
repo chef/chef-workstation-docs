@@ -1,15 +1,13 @@
 +++
-title = "Knife Common Options"
+title = "Knife common options"
 draft = false
-
-
 
 [menu]
   [menu.tools]
-    title = "Knife Common Options"
+    title = "Knife common options"
     identifier = "tools/knife/common_options.md Knife Common Options"
     parent = "tools/knife"
-    weight = 30
+    weight = 110
 +++
 
 The following options can be run with all knife subcommands and
@@ -25,11 +23,12 @@ plug-ins:
 
 `--chef-zero-port PORT`
 
-: The port (or port range) to start chef-zero on. Port ranges l `1000,1010` or `8889-9999` will try all given ports until one works.
+: The port (or port range) to start chef-zero on. Port ranges: `1000,1010` or `8889-9999`.
+  Will try all given ports until one works.
 
 `-d`, `--disable-editing`
 
-: Prevent the \$EDITOR from being opened and accept data as-is.
+: Prevent the configured text editor from opening and accept data as-is.
 
 `--defaults`
 
@@ -37,7 +36,7 @@ plug-ins:
 
 `-e EDITOR`, `--editor EDITOR`
 
-: The \$EDITOR that's used for all interactive commands.
+: The text editor that's used for all interactive commands.
 
 `-E ENVIRONMENT`, `--environment ENVIRONMENT`
 

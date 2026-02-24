@@ -64,6 +64,11 @@ ignoreRegExpList:
 words:
   - shef
   - LOCALAPPDATA
+  - binlink
+  - binlinks
+  - pkgs
+  - highmem
+  - Progra
   - setx
   - lgplv
   - RAGRS

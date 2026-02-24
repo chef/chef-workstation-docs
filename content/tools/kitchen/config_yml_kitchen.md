@@ -2,8 +2,6 @@
 title = "kitchen.yml"
 draft = false
 
-
-
 [menu]
   [menu.tools]
     title = "kitchen.yml"
