@@ -74,7 +74,7 @@ chef -v
 ```
 
 A successful installation will display output similar to the following:
-
+```shell
 » Binlinking chef-workstation from chef/chef-workstation/26.0.15/20260320101649 into /bin
 ★ Binlinked chef-workstation from chef/chef-workstation/26.0.15/20260320101649 to /bin/chef-workstation
 » Binlinking kitchen from chef/chef-workstation/26.0.15/20260320101649 into /bin
@@ -84,7 +84,7 @@ A successful installation will display output similar to the following:
 » Binlinking chef-client from chef/chef-workstation/26.0.15/20260320101649 into /bin
 ★ Binlinked chef-client from chef/chef-workstation/26.0.15/20260320101649 to /bin/chef-client
 » Binlinking chef-cli from chef/chef-workstation/26.0.15/20260320101649 into /bin
-Ø Skipping binlink because chef-cli already exists at /bin/chef-cli. Use --force to overwrite
+★ Binlinked  chef-cli from chef/chef-workstation/26.0.15/20260320101649  to /bin/chef-cli
 » Binlinking inspec from chef/chef-workstation/26.0.15/20260320101649 into /bin
 ★ Binlinked inspec from chef/chef-workstation/26.0.15/20260320101649 to /bin/inspec
 » Binlinking chef-vault from chef/chef-workstation/26.0.15/20260320101649 into /bin
@@ -101,6 +101,8 @@ A successful installation will display output similar to the following:
 ★ Binlinked setup-knife-gems from chef/chef-workstation/26.0.15/20260320101649 to /bin/setup-knife-gems
 » Binlinking cookstyle from chef/chef-workstation/26.0.15/20260320101649 into /bin
 ★ Binlinked cookstyle from chef/chef-workstation/26.0.15/20260320101649 to /bin/cookstyle
+```
+
 
 Note: After installing a Habitat package on Windows, you need to add (use hab cli setup) C:\hab\bin to your system PATH so that binlinked commands (like knife, chef-cli, inspec) work smoothly from any terminal.
 
