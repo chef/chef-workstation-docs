@@ -16,15 +16,10 @@ draft = false
 
 ## Get started
 
-Chef Infra is a systems and cloud infrastructure automation framework
-that makes it easy to deploy servers and applications to any physical,
-virtual, or cloud location, no matter the size of the infrastructure.
-Each organization is comprised of one (or more) Chef Workstation
-installations, a single server, and every node that will be configured
-and maintained by Chef Infra Client. Cookbooks (and recipes) are used to
-tell Chef Infra Client how each node in your organization should be
-configured. Chef Infra Client---which is installed on every node---does
-the actual configuration.
+Chef Workstation Enterprise represents the next evolution of Chef Workstation. This new distribution model is designed to simplify releases and offer greater flexibility when upgrading or installing individual components. By using Habitat as its underlying package management system, Chef Workstation Enterprise allows organizations to maintain precise control over component versions while making installation and upgrades more straightforward.
+The transition from Chef Workstation to Chef Workstation Enterprise introduces several architectural improvements that address common challenges faced by enterprise users. These include independent component versioning, support for multiple versions running side by side, and simplified update workflows.
+The new Chef Workstation also includes essential tools such as chef-cli, Test Kitchen, Knife, and others, helping users install, manage, and upgrade their environments with greater ease.
+Chef Workstation Enterprise is built to work seamlessly with Chef Infra, a powerful automation framework for managing infrastructure at scale. Chef Infra makes it easy to deploy and manage servers and applications across physical, virtual, or cloud environments. A typical setup includes one or more Chef Workstation installations, a central Chef server, and nodes managed by the Chef Infra Client. Configuration is defined using cookbooks and recipes, which the client applies to each node to ensure consistency.
 
 - [An Overview of Chef Infra](https://docs.chef.io/chef_overview/)
 - [Install Chef Workstation](/install/)

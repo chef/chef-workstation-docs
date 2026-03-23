@@ -30,42 +30,131 @@ See the following guides to install and configure Chef Habitat:
 - [Create a Chef Habitat Builder profile](https://docs.chef.io/habitat/builder_profile/)
 
 ## Install Chef Workstation
+Chef Workstation supports several installation methods to accommodate different deployment scenarios.
+Installing the Latest Stable Version To install the most recent stable release from the default channel, execute the following command:
+```shell
+hab pkg install chef/chef-workstation # Installs the latest stable version from the default channel base-2025
 
-To install Chef Workstation, follow these steps:
+```
 
-1. Install the Chef Workstation Habitat package:
+### Installing from the Unstable Channel
 
-    ```sh
-    sudo hab pkg install --binlink --force chef/chef-workstation --channel unstable
-    ```
+For access to pre-release versions and the latest development builds, install from the unstable channel:
+```shell
+hab pkg install chef/chef-workstation --channel unstable
+```
 
-    - `--binlink`: Creates symbolic links in `/bin` for all included tools, making them accessible system-wide
-    - `--force`: Overwrites any existing binlinks from previous installations
-    - `--channel unstable`: Specifies the unstable channel where releases are published
+### Installing a Specific Version
+When you need to install a particular version of Chef Workstation Enterprise , specify the version and timestamp in the package identifier:
+```shell
+hab pkg install chef/chef-workstation/<VERSION>/<TIMESTAMP>
+```
+For example, to install version 26.0.15 with timestamp 20260320102857:
+```shell
+hab pkg install chef/chef-workstation/26.0.15/20260320102857
+```
 
-    The installation process downloads the package and all dependencies, creates necessary binlinks, and configures the environment.
-    This may take several minutes depending on your network connection.
+### Installing with Binary Linking (Recommended)
 
-1. Optional: Verify that Chef Workstation and its tools are installed:
+The recommended installation method includes binary linking, which creates symbolic links to the package binaries in your system PATH. This enables direct command execution without requiring the full Habitat exec syntax:
+```shell
+hab pkg install chef/chef-workstation --binlink --force
+```
 
-    ```sh
-    chef-workstation -v
-    ```
+### Post-Installation Verification
 
-    Chef Workstation returns a list of installed packages and their versions.
+After completing the installation, verify that Chef Workstation is correctly installed by checking the version information:
+```shell
+chef-workstation -v
+```
 
-1. Optional: You can also verify each individual tool:
+OR
+```shell
+chef -v
+```
 
-    ```sh
-    chef-cli --version
-    knife --version
-    kitchen --version
-    berks --version
-    cookstyle --version
-    ohai --version
-    chef-vault --version
-    inspec --version
-    ```
+A successful installation will display output similar to the following:
+
+» Binlinking chef-workstation from chef/chef-workstation/26.0.15/20260320101649 into /bin
+★ Binlinked chef-workstation from chef/chef-workstation/26.0.15/20260320101649 to /bin/chef-workstation
+» Binlinking kitchen from chef/chef-workstation/26.0.15/20260320101649 into /bin
+★ Binlinked kitchen from chef/chef-workstation/26.0.15/20260320101649 to /bin/kitchen
+» Binlinking ohai from chef/chef-workstation/26.0.15/20260320101649 into /bin
+★ Binlinked ohai from chef/chef-workstation/26.0.15/20260320101649 to /bin/ohai
+» Binlinking chef-client from chef/chef-workstation/26.0.15/20260320101649 into /bin
+★ Binlinked chef-client from chef/chef-workstation/26.0.15/20260320101649 to /bin/chef-client
+» Binlinking chef-cli from chef/chef-workstation/26.0.15/20260320101649 into /bin
+Ø Skipping binlink because chef-cli already exists at /bin/chef-cli. Use --force to overwrite
+» Binlinking inspec from chef/chef-workstation/26.0.15/20260320101649 into /bin
+★ Binlinked inspec from chef/chef-workstation/26.0.15/20260320101649 to /bin/inspec
+» Binlinking chef-vault from chef/chef-workstation/26.0.15/20260320101649 into /bin
+★ Binlinked chef-vault from chef/chef-workstation/26.0.15/20260320101649 to /bin/chef-vault
+» Binlinking fauxhai from chef/chef-workstation/26.0.15/20260320101649 into /bin
+★ Binlinked fauxhai from chef/chef-workstation/26.0.15/20260320101649 to /bin/fauxhai
+» Binlinking berks from chef/chef-workstation/26.0.15/20260320101649 into /bin
+★ Binlinked berks from chef/chef-workstation/26.0.15/20260320101649 to /bin/berks
+» Binlinking knife from chef/chef-workstation/26.0.15/20260320101649 into /bin
+★ Binlinked knife from chef/chef-workstation/26.0.15/20260320101649 to /bin/knife
+» Binlinking chef from chef/chef-workstation/26.0.15/20260320101649 into /bin
+★ Binlinked chef from chef/chef-workstation/26.0.15/20260320101649 to /bin/chef
+» Binlinking setup-knife-gems from chef/chef-workstation/26.0.15/20260320101649 into /bin
+★ Binlinked setup-knife-gems from chef/chef-workstation/26.0.15/20260320101649 to /bin/setup-knife-gems
+» Binlinking cookstyle from chef/chef-workstation/26.0.15/20260320101649 into /bin
+★ Binlinked cookstyle from chef/chef-workstation/26.0.15/20260320101649 to /bin/cookstyle
+
+Note: After installing a Habitat package on Windows, you need to add (use hab cli setup) C:\hab\bin to your system PATH so that binlinked commands (like knife, chef-cli, inspec) work smoothly from any terminal.
+
+### Usage Guide
+
+Chef Workstation provides two primary methods for executing the bundled tools. This section describes each approach and provides guidance on selecting the appropriate method for your use case.
+
+### Method 1: Using Habitat Exec
+
+The Habitat exec command provides explicit control over which package and version is used to execute a command. This method is recommended when you need to ensure a specific package version is used or when binary linking is not available.
+The general syntax for the Habitat exec command is as follows:
+```shell
+hab pkg exec chef/<package-name> <binary-name> <command>
+```
+
+The following table provides examples of common tool invocations using the Habitat exec method:
+
+| Tool               | Command                                                                 | Version Command |
+|--------------------|-------------------------------------------------------------------------|----------------------------------|
+| Test Kitchen       | hab pkg exec chef/chef-test-kitchen-enterprise kitchen                  | kitchen -v                       |
+| Chef CLI           | hab pkg exec chef/chef-cli chef-cli                                     | chef-cli -v                      |
+| Chef Infra Client  | hab pkg exec chef/chef-infra-client chef-client                         | chef-client --version            |
+| Berkshelf          | hab pkg exec chef/berkshelf berks                                       | berks -v                         |
+| Ohai               | hab pkg exec chef/ohai ohai                                             | ohai --version                   |
+| Cookstyle          | hab pkg exec chef/cookstyle cookstyle                                   | cookstyle -v                     |
+| Chef Vault         | hab pkg exec chef/chef-vault chef-vault                                 | chef-vault -v                    |
+| Fauxhai            | hab pkg exec chef/fauxhai fauxhai                                       | fauxhai -v                       |
+| Chef InSpec        | hab pkg exec chef/inspec inspec                                         | inspec version                   |
+| Knife              | hab pkg exec chef/knife knife                                           | knife -v                         |
+
+
+### Method 2: Using Direct Executables with Binary Linking
+
+Binary linking creates symbolic links to package executables in a system-wide location, allowing you to invoke tools directly without the Habitat exec prefix. This method provides a more familiar command-line experience similar to traditional installations.
+To enable binary linking during the initial installation, include the binlink flag:
+```shell
+hab pkg install chef/chef-workstation --binlink
+```
+
+If you have already installed Chef Workstation without binary linking, you can enable it afterwards:
+```shell
+hab pkg binlink chef/chef-workstation
+```
+
+Once binary linking is enabled, you can invoke tools directly from the command line:
+```shell
+kitchen -v
+chef-cli -v
+chef-client --version
+berks -v
+inspec version
+knife -v
+```
+
 
 ## Install Chef Workstation tools
 
@@ -77,7 +166,7 @@ Follow these instructions to install a Workstation tool.
 1. Install a package using [`hab pkg install`](https://docs.chef.io/habitat/habitat_cli/#hab-pkg-install):
 
     ```sh
-    sudo hab pkg install <PACKAGE_IDENT> --channel unstable --binlink --force
+    sudo hab pkg install <PACKAGE_IDENT> --binlink --force
     ```
 
     Replace `<PACKAGE_IDENT>` with the package identifier:

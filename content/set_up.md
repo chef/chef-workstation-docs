@@ -32,44 +32,7 @@ These instructions are intended for macOS and Linux users. On Windows, Chef Work
 
 {{< /note >}}
 
-To configure Ruby on Linux or macOS, follow these steps:
-
-1. Determine your default shell by running:
-
-    ```bash
-    echo $SHELL
-    ```
-
-    This will give you the path to your default shell such as `/bin/zsh` for the Zsh shell.
-
-1. Add the Workstation initialization content to the appropriate shell rc file:
-
-    For Bash shells run:
-
-    ```bash
-    echo 'eval "$(chef shell-init bash)"' >> ~/.bashrc
-    ```
-
-    For Zsh shells run:
-
-    ```bash
-    echo 'eval "$(chef shell-init zsh)"' >> ~/.zshrc
-    ```
-
-    For Fish shells run:
-
-    ```bash
-    echo 'eval (chef shell-init fish)' >> ~/.config/fish/config.fish
-    ```
-
-1. Open a new shell window and run:
-
-    ```bash
-    which ruby
-    ```
-
-    The command should return `/opt/chef-workstation/embedded/bin/ruby`.
-
+ ** TODO ** 
 ## Set up your Chef repo
 
 If you're setting up Chef for the very first time **in your organization**, then you will need a Chef Infra repository for saving your cookbooks and other work.
