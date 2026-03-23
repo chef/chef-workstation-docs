@@ -15,4 +15,4 @@ draft = false
 The Chef Workstation and  configuration is managed in the `config.toml` file.
 Chef Workstation creates the `config.toml` file the first time you use , if one doesn't already exist.
 
-### TODO
+## TODO

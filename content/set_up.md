@@ -32,7 +32,8 @@ These instructions are intended for macOS and Linux users. On Windows, Chef Work
 
 {{< /note >}}
 
- ** TODO ** 
+**TODO**
+
 ## Set up your Chef repo
 
 If you're setting up Chef for the very first time **in your organization**, then you will need a Chef Infra repository for saving your cookbooks and other work.
