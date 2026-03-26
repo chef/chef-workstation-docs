@@ -12,7 +12,5 @@ draft = false
 <!-- markdownlint-disable-file MD024 -->
 <!-- vale Microsoft.Contractions = NO -->
 
-The Chef Workstation and  configuration is managed in the `config.toml` file.
-Chef Workstation creates the `config.toml` file the first time you use , if one doesn't already exist.
-
-## TODO
+The Chef Workstation 26 no longer support chef-run if you want to use similar functionality you can use chef target mode.
+For more information on chef target mode see [Chef Target Mode documentation](https://docs.chef.io/target_mode/).
