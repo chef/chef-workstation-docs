@@ -23,7 +23,9 @@ This guide walks you through the four parts to set up Chef Workstation on your c
 - Unless using Chef Manage, the `CLIENT.PEM` file supplied by your Chef administrator.
 
 ## Configure your Ruby environment
-In this release, Chef Workstation uses Ruby 3.4 and changing the ruby version or path is not supported in this version. 
+
+In this release, Chef Workstation uses Ruby 3.4 and changing the ruby version or path isn't supported in this version.
+
 ## Set up your Chef repo
 
 If you're setting up Chef for the very first time **in your organization**, then you will need a Chef Infra repository for saving your cookbooks and other work.
