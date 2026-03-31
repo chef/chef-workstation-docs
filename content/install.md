@@ -27,16 +27,19 @@ We use Chef Habitat to distribute and install Chef Workstation and its component
 See the following guides to install and configure Chef Habitat:
 
 - [Install Chef Habitat](https://docs.chef.io/habitat/install_habitat/)
-- [Create a Chef Habitat Builder profile](https://docs.chef.io/habitat/builder_profile/)
+- [Create a Chef Habitat Builder profile](https://docs.chef.io/habitat/builder/saas/builder_profile/)
 
 ## Install Chef Workstation
 
 Chef Workstation supports several installation methods to accommodate different deployment scenarios.
 Installing the Latest Stable Version To install the most recent stable release from the default channel, execute the following command:
 
-```shell
-hab pkg install chef/chef-workstation # Installs the latest stable version from the default channel base-2025
+### Installing with Binary Linking (Recommended)
 
+The recommended installation method includes binary linking, which creates symbolic links to the package binaries in your system PATH. This enables direct command execution without requiring the full Habitat exec syntax:
+
+```shell
+hab pkg install chef/chef-workstation --binlink --force
 ```
 
 ### Installing from the Unstable Channel
@@ -59,14 +62,6 @@ For example, to install version 26.0.15 with timestamp 20260320102857:
 
 ```shell
 hab pkg install chef/chef-workstation/26.0.15/20260320102857
-```
-
-### Installing with Binary Linking (Recommended)
-
-The recommended installation method includes binary linking, which creates symbolic links to the package binaries in your system PATH. This enables direct command execution without requiring the full Habitat exec syntax:
-
-```shell
-hab pkg install chef/chef-workstation --binlink --force
 ```
 
 ### Post-Installation Verification
@@ -120,31 +115,7 @@ Note: After installing a Habitat package on Windows, you need to add (use hab cl
 
 Chef Workstation provides two primary methods for executing the bundled tools. This section describes each approach and provides guidance on selecting the appropriate method for your use case.
 
-### Method 1: Using Habitat Exec
-
-The Habitat exec command provides explicit control over which package and version is used to execute a command. This method is recommended when you need to ensure a specific package version is used or when binary linking isn't available.
-The general syntax for the Habitat exec command is as follows:
-
-```shell
-hab pkg exec chef/<package-name> <binary-name> <command>
-```
-
-The following table provides examples of common tool invocations using the Habitat exec method:
-
-| Tool               | Command                                                                 | Version Command |
-|--------------------|-------------------------------------------------------------------------|----------------------------------|
-| Test Kitchen       | hab pkg exec chef/chef-test-kitchen-enterprise kitchen                  | kitchen -v                       |
-| Chef CLI           | hab pkg exec chef/chef-cli chef-cli                                     | chef-cli -v                      |
-| Chef Infra Client  | hab pkg exec chef/chef-infra-client chef-client                         | chef-client --version            |
-| Berkshelf          | hab pkg exec chef/berkshelf berks                                       | berks -v                         |
-| Ohai               | hab pkg exec chef/ohai ohai                                             | ohai --version                   |
-| Cookstyle          | hab pkg exec chef/cookstyle cookstyle                                   | cookstyle -v                     |
-| Chef Vault         | hab pkg exec chef/chef-vault chef-vault                                 | chef-vault -v                    |
-| Fauxhai            | hab pkg exec chef/fauxhai fauxhai                                       | fauxhai -v                       |
-| Chef InSpec        | hab pkg exec chef/inspec inspec                                         | inspec version                   |
-| Knife              | hab pkg exec chef/knife knife                                           | knife -v                         |
-
-### Method 2: Using Direct Executables with Binary Linking
+### Method 1: Using Direct Executables with Binary Linking
 
 Binary linking creates symbolic links to package executables in a system-wide location, allowing you to invoke tools directly without the Habitat exec prefix. This method provides a more familiar command-line experience similar to traditional installations.
 To enable binary linking during the initial installation, include the binlink flag:
@@ -169,6 +140,30 @@ berks -v
 inspec version
 knife -v
 ```
+
+### Method 2: Using Habitat Exec
+
+The Habitat exec command provides explicit control over which package and version is used to execute a command. This method is recommended when you need to ensure a specific package version is used or when binary linking isn't available.
+The general syntax for the Habitat exec command is as follows:
+
+```shell
+hab pkg exec chef/<package-name> <binary-name> <command>
+```
+
+The following table provides examples of common tool invocations using the Habitat exec method:
+
+| Tool              | Command                                                    | Version Command       |
+|-------------------|------------------------------------------------------------|-----------------------|
+| Test Kitchen      | hab pkg exec chef/chef-test-kitchen-enterprise kitchen      | kitchen -v            |
+| Chef CLI          | hab pkg exec chef/chef-cli chef-cli                        | chef-cli -v           |
+| Chef Infra Client | hab pkg exec chef/chef-infra-client chef-client             | chef-client --version |
+| Berkshelf         | hab pkg exec chef/berkshelf berks                          | berks -v              |
+| Ohai              | hab pkg exec chef/ohai ohai                                | ohai --version        |
+| Cookstyle         | hab pkg exec chef/cookstyle cookstyle                      | cookstyle -v          |
+| Chef Vault        | hab pkg exec chef/chef-vault chef-vault                    | chef-vault -v         |
+| Fauxhai           | hab pkg exec chef/fauxhai fauxhai                          | fauxhai -v            |
+| Chef InSpec       | hab pkg exec chef/inspec inspec                            | inspec version        |
+| Knife             | hab pkg exec chef/knife knife                              | knife -v              |
 
 ## Install Chef Workstation tools
 

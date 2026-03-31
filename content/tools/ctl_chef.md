@@ -30,6 +30,7 @@ To use a different cache location, set the `CHEF_WORKSTATION_HOME` environment v
 {{< /note >}}
 
 ## chef capture
+
 The Chef Workstation 26 no longer support `chef capture` command.
 
 ## chef env
@@ -713,6 +714,7 @@ This subcommand has the following options:
 None.
 
 ## chef report
+
 The Chef Workstation 26 no longer support `chef report` command.
 
 ## chef shell-init
