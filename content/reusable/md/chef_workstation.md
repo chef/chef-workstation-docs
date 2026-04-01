@@ -6,5 +6,5 @@ Chef Workstation includes:
 - Chef InSpec
 - Chef Test Kitchen Enterprise
 - chef and knife command line tools
-- Testing tools such as Test Kitchen and Cookstyle
+- Testing tools such as Cookstyle
 - Everything else needed to author cookbooks and upload them to Chef Infra Server

@@ -39,7 +39,7 @@ Installing the Latest Stable Version To install the most recent stable release f
 The recommended installation method includes binary linking, which creates symbolic links to the package binaries in your system PATH. This enables direct command execution without requiring the full Habitat exec syntax:
 
 ```shell
-hab pkg install chef/chef-workstation --binlink --force
+sudo hab pkg install chef/chef-workstation --binlink --force
 ```
 
 ### Installing from the Unstable Channel
@@ -81,32 +81,20 @@ chef -v
 A successful installation will display output similar to the following:
 
 ```shell
-» Binlinking chef-workstation from chef/chef-workstation/26.0.15/20260320101649 into /bin
-★ Binlinked chef-workstation from chef/chef-workstation/26.0.15/20260320101649 to /bin/chef-workstation
-» Binlinking kitchen from chef/chef-workstation/26.0.15/20260320101649 into /bin
-★ Binlinked kitchen from chef/chef-workstation/26.0.15/20260320101649 to /bin/kitchen
-» Binlinking ohai from chef/chef-workstation/26.0.15/20260320101649 into /bin
-★ Binlinked ohai from chef/chef-workstation/26.0.15/20260320101649 to /bin/ohai
-» Binlinking chef-client from chef/chef-workstation/26.0.15/20260320101649 into /bin
-★ Binlinked chef-client from chef/chef-workstation/26.0.15/20260320101649 to /bin/chef-client
-» Binlinking chef-cli from chef/chef-workstation/26.0.15/20260320101649 into /bin
-★ Binlinked  chef-cli from chef/chef-workstation/26.0.15/20260320101649  to /bin/chef-cli
-» Binlinking inspec from chef/chef-workstation/26.0.15/20260320101649 into /bin
-★ Binlinked inspec from chef/chef-workstation/26.0.15/20260320101649 to /bin/inspec
-» Binlinking chef-vault from chef/chef-workstation/26.0.15/20260320101649 into /bin
-★ Binlinked chef-vault from chef/chef-workstation/26.0.15/20260320101649 to /bin/chef-vault
-» Binlinking fauxhai from chef/chef-workstation/26.0.15/20260320101649 into /bin
-★ Binlinked fauxhai from chef/chef-workstation/26.0.15/20260320101649 to /bin/fauxhai
-» Binlinking berks from chef/chef-workstation/26.0.15/20260320101649 into /bin
-★ Binlinked berks from chef/chef-workstation/26.0.15/20260320101649 to /bin/berks
-» Binlinking knife from chef/chef-workstation/26.0.15/20260320101649 into /bin
-★ Binlinked knife from chef/chef-workstation/26.0.15/20260320101649 to /bin/knife
-» Binlinking chef from chef/chef-workstation/26.0.15/20260320101649 into /bin
-★ Binlinked chef from chef/chef-workstation/26.0.15/20260320101649 to /bin/chef
-» Binlinking setup-knife-gems from chef/chef-workstation/26.0.15/20260320101649 into /bin
-★ Binlinked setup-knife-gems from chef/chef-workstation/26.0.15/20260320101649 to /bin/setup-knife-gems
-» Binlinking cookstyle from chef/chef-workstation/26.0.15/20260320101649 into /bin
-★ Binlinked cookstyle from chef/chef-workstation/26.0.15/20260320101649 to /bin/cookstyle
+Product Name: Chef Workstation
+Product Version: 26.0.16
+
+Default Installed Components:
+
+Chef Infra Client Version: 19.2.12
+Chef CLI Version: 6.1.29
+Chef Test Kitchen Enterprise Version: 2.0.11
+Berkshelf Version: 8.1.21
+Ohai Version: 19.1.24
+Fauxhai Version: 9.4.20
+Chef Vault Version: 4.2.9
+Cookstyle Version: 8.6.10
+Chef InSpec Version: 7.0.107
 ```
 
 Note: After installing a Habitat package on Windows, you need to add (use hab cli setup) C:\hab\bin to your system PATH so that binlinked commands (like knife, chef-cli, inspec) work smoothly from any terminal.
@@ -121,13 +109,13 @@ Binary linking creates symbolic links to package executables in a system-wide lo
 To enable binary linking during the initial installation, include the binlink flag:
 
 ```shell
-hab pkg install chef/chef-workstation --binlink
+sudo hab pkg install chef/chef-workstation --binlink
 ```
 
 If you have already installed Chef Workstation without binary linking, you can enable it afterwards:
 
 ```shell
-hab pkg binlink chef/chef-workstation
+sudo hab pkg binlink chef/chef-workstation
 ```
 
 Once binary linking is enabled, you can invoke tools directly from the command line:
