@@ -37,7 +37,7 @@ For more information, see the [Chef Habitat install documentation](https://docs.
 1. Use Chef Habitat to install the Chef Test Kitchen Enterprise package:
 
     ```sh
-    sudo hab pkg install --binlink --force chef/chef-test-kitchen-enterprise --channel unstable
+    hab pkg install --binlink --force chef/chef-test-kitchen-enterprise --channel unstable
     ```
 
     Chef Habitat downloads and installs Chef Test Kitchen Enterprise, it's components, and the `chef-cli` and `kitchen` CLI tools.

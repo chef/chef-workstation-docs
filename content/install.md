@@ -39,7 +39,7 @@ Installing the Latest Stable Version To install the most recent stable release f
 The recommended installation method includes binary linking, which creates symbolic links to the package binaries in your system PATH. This enables direct command execution without requiring the full Habitat exec syntax:
 
 ```shell
-sudo hab pkg install chef/chef-workstation --binlink --force
+hab pkg install chef/chef-workstation --binlink --force
 ```
 
 ### Installing from the Unstable Channel
@@ -109,13 +109,13 @@ Binary linking creates symbolic links to package executables in a system-wide lo
 To enable binary linking during the initial installation, include the binlink flag:
 
 ```shell
-sudo hab pkg install chef/chef-workstation --binlink
+hab pkg install chef/chef-workstation --binlink
 ```
 
 If you have already installed Chef Workstation without binary linking, you can enable it afterwards:
 
 ```shell
-sudo hab pkg binlink chef/chef-workstation
+hab pkg binlink chef/chef-workstation
 ```
 
 Once binary linking is enabled, you can invoke tools directly from the command line:
@@ -163,7 +163,7 @@ Follow these instructions to install a Workstation tool.
 1. Install a package using [`hab pkg install`](https://docs.chef.io/habitat/habitat_cli/#hab-pkg-install):
 
     ```sh
-    sudo hab pkg install <PACKAGE_IDENT> --binlink --force
+    hab pkg install <PACKAGE_IDENT> --binlink --force
     ```
 
     Replace `<PACKAGE_IDENT>` with the package identifier:
@@ -208,7 +208,7 @@ ls -la /bin | grep chef
 If binlinks are missing, recreate them:
 
 ```sh
-sudo hab pkg binlink --force chef/chef-workstation
+hab pkg binlink --force chef/chef-workstation
 ```
 
 ### Permission errors

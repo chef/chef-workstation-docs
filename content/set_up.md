@@ -160,19 +160,7 @@ Copy-Item -Path C:\Users\MY_NAME\Downloads\USERNAME.pem -Destination C:\Users\MY
 {{< /foundation_tabs_panel >}}
 {{< foundation_tabs_panel panel-id="hosted-keys" >}}
 
-The client key file is located in the Starter Kit at `.chef/USERNAME.pem`. Copy the PEM file to the `~/.chef` directory.
-
-On macOS and Linux systems, this looks something like:
-
-```bash
-cp ~/Downloads/chef-repo/.chef/USERNAME.pem ~/.chef/
-```
-
-On Windows systems, this looks something like this:
-
-```powershell
-Copy-Item -Path C:\Users\MY_NAME\Downloads\chef-repo\.chef\USERNAME.pem -Destination C:\Users\MY_NAME\.chef\
-```
+Chef Manage is deprecated and no longer supported.
 
 {{< /foundation_tabs_panel >}}
 {{< /foundation_tabs_panels >}}

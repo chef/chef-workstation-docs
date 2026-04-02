@@ -26,7 +26,7 @@ The following `kitchen.yaml` file example defines tests that run in Chef Infra C
 driver:
   name: dokken
   privileged: true
-  chef_version: unstable
+  chef_version: 19.2.12
 
 provisioner:
   name: dokken

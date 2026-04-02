@@ -111,7 +111,7 @@ To add a license using the `test-kitchen` CLI:
 1. Run the license command:
 
    ```sh
-   sudo kitchen license
+   kitchen license
    ```
 
 1. At the first prompt, select **I already have a license ID**.
