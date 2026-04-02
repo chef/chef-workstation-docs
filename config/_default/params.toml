@@ -13,7 +13,6 @@ menuOrder = [
   "upgrade",
   "set_up",
   "license",
-  "configure",
   "uninstall",
   "troubleshooting",
   "privacy",
