@@ -10,10 +10,10 @@
 menuOrder = [
   "about",
   "install",
+  "upgrade",
   "set_up",
   "license",
   "configure",
-  "upgrade",
   "uninstall",
   "troubleshooting",
   "privacy",
