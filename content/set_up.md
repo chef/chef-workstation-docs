@@ -11,7 +11,6 @@ draft = false
 
 This guide walks you through the four parts to set up Chef Workstation on your computer.
 
-- [Configure Ruby Environment](#configure-your-ruby-environment)
 - [Set up your chef-repo](#set-up-your-chef-repo) for storing your cookbooks
 - [Set up Chef Credentials](#set-up-chef-credentials)
 - [Verify Client-to-Server Communication](#verify-client-to-server-communication)
@@ -21,10 +20,6 @@ This guide walks you through the four parts to set up Chef Workstation on your c
 - [Chef Workstation installed]({{< relref "install.md" >}})
 - A running instance of Chef Infra Server.
 - Unless using Chef Manage, the `CLIENT.PEM` file supplied by your Chef administrator.
-
-## Configure your Ruby environment
-
-In this release, Chef Workstation uses Ruby 3.4 and changing the ruby version or path isn't supported in this version.
 
 ## Set up your Chef repo
 
@@ -130,19 +125,6 @@ To manually configure Knife to connect to Chef Infra Server:
 
 All communication between Chef Workstation and Chef Infra Server is authenticated using an RSA public/private key pair. This pair is generated on Chef Infra Server and the private key must be copied to your local Chef Workstation installation for communication to function.
 
-The steps for downloading or generating these files vary depending on how you interact with Chef Infra Server. Select the option that best describes how you interact with the server:
-
-<!----Tabs Section--->
-{{< foundation_tabs tabs-id="tabs-panel-container" >}}
-{{< foundation_tab active="true" panel-link="infra_and_automate_keys" tab-text="Chef Infra Server / Automate">}}
-{{< foundation_tab panel-link="hosted-keys" tab-text="Chef Manage" >}}
-{{< /foundation_tabs >}}
-<!----End Tabs --->
-
-<!----Panels Section --->
-{{< foundation_tabs_panels tabs-id="tabs-panel-container" >}}
-{{< foundation_tabs_panel active="true" panel-id="infra_and_automate_keys" >}}
-
 Your Chef administrator will provide you with your `client.pem` file. Copy this file to the `~/.chef` directory.
 
 On macOS and Linux systems, this looks something like:
@@ -156,15 +138,6 @@ On Windows systems this, looks something like this:
 ```powershell
 Copy-Item -Path C:\Users\MY_NAME\Downloads\USERNAME.pem -Destination C:\Users\MY_NAME\.chef\
 ```
-
-{{< /foundation_tabs_panel >}}
-{{< foundation_tabs_panel panel-id="hosted-keys" >}}
-
-Chef Manage is deprecated and no longer supported.
-
-{{< /foundation_tabs_panel >}}
-{{< /foundation_tabs_panels >}}
-<!----End Panels --->
 
 ## Verify client-to-server communication
 

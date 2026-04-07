@@ -142,9 +142,9 @@ The following table provides examples of common tool invocations using the Habit
 
 | Tool              | Command                                                    | Version Command       |
 |-------------------|------------------------------------------------------------|-----------------------|
-| Test Kitchen      | hab pkg exec chef/chef-test-kitchen-enterprise kitchen      | kitchen -v            |
+| Test Kitchen      | hab pkg exec chef/chef-test-kitchen-enterprise kitchen     | kitchen -v            |
 | Chef CLI          | hab pkg exec chef/chef-cli chef-cli                        | chef-cli -v           |
-| Chef Infra Client | hab pkg exec chef/chef-infra-client chef-client             | chef-client --version |
+| Chef Infra Client | hab pkg exec chef/chef-infra-client chef-client            | chef-client --version |
 | Berkshelf         | hab pkg exec chef/berkshelf berks                          | berks -v              |
 | Ohai              | hab pkg exec chef/ohai ohai                                | ohai --version        |
 | Cookstyle         | hab pkg exec chef/cookstyle cookstyle                      | cookstyle -v          |

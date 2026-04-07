@@ -14,9 +14,8 @@ menuOrder = [
   "set_up",
   "license",
   "uninstall",
-  "troubleshooting",
-  "privacy",
   "tools",
+  "troubleshooting",
   "extension_apis"
 ]
 
