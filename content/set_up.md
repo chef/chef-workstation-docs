@@ -19,7 +19,7 @@ This guide walks you through the four parts to set up Chef Workstation on your c
 
 - [Chef Workstation installed]({{< relref "install.md" >}})
 - A running instance of Chef Infra Server.
-- Unless using Chef Manage, the `CLIENT.PEM` file supplied by your Chef administrator.
+- the `CLIENT.PEM` file supplied by your Chef administrator.
 
 ## Set up your Chef repo
 
@@ -52,7 +52,7 @@ chef generate repo chef-repo
 
 The first time you run Chef Workstation, it creates a `.chef` directory in your user directory. The `.chef` directory is where you store your Chef Workstation configuration and client keys.
 
-If you're setting up Chef Workstation **as a Chef Infra Server administrator**, manage users with the [Chef Infra Server CLI](https://docs.chef.io/server/ctl_chef_server/#user-management) or the Chef Manage UI. When you create a new user, Chef Infra Server generates a user-specific RSA client key that you must share securely with that user.
+If you're setting up Chef Workstation **as a Chef Infra Server administrator**, manage users with the [Chef Infra Server CLI](https://docs.chef.io/server/ctl_chef_server/#user-management). When you create a new user, Chef Infra Server generates a user-specific RSA client key that you must share securely with that user.
 
 If you're setting up Chef Workstation **as a Chef user**, you need a client private key that your server administrator creates for you on Chef Infra Server. The client private key is an RSA private key in `.pem` format.
 
@@ -68,20 +68,6 @@ To configure Knife to communicate with Chef Infra Server, you need the following
 - `node_name`: the client name your server administrator created for you
 
 Your Chef administrator provides this information.
-
-For Chef Manage users, you can find this information in the Starter Kit file. Download the file on the Manage site by navigating to the Administration tab and selecting Starter Kit. (**Manage > Administration > Starter Kit > Download Starter Kit**)
-
-Find the `.chef/config.rb` file in the Starter Kit. It looks similar to the following:
-
-```ruby
-current_dir = File.dirname(__FILE__)
-log_level                :info
-log_location             STDOUT
-node_name                "hshefu"
-client_key               "#{current_dir}/hshefu.pem"
-chef_server_url          "https://api.chef.io/organizations/organization-name"
-cookbook_path            ["#{current_dir}/../cookbooks"]
-```
 
 Use the `chef_server_url` and `node_name` values from this file when running `knife configure`.
 
