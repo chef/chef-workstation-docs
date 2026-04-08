@@ -54,6 +54,7 @@ Replace `<PACKAGE_IDENT>` with one of the following packages:
 
 ## Uninstall a specific package version
 
+if you have installed tools using specific versions, you can uninstall a specific version without uninstalling all versions of the package.
 You can uninstall a specific package version. For example:
 
 ```sh
