@@ -19,6 +19,7 @@ Chef Workstation is the primary toolkit for Chef infrastructure engineers.
 You can use Chef Workstation to:
 
 - **Define automation**: Generate cookbooks and write configuration policy using Chef's declarative resources, or use community cookbooks from Chef Supermarket.
+- **Manage secrets**: Encrypt and manage sensitive data, such as passwords and certificates, using Chef Vault.
 - **Scan for compliance**: Run Chef InSpec profiles against remote systems to detect and remediate security and configuration issues.
 - **Test locally**: Validate your cookbooks with Test Kitchen and Cookstyle before deploying to production.
 

@@ -41,5 +41,5 @@ To install the Knife standalone package, follow these steps:
 
 ## Next steps
 
-- [Configure Knife](/configure/#configure-knife)
 - [Add a license](/license)
+- [Set up Workstation](/set_up)
