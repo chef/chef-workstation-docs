@@ -27,7 +27,13 @@ We use Chef Habitat to distribute and install Chef Workstation and its component
 See the following guides to install and configure Chef Habitat:
 
 - [Install Chef Habitat](https://docs.chef.io/habitat/install_habitat/)
-- [Create a Chef Habitat Builder profile](https://docs.chef.io/habitat/builder/saas/builder_profile/)
+
+To install Chef Workstation 26, you must first set the `HAB_AUTH_TOKEN` token if you haven't set the token. This token is required to authenticate with Habitat Builder during the installation process.
+You can generate a personal access token(`HAB_AUTH_TOKEN`) by following the instructions in the documentation:
+
+- [HAB_AUTH_TOKEN](https://docs.chef.io/habitat/builder/saas/builder_profile/#create-a-personal-access-token)
+
+after getting token you can run the `hab setup` to set up HAB_AUTH_TOKEN or setup as environment variable.
 
 ## Install Chef Workstation
 
@@ -50,7 +56,7 @@ For access to pre-release versions and the latest development builds, install fr
 hab pkg install chef/chef-workstation --channel unstable
 ```
 
-### Installing a Specific Version
+### Installing a Specific Version of Chef Workstation 26
 
 When you need to install a particular version of Chef Workstation Enterprise , specify the version and timestamp in the package identifier:
 
@@ -62,6 +68,34 @@ For example, to install version 26.0.15 with timestamp 20260320102857:
 
 ```shell
 hab pkg install chef/chef-workstation/26.0.15/20260320102857
+```
+
+### Installing Multiple Versions of Chef Infra Client with Workstation 26
+
+Workstation 26 supports multiple side-by-side installations of all component tools, including Chef Infra Client. This pattern may be used for any component tool, including InSpec, Test Kitchen, Knife, or other components.
+
+Chef Workstation 26.0.X includes Chef Infra Client 19.2.12. To additionally install another version, for example Chef Infra Client version 18.10.17, run the following command:
+
+```bash
+hab pkg install chef/chef-infra-client/18.10.17
+```
+
+To run Chef Infra Client 18.10.17 specifically, run:
+
+```bash
+hab pkg exec chef/chef-infra-client/18.10.17 chef-client
+```
+
+To run Chef Infra Client 19.2.12 specifically, run:
+
+```bash
+hab pkg exec chef/chef-infra-client/19.2.12 chef-client
+```
+
+To run the version that was last bin-linked, run:
+
+```bash
+chef-client
 ```
 
 ### Post-Installation Verification
