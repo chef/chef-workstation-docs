@@ -14,7 +14,7 @@ draft = false
 
 ## System requirements
 
-Chef Workstation 26 has the following requirements:
+Chef Workstation has the following requirements:
 
 - Linux x86-64 (64-bit) systems only
 - Chef Habitat 1.6.0 or later installed
@@ -24,129 +24,121 @@ Chef Workstation 26 has the following requirements:
 ## Prerequisites
 
 We use Chef Habitat to distribute and install Chef Workstation and its components.
-See the following guides to install and configure Chef Habitat:
 
-- [Install Chef Habitat](https://docs.chef.io/habitat/install_habitat/)
+To install and configure Chef Habitat so you can install and manage Chef Workstation, follow these steps:
 
-To install Chef Workstation 26, you must first set the `HAB_AUTH_TOKEN` token if you haven't set the token. This token is required to authenticate with Habitat Builder during the installation process.
-You can generate a personal access token(`HAB_AUTH_TOKEN`) by following the instructions in the documentation:
+1. [Install Chef Habitat](https://docs.chef.io/habitat/latest/install/)
 
-- [HAB_AUTH_TOKEN](https://docs.chef.io/habitat/builder/saas/builder_profile/#create-a-personal-access-token)
+1. [Create a personal access token in Habitat Builder](https://docs.chef.io/habitat/builder/saas/builder_profile/#create-a-personal-access-token)
 
-after getting token you can run the `hab setup` to set up HAB_AUTH_TOKEN or setup as environment variable.
+1. Run [`hab cli setup`](https://docs.chef.io/habitat/latest/install/hab_setup/) and follow the instructions in the setup script and add your personal access token so you can authenticate with Habitat Builder.
 
 ## Install Chef Workstation
 
 Chef Workstation supports several installation methods to accommodate different deployment scenarios.
-Installing the Latest Stable Version To install the most recent stable release from the default channel, execute the following command:
 
-### Installing with Binary Linking (Recommended)
+### Install with binary linking (recommended)
 
-The recommended installation method includes binary linking, which creates symbolic links to the package binaries in your system PATH. This enables direct command execution without requiring the full Habitat exec syntax:
+The recommended installation method includes binary linking, which creates symbolic links to the package binaries in your system PATH. This allows you to execute the command directly without the full Habitat exec syntax:
 
 ```shell
 hab pkg install chef/chef-workstation --binlink --force
 ```
 
-### Installing from the Unstable Channel
+This command uses the following options to binlink Workstation to your system's PATH:
 
-For access to pre-release versions and the latest development builds, install from the unstable channel:
+- `--binlink` binlinks the package binary to your system PATH.
+- `--force` overwrites existing binlinks.
+
+### Install from the unstable channel
+
+To install a pre-release version, install from the unstable channel:
 
 ```shell
 hab pkg install chef/chef-workstation --channel unstable
 ```
 
-### Installing a Specific Version of Chef Workstation 26
+### Install a specific version of Chef Workstation 26
 
-When you need to install a particular version of Chef Workstation Enterprise , specify the version and timestamp in the package identifier:
+If you need to install a particular version of Chef Workstation, specify the version and timestamp in the package identifier:
 
 ```shell
 hab pkg install chef/chef-workstation/<VERSION>/<TIMESTAMP>
 ```
 
-For example, to install version 26.0.15 with timestamp 20260320102857:
+For example, to install version 26.0.15 with timestamp 20260320102857, run the following command:
 
 ```shell
 hab pkg install chef/chef-workstation/26.0.15/20260320102857
 ```
 
-### Installing Multiple Versions of Chef Infra Client with Workstation 26
+### Install additional versions of Chef Workstation's component tools
 
-Workstation 26 supports multiple side-by-side installations of all component tools, including Chef Infra Client. This pattern may be used for any component tool, including InSpec, Test Kitchen, Knife, or other components.
+You can install multiple versions of Chef Workstation's component tools side-by-side with the versions included with Chef Workstation, including Chef Infra Client.
 
-Chef Workstation 26.0.X includes Chef Infra Client 19.2.12. To additionally install another version, for example Chef Infra Client version 18.10.17, run the following command:
+To install an additional version of a Workstation component alongside the default version, run the following command:
 
-```bash
-hab pkg install chef/chef-infra-client/18.10.17
+```shell
+hab pkg install <PACKAGE_IDENT_WITH_VERSION>
 ```
 
-To run Chef Infra Client 18.10.17 specifically, run:
+Replace `<PACKAGE_IDENT_WITH_VERSION>` with the full package identifier with the version, for example `chef/chef-infra-client/18.10.17`.
 
-```bash
+To execute the specific version, run the `hab pkg exec` command, specify the full package identifier including the package version, and the command you want to run:
+
+```shell
+hab pkg exec <PACKAGE_IDENT_WITH_VERSION> <COMMAND>
+```
+
+For example, to run Chef Infra Client 18.10.17:
+
+```shell
 hab pkg exec chef/chef-infra-client/18.10.17 chef-client
 ```
 
-To run Chef Infra Client 19.2.12 specifically, run:
+To run Chef Infra Client 19.2.12, run:
 
-```bash
+```shell
 hab pkg exec chef/chef-infra-client/19.2.12 chef-client
 ```
 
-To run the version that was last bin-linked, run:
+To run the binlinked version:
 
-```bash
+```shell
 chef-client
 ```
 
-### Post-Installation Verification
+### Verify the installation
 
-After completing the installation, verify that Chef Workstation is correctly installed by checking the version information:
+After installation, verify that Chef Workstation is installed correctly:
 
 ```shell
 chef-workstation -v
 ```
 
-OR
+or
 
 ```shell
 chef -v
 ```
 
-A successful installation will display output similar to the following:
+A successful installation displays the installed version of Chef Workstation and the versions of its component tools.
 
-```shell
-Product Name: Chef Workstation
-Product Version: 26.0.16
+### Use the bundled tools
 
-Default Installed Components:
+Chef Workstation provides two primary methods for executing the bundled tools.
 
-Chef Infra Client Version: 19.2.12
-Chef CLI Version: 6.1.29
-Chef Test Kitchen Enterprise Version: 2.0.11
-Berkshelf Version: 8.1.21
-Ohai Version: 19.1.24
-Fauxhai Version: 9.4.20
-Chef Vault Version: 4.2.9
-Cookstyle Version: 8.6.10
-Chef InSpec Version: 7.0.107
-```
+#### Method 1: Use direct executables with binary linking
 
-Note: After installing a Habitat package on Windows, you need to add (use hab cli setup) C:\hab\bin to your system PATH so that binlinked commands (like knife, chef-cli, inspec) work smoothly from any terminal.
+Binary linking creates symbolic links to package executables in a system-wide location, allowing you to invoke tools directly without the Habitat exec prefix. This method provides a more familiar command-line experience similar to traditional package installations.
 
-### Usage Guide
-
-Chef Workstation provides two primary methods for executing the bundled tools. This section describes each approach and provides guidance on selecting the appropriate method for your use case.
-
-### Method 1: Using Direct Executables with Binary Linking
-
-Binary linking creates symbolic links to package executables in a system-wide location, allowing you to invoke tools directly without the Habitat exec prefix. This method provides a more familiar command-line experience similar to traditional installations.
-To enable binary linking during the initial installation, include the binlink flag:
+To enable binary linking during installation, include the `--binlink` flag:
 
 ```shell
 hab pkg install chef/chef-workstation --binlink
 ```
 
-If you have already installed Chef Workstation without binary linking, you can enable it afterwards:
+If you have already installed Chef Workstation without binary linking, you can enable it afterward:
 
 ```shell
 hab pkg binlink chef/chef-workstation
@@ -163,13 +155,14 @@ inspec version
 knife -v
 ```
 
-### Method 2: Using Habitat Exec
+#### Method 2: Use Habitat exec
 
-The Habitat exec command provides explicit control over which package and version is used to execute a command. This method is recommended when you need to ensure a specific package version is used or when binary linking isn't available.
-The general syntax for the Habitat exec command is as follows:
+The `hab pkg exec` command provides explicit control over which package and version is used to run a command. Use this method when you need to ensure a specific version is used or when binary linking isn't available.
+
+The general syntax is:
 
 ```shell
-hab pkg exec chef/<package-name> <binary-name> <command>
+hab pkg exec <PACKAGE_IDENT> <COMMAND>
 ```
 
 The following table provides examples of common tool invocations using the Habitat exec method:
@@ -189,10 +182,9 @@ The following table provides examples of common tool invocations using the Habit
 
 ## Install Chef Workstation tools
 
-The following applications are included with Chef Workstation,
-but they can be installed as standalone applications.
+The following applications are included with Chef Workstation but can also be installed as standalone applications.
 
-Follow these instructions to install a Workstation tool.
+To install a Workstation tool as a standalone application, follow these steps:
 
 1. Install a package using [`hab pkg install`](https://docs.chef.io/habitat/habitat_cli/#hab-pkg-install):
 
@@ -220,7 +212,6 @@ Follow these instructions to install a Workstation tool.
     ```sh
     berks -v
     chef-cli -v
-    chef-client -v
     chef-client -v
     chef-vault <args>
     cookstyle -v
@@ -257,12 +248,13 @@ If the package can't be found, verify channel availability:
 hab pkg search chef/chef-workstation --channel unstable
 ```
 
-## Next step
+## Next steps
 
 - [Set up Workstation](set_up)
 - [Add a license](license)
+- Optional: [Get started with Chef Workstation](get_started)
 
 ## More information
 
 - [Chef Habitat documentation](https://docs.chef.io/habitat/)
-- [Upgrade Chef Workstation 26 and its components](upgrade)
+- [Upgrade Chef Workstation and its components](upgrade)

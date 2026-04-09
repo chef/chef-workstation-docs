@@ -22,9 +22,9 @@ Different Chef Workstation components have different licensing requirements:
 You can use any license that includes Chef Workstation entitlement.
 This includes free, trial, or commercial licenses.
 
-If you’re interested in obtaining a trial license, you can request a trial license here: [Request a trial license](https://www.chef.io/license-generation-free-trial).
+If you'd like to evaluate Chef Workstation, you can [request a trial license](https://www.chef.io/license-generation-free-trial).
 
-For more information, see Chef’s licensing documentation [Chef licensing documentation](https://docs.chef.io/licensing/).
+For more information, see Chef's licensing documentation [Chef licensing documentation](https://docs.chef.io/licensing/).
 
 ## Add a license to Workstation
 
@@ -78,7 +78,7 @@ The license can also be transmitted to the provisioned VM during the verificatio
 
 ### Add a license
 
-Test Kitchen Enterprise automatically reads a license that's configured for Chef Workstation through:
+Test Kitchen Enterprise automatically reads the license that's configured for Chef Workstation through:
 
 - The `~/.chef/licenses.yml` file
 - The `CHEF_LICENSE_KEY` environment variable

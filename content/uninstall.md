@@ -17,7 +17,7 @@ To uninstall Chef Workstation, use the [`hab pkg uninstall`](https://docs.chef.i
 hab pkg uninstall chef/chef-workstation
 ```
 
-Uninstalling `chef/chef-workstation` also removes all bundled component tools:
+Uninstalling `chef/chef-workstation` removes all bundled component tools:
 
 - `chef/berkshelf`
 - `chef/chef-cli`
@@ -32,7 +32,7 @@ Uninstalling `chef/chef-workstation` also removes all bundled component tools:
 
 ## Uninstall Chef Workstation Tools
 
-if you installed a Workstation tool as a standalone application, you can uninstall it without uninstalling the entire Workstation package.
+If you installed a Workstation tool as a standalone application, you can uninstall it without uninstalling the entire Workstation package.
 
 To uninstall a Workstation tool, use the [`hab pkg uninstall`](https://docs.chef.io/habitat/habitat_cli/#hab-pkg-uninstall) command:
 
@@ -54,8 +54,9 @@ Replace `<PACKAGE_IDENT>` with one of the following packages:
 
 ## Uninstall a specific package version
 
-if you have installed tools using specific versions, you can uninstall a specific version without uninstalling all versions of the package.
-You can uninstall a specific package version. For example:
+If you installed specific tool versions, you can uninstall a specific version without uninstalling all versions of the package.
+
+To uninstall a specific package version, run the following command:
 
 ```sh
 hab pkg uninstall <PACKAGE_IDENT>
