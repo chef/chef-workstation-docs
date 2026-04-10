@@ -5,7 +5,7 @@ draft = false
 [menu]
   [menu.tools]
     title = "Set up Knife"
-    identifier = "tools/knife/knife_setup.md Setting up Knife"
+    identifier = "tools/knife/set_up.md Setting up Knife"
     parent = "tools/knife"
     weight = 20
 +++
