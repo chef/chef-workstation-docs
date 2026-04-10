@@ -6,7 +6,7 @@ draft = false
 
 [menu]
   [menu.tools]
-    title = "chef-shell executable"
+    title = "chef-shell"
     identifier = "tools/chef_shell.md chef-shell executable"
     parent = "tools"
     weight = 40
