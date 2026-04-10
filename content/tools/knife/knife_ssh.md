@@ -7,8 +7,8 @@ draft = false
 [menu]
   [menu.tools]
     title = "knife ssh"
-    identifier = "tools/knife/knife_ssh.md knife ssh"
-    parent = "tools/knife"
+    identifier = "tools/knife/reference/knife_ssh.md knife ssh"
+    parent = "tools/knife/reference"
 +++
 <!-- markdownlint-disable-file MD036 -->
 

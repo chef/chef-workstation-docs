@@ -7,8 +7,8 @@ draft = false
 [menu]
   [menu.tools]
     title = "knife cookbook site"
-    identifier = "tools/knife/knife_cookbook_site.md knife cookbook site"
-    parent = "tools/knife"
+    identifier = "tools/knife/reference/knife_cookbook_site.md knife cookbook site"
+    parent = "tools/knife/reference"
 +++
 <!-- markdownlint-disable-file MD024 MD036 -->
 <!-- vale chef.inclusive = NO -->

@@ -5,7 +5,7 @@ title = "Knife troubleshooting"
 title = "Troubleshooting"
 identifier = "tools/knife/troubleshooting"
 parent = "tools/knife"
-weight = 100
+weight = 200
 +++
 
 This page provides solutions to common issues you may encounter when using Knife.

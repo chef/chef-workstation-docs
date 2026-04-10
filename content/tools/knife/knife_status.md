@@ -7,8 +7,8 @@ draft = false
 [menu]
   [menu.tools]
     title = "knife status"
-    identifier = "tools/knife/knife_status.md knife status"
-    parent = "tools/knife"
+    identifier = "tools/knife/reference/knife_status.md knife status"
+    parent = "tools/knife/reference"
 +++
 <!-- markdownlint-disable-file MD036 -->
 

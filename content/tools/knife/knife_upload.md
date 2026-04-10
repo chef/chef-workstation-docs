@@ -7,8 +7,8 @@ draft = false
 [menu]
   [menu.tools]
     title = "knife upload"
-    identifier = "tools/knife/knife_upload.md knife upload"
-    parent = "tools/knife"
+    identifier = "tools/knife/reference/knife_upload.md knife upload"
+    parent = "tools/knife/reference"
 +++
 <!-- markdownlint-disable-file MD036 -->
 
