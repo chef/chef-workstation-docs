@@ -55,7 +55,6 @@ weight = 60
 title = "Tools"
 identifier = "tools"
 
-
     [[tools]]
     title = "Cookstyle"
     identifier = "tools/cookstyle"
