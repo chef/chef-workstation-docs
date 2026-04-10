@@ -122,18 +122,18 @@ errorLevel = 'warning'
 #
 #######
 
-# [versions.this_version]
-# swiftype_search_products = [ "" ]
-# release_date = ""
+[versions.this_version]
+swiftype_search_products = [ "workstation-26" ]
+release_date = "2026-04-13"
 
-# [versions.version_selector]
-# enabled = true
-# this_version_text = "Chef Infra Client v XX.YY"
+[versions.version_selector]
+enabled = true
+this_version_text = "Chef Workstation v26"
 
-# [[versions.version_selector.versions]]
-# link_text = "Chef Infra Client v XX.YY"
-# base_url = "https://docs.chef.io/client/XX.YY"
+[[versions.version_selector.versions]]
+link_text = "Chef Workstation v26"
+base_url = "https://docs.chef.io/workstation/26"
 
-# [[versions.version_selector.versions]]
-# link_text = "Chef Infra Client v XX.YY"
-# base_url = "https://docs.chef.io/client/XX.YY"
+[[versions.version_selector.versions]]
+link_text = "Chef Workstation v25"
+base_url = "https://docs.chef.io/workstation/25"
