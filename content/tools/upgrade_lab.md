@@ -61,7 +61,7 @@ We recommend performing a backup before starting any server upgrade process. Fol
 
 #### Credentials
 
-Your credentials are set up using [knife profiles](/tools/knife/knife_setup/#knife-profiles). This method allows you to keep your keys in a `credentials` file, and makes switching between credentials easier.
+Your credentials are set up using [knife profiles](/tools/knife/set_up/#knife-profiles). This method allows you to keep your keys in a `credentials` file, and makes switching between credentials easier.
 
 For example, in `.chef/credentials`:
 

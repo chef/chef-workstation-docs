@@ -55,6 +55,14 @@ weight = 60
 title = "Tools"
 identifier = "tools"
 
+
+    [[tools]]
+    title = "Cookstyle"
+    identifier = "tools/cookstyle"
+    parent = "tools"
+    weight = 90
+    url = "https://docs.chef.io/workstation/cookstyle"
+
     [[tools]]
     title = "Knife"
     identifier = "tools/knife"

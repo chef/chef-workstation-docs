@@ -26,7 +26,7 @@ chef-repo and Chef Infra Server. knife helps users to manage:
 
 See the following guides to setup and configure Knife:
 
-- **[Set up Knife](/tools/knife/knife_setup/)**: Configure knife to interact with your organization's Chef Infra Server and infrastructure.
+- **[Set up Knife](/tools/knife/set_up/)**: Configure knife to interact with your organization's Chef Infra Server and infrastructure.
 - **[Knife Common Options](/tools/knife/common_options/)**: Common options that are available for all knife subcommands.
 - **[config.rb](/tools/knife/config_rb/)**: Common options for the `config.rb` file
 - **[config.rb optional settings](tools/knife/config_rb_optional_settings/)**: Additional options for your `config.rb` file
