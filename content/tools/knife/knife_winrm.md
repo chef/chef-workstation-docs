@@ -6,8 +6,8 @@ draft = false
 [menu]
   [menu.tools]
     title = "knife winrm"
-    identifier = "tools/knife/knife_winrm.md knife winrm"
-    parent = "tools/knife"
+    identifier = "tools/knife/reference/knife_winrm.md knife winrm"
+    parent = "tools/knife/reference"
 +++
 
 <!-- markdownlint-disable-file MD036 -->

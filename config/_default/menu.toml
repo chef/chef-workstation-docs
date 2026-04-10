@@ -56,15 +56,29 @@ title = "Tools"
 identifier = "tools"
 
     [[tools]]
+    title = "Cookstyle"
+    identifier = "tools/cookstyle"
+    parent = "tools"
+    weight = 90
+    url = "https://docs.chef.io/workstation/cookstyle"
+
+    [[tools]]
     title = "Knife"
     identifier = "tools/knife"
     parent = "tools"
     weight = 100
 
         [[tools]]
+        title = "Knife CLI reference"
+        identifier = "tools/knife/reference"
+        parent = "tools/knife"
+        weight = 120
+
+        [[tools]]
         title = "Knife plugins"
         identifier = "tools/knife/plugins"
         parent = "tools/knife"
+        weight = 130
 
     [[tools]]
     title = "Test Kitchen"

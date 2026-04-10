@@ -6,33 +6,37 @@ draft = false
 
 [menu]
   [menu.tools]
-    title = "chef-vault executable"
+    title = "Chef Vault"
     identifier = "tools/chef_vault.md chef-vault executable"
     parent = "tools"
     weight = 50
 +++
 
-`chef-vault` is a Ruby Gem that's included in Chef Workstation and Chef
-Infra Client. Chef Vault lets you encrypt a data bag item using asymmetric keys. When you provide Chef Vault with a list of public keys from your nodes, only the nodes with public keys entered on this list can decrypt the data bag item contents. Chef Vault is included in Chef Workstation and Chef Infra Client by way of the `chef-vault` Ruby Gem. `chef-vault` uses the `knife vault` subcommand.
+Chef Vault lets you encrypt a data bag item using asymmetric keys and is included with Chef Workstation and Chef Infra Client.
+When you provide Chef Vault with a list of public keys from your nodes, only nodes on that list can decrypt the data bag item contents.
+`chef-vault` uses the `knife vault` subcommand.
 
 {{< note >}}
 
-Chef Vault doesn't currently support alternate keying mechanisms like GPG and Amazon KMS.
+Chef Vault doesn't support alternate keying mechanisms like GPG or Amazon KMS.
 
 {{< /note >}}
 
-{{< warning >}}
+## Key pair requirements
 
-To use Chef Vault, Chef Infra Client must be configured to use public and private key pairs. Chef Vault is incompatible with the practice of using Chef Infra Client with a private key, such as `client.pem`, and a certificate set as its public identity in the Chef Infra Server database. To update existing nodes to use `chef-vault`, first re-register your Chef Infra Client nodes with Chef Infra Server which will generate public/private key pairs, and then install Chef Vault on each node. If Chef Vault is used with a Chef Infra Client instance that has a private key, such as `client.pem`, and a certificate set as its public identity in the Chef Infra Server database, Chef Vault generates the following error:
+Chef Vault requires that Chef Infra Client is configured to use public and private key pairs.
+Chef Vault is incompatible with Chef Infra Client instances that use a private key, such as `client.pem`, with a certificate set as its public identity in the Chef Infra Server database.
+
+To update existing nodes to use `chef-vault`, re-register your Chef Infra Client nodes with Chef Infra Server, which generates public/private key pairs, and then install Chef Vault on each node.
+
+If Chef Vault is used with a Chef Infra Client instance configured this way, Chef Vault generates the following error:
 
 ```text
 ## OpenSSL::PKey::RSAError
 Neither PUB key nor PRIV key:: nested asn1 error
 ```
 
-{{< /warning >}}
-
-## Configuring config.rb for Chef Vault
+## Configure Chef Vault
 
 To set `client` as the default mode, add the following line to the `config.rb` file.
 
@@ -46,7 +50,7 @@ To set the default list of admins for creating and updating vaults, add the foll
 knife[:vault_admins] = [ 'example-alice', 'example-bob', 'example-carol' ]
 ```
 
-(These values can be overridden on the command line by using `-A`)
+You can override these values in the command line by using `-A`.
 
 ## Knife Vault CLI
 

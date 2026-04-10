@@ -7,8 +7,8 @@ draft = false
 [menu]
   [menu.tools]
     title = "knife ssl_fetch"
-    identifier = "tools/knife/knife_ssl_fetch.md knife ssl_fetch"
-    parent = "tools/knife"
+    identifier = "tools/knife/reference/knife_ssl_fetch.md knife ssl_fetch"
+    parent = "tools/knife/reference"
 +++
 <!-- markdownlint-disable-file MD036 -->
 

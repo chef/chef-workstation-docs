@@ -11,7 +11,6 @@ draft = false
 
 This guide walks you through the four parts to set up Chef Workstation on your computer.
 
-- [Configure Ruby Environment](#configure-your-ruby-environment)
 - [Set up your chef-repo](#set-up-your-chef-repo) for storing your cookbooks
 - [Set up Chef Credentials](#set-up-chef-credentials)
 - [Verify Client-to-Server Communication](#verify-client-to-server-communication)
@@ -20,55 +19,7 @@ This guide walks you through the four parts to set up Chef Workstation on your c
 
 - [Chef Workstation installed]({{< relref "install.md" >}})
 - A running instance of Chef Infra Server.
-- Unless using Chef Manage, the `CLIENT.PEM` file supplied by your Chef administrator.
-
-## Configure your Ruby environment
-
-For many users, Ruby is primarily used for developing Chef policy (for example, cookbooks, Policyfiles, and Chef InSpec profiles). If that's true for you, then we recommend using the Chef Workstation Ruby as your default system Ruby. If you use Ruby for software development, you'll want to skip this step.
-
-{{< note >}}
-
-These instructions are intended for macOS and Linux users. On Windows, Chef Workstation includes a desktop shortcut to a PowerShell prompt already configured for use.
-
-{{< /note >}}
-
-To configure Ruby on Linux or macOS, follow these steps:
-
-1. Determine your default shell by running:
-
-    ```bash
-    echo $SHELL
-    ```
-
-    This will give you the path to your default shell such as `/bin/zsh` for the Zsh shell.
-
-1. Add the Workstation initialization content to the appropriate shell rc file:
-
-    For Bash shells run:
-
-    ```bash
-    echo 'eval "$(chef shell-init bash)"' >> ~/.bashrc
-    ```
-
-    For Zsh shells run:
-
-    ```bash
-    echo 'eval "$(chef shell-init zsh)"' >> ~/.zshrc
-    ```
-
-    For Fish shells run:
-
-    ```bash
-    echo 'eval (chef shell-init fish)' >> ~/.config/fish/config.fish
-    ```
-
-1. Open a new shell window and run:
-
-    ```bash
-    which ruby
-    ```
-
-    The command should return `/opt/chef-workstation/embedded/bin/ruby`.
+- the `CLIENT.PEM` file supplied by your Chef administrator.
 
 ## Set up your Chef repo
 
@@ -101,7 +52,7 @@ chef generate repo chef-repo
 
 The first time you run Chef Workstation, it creates a `.chef` directory in your user directory. The `.chef` directory is where you store your Chef Workstation configuration and client keys.
 
-If you're setting up Chef Workstation **as a Chef Infra Server administrator**, manage users with the [Chef Infra Server CLI](https://docs.chef.io/server/ctl_chef_server/#user-management) or the Chef Manage UI. When you create a new user, Chef Infra Server generates a user-specific RSA client key that you must share securely with that user.
+If you're setting up Chef Workstation **as a Chef Infra Server administrator**, manage users with the [Chef Infra Server CLI](https://docs.chef.io/server/ctl_chef_server/#user-management). When you create a new user, Chef Infra Server generates a user-specific RSA client key that you must share securely with that user.
 
 If you're setting up Chef Workstation **as a Chef user**, you need a client private key that your server administrator creates for you on Chef Infra Server. The client private key is an RSA private key in `.pem` format.
 
@@ -117,20 +68,6 @@ To configure Knife to communicate with Chef Infra Server, you need the following
 - `node_name`: the client name your server administrator created for you
 
 Your Chef administrator provides this information.
-
-For Chef Manage users, you can find this information in the Starter Kit file. Download the file on the Manage site by navigating to the Administration tab and selecting Starter Kit. (**Manage > Administration > Starter Kit > Download Starter Kit**)
-
-Find the `.chef/config.rb` file in the Starter Kit. It looks similar to the following:
-
-```ruby
-current_dir = File.dirname(__FILE__)
-log_level                :info
-log_location             STDOUT
-node_name                "hshefu"
-client_key               "#{current_dir}/hshefu.pem"
-chef_server_url          "https://api.chef.io/organizations/organization-name"
-cookbook_path            ["#{current_dir}/../cookbooks"]
-```
 
 Use the `chef_server_url` and `node_name` values from this file when running `knife configure`.
 
@@ -174,19 +111,6 @@ To manually configure Knife to connect to Chef Infra Server:
 
 All communication between Chef Workstation and Chef Infra Server is authenticated using an RSA public/private key pair. This pair is generated on Chef Infra Server and the private key must be copied to your local Chef Workstation installation for communication to function.
 
-The steps for downloading or generating these files vary depending on how you interact with Chef Infra Server. Select the option that best describes how you interact with the server:
-
-<!----Tabs Section--->
-{{< foundation_tabs tabs-id="tabs-panel-container" >}}
-{{< foundation_tab active="true" panel-link="infra_and_automate_keys" tab-text="Chef Infra Server / Automate">}}
-{{< foundation_tab panel-link="hosted-keys" tab-text="Chef Manage" >}}
-{{< /foundation_tabs >}}
-<!----End Tabs --->
-
-<!----Panels Section --->
-{{< foundation_tabs_panels tabs-id="tabs-panel-container" >}}
-{{< foundation_tabs_panel active="true" panel-id="infra_and_automate_keys" >}}
-
 Your Chef administrator will provide you with your `client.pem` file. Copy this file to the `~/.chef` directory.
 
 On macOS and Linux systems, this looks something like:
@@ -200,27 +124,6 @@ On Windows systems this, looks something like this:
 ```powershell
 Copy-Item -Path C:\Users\MY_NAME\Downloads\USERNAME.pem -Destination C:\Users\MY_NAME\.chef\
 ```
-
-{{< /foundation_tabs_panel >}}
-{{< foundation_tabs_panel panel-id="hosted-keys" >}}
-
-The client key file is located in the Starter Kit at `.chef/USERNAME.pem`. Copy the PEM file to the `~/.chef` directory.
-
-On macOS and Linux systems, this looks something like:
-
-```bash
-cp ~/Downloads/chef-repo/.chef/USERNAME.pem ~/.chef/
-```
-
-On Windows systems, this looks something like this:
-
-```powershell
-Copy-Item -Path C:\Users\MY_NAME\Downloads\chef-repo\.chef\USERNAME.pem -Destination C:\Users\MY_NAME\.chef\
-```
-
-{{< /foundation_tabs_panel >}}
-{{< /foundation_tabs_panels >}}
-<!----End Panels --->
 
 ## Verify client-to-server communication
 

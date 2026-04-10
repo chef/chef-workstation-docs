@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.tools]
     title = "knife opc"
-    identifier = "tools/knife/plugin_knife_opc.md knife opc"
-    parent = "tools/knife"
+    identifier = "tools/knife/reference/plugin_knife_opc.md knife opc"
+    parent = "tools/knife/reference"
 +++
 <!-- markdownlint-disable-file MD024 MD036 -->
 

@@ -7,8 +7,8 @@ draft = false
 [menu]
   [menu.tools]
     title = "knife azurerm"
-    identifier = "tools/knife/knife_azurerm.md knife azurerm"
-    parent = "tools/knife"
+    identifier = "tools/knife/reference/knife_azurerm.md knife azurerm"
+    parent = "tools/knife/reference"
 +++
 <!-- markdownlint-disable-file MD033 MD036 -->
 

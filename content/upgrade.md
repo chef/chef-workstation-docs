@@ -9,7 +9,7 @@ identifier = "upgrade"
 Use the following command to upgrade Chef Workstation or one of its components:
 
 ```sh
-sudo hab pkg install --binlink --force <PACKAGE_IDENT> --channel unstable
+hab pkg install --binlink --force <PACKAGE_IDENT>
 ```
 
 Replace `<PACKAGE_IDENT>` with the package identifier.

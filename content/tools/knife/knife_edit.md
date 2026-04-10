@@ -7,8 +7,8 @@ draft = false
 [menu]
   [menu.tools]
     title = "knife edit"
-    identifier = "tools/knife/knife_edit.md knife edit"
-    parent = "tools/knife"
+    identifier = "tools/knife/reference/knife_edit.md knife edit"
+    parent = "tools/knife/reference"
 +++
 
 {{< readfile file="content/reusable/md/knife_edit_summary.md" >}}

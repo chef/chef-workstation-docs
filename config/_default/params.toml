@@ -10,14 +10,13 @@
 menuOrder = [
   "about",
   "install",
+  "upgrade",
   "set_up",
   "license",
-  "configure",
-  "upgrade",
+  "get_started",
   "uninstall",
-  "troubleshooting",
-  "privacy",
   "tools",
+  "troubleshooting",
   "extension_apis"
 ]
 

@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.tools]
     title = "knife bootstrap"
-    identifier = "tools/knife/knife_bootstrap.md knife bootstrap"
-    parent = "tools/knife"
+    identifier = "tools/knife/reference/knife_bootstrap.md knife bootstrap"
+    parent = "tools/knife/reference"
 +++
 <!-- markdownlint-disable-file MD036 MD046-->
 

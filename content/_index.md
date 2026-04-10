@@ -12,33 +12,18 @@ draft = false
 
 <!-- markdownlint-disable-file MD033 -->
 
-{{< readfile file="content/reusable/md/chef_workstation.md" >}}
+Chef Workstation is an all-in-one package that gives you everything you need to get started with Chef infrastructure automation.
+With a single installation, you get tools for configuration management, compliance scanning, cookbook development, dependency resolution, and testing.
 
-## Get started
+Chef Workstation is the primary toolkit for Chef infrastructure engineers.
+You can use Chef Workstation to:
 
-Chef Infra is a systems and cloud infrastructure automation framework
-that makes it easy to deploy servers and applications to any physical,
-virtual, or cloud location, no matter the size of the infrastructure.
-Each organization is comprised of one (or more) Chef Workstation
-installations, a single server, and every node that will be configured
-and maintained by Chef Infra Client. Cookbooks (and recipes) are used to
-tell Chef Infra Client how each node in your organization should be
-configured. Chef Infra Client---which is installed on every node---does
-the actual configuration.
+- **Define automation**: Generate cookbooks and write configuration policy using Chef's declarative resources, or use community cookbooks from Chef Supermarket.
+- **Manage secrets**: Encrypt and manage sensitive data, such as passwords and certificates, using Chef Vault.
+- **Scan for compliance**: Run Chef InSpec profiles against remote systems to detect and remediate security and configuration issues.
+- **Test locally**: Validate your cookbooks with Test Kitchen and Cookstyle before deploying to production.
 
-- [An Overview of Chef Infra](https://docs.chef.io/chef_overview/)
-- [Install Chef Workstation](/install/)
-
-### Cookbook development workflow
-
-Chef Infra defines a common workflow for cookbook development:
-
-1. Create a skeleton cookbook by running `chef generate cookbook MY_COOKBOOK_NAME`. This generates a cookbook with a single recipe and testing configuration for Test Kitchen with Chef InSpec.
-1. Write cookbook recipes or resources and lint and debug them with Cookstyle and Test Kitchen. Making your own cookbooks is an iterative process where you develop, test, find and fix bugs, and then develop and test some more. A text editor---Visual Studio Code, Atom, vim, or any other preferred text editor---is the only tool that you need to author your cookbooks.
-1. Test in acceptance. Test your work in an environment that matches your production environment.
-1. Deploy your cookbooks to the production environment, but only after they pass all the acceptance tests and are verified to work in the desired manner.
-
-## Included tools and components
+## Components
 
 Chef Workstation includes the following fully integrated tools:
 
@@ -61,3 +46,52 @@ Chef Workstation includes the following fully integrated tools:
 - **Berkshelf**: Cookbook dependency manager that streamlines the process of managing and retrieving cookbook dependencies
 - **Chef Vault**: Secure data management tool for encrypting and managing secrets within Chef workflows
 - **Ohai**: System profiling tool that detects and reports system attributes for use in Chef recipes
+
+## Get started
+
+To get started with Chef Workstation:
+
+1. [Install Workstation](/install/)
+1. [Set up Workstation](/set_up/)
+1. [Add a license](/license/)
+1. Optional: [Get started with Workstation](/get_started/)
+
+### Cookbook development workflow
+
+Use the following workflow when creating, developing, and testing your cookbooks:
+
+1. Generate a new cookbook with `chef generate cookbook <COOKBOOK_NAME>`
+
+   This creates a cookbook with a default recipe, a `kitchen.yml` configuration for Test Kitchen Enterprise, and a starter Chef InSpec profile.
+
+1. Write cookbook recipes in the `recipes` directory.
+
+1. Create a Chef InSpec profile that verifies that your cookbook runs successfully.
+
+1. Lint the cookbook with Cookstyle (`cookstyle .`) to check for style issues.
+
+1. Run Test Kitchen Enterprise (`kitchen converge`) to converge your cookbook in a local VM or container and verify it works:
+
+   This command does the following:
+
+   1. Creates a VM, container, or cloud instance.
+   1. Installs the provisioner (Chef Infra Client) on the instance.
+   1. Loads the cookbook and Test Kitchen config on the instance.
+   1. Runs the cookbook to bring the instance into the state defined in the cookbook.
+
+1. Use Test Kitchen Enterprise to run your InSpec profile (`kitchen verify`) against the converged instance.
+
+    Test Kitchen reports a pass or fail for each control defined in the InSpec profile.
+
+1. Destroy the Test Kitchen Enterprise instance (`kitchen destroy`) when you're done.
+
+1. If your tests fail, update your cookbook and InSpec profile, re-converge your cookbook and re-verify your InSpec profile until all tests pass.
+
+1. Before deploying in a production environment, test your cookbook in a matching environment.
+
+1. Deploy your cookbooks to production only after they pass all acceptance tests.
+
+## More resources
+
+- [Chef Tutorials](https://www.chef.io/training/tutorials)
+- [Chef Support and Learning Hub](https://community.progress.com/s/products/chef)

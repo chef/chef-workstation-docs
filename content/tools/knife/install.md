@@ -30,7 +30,7 @@ To install the Knife standalone package, follow these steps:
 1. Install Knife:
 
     ```sh
-    sudo hab pkg install chef/knife --channel unstable --binlink --force
+    hab pkg install chef/knife --channel unstable --binlink --force
     ```
 
 1. Optional: After installation, verify Knife is installed and working:
@@ -41,5 +41,5 @@ To install the Knife standalone package, follow these steps:
 
 ## Next steps
 
-- [Configure Knife](/configure/#configure-knife)
 - [Add a license](/license)
+- [Set up Workstation](/set_up)
