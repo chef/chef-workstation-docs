@@ -10,9 +10,9 @@ This getting started guide shows you how to create a cookbook, define cookbook t
 
 ## Prerequisites
 
-- Install Chef Workstation
-- Add a Progress Chef license
-- Set up Workstation
+- [Add a Progress Chef license](/license)
+- [Install Chef Workstation](/install)
+- [Set up Workstation](/set_up)
 
 ## Develop a cookbook with Chef Workstation
 
