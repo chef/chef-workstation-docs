@@ -142,7 +142,7 @@ RUBY CODE
 ^D
 ```
 
-**Chef Knife status**
+**Chef knife status**
 
 To check the status of knife using a Ruby script named `status.rb`
 (which looks like):

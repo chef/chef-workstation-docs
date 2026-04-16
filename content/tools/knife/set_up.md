@@ -1,11 +1,11 @@
 +++
-title = "Set up Knife"
+title = "Set up knife"
 draft = false
 
 [menu]
   [menu.tools]
-    title = "Set up Knife"
-    identifier = "tools/knife/knife_setup.md Setting up Knife"
+    title = "Set up knife"
+    identifier = "tools/knife/knife_setup.md Setting up knife"
     parent = "tools/knife"
     weight = 20
 +++

@@ -16,7 +16,7 @@ draft = false
 
 Chef Workstation has the following requirements:
 
-- Linux x86-64 (64-bit) systems only
+- Linux and Windows x86-64 (64-bit) systems only
 - Chef Habitat 1.6.0 or later installed
 - Minimum 2GB available disk space for installation
 - Internet connectivity for package downloads (or access to internal Habitat Builder)
@@ -178,7 +178,7 @@ The following table provides examples of common tool invocations using the Habit
 | Chef Vault        | hab pkg exec chef/chef-vault chef-vault                    | chef-vault -v         |
 | Fauxhai           | hab pkg exec chef/fauxhai fauxhai                          | fauxhai -v            |
 | Chef InSpec       | hab pkg exec chef/inspec inspec                            | inspec version        |
-| Knife             | hab pkg exec chef/knife knife                              | knife -v              |
+| knife             | hab pkg exec chef/knife knife                              | knife -v              |
 
 ## Install Chef Workstation tools
 
