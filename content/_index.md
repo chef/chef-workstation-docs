@@ -31,7 +31,7 @@ Chef Workstation includes the following fully integrated tools:
 
 - **Chef CLI (`chef-cli`)**: Primary command-line interface for Chef development workflows, providing unified access to common Chef operations
 - **Chef Infra Client**: Latest release candidate of the Chef Infra Client, enabling infrastructure automation and configuration management
-- **Knife**: Essential tool for interacting with Chef Infra Server, managing nodes, cookbooks, roles, and other Chef objects
+- **knife**: Essential tool for interacting with Chef Infra Server, managing nodes, cookbooks, roles, and other Chef objects
 - **Chef InSpec**: Latest release candidate of InSpec, enabling compliance and security testing.
 
 ### Testing and quality assurance

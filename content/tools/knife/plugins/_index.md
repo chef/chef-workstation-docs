@@ -1,5 +1,5 @@
 +++
-title = "Knife plugins"
+title = "knife plugins"
 
 list_pages = true
 +++

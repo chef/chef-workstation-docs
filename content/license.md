@@ -14,7 +14,7 @@ This page describes licensing requirements and how to configure a license for Ch
 
 Different Chef Workstation components have different licensing requirements:
 
-- **Knife 19**: Requires a license for bootstrapping Chef Infra Client 18 and earlier
+- **knife 19**: Requires a license for bootstrapping Chef Infra Client 18 and earlier
 - **Test Kitchen Enterprise**: Uses a license to execute tests but doesn't enforce licensing
 
 ## Get a license
@@ -28,7 +28,7 @@ For more information, see Chef's licensing documentation [Chef licensing documen
 
 ## Add a license to Workstation
 
-If you've set a license for Chef Workstation, Test Kitchen Enterprise and Knife 19 automatically read and use it to execute tests or during bootstrap operations.
+If you've set a license for Chef Workstation, Test Kitchen Enterprise and knife 19 automatically read and use it to execute tests or during bootstrap operations.
 
 You can apply a license to Chef Workstation in two ways:
 
@@ -137,24 +137,24 @@ To display details of all licenses stored on disk:
 kitchen license list
 ```
 
-## Add a license to Knife
+## Add a license to knife
 
-Knife requires a license for bootstrapping Chef Infra Client 18 and earlier.
+knife requires a license for bootstrapping Chef Infra Client 18 and earlier.
 Chef Infra Client 19 and above doesn't require a license because it's distributed through pre-signed URLs.
 
-### How Knife uses licenses
+### How knife uses licenses
 
-During bootstrap operations, Knife transfers the license to the target node and adds it as an argument to Chef Infra Client.
+During bootstrap operations, knife transfers the license to the target node and adds it as an argument to Chef Infra Client.
 Chef Infra Client validates the license and saves it on the provisioned node for future use.
 
 ### Add a license
 
-Knife automatically reads a license that's configured locally for Chef Workstation through:
+knife automatically reads a license that's configured locally for Chef Workstation through:
 
 - The `~/.chef/licenses.yml` file
 - The `CHEF_LICENSE_KEY` environment variable
 
-You can also configure a license specifically for Knife with:
+You can also configure a license specifically for knife with:
 
 - The `knife license` CLI command
 - The `--chef-license-key` command line option
@@ -173,9 +173,9 @@ To add a license using the `knife license` CLI:
 
 1. Enter your license key at the second prompt.
 
-Knife validates the license and saves it to disk.
+knife validates the license and saves it to disk.
 
-##### Verify your Knife license
+##### Verify your knife license
 
 To verify that a valid license is saved on disk:
 

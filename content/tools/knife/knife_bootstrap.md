@@ -16,8 +16,8 @@ Bootstrapping installs Chef Infra Client on a target system and configures it to
 
 Before bootstrapping nodes:
 
-- [Configure Knife](/tools/knife/knife_configure/#configure-knife)
-- For Chef Infra Client 18 or earlier, [configure your Progress Chef license with Knife](/license)
+- [Configure knife](/tools/knife/knife_configure/#configure-knife)
+- For Chef Infra Client 18 or earlier, [configure your Progress Chef license with knife](/license)
 
 Before bootstrapping Windows nodes with WinRM:
 
@@ -366,13 +366,13 @@ Replace the following:
 - `<PASSWORD>` with the SSH password
 - `<NODE_NAME>` with a unique node name
 
-The `--bootstrap-product chef` option directs Knife to use Chef Infra Client 18.x from standard download channels.
+The `--bootstrap-product chef` option directs knife to use Chef Infra Client 18.x from standard download channels.
 
 <!--
 
 ### Bootstrap an AWS EC2 instance
 
-The Knife EC2 plugin integrates with AWS EC2 to create and provision EC2 instances.
+The knife EC2 plugin integrates with AWS EC2 to create and provision EC2 instances.
 
 To create an EC2 instance and bootstrap Chef Infra Client, run the following command:
 

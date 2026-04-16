@@ -12,7 +12,7 @@ draft = false
 <!-- markdownlint-disable-file MD024 MD036-->
 <!-- vale chef.policyfile = NO -->
 
-The chef executable is a command-line tool that does the following:
+The `chef` executable is a command-line tool that does the following:
 
 - Generates repositories, cookbooks, recipes, attributes, templates, and custom resources.
 - Installs gems into the Chef development environment's Ruby installation.
