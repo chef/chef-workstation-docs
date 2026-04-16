@@ -1,5 +1,5 @@
 +++
-title = "Knife Azurerm"
+title = "knife Azurerm"
 draft = false
 
 
@@ -12,7 +12,7 @@ draft = false
 +++
 <!-- markdownlint-disable-file MD033 MD036 -->
 
-## Knife Azure Overview
+## knife Azure Overview
 
 {{< readfile file="content/reusable/md/knife_azure.md" >}}
 
@@ -60,7 +60,7 @@ Microsoft Azure encourages the use of Azure CLI 2.0. If you are still
 using [azure-xplat-cli](https://github.com/Azure/azure-xplat-cli) _then
 run `azure login` and skip creating the service principal.
 
-### Knife Azurerm commands
+### knife Azurerm commands
 
 #### server create
 

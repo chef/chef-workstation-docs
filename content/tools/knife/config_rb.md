@@ -1,12 +1,12 @@
 +++
-title = "Configure Knife"
+title = "Configure knife"
 draft = false
 
 
 
 [menu]
   [menu.tools]
-    title = "Configure Knife"
+    title = "Configure knife"
     identifier = "tools/knife/config_rb.md config.rb (knife.rb)"
     parent = "tools/knife"
     weight = 40

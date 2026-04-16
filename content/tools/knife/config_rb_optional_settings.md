@@ -1,5 +1,5 @@
 +++
-title = "Optional Knife settings"
+title = "Optional knife settings"
 draft = false
 
 [menu]

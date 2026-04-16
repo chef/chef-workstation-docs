@@ -1,11 +1,11 @@
 +++
-title = "Knife common options"
+title = "knife common options"
 draft = false
 
 [menu]
   [menu.tools]
-    title = "Knife common options"
-    identifier = "tools/knife/common_options.md Knife Common Options"
+    title = "knife common options"
+    identifier = "tools/knife/common_options.md knife Common Options"
     parent = "tools/knife"
     weight = 110
 +++

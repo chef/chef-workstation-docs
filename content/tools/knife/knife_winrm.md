@@ -11,7 +11,7 @@ draft = false
 +++
 
 <!-- markdownlint-disable-file MD036 -->
-## Knife winrm Overview
+## knife winrm Overview
 
 Use the `knife winrm` subcommand to invoke commands over WinRM (in parallel) on a subset of nodes within an organization, based on the results of a search query made to Chef Infra Server.
 

@@ -52,7 +52,7 @@ knife[:vault_admins] = [ 'example-alice', 'example-bob', 'example-carol' ]
 
 You can override these values in the command line by using `-A`.
 
-## Knife Vault CLI
+## knife vault CLI
 
 ### Syntax
 
@@ -699,7 +699,7 @@ A JSON file can be used in place of specifying the values on the command line, s
 
   Sub-commands: `refresh`, `remove`, `rotate`
 
-### Knife bootstrap options
+### knife bootstrap options
 
 Use the following options with a validatorless bootstrap to specify items that are stored in Chef Vault:
 

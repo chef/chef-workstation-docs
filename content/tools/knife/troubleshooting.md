@@ -1,5 +1,5 @@
 +++
-title = "Knife troubleshooting"
+title = "knife troubleshooting"
 
 [menu.tools]
 title = "Troubleshooting"
@@ -8,7 +8,7 @@ parent = "tools/knife"
 weight = 200
 +++
 
-This page provides solutions to common issues you may encounter when using Knife.
+This page provides solutions to common issues you may encounter when using knife.
 
 ## Permission errors during installation
 
@@ -20,9 +20,9 @@ sudo chown -R $(whoami) /hab
 
 ## Missing plugins after standalone installation
 
-If you installed Knife as a standalone application, it doesn't include Knife cloud provider plugins (knife-ec2, knife-google, or knife-windows).
+If you installed knife as a standalone application, it doesn't include knife cloud provider plugins (knife-ec2, knife-google, or knife-windows).
 
-To get the Knife plugins, install Chef Workstation, which includes Knife and the Knife plugins.
+To get the knife plugins, install Chef Workstation, which includes knife and the knife plugins.
 
 ## SSL certificate errors
 
