@@ -1,11 +1,11 @@
 +++
-title = "About Knife"
+title = "About knife"
 draft = false
 
 [menu]
   [menu.tools]
-    title = "About Knife"
-    identifier = "tools/knife/knife.md About Knife"
+    title = "About knife"
+    identifier = "tools/knife/knife.md About knife"
     parent = "tools/knife"
     weight = 10
 +++
@@ -22,23 +22,23 @@ chef-repo and Chef Infra Server. knife helps users to manage:
 - The installation of Chef Infra Client onto nodes
 - Searching of indexed data on Chef Infra Server
 
-## Configure Knife
+## Configure knife
 
-See the following guides to setup and configure Knife:
+See the following guides to setup and configure knife:
 
-- **[Set up Knife](/tools/knife/knife_setup/)**: Configure knife to interact with your organization's Chef Infra Server and infrastructure.
-- **[Knife Common Options](/tools/knife/common_options/)**: Common options that are available for all knife subcommands.
+- **[Set up knife](/tools/knife/set_up/)**: Configure knife to interact with your organization's Chef Infra Server and infrastructure.
+- **[knife Common Options](/tools/knife/common_options/)**: Common options that are available for all knife subcommands.
 - **[config.rb](/tools/knife/config_rb/)**: Common options for the `config.rb` file
 - **[config.rb optional settings](tools/knife/config_rb_optional_settings/)**: Additional options for your `config.rb` file
 
-## Knife subcommands
+## knife subcommands
 
 knife includes a collection of built in subcommands that work together
 to provide the functionality required to take specific actions
 against any object in an organization, including cookbooks, nodes,
 roles, data bags, environments, and users.
 
-### Knife command syntax
+### knife command syntax
 
 All knife subcommands have the following syntax:
 
@@ -161,16 +161,16 @@ to return:
 aardvarks/ anagrams/
 ```
 
-## Knife Plug-ins
+## knife Plug-ins
 
-Knife functionality can be extended with plugins, which work the same as
-built-in subcommands (including common options). Knife plugins have been
+knife functionality can be extended with plugins, which work the same as
+built-in subcommands (including common options). knife plugins have been
 written to interact with common cloud providers, to simplify common Chef
 tasks, and to aid in Chef workflows.
 
 ### Plugin Installation
 
-Knife plugins ship as RubyGems and are installed into the Chef
+knife plugins ship as RubyGems and are installed into the Chef
 Workstation installation using the `chef` command:
 
 ```bash
@@ -184,7 +184,7 @@ commands by running:
 knife rehash
 ```
 
-### Chef Maintained Knife Plugins
+### Chef Maintained knife Plugins
 
 Chef maintains the following plugins which ship with Chef Workstation:
 
@@ -200,6 +200,6 @@ Chef maintains the following plugins which ship with Chef Workstation:
 - `knife-vcenter`
 - `knife-windows`
 
-### Community Knife Plugins
+### Community knife Plugins
 
-Knife plugins written by Chef community members can be found on Supermarket under [Knife Plugins](https://supermarket.chef.io/tools?type=knife_plugin).
+knife plugins written by Chef community members can be found on Supermarket under [knife Plugins](https://supermarket.chef.io/tools?type=knife_plugin).

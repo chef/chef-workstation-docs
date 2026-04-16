@@ -34,7 +34,7 @@ This subcommand has the following options:
 
 The following examples show how to use this knife subcommand:
 
-**Fetch the SSL certificates used by Knife from the Chef Infra Server**
+**Fetch the SSL certificates used by knife from the Chef Infra Server**
 
 ```bash
 knife ssl fetch
@@ -46,7 +46,7 @@ The response is similar to:
 WARNING: Certificates from <chef_server_url> will be fetched and placed in your trusted_cert
 directory (/Users/grantmc/chef-repo/.chef/trusted_certs).
 
-Knife has no means to verify these are the correct certificates. You should
+knife has no means to verify these are the correct certificates. You should
 verify the authenticity of these certificates after downloading.
 
 Adding certificate for <chef_server_url> in /Users/grantmc/chef-repo/.chef/trusted_certs/grantmc.crt

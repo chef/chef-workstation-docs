@@ -1,5 +1,5 @@
 +++
-title = "Write a custom Knife plugin"
+title = "Write a custom knife plugin"
 draft = false
 
 

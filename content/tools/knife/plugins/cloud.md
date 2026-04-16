@@ -1,5 +1,5 @@
 +++
-title = "Knife cloud plugins"
+title = "knife cloud plugins"
 draft = false
 
 [menu]
