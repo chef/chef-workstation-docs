@@ -2,6 +2,9 @@
 title = "About Chef Workstation"
 draft = false
 
+[cascade]
+  [cascade.params]
+    breadcrumbs = true
 
 [menu]
   [menu.about]
