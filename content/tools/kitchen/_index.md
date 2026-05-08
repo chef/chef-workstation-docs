@@ -30,6 +30,12 @@ The key concepts in Test Kitchen are:
 - A driver is the lifecycle that implements the actions associated with a specific instance---create the instance, do what's needed to converge on that instance (such as installing Chef Infra Client, uploading cookbooks, and starting a Chef Infra Client run), setup anything else needed for testing, verify one (or more) suites post-converge, and then destroy that instance
 - A provisioner is the component on which the Chef Infra Client code will be run, either using chef-zero or chef-solo with the `chef_zero` and `chef_solo` provisioners, respectively
 
+{{< note >}}
+
+**Upcoming Omnitruck API deprecation:** Chef will deprecate the Omnitruck APIs used for downloading Chef Infra Client. When this happens, any version of test-kitchen earlier than 4.0.0 will stop working. Test Kitchen 4.0.0 and later supports authenticated downloads using a `chef-license-key`. You must provide a valid license key in your `kitchen.yml` or as an environment variable to download and install Chef Infra Client during converge. For more information, see the [Chef licensing documentation](https://docs.chef.io/licensing/).
+
+{{< /note >}}
+
 ## Bento
 
 {{< readfile file="content/reusable/md/bento.md" >}}

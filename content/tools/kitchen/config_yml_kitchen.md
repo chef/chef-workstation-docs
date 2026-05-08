@@ -47,6 +47,9 @@ Chef-specific settings:
 `chef_client_path`
 : Chef Infra Client provisioner only.
 
+`chef_license_key`
+: The Progress Chef license key required for authenticated downloads of Chef Infra Client. Required when using Test Kitchen 4.0.0 or later. You can also set this using the `CHEF_LICENSE_KEY` environment variable. For more information, see the [Chef licensing documentation](https://docs.chef.io/licensing/).
+
 `chef_metadata_url`
 : **This will be deprecated in a future version.**
 
