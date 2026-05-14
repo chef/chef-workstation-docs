@@ -36,7 +36,7 @@ about Test Kitchen.
 
 {{< readfile file="content/reusable/md/test_kitchen_yml_syntax.md" >}}
 
-## Provisioner Settings
+## Provisioner settings
 
 Test Kitchen can configure the chef-zero provisioner with the following
 Chef-specific settings:
@@ -48,7 +48,9 @@ Chef-specific settings:
 : Chef Infra Client provisioner only.
 
 `chef_license_key`
-: The Progress Chef license key required for authenticated downloads of Chef Infra Client. Required when using Test Kitchen 4.0.0 or later. You can also set this using the `CHEF_LICENSE_KEY` environment variable. For more information, see the [Chef licensing documentation](https://docs.chef.io/licensing/).
+: The Progress Chef license key used for authenticated Chef Infra Client downloads.
+
+  This setting is required when using Test Kitchen 4.0.0 or later. You can also set this using the `CHEF_LICENSE_KEY` environment variable. For more information, see the [Chef licensing documentation](https://docs.chef.io/licensing/).
 
 `chef_metadata_url`
 : **This will be deprecated in a future version.**
@@ -216,7 +218,7 @@ These settings may be added to the `provisioner` section of the
 
   Default value: auto detected
 
-## Transport Settings
+## Transport settings
 
 Kitchen can configure a transport with the following settings for either
 `ssh` or `winrm` transports:
@@ -325,7 +327,7 @@ where:
 - `chef_omnibus_url` is used to specify the URL from which Chef Infra Client is downloaded
 - the `attributes` for the `config` test suite contain specific client.rb settings for use with this test suite
 
-## Driver Settings
+## Driver settings
 
 Driver-specific configuration settings may be required. Use a block
 similar to:
@@ -459,7 +461,7 @@ suites:
   attributes: {}
 ```
 
-### chef-splunk Cookbook
+### chef-splunk cookbook
 
 The following `kitchen.yml` file is part of the `chef-splunk` cookbook and
 is used to help ensure the installation of the Splunk client and server
@@ -502,7 +504,7 @@ suites:
           enable_ssl: true
 ```
 
-### yum Cookbook
+### yum cookbook
 
 The following `kitchen.yml` file is part of the `yum` cookbook:
 
@@ -525,7 +527,7 @@ suites:
       - recipe[yum_test::test_repo]
 ```
 
-### Platform Attributes
+### Platform attributes
 
 The following `kitchen.yml` file sets up a simple tiered configuration of
 Chef Infra Server, including two front-end servers, a single
@@ -598,7 +600,7 @@ suites:
       - recipe[chef-server::backend]
 ```
 
-### Kitchen Converge On System Reboot
+### Kitchen converge on system reboot
 
 Test-Kitchen can handle reboots (when initiated from Chef Infra Client)
 by setting `retry_on_exit_code`, `max_retries` and `wait_for_retry`
