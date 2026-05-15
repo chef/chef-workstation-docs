@@ -8,6 +8,8 @@ title = "knife-tidy plugin"
     parent = "tools/knife/plugins"
 +++
 
+<!--- cspell:words HELO helo --->
+
 The `knife-tidy` plugin reports on and removes stale nodes, associated clients, ACLs, and unused cookbook versions from a Chef Infra Server.
 It also cleans data-integrity issues from [`knife-ec-backup`](/tools/knife/plugins/knife_ec_backup/) directories before you restore them to a server.
 

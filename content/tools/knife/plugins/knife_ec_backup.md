@@ -9,6 +9,8 @@ title = "knife-ec-backup plugin"
     parent = "tools/knife/plugins"
 +++
 
+<!-- cspell:words useracl KEYPATH -->
+
 The `knife-ec-backup` plugin backs up and restores the data in a Chef Infra Server installation, including all organizations, users, nodes, cookbooks, roles, and associated ACLs.
 Use it before server migrations, version upgrades, or to create point-in-time snapshots of your Chef Infra Server.
 
