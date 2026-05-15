@@ -9,27 +9,44 @@ title = "knife-tidy plugin"
 +++
 
 The `knife-tidy` plugin reports on and removes stale nodes, associated clients, ACLs, and unused cookbook versions from a Chef Infra Server.
-It also cleans data-integrity issues from [`knife-ec-backup`](/tools/knife/plugins/knife-ec-backup/) directories before you restore them to a server.
+It also cleans data-integrity issues from [`knife-ec-backup`](/tools/knife/plugins/knife_ec_backup/) directories before you restore them to a server.
 
 ## Install knife-tidy
 
-`knife tidy` is available as part of the `knife-ec-backup` Habitat package or as a standalone Ruby gem.
+You can install `knife-tidy` as a Ruby gem or as a Habitat package.
 
-- Install the Habitat package (recommended):
+- Install `knife-tidy` as a Ruby gem:
 
-  ```bash
-  hab pkg install chef/knife-ec-backup -bf
-  ```
-
-  After installation, prefix all `knife tidy` commands with `hab pkg exec chef/knife-ec-backup`.
-
-- Install the Ruby gem:
-
-  ```bash
+  ```shell
   gem install knife-tidy
   ```
 
-  After installation, run `knife tidy` commands directly without the `hab pkg exec` prefix.
+- Install `knife-tidy` as a Habitat package:
+
+  ```bash
+  hab pkg install chef/knife-tidy -bf
+  ```
+
+  {{< note >}}
+
+  The `-bf` options binlink the `knife-tidy` binary into a system-wide directory in your `PATH` (for example, `/bin` or `/usr/local/bin`).
+  You can then run `knife-tidy` directly from your shell.
+
+  {{< /note >}}
+
+## Syntax
+
+If `knife-tidy` is installed as a Ruby gem or as a binlinked Chef Habitat package:
+
+```shell
+knife tidy <COMMAND> (options)
+```
+
+If you've installed `knife-tidy` as a Habitat package and didn't binlink it, execute it using the Habitat CLI and the full package name:
+
+```shell
+hab pkg exec chef/knife-ec-backup knife tidy <COMMAND> (options)
+```
 
 ## Common options
 
@@ -310,3 +327,8 @@ It generates an HTML email with three tables---total cookbook versions, unused c
 The email is sent to all admin users of each organization.
 The `pivotal` superuser is excluded from the recipient list.
 If report files for an organization can't be parsed, the command prints an error and exits without sending.
+
+## More information
+
+- [knife-tidy GitHub repository](https://github.com/chef/knife-tidy/)
+- [knife ec backup](/tools/knife/plugins/knife_ec_backup/)
