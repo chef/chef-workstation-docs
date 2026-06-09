@@ -17,6 +17,7 @@ draft = false
 
 Chef Workstation is an all-in-one package that gives you everything you need to get started with Chef infrastructure automation.
 With a single installation, you get tools for configuration management, compliance scanning, cookbook development, dependency resolution, and testing.
+Added for testing.
 
 Chef Workstation is the primary toolkit for Chef infrastructure engineers.
 You can use Chef Workstation to:
