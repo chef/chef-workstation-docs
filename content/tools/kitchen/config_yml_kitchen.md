@@ -57,8 +57,9 @@ Chef-specific settings:
 `chef_omnibus_url`
 : The URL of an `install.sh` script that will install Chef Infra Client on the machine under test.
 
-  - Commercial: `https://chefdownload-commercial.chef.io/install.sh?license_id=<LICENSE_ID>`
-  - Community: `https://chefdownload-community.chef.io/install.sh`
+  Commercial: `https://chefdownload-commercial.chef.io/install.sh?license_id=<LICENSE_ID>`
+
+  Community: `https://chefdownload-community.chef.io/install.sh`
 
   For the commercial endpoint, replace `<LICENSE_ID>` with your actual license ID. You can find your license key at: [How Do I Find My License Key Needed For Chef Product Downloads](https://community.progress.com/s/article/How-Do-I-Find-My-License-Key-Needed-For-Chef-Product-Downloads)
 
