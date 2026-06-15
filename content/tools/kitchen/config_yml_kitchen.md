@@ -34,7 +34,9 @@ about Test Kitchen.
 
 {{< readfile file="content/reusable/md/test_kitchen_yml_syntax.md" >}}
 
-## Provisioner Settings
+## Provisioner settings
+
+<!-- markdownlint-disable MD006 MD007 -->
 
 Test Kitchen can configure the chef-zero provisioner with the following
 Chef-specific settings:
@@ -159,6 +161,8 @@ Chef-specific settings:
 
 These settings may be added to the `provisioner` section of the
 `kitchen.yml` file when the provisioner is chef-zero or chef-solo.
+
+<!-- markdownlint-enable MD006 MD007 -->
 
 ### New provisioner settings
 
