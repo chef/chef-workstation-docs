@@ -34,7 +34,9 @@ about Test Kitchen.
 
 {{< readfile file="content/reusable/md/test_kitchen_yml_syntax.md" >}}
 
-## Provisioner Settings
+## Provisioner settings
+
+<!-- markdownlint-disable MD006 MD007 -->
 
 Test Kitchen can configure the chef-zero provisioner with the following
 Chef-specific settings:
@@ -55,7 +57,12 @@ Chef-specific settings:
 : Default value: `/etc/opt` for UNIX and Linux, `$env:systemdrive\\opscode\\chef` on Windows.
 
 `chef_omnibus_url`
-: The URL of an `install.sh` script that will install Chef Infra Client on the machine under test. Default value: `https://omnitruck.chef.io/install.sh`. **This will be deprecated in a future version.**
+: The URL of an `install.sh` script that will install Chef Infra Client on the machine under test.
+
+  - Commercial downloads install script: `https://chefdownload-commercial.chef.io/install.sh?license_id=<LICENSE_ID>`
+  - Community downloads install script: `https://chefdownload-community.chef.io/install.sh`
+
+  For the commercial endpoint, replace `<LICENSE_ID>` with your Progress Chef License ID. You can find your license ID on [Chef Downloads](https://www.chef.io/downloads). For more information, see this [support article](https://community.progress.com/s/article/How-Do-I-Find-My-License-Key-Needed-For-Chef-Product-Downloads).
 
 `chef_solo_path`
 : chef-solo provisioner only.
@@ -147,13 +154,15 @@ Chef-specific settings:
 : Takes an array of exit codes to indicate that kitchen should retry the converge command. Default value: `[35, 213]`.
 
 `max_retries`
-: Number of times to retry the converge before passing along the failed status. Defaults value: 1.
+: Number of times to retry the converge before passing along the failed status. Default value: 1.
 
 `wait_for_retry`
 : Number of seconds to wait between converge attempts. Default value: 30.
 
 These settings may be added to the `provisioner` section of the
 `kitchen.yml` file when the provisioner is chef-zero or chef-solo.
+
+<!-- markdownlint-enable MD006 MD007 -->
 
 ### New provisioner settings
 
@@ -197,7 +206,7 @@ These settings may be added to the `provisioner` section of the
   Default value: auto detected
 
 `platform_version`
-: Override platform platform.
+: Override platform version.
 
   Default value: auto detected
 
@@ -217,40 +226,40 @@ Kitchen can configure a transport with the following settings for either
 `ssh` or `winrm` transports:
 
 `connection_retries`
-: Maximum number of times to retry after a failed attempt to open a connection. The default is 5.
+: Maximum number of times to retry after a failed connection attempt. Default value: 5.
 
 `connection_retry_sleep`
-: Number of seconds to wait until attempting to make another connection after a failure.
+: Number of seconds to wait before attempting to reconnect after a failed connection.
 
 `max_wait_until_ready`
-: Maximum number of attempts to determine if the test instance is ready to accept commands. This defaults to 600.
+: Maximum number of attempts to determine if the test instance is ready to accept commands. Default value: 600.
 
 `password`
 : The password used for authenticating to the test instance.
 
 `port`
-: The port used to connect to the test instance. This defaults to `22` for the `ssh` transport and `5985` or `5986` for `winrm` using `http` or `https` respectively.
+: Port used to connect to the test instance. Default value: `22` for `ssh` transport, `5985` for `winrm` with `http`, and `5986` for `winrm` with `https`.
 
 `username`
-: The username used for authenticating to the test instance. This defaults to `administrator` for the `winrm` transport and `root` for the `ssh` transport. Some drivers may change this default.
+: Username used to authenticate to the test instance. Default value: `administrator` for `winrm` transport and `root` for `ssh` transport. Some drivers may override this default.
 
 These settings may be added to the `transport` section of the
 `kitchen.yml` file when the transport is SSH:
 
 `compression`
-: Whether or not to use compression. The default is `false`.
+: Whether to use compression. Default value: `false`.
 
 `compression_level`
-: The default is 6 if `compression` is `true`.
+: Default value: 6 when `compression` is `true`.
 
 `connection_timeout`
-: Defaults to 15.
+: Default value: 15.
 
 `keepalive`
-: Defaults to `true`.
+: Default value: `true`.
 
 `keepalive_interval`
-: Defaults to 60.
+: Default value: 60.
 
 `max_ssh_sessions`
 : Maximum number of parallel ssh sessions.
@@ -262,19 +271,19 @@ These settings may be added to the `transport` section of the
 `kitchen.yml` file when the transport is WinRM:
 
 `elevated`
-: When `true`, all commands are executed with a scheduled task. This may eliminate access denied errors related to double hop authentication, interacting with Windows updates and installing some MSIs such as sql server and .net runtimes. Defaults to `false`.
+: When `true`, all commands execute with a scheduled task. This may eliminate access denied errors related to double hop authentication, Windows updates, and MSI installations. Default value: `false`.
 
 `elevated_password`
-: The password used by the identity running the scheduled task. This may be `null` in the case of service accounts. Defaults to `password`.
+: Password for the identity running the scheduled task. Can be `null` for service accounts. Default value: `password`.
 
 `elevated_username`
-: The identity that the task runs under. This may also be set to service accounts such as `System`. This defaults to `username`.
+: Identity that the task runs under. Can be set to service accounts such as `System`. Default value: `username`.
 
 `rdp_port`
-: Port used making `rdp` connections for `kitchen login` commands. Defaults to 3389.
+: Port for `rdp` connections with `kitchen login` commands. Default value: 3389.
 
 `winrm_transport`
-: The transport type used by [WinRM](https://github.com/WinRb/WinRM). The default is `negotiate`. `ssl` and `plaintext` are also acceptable values.
+: Transport type for [WinRM](https://github.com/WinRb/WinRM). Default value: `negotiate`. Acceptable values: `ssl` and `plaintext`.
 
 ### Work with proxies
 
@@ -316,9 +325,9 @@ suites:
 
 where:
 
-- `require_chef_omnibus` is used to ensure that the Chef installer will be used to install Chef Infra Client to all platform instances; `require_chef_omnibus` may also be set to `latest`, which means the newest version of Chef Infra Client for that platform will be used for cookbook testing
-- `chef_omnibus_url` is used to specify the URL from which Chef Infra Client is downloaded
-- the `attributes` for the `config` test suite contain specific client.rb settings for use with this test suite
+- `require_chef_omnibus` ensures that the Chef installer installs Chef Infra Client on all platform instances. You can also set it to `latest` to use the newest version of Chef Infra Client for that platform when testing cookbooks.
+- `chef_omnibus_url` specifies the URL from which Chef Infra Client is downloaded.
+- The `attributes` for the `config` test suite contain specific `client.rb` settings for this test suite.
 
 ## Driver Settings
 
@@ -393,10 +402,9 @@ platforms:
       elevated: true
 ```
 
-If `name` begins with `win` then the `os_type` defaults to `windows`.
-The `winrm` transport is the default on Windows operating systems. Here
-`elevated` is true which runs windows commands with a scheduled task to
-imitate a local user.
+If `name` begins with `win`, the `os_type` defaults to `windows`.
+The `winrm` transport is the default on Windows operating systems.
+When `elevated` is `true`, Windows commands run with a scheduled task to emulate a local user.
 
 ### Chef Infra Client cookbook
 
@@ -457,8 +465,7 @@ suites:
 ### chef-splunk Cookbook
 
 The following `kitchen.yml` file is part of the `chef-splunk` cookbook and
-is used to help ensure the installation of the Splunk client and server
-is done correctly.
+helps ensure that Splunk client and server installations are correct.
 
 ```yaml
 driver:
