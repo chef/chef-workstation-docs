@@ -12,6 +12,9 @@ draft = false
 
 {{< readfile file="/content/reusable/md/workstation_modularize.md" >}}
 
+The Habitat packaging plan that assembles all components is maintained in the [chef/chef-workstation](https://github.com/chef/chef-workstation) repository.
+See [Component repositories](/workstation/#component-repositories) for a full list of component source repositories.
+
 ## System requirements
 
 Chef Workstation 26 has the following requirements:

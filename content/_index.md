@@ -61,3 +61,22 @@ Chef Workstation includes the following fully integrated tools:
 - **Berkshelf**: Cookbook dependency manager that streamlines the process of managing and retrieving cookbook dependencies
 - **Chef Vault**: Secure data management tool for encrypting and managing secrets within Chef workflows
 - **Ohai**: System profiling tool that detects and reports system attributes for use in Chef recipes
+
+## Component repositories
+
+Chef Workstation is composed of independently maintained projects, each with its own source repository and build pipeline.
+The [chef/chef-workstation](https://github.com/chef/chef-workstation) repository contains the Chef Habitat packaging plan that assembles all components into the unified `chef/chef-workstation` Habitat package.
+
+| Component | Source repository | Habitat package |
+| --- | --- | --- |
+| Chef Workstation (packaging) | [chef/chef-workstation](https://github.com/chef/chef-workstation) | `chef/chef-workstation` |
+| Chef CLI | [chef/chef-cli](https://github.com/chef/chef-cli) | `chef/chef-cli` |
+| Chef Infra Client | [chef/chef](https://github.com/chef/chef) | `chef/chef-infra-client` |
+| Knife | [chef/knife](https://github.com/chef/knife) | `chef/knife` |
+| Chef InSpec | [inspec/inspec](https://github.com/inspec/inspec) | `chef/inspec` |
+| Test Kitchen | [test-kitchen/test-kitchen](https://github.com/test-kitchen/test-kitchen) | `chef/chef-test-kitchen-enterprise` |
+| Cookstyle | [chef/cookstyle](https://github.com/chef/cookstyle) | `chef/cookstyle` |
+| Berkshelf | [chef/berkshelf](https://github.com/chef/berkshelf) | `chef/berkshelf` |
+| Chef Vault | [chef/chef-vault](https://github.com/chef/chef-vault) | `chef/chef-vault` |
+| Ohai | [chef/ohai](https://github.com/chef/ohai) | `chef/ohai` |
+| Fauxhai | [chef/fauxhai](https://github.com/chef/fauxhai) | `chef/fauxhai` |
