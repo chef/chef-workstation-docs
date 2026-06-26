@@ -12,25 +12,32 @@ draft = false
 
 {{< readfile file="/content/reusable/md/workstation_modularize.md" >}}
 
-Chef Workstation 26.1 installers are available for Windows, Debian, and RPM-based Linux distributions.
-
-You can download and install pre-built `.msi`, `.deb`, or `.rpm` packages using your existing package management tools.
+The Chef Workstation native installers provide an efficient way to install Chef Workstation on Windows, Debian, or RPM-based Linux distributions.
+You can download and install the pre-built `.msi`, `.deb`, or `.rpm` packages using your existing package management tools, simplifying the deployment process for managing system configurations.
 
 ## Supported platforms
 
-Chef Workstation is supported on the following platforms:
+Chef Workstation is supported on:
 
-- Windows x86-64
-- Linux x86-64
+- Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later on x86-64 (amd64)
+- Currently supported Windows versions greater than or equal to Windows 10 and Windows Server 2016
+
+## Chef Workstation requirements
+
+- **RAM**: Chef Workstation requires a minimum of 1 GB of RAM.
+- **Disk space for binaries**:
+  - Linux: The Chef Workstation binaries are stored in `/hab` and require a minimum of 2.8 GB of disk space.
+  - Windows: The Chef Workstation binaries are stored in `C:\hab` and require a minimum of 3.3 GB of disk space.
+- **Processor**: The processor must be supported. We recommend 1 GHz or faster, but the processor speed should be based on other system loads.
 
 ## Prerequisites
 
 This installation process has the following prerequisites:
 
 - Chef Client isn't installed on the target system.
-- On Windows systems, tar is installed.
-- On Debian-based systems, the `dpkg` package manager is installed.
-- On RPM-based systems, `rpm` and either `dnf` or `yum` are installed. For Amazon Linux 2, use `rpm` and `yum`.
+- On Debian-based systems, the `dpkg` package manager is installed on the target system.
+- On RPM-based systems, the RPM and either the DNF or Yum package managers are installed on the target system.
+- For Amazon Linux 2, use the RPM and Yum package managers.
 - You have a valid Progress Chef license key.
 - The target system is connected to the internet.
 
