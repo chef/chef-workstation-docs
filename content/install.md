@@ -28,7 +28,6 @@ Chef Workstation is supported on:
 - **Disk space for binaries**:
   - Linux: The Chef Workstation binaries are stored in `/hab` and require a minimum of 2.8 GB of disk space.
   - Windows: The Chef Workstation binaries are stored in `C:\hab` and require a minimum of 3.3 GB of disk space.
-- **Processor**: The processor must be supported. We recommend 1 GHz or faster, but the processor speed should be based on other system loads.
 
 ## Prerequisites
 
@@ -95,25 +94,17 @@ To install Chef Workstation on an RPM-based system, follow these steps:
    - `<VERSION>` with the version number to install.
    - `<LICENSE_ID>` with your Chef license ID.
 
-1. Install Chef Workstation using one of the following methods:
+1. Install Chef Workstation:
 
-   - Install using `rpm`:
+   ```sh
+   sudo dnf install chef-workstation-enterprise-<VERSION>.x86_64.rpm
+   ```
 
-     ```sh
-     sudo rpm -Uvh chef-workstation-enterprise-<VERSION>.x86_64.rpm
-     ```
+   or:
 
-   - Install using `dnf`:
-
-     ```sh
-     sudo dnf install ./chef-workstation-enterprise-<VERSION>.x86_64.rpm
-     ```
-
-   - For Amazon Linux 2 or systems using `yum`:
-
-     ```sh
-     sudo yum install ./chef-workstation-enterprise-<VERSION>.x86_64.rpm
-     ```
+   ```sh
+   sudo rpm -Uvh chef-workstation-enterprise-<VERSION>.x86_64.rpm
+   ```
 
    Replace `<VERSION>` with the version number of the downloaded package, for example `chef-workstation-enterprise-26.1.0-1.x86_64.rpm`.
 
@@ -124,7 +115,7 @@ To install Chef Workstation on Windows, follow these steps:
 1. Download the installer in an elevated PowerShell session:
 
    ```powershell
-   Invoke-WebRequest -Uri "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=windows&pm=msi&v=<VERSION>" -OutFile "chef-workstation-enterprise-<VERSION>-windows.msi"
+   Invoke-WebRequest -Uri "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=windows&pm=msi&v=<VERSION>" -OutFile "chef-workstation-enterprise-<VERSION>_x86_64.msi"
    ```
 
    Replace:
@@ -136,12 +127,12 @@ To install Chef Workstation on Windows, follow these steps:
    - Run the following command in an elevated PowerShell or Command Prompt session:
 
      ```powershell
-     msiexec /i chef-workstation-enterprise-<VERSION>-x64.msi /qn
+     msiexec /i chef-workstation-enterprise-<VERSION>_x86_64.msi /qn
      ```
 
    - Double-click the `.msi` file and follow the on-screen installation wizard.
 
-   Replace `<VERSION>` with the version number of the downloaded package, for example `chef-workstation-enterprise-26.1.0-1_x64.msi`.
+   Replace `<VERSION>` with the version number of the downloaded package, for example `chef-workstation-enterprise-26.1.0-1_x86_64.msi`.
 
 ## Verify the installation
 
@@ -158,12 +149,6 @@ chef -v
 ```
 
 The output displays the installed Chef Workstation version.
-
-## Upgrade Chef Workstation
-
-To upgrade Chef Workstation to a newer version:
-
-1. Download and install the new version using the steps for your platform on this page.
 
 ## Next steps
 

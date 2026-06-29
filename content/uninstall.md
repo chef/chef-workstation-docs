@@ -31,17 +31,15 @@ To uninstall Chef Workstation, follow these steps:
 
 1. Remove the package.
 
-   - Using `dnf`:
+   ```sh
+   sudo dnf remove chef-workstation-enterprise
+   ```
 
-     ```sh
-     sudo dnf remove chef-workstation-enterprise
-     ```
+   or:
 
-   - For Amazon Linux 2 or systems using `yum`:
-
-     ```sh
-     sudo yum remove chef-workstation-enterprise
-     ```
+   ```sh
+   sudo rpm -e chef-workstation-enterprise
+   ```
 
 1. Verify that the package has been removed:
 
@@ -62,7 +60,7 @@ To uninstall using the Windows UI:
 To uninstall from the command line, run the following command in an elevated PowerShell or Command Prompt session:
 
 ```powershell
-msiexec /x chef-workstation-enterprise-<VERSION>-x64.msi /qn
+msiexec /x chef-workstation-enterprise-<VERSION>_x86_64.msi /qn
 ```
 
 Replace `<VERSION>` with the version number of the currently installed package.

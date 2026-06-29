@@ -61,25 +61,17 @@ To upgrade Chef Workstation on an RPM-based system, follow these steps:
    - `<VERSION>` with the version number to upgrade to.
    - `<LICENSE_ID>` with your Chef license ID.
 
-1. Install the new version using one of the following methods:
+1. Install the new version:
 
-   - Install using `rpm`:
+   ```sh
+   sudo dnf install chef-workstation-enterprise-<VERSION>.x86_64.rpm
+   ```
 
-     ```sh
-     sudo rpm -Uvh chef-workstation-enterprise-<VERSION>.x86_64.rpm
-     ```
+   or:
 
-   - Install using `dnf`:
-
-     ```sh
-     sudo dnf install ./chef-workstation-enterprise-<VERSION>.x86_64.rpm
-     ```
-
-   - For Amazon Linux 2 or systems using `yum`:
-
-     ```sh
-     sudo yum install ./chef-workstation-enterprise-<VERSION>.x86_64.rpm
-     ```
+   ```sh
+   sudo rpm -Uvh chef-workstation-enterprise-<VERSION>.x86_64.rpm
+   ```
 
    Replace `<VERSION>` with the version number of the downloaded package.
 
@@ -90,7 +82,7 @@ To upgrade Chef Workstation on Windows, follow these steps:
 1. Download the latest Windows installer:
 
    ```powershell
-   Invoke-WebRequest -Uri "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=windows&pm=msi&v=<VERSION>" -OutFile "chef-workstation-enterprise-<VERSION>-x64.msi"
+   Invoke-WebRequest -Uri "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=windows&pm=msi&v=<VERSION>" -OutFile "chef-workstation-enterprise-<VERSION>_x86_64.msi"
    ```
 
    Replace:
@@ -100,7 +92,7 @@ To upgrade Chef Workstation on Windows, follow these steps:
 1. Install the new version:
 
    ```powershell
-   msiexec /i chef-workstation-enterprise-<VERSION>-x64.msi /qn
+   msiexec /i chef-workstation-enterprise-<VERSION>_x86_64.msi /qn
    ```
 
    Replace `<VERSION>` with the version number of the downloaded package.
