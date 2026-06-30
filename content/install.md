@@ -150,29 +150,29 @@ chef -v
 
 The output displays the installed Chef Workstation version.
 
-## Install individual components
+## Install Chef Workstation tools individually using Habitat
 
-The following tools are included with Chef Workstation but can also be installed individually using Chef Habitat.
-If you only need specific tools rather than the full Workstation package, install them as standalone applications:
+The native Chef Workstation installer installs the complete Chef Workstation suite.
+If you only need a specific Chef Workstation component, you can install individual tools separately using Habitat packages.
 
-1. Install a package using [`hab pkg install`](https://docs.chef.io/habitat/habitat_cli/#hab-pkg-install):
+To install a standalone Chef Workstation tool:
 
-   ```sh
-   hab pkg install <PACKAGE_IDENT> --binlink --force
-   ```
+```sh
+hab pkg install <PACKAGE_IDENT> --binlink --force
+```
 
-   Replace `<PACKAGE_IDENT>` with the package identifier:
+Replace `<PACKAGE_IDENT>` with one of the following:
 
-   - `chef/berkshelf`
-   - `chef/chef-cli`
-   - `chef/chef-infra-client`
-   - `chef/chef-test-kitchen-enterprise`
-   - `chef/chef-vault`
-   - `chef/cookstyle`
-   - `chef/fauxhai`
-   - `chef/inspec`
-   - `chef/knife`
-   - `chef/ohai`
+- `chef/berkshelf`
+- `chef/chef-cli`
+- `chef/chef-infra-client`
+- `chef/chef-test-kitchen-enterprise`
+- `chef/chef-vault`
+- `chef/cookstyle`
+- `chef/fauxhai`
+- `chef/inspec`
+- `chef/knife`
+- `chef/ohai`
 
 ## Next steps
 
