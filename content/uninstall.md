@@ -35,12 +35,6 @@ To uninstall Chef Workstation, follow these steps:
    sudo dnf remove chef-workstation-enterprise
    ```
 
-   or:
-
-   ```sh
-   sudo rpm -e chef-workstation-enterprise
-   ```
-
 1. Verify that the package has been removed:
 
    ```sh
