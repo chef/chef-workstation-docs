@@ -127,7 +127,7 @@ To install Chef Workstation on Windows, follow these steps:
    - Run the following command in an elevated PowerShell or Command Prompt session:
 
      ```powershell
-     msiexec /i chef-workstation-enterprise-<VERSION>_x86_64.msi /qn
+     msiexec /i chef-workstation-enterprise-<VERSION>_x86_64.msi
      ```
 
    - Double-click the `.msi` file and follow the on-screen installation wizard.

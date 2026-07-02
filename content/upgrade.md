@@ -92,7 +92,7 @@ To upgrade Chef Workstation on Windows, follow these steps:
 1. Install the new version:
 
    ```powershell
-   msiexec /i chef-workstation-enterprise-<VERSION>_x86_64.msi /qn
+   msiexec /i chef-workstation-enterprise-<VERSION>_x86_64.msi
    ```
 
    Replace `<VERSION>` with the version number of the downloaded package.

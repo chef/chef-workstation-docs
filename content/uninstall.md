@@ -54,7 +54,7 @@ To uninstall using the Windows UI:
 To uninstall from the command line, run the following command in an elevated PowerShell or Command Prompt session:
 
 ```powershell
-msiexec /x chef-workstation-enterprise-<VERSION>_x86_64.msi /qn
+msiexec /x chef-workstation-enterprise-<VERSION>_x86_64.msi
 ```
 
 Replace `<VERSION>` with the version number of the currently installed package.
