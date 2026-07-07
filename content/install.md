@@ -1,12 +1,11 @@
 +++
-title = "Install Chef Workstation"
+title = "Chef Workstation install guide"
 draft = false
-
 
 [menu]
   [menu.install]
     title = "Install"
-    identifier = "install.md Install Chef Workstation"
+    identifier = "install.md Chef Workstation install guide"
     weight = 10
 +++
 
@@ -31,14 +30,12 @@ Chef Workstation is supported on:
 
 ## Prerequisites
 
-This installation process has the following prerequisites:
-
-- Chef Client isn't installed on the target system.
-- On Debian-based systems, the `dpkg` package manager is installed on the target system.
-- On RPM-based systems, the RPM and either the DNF or Yum package managers are installed on the target system.
+- Chef Infra Client isn't installed on your target system.
+- On Debian-based systems, the `dpkg` package manager is installed on your target system.
+- On RPM-based systems, the RPM and either the DNF or Yum package managers are installed on your target system.
 - For Amazon Linux 2, use the RPM and Yum package managers.
 - You have a valid Progress Chef license key.
-- The target system is connected to the internet.
+- Your target system is connected to the internet.
 
 ## Install Chef Workstation
 
@@ -50,13 +47,13 @@ To install Chef Workstation on a Debian-based system, follow these steps:
 
    - Download using `wget`:
 
-     ```sh
+     ```shell
      wget -O "chef-workstation-enterprise-<VERSION>-linux.deb" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=deb&v=<VERSION>"
      ```
 
    - Download using `curl`:
 
-     ```sh
+     ```shell
      curl -o "chef-workstation-enterprise-<VERSION>-linux.deb" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=deb&v=<VERSION>"
      ```
 
@@ -66,7 +63,7 @@ To install Chef Workstation on a Debian-based system, follow these steps:
 
 1. Install Chef Workstation:
 
-   ```sh
+   ```shell
    sudo dpkg -i chef-workstation-enterprise-<VERSION>_amd64.deb
    ```
 
@@ -80,13 +77,13 @@ To install Chef Workstation on an RPM-based system, follow these steps:
 
    - Download using `wget`:
 
-     ```sh
+     ```shell
      wget -O "chef-workstation-enterprise-<VERSION>-linux.rpm" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=rpm&v=<VERSION>"
      ```
 
    - Download using `curl`:
 
-     ```sh
+     ```shell
      curl -o "chef-workstation-enterprise-<VERSION>-linux.rpm" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=rpm&v=<VERSION>"
      ```
 
@@ -96,13 +93,13 @@ To install Chef Workstation on an RPM-based system, follow these steps:
 
 1. Install Chef Workstation:
 
-   ```sh
+   ```shell
    sudo dnf install chef-workstation-enterprise-<VERSION>.x86_64.rpm
    ```
 
-   or:
+   Alternatively:
 
-   ```sh
+   ```shell
    sudo rpm -Uvh chef-workstation-enterprise-<VERSION>.x86_64.rpm
    ```
 
@@ -138,13 +135,13 @@ To install Chef Workstation on Windows, follow these steps:
 
 After installation, verify that Chef Workstation is installed correctly by running one of the following commands:
 
-```sh
+```shell
 chef-workstation -v
 ```
 
-or
+Alternatively:
 
-```sh
+```shell
 chef -v
 ```
 
@@ -157,7 +154,7 @@ If you only need specific tools rather than the full Workstation package, instal
 
 1. Install a package using [`hab pkg install`](https://docs.chef.io/habitat/habitat_cli/#hab-pkg-install):
 
-   ```sh
+   ```shell
    hab pkg install <PACKAGE_IDENT> --binlink --force
    ```
 
@@ -180,6 +177,9 @@ If you only need specific tools rather than the full Workstation package, instal
 - [Add a license](license)
 - Optional: [Get started with Chef Workstation](get_started)
 
-## More information
+## See also
 
 - [Chef Download API documentation](https://docs.chef.io/download/)
+- [Upgrade Chef Workstation](upgrade)
+- [Uninstall Chef Workstation](uninstall)
+- [Chef Workstation tools](tools)

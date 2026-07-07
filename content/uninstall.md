@@ -7,19 +7,21 @@ draft = false
     identifier = "uninstall"
 +++
 
+Use these steps to remove Chef Workstation from Debian-based, RPM-based, or Windows systems.
+
 ## Uninstall Chef Workstation on Debian-based distributions
 
 To uninstall Chef Workstation, follow these steps:
 
 1. Remove the package:
 
-   ```sh
+   ```shell
    sudo apt-get purge chef-workstation-enterprise
    ```
 
 1. Verify that the package has been removed:
 
-   ```sh
+   ```shell
    dpkg -l chef-workstation-enterprise
    ```
 
@@ -29,15 +31,15 @@ To uninstall Chef Workstation, follow these steps:
 
 To uninstall Chef Workstation, follow these steps:
 
-1. Remove the package.
+1. Remove the package:
 
-   ```sh
+   ```shell
    sudo dnf remove chef-workstation-enterprise
    ```
 
 1. Verify that the package has been removed:
 
-   ```sh
+   ```shell
    rpm -qa chef-workstation-enterprise
    ```
 
@@ -58,3 +60,8 @@ msiexec /x chef-workstation-enterprise-<VERSION>_x86_64.msi
 ```
 
 Replace `<VERSION>` with the version number of the currently installed package.
+
+## See also
+
+- [Install Chef Workstation](install)
+- [Upgrade Chef Workstation](upgrade)
