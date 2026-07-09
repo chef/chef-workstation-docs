@@ -1,68 +1,67 @@
 +++
-title = "Uninstall Chef Workstation and its tools"
+title = "Uninstall Chef Workstation"
+draft = false
 
 [menu.uninstall]
-title = "Uninstall"
-identifier = "uninstall"
-weight = 50
+    title = "Uninstall"
+    identifier = "uninstall"
 +++
 
-The page documents how to uninstall Chef Workstation and its component tools.
+Use these steps to remove Chef Workstation from Debian-based, RPM-based, or Windows systems.
 
-## Uninstall Chef Workstation
+## Uninstall Chef Workstation on Debian-based distributions
 
-To uninstall Chef Workstation, use the [`hab pkg uninstall`](https://docs.chef.io/habitat/habitat_cli/#hab-pkg-uninstall) command:
+To uninstall Chef Workstation, follow these steps:
 
-```sh
-hab pkg uninstall chef/chef-workstation
+1. Remove the package:
+
+   ```shell
+   sudo apt-get purge chef-workstation-enterprise
+   ```
+
+1. Verify that the package has been removed:
+
+   ```shell
+   dpkg -l chef-workstation-enterprise
+   ```
+
+   The command returns no output if the package is removed successfully.
+
+## Uninstall Chef Workstation on RPM-based distributions
+
+To uninstall Chef Workstation, follow these steps:
+
+1. Remove the package:
+
+   ```shell
+   sudo dnf remove chef-workstation-enterprise
+   ```
+
+1. Verify that the package has been removed:
+
+   ```shell
+   rpm -qa chef-workstation-enterprise
+   ```
+
+   The command returns no output if the package is removed successfully.
+
+## Uninstall Chef Workstation on Windows
+
+To uninstall using the Windows UI:
+
+1. Open **Settings > Apps > Installed apps**.
+1. Search for **Chef Workstation**.
+1. Select **Uninstall**, then follow the on-screen prompts.
+
+To uninstall from the command line, run the following command in an elevated PowerShell or Command Prompt session:
+
+```powershell
+msiexec /x chef-workstation-enterprise-<VERSION>_x86_64.msi
 ```
 
-Uninstalling `chef/chef-workstation` removes all bundled component tools:
+Replace `<VERSION>` with the version number of the currently installed package.
 
-- `chef/berkshelf`
-- `chef/chef-cli`
-- `chef/chef-infra-client`
-- `chef/chef-test-kitchen-enterprise`
-- `chef/chef-vault`
-- `chef/cookstyle`
-- `chef/fauxhai`
-- `chef/knife`
-- `chef/ohai`
-- `chef/inspec`
+## See also
 
-## Uninstall Chef Workstation Tools
-
-If you installed a Workstation tool as a standalone application, you can uninstall it without uninstalling the entire Workstation package.
-
-To uninstall a Workstation tool, use the [`hab pkg uninstall`](https://docs.chef.io/habitat/habitat_cli/#hab-pkg-uninstall) command:
-
-```sh
-hab pkg uninstall <PACKAGE_IDENT>
-```
-
-Replace `<PACKAGE_IDENT>` with one of the following packages:
-
-- `chef/berkshelf`
-- `chef/chef-cli`
-- `chef/chef-infra-client`
-- `chef/chef-test-kitchen-enterprise`
-- `chef/chef-vault`
-- `chef/cookstyle`
-- `chef/fauxhai`
-- `chef/knife`
-- `chef/ohai`
-
-## Uninstall a specific package version
-
-If you installed specific tool versions, you can uninstall a specific version without uninstalling all versions of the package.
-
-To uninstall a specific package version, run the following command:
-
-```sh
-hab pkg uninstall <PACKAGE_IDENT>
-```
-
-Replace `<PACKAGE_IDENT>` with one of the following:
-
-- the package and version, for example `chef/<PACKAGE>/<VERSION>`.
-- the package version and build, for example `chef/<PACKAGE>/<VERSION>/<BUILD_TIMESTAMP>`
+- [Install Chef Workstation](install)
+- [Upgrade Chef Workstation](upgrade)

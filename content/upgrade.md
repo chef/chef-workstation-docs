@@ -6,35 +6,103 @@ title = "Upgrade"
 identifier = "upgrade"
 +++
 
-Use the following command to upgrade Chef Workstation or one of its components:
+Chef Workstation 26.1 and later uses native installers for Debian, RPM, and Windows.
+To upgrade, install the latest version for your operating system.
 
-```sh
-hab pkg install --binlink --force <PACKAGE_IDENT>
-```
+## Upgrade on Debian-based systems
 
-Replace `<PACKAGE_IDENT>` with the package identifier.
+To upgrade Chef Workstation on a Debian-based system, follow these steps:
 
-To update to the latest version, specify the origin and package:
+1. Download the latest Debian-based installer using one of the following methods:
 
-- `chef/chef-workstation`
-- `chef/berkshelf`
-- `chef/chef-cli`
-- `chef/chef-infra-client`
-- `chef/chef-test-kitchen-enterprise`
-- `chef/chef-vault`
-- `chef/cookstyle`
-- `chef/fauxhai`
-- `chef/knife`
-- `chef/ohai`
+   - Download using `wget`:
 
-To update to a specific package version, include the version. For example:
+     ```shell
+     wget -O "chef-workstation-enterprise-<VERSION>-linux.deb" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=deb&v=<VERSION>"
+     ```
 
-- `chef/<PACKAGE>/<VERSION>`
+   - Download using `curl`:
 
-To update to specific release build, include the package version and build timestamp. For example:
+     ```shell
+     curl -o "chef-workstation-enterprise-<VERSION>-linux.deb" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=deb&v=<VERSION>"
+     ```
 
-- `chef/<PACKAGE/<VERSION>/<TIMESTAMP>`
+   Replace:
+   - `<VERSION>` with the version number to upgrade to.
+   - `<LICENSE_ID>` with your Chef license ID.
 
-The `--binlink --force` options overwrite existing package symbolic links in the system's PATH directory with the new version so you can run it directly in the command line.
+1. Install the new version:
 
-If you omit `--binlink --force`, Chef Habitat installs the new version alongside existing versions. To execute this version, you'd have to invoke the package's file path, for example `/hab/bin/hab pkg exec chef/<PACKAGE> <COMMAND>`.
+   ```shell
+   sudo dpkg -i chef-workstation-enterprise-<VERSION>_amd64.deb
+   ```
+
+   Replace `<VERSION>` with the version number of the downloaded package.
+
+## Upgrade on RPM-based systems
+
+To upgrade Chef Workstation on an RPM-based system, follow these steps:
+
+1. Download the latest RPM-based installer using one of the following methods:
+
+   - Download using `wget`:
+
+     ```shell
+     wget -O "chef-workstation-enterprise-<VERSION>-linux.rpm" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=rpm&v=<VERSION>"
+     ```
+
+   - Download using `curl`:
+
+     ```shell
+     curl -o "chef-workstation-enterprise-<VERSION>-linux.rpm" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=rpm&v=<VERSION>"
+     ```
+
+   Replace:
+   - `<VERSION>` with the version number to upgrade to.
+   - `<LICENSE_ID>` with your Chef license ID.
+
+1. Install the new version:
+
+   ```shell
+   sudo dnf install chef-workstation-enterprise-<VERSION>.x86_64.rpm
+   ```
+
+   Alternatively:
+
+   ```shell
+   sudo rpm -Uvh chef-workstation-enterprise-<VERSION>.x86_64.rpm
+   ```
+
+   Replace `<VERSION>` with the version number of the downloaded package.
+
+## Upgrade on Windows
+
+To upgrade Chef Workstation on Windows, follow these steps:
+
+1. Download the latest Windows installer:
+
+   ```powershell
+   Invoke-WebRequest -Uri "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=windows&pm=msi&v=<VERSION>" -OutFile "chef-workstation-enterprise-<VERSION>_x86_64.msi"
+   ```
+
+   Replace:
+   - `<VERSION>` with the version number to upgrade to.
+   - `<LICENSE_ID>` with your Chef license ID.
+
+1. Install the new version:
+
+   ```powershell
+   msiexec /i chef-workstation-enterprise-<VERSION>_x86_64.msi
+   ```
+
+   Replace `<VERSION>` with the version number of the downloaded package.
+
+## Next steps
+
+- [Set up Workstation](/set_up/)
+- [Add a license](/license/)
+
+## See also
+
+- [Install Chef Workstation](install)
+- [Uninstall Chef Workstation](uninstall)
