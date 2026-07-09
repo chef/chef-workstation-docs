@@ -2,7 +2,8 @@
 title = "About Berkshelf"
 draft = false
 
-
+linkTitle = "Berkshelf"
+summary = "Berkshelf is a dependency manager for Chef cookbooks."
 
 [menu]
   [menu.tools]

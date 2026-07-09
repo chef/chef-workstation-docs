@@ -2,6 +2,8 @@
 title = "About knife"
 draft = false
 
+linkTitle = "knife"
+
 [menu]
   [menu.tools]
     title = "About knife"
