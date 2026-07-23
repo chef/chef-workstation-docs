@@ -28,7 +28,7 @@ Chef Workstation is supported on:
 - **Disk space for binaries**:
   - Linux: The Chef Workstation binaries are stored in `/hab` and require a minimum of 2.8 GB of disk space.
   - Windows: The Chef Workstation binaries are stored in `C:\hab` and require a minimum of 3.3 GB of disk space.
-  - macOS: The Chef Workstation binaries are stored in `/opt/hab` and require a minimum of 2.8 GB of disk space.
+  - macOS: The Chef Workstation binaries are stored in `/opt/hab` and require a minimum of 2.4 GB of disk space.
 
 ## Prerequisites
 
