@@ -77,8 +77,6 @@ This script will:
 - Remove the installation metadata from `/Library/Application Support/chef-workstation-enterprise/`
 - Forget the package receipt using `pkgutil`
 
-After uninstalling, restart your terminal or run `exec zsh` to update your environment.
-
 ## See also
 
 - [Install Chef Workstation](install)

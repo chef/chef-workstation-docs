@@ -101,7 +101,7 @@ To upgrade Chef Workstation on Windows, follow these steps:
 
 To upgrade Chef Workstation on macOS, follow these steps:
 
-1. Download the latest macOS installer:
+1. Download the latest installer:
 
    ```shell
    curl -o "chef-workstation-enterprise-<VERSION>-darwin.dmg" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=aarch64&p=mac_os_x&pm=dmg&v=<VERSION>"
@@ -111,33 +111,21 @@ To upgrade Chef Workstation on macOS, follow these steps:
    - `<VERSION>` with the version number to upgrade to.
    - `<LICENSE_ID>` with your Chef license ID.
 
-1. Mount the DMG:
+1. Install the new version using one of the following methods:
 
-   ```shell
-   hdiutil attach chef-workstation-enterprise-<VERSION>-darwin.dmg
-   ```
+   - Double-click the `.dmg` file, then double-click the `.pkg` file inside and follow the on-screen installation wizard.
 
-1. Install the new version:
+   - Run the following commands:
 
-   ```shell
-   sudo installer -pkg /Volumes/Chef\ Workstation\ Enterprise/chef-workstation-enterprise-<VERSION>.pkg -target /
-   ```
+     ```shell
+     hdiutil attach chef-workstation-enterprise-<VERSION>-darwin.dmg
+     sudo installer -pkg /Volumes/Chef\ Workstation\ Enterprise/chef-workstation-enterprise-<VERSION>.pkg -target /
+     hdiutil detach /Volumes/Chef\ Workstation\ Enterprise
+     ```
 
    The installer will automatically detect and upgrade your existing installation.
 
    Replace `<VERSION>` with the version number of the downloaded package.
-
-1. Unmount the DMG:
-
-   ```shell
-   hdiutil detach /Volumes/Chef\ Workstation\ Enterprise
-   ```
-
-1. Reload your shell to update binaries:
-
-   ```shell
-   exec zsh
-   ```
 
 ## Next steps
 

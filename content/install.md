@@ -20,7 +20,7 @@ Chef Workstation is supported on:
 
 - Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later on x86-64 (amd64)
 - Currently supported Windows versions greater than or equal to Windows 10 and Windows Server 2016
-- macOS 14 (Sonoma) and later on Apple Silicon (ARM64/aarch64)
+- macOS 14 (Sonoma) on Apple Silicon (ARM64/aarch64)
 
 ## Chef Workstation requirements
 
@@ -137,7 +137,7 @@ To install Chef Workstation on Windows, follow these steps:
 
 To install Chef Workstation on macOS (Apple Silicon), follow these steps:
 
-1. Download the macOS installer using one of the following methods:
+1. Download the installer using one of the following methods:
 
    - Download using `curl`:
 
@@ -155,33 +155,19 @@ To install Chef Workstation on macOS (Apple Silicon), follow these steps:
    - `<VERSION>` with the version number to install.
    - `<LICENSE_ID>` with your Chef license ID.
 
-1. Mount the DMG:
+1. Install Chef Workstation using one of the following methods:
 
-   ```shell
-   hdiutil attach chef-workstation-enterprise-<VERSION>-darwin.dmg
-   ```
+   - Double-click the `.dmg` file, then double-click the `.pkg` file inside and follow the on-screen installation wizard.
 
-1. Install Chef Workstation:
+   - Run the following commands:
 
-   ```shell
-   sudo installer -pkg /Volumes/Chef\ Workstation\ Enterprise/chef-workstation-enterprise-<VERSION>.pkg -target /
-   ```
+    ```shell
+    hdiutil attach chef-workstation-enterprise-<VERSION>-darwin.dmg
+    sudo installer -pkg /Volumes/Chef\ Workstation\ Enterprise/chef-workstation-enterprise-<VERSION>.pkg -target /
+    hdiutil detach /Volumes/Chef\ Workstation\ Enterprise
+    ```
 
    Replace `<VERSION>` with the version number of the downloaded package, for example `chef-workstation-enterprise-26.1.0-1`.
-
-1. Unmount the DMG:
-
-   ```shell
-   hdiutil detach /Volumes/Chef\ Workstation\ Enterprise
-   ```
-
-1. Reload your shell to update PATH:
-
-   ```shell
-   exec zsh
-   ```
-
-   Or open a new terminal window.
 
 ## Verify the installation
 
