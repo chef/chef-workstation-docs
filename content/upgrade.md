@@ -6,7 +6,7 @@ title = "Upgrade"
 identifier = "upgrade"
 +++
 
-Chef Workstation 26.1 and later uses native installers for Debian, RPM, and Windows.
+Chef Workstation 26.1 and later uses native installers for Debian, RPM, Windows, and macOS.
 To upgrade, install the latest version for your operating system.
 
 ## Upgrade on Debian-based systems
@@ -96,6 +96,48 @@ To upgrade Chef Workstation on Windows, follow these steps:
    ```
 
    Replace `<VERSION>` with the version number of the downloaded package.
+
+## Upgrade on macOS
+
+To upgrade Chef Workstation on macOS, follow these steps:
+
+1. Download the latest macOS installer:
+
+   ```shell
+   curl -o "chef-workstation-enterprise-<VERSION>-darwin.dmg" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=aarch64&p=mac_os_x&pm=dmg&v=<VERSION>"
+   ```
+
+   Replace:
+   - `<VERSION>` with the version number to upgrade to.
+   - `<LICENSE_ID>` with your Chef license ID.
+
+1. Mount the DMG:
+
+   ```shell
+   hdiutil attach chef-workstation-enterprise-<VERSION>-darwin.dmg
+   ```
+
+1. Install the new version:
+
+   ```shell
+   sudo installer -pkg /Volumes/Chef\ Workstation\ Enterprise/chef-workstation-enterprise-<VERSION>.pkg -target /
+   ```
+
+   The installer will automatically detect and upgrade your existing installation.
+
+   Replace `<VERSION>` with the version number of the downloaded package.
+
+1. Unmount the DMG:
+
+   ```shell
+   hdiutil detach /Volumes/Chef\ Workstation\ Enterprise
+   ```
+
+1. Reload your shell to update binaries:
+
+   ```shell
+   exec zsh
+   ```
 
 ## Next steps
 

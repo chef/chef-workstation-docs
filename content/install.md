@@ -11,8 +11,8 @@ draft = false
 
 {{< readfile file="/content/reusable/md/workstation_modularize.md" >}}
 
-The Chef Workstation native installers provide an efficient way to install Chef Workstation on Windows, Debian, or RPM-based Linux distributions.
-You can download and install the pre-built `.msi`, `.deb`, or `.rpm` packages using your existing package management tools, simplifying the deployment process for managing system configurations.
+The Chef Workstation native installers provide an efficient way to install Chef Workstation on Windows, Debian, RPM-based Linux distributions, and macOS.
+You can download and install the pre-built `.msi`, `.deb`, `.rpm`, or `.dmg` packages using your existing package management tools, simplifying the deployment process for managing system configurations.
 
 ## Supported platforms
 
@@ -20,6 +20,7 @@ Chef Workstation is supported on:
 
 - Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later on x86-64 (amd64)
 - Currently supported Windows versions greater than or equal to Windows 10 and Windows Server 2016
+- macOS 14 (Sonoma) and later on Apple Silicon (ARM64/aarch64)
 
 ## Chef Workstation requirements
 
@@ -27,6 +28,7 @@ Chef Workstation is supported on:
 - **Disk space for binaries**:
   - Linux: The Chef Workstation binaries are stored in `/hab` and require a minimum of 2.8 GB of disk space.
   - Windows: The Chef Workstation binaries are stored in `C:\hab` and require a minimum of 3.3 GB of disk space.
+  - macOS: The Chef Workstation binaries are stored in `/opt/hab` and require a minimum of 2.8 GB of disk space.
 
 ## Prerequisites
 
@@ -130,6 +132,56 @@ To install Chef Workstation on Windows, follow these steps:
    - Double-click the `.msi` file and follow the on-screen installation wizard.
 
    Replace `<VERSION>` with the version number of the downloaded package, for example `chef-workstation-enterprise-26.1.0-1_x86_64.msi`.
+
+### Install Chef Workstation on macOS
+
+To install Chef Workstation on macOS (Apple Silicon), follow these steps:
+
+1. Download the macOS installer using one of the following methods:
+
+   - Download using `curl`:
+
+    ```shell
+    curl -o "chef-workstation-enterprise-<VERSION>-darwin.dmg" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=aarch64&p=mac_os_x&pm=dmg&v=<VERSION>"
+    ```
+
+   - Download using `wget`:
+
+    ```shell
+    wget -O "chef-workstation-enterprise-<VERSION>-darwin.dmg" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=aarch64&p=mac_os_x&pm=dmg&v=<VERSION>"
+    ```
+
+   Replace:
+   - `<VERSION>` with the version number to install.
+   - `<LICENSE_ID>` with your Chef license ID.
+
+1. Mount the DMG:
+
+   ```shell
+   hdiutil attach chef-workstation-enterprise-<VERSION>-darwin.dmg
+   ```
+
+1. Install Chef Workstation:
+
+   ```shell
+   sudo installer -pkg /Volumes/Chef\ Workstation\ Enterprise/chef-workstation-enterprise-<VERSION>.pkg -target /
+   ```
+
+   Replace `<VERSION>` with the version number of the downloaded package, for example `chef-workstation-enterprise-26.1.0-1`.
+
+1. Unmount the DMG:
+
+   ```shell
+   hdiutil detach /Volumes/Chef\ Workstation\ Enterprise
+   ```
+
+1. Reload your shell to update PATH:
+
+   ```shell
+   exec zsh
+   ```
+
+   Or open a new terminal window.
 
 ## Verify the installation
 
