@@ -120,7 +120,7 @@ To upgrade Chef Workstation on macOS, follow these steps:
      ```shell
      hdiutil attach chef-workstation-enterprise-<VERSION>-darwin.dmg
      sudo installer -pkg /Volumes/Chef\ Workstation\ Enterprise/chef-workstation-enterprise-<VERSION>.pkg -target /
-     hdiutil detach /Volumes/Chef\ Workstation\ Enterprise
+     hdiutil detach "/Volumes/Chef Workstation Enterprise <VERSION>"
      ```
 
    The installer will automatically detect and upgrade your existing installation.
