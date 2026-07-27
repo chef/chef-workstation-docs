@@ -163,7 +163,7 @@ To install Chef Workstation on macOS (Apple Silicon), follow these steps:
 
     ```shell
     hdiutil attach chef-workstation-enterprise-<VERSION>-darwin.dmg
-    sudo installer -pkg /Volumes/Chef\ Workstation\ Enterprise/chef-workstation-enterprise-<VERSION>.pkg -target /
+    sudo installer -pkg "/Volumes/Chef Workstation Enterprise <VERSION>/chef-workstation-enterprise-<VERSION>-1_arm64.pkg" -target /
     hdiutil detach "/Volumes/Chef Workstation Enterprise <VERSION>"
     ```
 
