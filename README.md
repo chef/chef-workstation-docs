@@ -1,7 +1,10 @@
 <!-- markdownlint-disable-next-line MD002 -->
 # Chef Workstation docs
 
-Documentation for Chef Workstation.
+> [!IMPORTANT]
+> Chef Workstation docs now live in [chef/chef-web-docs](https://github.com/chef/chef-web-docs/tree/main/content/workstation).
+
+<!---
 
 ## Versions
 
@@ -113,3 +116,5 @@ Netlify deploys content in the `main` branch of this repository to [<https://che
 
 1. Push the branch up to GitHub. Netlify automatically builds a deployment of that branch at `release-<MAJ>.<MIN>--chef-workstation.netlify.app/workstation/<MAJ>.<MIN>`.
    Any changes merged into that branch are automatically deployed.
+
+--->
