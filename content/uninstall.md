@@ -7,7 +7,8 @@ draft = false
     identifier = "uninstall"
 +++
 
-Use these steps to remove Chef Workstation from Debian-based, RPM-based, or Windows systems.
+Use these steps to remove Chef Workstation from Debian-based, RPM-based, Windows, or macOS systems.
+The Debian-based and RPM-based steps apply to both x86-64 and ARM64 (aarch64) systems.
 
 ## Uninstall Chef Workstation on Debian-based distributions
 
@@ -60,6 +61,22 @@ msiexec /x chef-workstation-enterprise-<VERSION>_x86_64.msi
 ```
 
 Replace `<VERSION>` with the version number of the currently installed package.
+
+## Uninstall Chef Workstation on macOS
+
+To uninstall Chef Workstation on macOS, run the uninstaller script:
+
+```shell
+sudo /opt/hab/chef-workstation/uninstall.sh
+```
+
+The script:
+
+- Removes the Chef Workstation binaries from `/usr/local/bin/`.
+- Removes the installation directory `/opt/hab/`.
+- Removes the PATH configuration from `/etc/paths.d/chef-workstation-enterprise`.
+- Removes the installation metadata from `/Library/Application Support/chef-workstation-enterprise/`.
+- Removes the package receipt using `pkgutil`.
 
 ## See also
 

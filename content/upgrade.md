@@ -6,7 +6,8 @@ title = "Upgrade"
 identifier = "upgrade"
 +++
 
-Chef Workstation 26.1 and later uses native installers for Debian, RPM, and Windows.
+Chef Workstation 26.1 and later uses native installers for Debian, RPM, Windows, and macOS.
+Linux ARM64 (aarch64) packages are available for Debian-based and RPM-based systems.
 To upgrade, install the latest version for your operating system.
 
 ## Upgrade on Debian-based systems
@@ -36,6 +37,8 @@ To upgrade Chef Workstation on a Debian-based system, follow these steps:
    ```shell
    sudo dpkg -i chef-workstation-enterprise-<VERSION>_amd64.deb
    ```
+
+   For ARM64 (aarch64) systems, use `m=aarch64` in the download URL and install the `chef-workstation-enterprise-<VERSION>_arm64.deb` package.
 
    Replace `<VERSION>` with the version number of the downloaded package.
 
@@ -73,6 +76,8 @@ To upgrade Chef Workstation on an RPM-based system, follow these steps:
    sudo rpm -Uvh chef-workstation-enterprise-<VERSION>.x86_64.rpm
    ```
 
+   For ARM64 (aarch64) systems, use `m=aarch64` in the download URL and install the `chef-workstation-enterprise-<VERSION>.aarch64.rpm` package.
+
    Replace `<VERSION>` with the version number of the downloaded package.
 
 ## Upgrade on Windows
@@ -96,6 +101,41 @@ To upgrade Chef Workstation on Windows, follow these steps:
    ```
 
    Replace `<VERSION>` with the version number of the downloaded package.
+
+## Upgrade on macOS
+
+To upgrade Chef Workstation on macOS, follow these steps:
+
+1. Download the latest installer:
+
+   ```shell
+   curl -o "chef-workstation-enterprise-<VERSION>-darwin.dmg" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=aarch64&p=mac_os_x&pm=dmg&v=<VERSION>"
+   ```
+
+   Replace:
+   - `<VERSION>` with the version number to upgrade to.
+   - `<LICENSE_ID>` with your Chef license ID.
+
+1. Install the new version using one of the following methods:
+
+   - Double-click the `.dmg` file, then double-click the `.pkg` file inside and follow the on-screen installation wizard.
+
+   - Run the following commands:
+
+     ```shell
+     hdiutil attach chef-workstation-enterprise-<VERSION>-darwin.dmg
+     sudo installer -pkg "/Volumes/Chef Workstation Enterprise <VERSION>/chef-workstation-enterprise-<VERSION>-1_arm64.pkg" -target /
+     hdiutil detach "/Volumes/Chef Workstation Enterprise <VERSION>"
+     ```
+
+   The installer detects and upgrades your existing installation.
+
+   Replace `<VERSION>` with the version number of the downloaded package.
+
+## Limitations
+
+- The macOS installer blocks downgrades. To install an earlier version, uninstall Chef Workstation first.
+- Upgrading from the earlier omnibus Chef Workstation package to the native installer isn't available on Linux ARM64 systems, because no ARM64 omnibus package exists.
 
 ## Next steps
 

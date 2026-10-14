@@ -11,14 +11,15 @@ draft = false
 
 {{< readfile file="/content/reusable/md/workstation_modularize.md" >}}
 
-The Chef Workstation native installers provide an efficient way to install Chef Workstation on Windows, Debian, or RPM-based Linux distributions.
-You can download and install the pre-built `.msi`, `.deb`, or `.rpm` packages using your existing package management tools, simplifying the deployment process for managing system configurations.
+The Chef Workstation native installers provide an efficient way to install Chef Workstation on Windows, macOS, Debian, or RPM-based Linux distributions.
+You can download and install the pre-built `.msi`, `.dmg`, `.deb`, or `.rpm` packages using your existing package management tools, simplifying the deployment process for managing system configurations.
 
 ## Supported platforms
 
 Chef Workstation is supported on:
 
-- Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later on x86-64 (amd64)
+- Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later on x86-64 (amd64) or ARM64 (aarch64)
+- macOS 14 (Sonoma) and later on Apple Silicon (ARM64)
 - Currently supported Windows versions greater than or equal to Windows 10 and Windows Server 2016
 
 ## Chef Workstation requirements
@@ -26,11 +27,13 @@ Chef Workstation is supported on:
 - **RAM**: Chef Workstation requires a minimum of 1 GB of RAM.
 - **Disk space for binaries**:
   - Linux: The Chef Workstation binaries are stored in `/hab` and require a minimum of 2.8 GB of disk space.
+  - macOS: The Chef Workstation binaries are stored in `/opt/hab` and require a minimum of 2.4 GB of disk space.
   - Windows: The Chef Workstation binaries are stored in `C:\hab` and require a minimum of 3.3 GB of disk space.
 
 ## Prerequisites
 
 - Chef Infra Client isn't installed on your target system.
+  On macOS, the installer stops if it detects a standalone Chef Infra Client or a Habitat-based `chef-infra-client` installation.
 - On Debian-based systems, the `dpkg` package manager is installed on your target system.
 - On RPM-based systems, the RPM and either the DNF or Yum package managers are installed on your target system.
 - For Amazon Linux 2, use the RPM and Yum package managers.
@@ -61,10 +64,18 @@ To install Chef Workstation on a Debian-based system, follow these steps:
    - `<VERSION>` with the version number to install.
    - `<LICENSE_ID>` with your Chef license ID.
 
+   For ARM64 (aarch64) systems, use `m=aarch64` instead of `m=x86_64` in the download URL.
+
 1. Install Chef Workstation:
 
    ```shell
    sudo dpkg -i chef-workstation-enterprise-<VERSION>_amd64.deb
+   ```
+
+   For ARM64 systems, install the `_arm64.deb` package:
+
+   ```shell
+   sudo dpkg -i chef-workstation-enterprise-<VERSION>_arm64.deb
    ```
 
    Replace `<VERSION>` with the version number of the downloaded package, for example `chef-workstation-enterprise-26.1.0-1_amd64.deb`.
@@ -91,6 +102,8 @@ To install Chef Workstation on an RPM-based system, follow these steps:
    - `<VERSION>` with the version number to install.
    - `<LICENSE_ID>` with your Chef license ID.
 
+   For ARM64 (aarch64) systems, use `m=aarch64` instead of `m=x86_64` in the download URL.
+
 1. Install Chef Workstation:
 
    ```shell
@@ -101,6 +114,12 @@ To install Chef Workstation on an RPM-based system, follow these steps:
 
    ```shell
    sudo rpm -Uvh chef-workstation-enterprise-<VERSION>.x86_64.rpm
+   ```
+
+   For ARM64 systems, install the `.aarch64.rpm` package:
+
+   ```shell
+   sudo dnf install chef-workstation-enterprise-<VERSION>.aarch64.rpm
    ```
 
    Replace `<VERSION>` with the version number of the downloaded package, for example `chef-workstation-enterprise-26.1.0-1.x86_64.rpm`.
@@ -130,6 +149,46 @@ To install Chef Workstation on Windows, follow these steps:
    - Double-click the `.msi` file and follow the on-screen installation wizard.
 
    Replace `<VERSION>` with the version number of the downloaded package, for example `chef-workstation-enterprise-26.1.0-1_x86_64.msi`.
+
+### Install Chef Workstation on macOS
+
+To install Chef Workstation on macOS (Apple Silicon), follow these steps:
+
+1. Download the installer using one of the following methods:
+
+   - Download using `curl`:
+
+     ```shell
+     curl -o "chef-workstation-enterprise-<VERSION>-darwin.dmg" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=aarch64&p=mac_os_x&pm=dmg&v=<VERSION>"
+     ```
+
+   - Download using `wget`:
+
+     ```shell
+     wget -O "chef-workstation-enterprise-<VERSION>-darwin.dmg" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=aarch64&p=mac_os_x&pm=dmg&v=<VERSION>"
+     ```
+
+   Replace:
+   - `<VERSION>` with the version number to install.
+   - `<LICENSE_ID>` with your Chef license ID.
+
+1. Install Chef Workstation using one of the following methods:
+
+   - Double-click the `.dmg` file, then double-click the `.pkg` file inside and follow the on-screen installation wizard.
+
+   - Run the following commands:
+
+     ```shell
+     hdiutil attach chef-workstation-enterprise-<VERSION>-darwin.dmg
+     sudo installer -pkg "/Volumes/Chef Workstation Enterprise <VERSION>/chef-workstation-enterprise-<VERSION>-1_arm64.pkg" -target /
+     hdiutil detach "/Volumes/Chef Workstation Enterprise <VERSION>"
+     ```
+
+   Replace `<VERSION>` with the version number of the downloaded package, for example `chef-workstation-enterprise-26.1.0-1`.
+
+   The installer is signed and notarized by Apple.
+   It installs the Chef Workstation binaries in `/opt/hab`, creates symbolic links in `/usr/local/bin`, and adds `/etc/paths.d/chef-workstation-enterprise` so the tools are on your `PATH`.
+   Open a new terminal session to use the tools.
 
 ## Verify the installation
 
